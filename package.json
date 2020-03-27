@@ -1,0 +1,30 @@
+{
+  "name": "practice-library",
+  "version": "1.0.0",
+  "description": "Required packages for scripts to run alongside the hugo build",
+  "main": "grunt.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "grunt": "^1.0.4",
+    "js-yaml": "^3.13.1",
+    "lodash": "^4.17.13",
+    "string": "^3.3.3",
+    "underscore.string": "^3.3.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohitmusti/practice-library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohitmusti/practice-library/issues"
+  },
+  "homepage": "https://github.com/rohitmusti/practice-library#readme"
+}
