@@ -18,7 +18,7 @@ Once you create a pull request, your changes will be built in a deploy preview. 
 ### A legislation draft _must_ follow the principles of
 
 - **Simplicity** - Select short, familiar words and phrases that best express the intended meaning according to common and approved usage. Avoid “legalese.”The language of a statute should be dignified, not pompous.Examples: Use “after”, instead of "subsequent to;" use "before" instead of "prior to."
-- **Concise** - Omit needless language and use the shortest sentence that conveys the intendedmeaning.
+- **Conciseness** - Omit needless language and use the shortest sentence that conveys the intendedmeaning.
 - **Consistency** - Be consistent in the use of language throughout the bill. Do not use the same word or phrase to convey different meanings. Do not use different language to convey the same meaning.
 - **Directness** - If a concept can be expressed positively or negatively, express it positively.
 - **Ordinary English** - Draft in ordinary English. Avoid words that might be considered slang. Also try to avoid using a complicated word when a simple word will convey the same concept.Generally do not use abbreviations and contractions.In rare instances where an abbreviation is used, insert a definition of the abbreviated term.
