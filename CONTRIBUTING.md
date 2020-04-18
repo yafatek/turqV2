@@ -5,7 +5,7 @@ Welcome! Thank you for taking the time to contribute. This project relies on an 
 ## Code of Conduct
 
 This project is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). All participants are expected to uphold this code. Violations of the code can be reported by contacting the project team at
-[rhc-open-innovation-labs@redhat.com](mailto:rhc-open-innovation-labs@redhat.com).
+[tim@turq.io](mailto:tim@turq.io).
 
 ## How to contribute
 
@@ -15,17 +15,16 @@ Once you create a pull request, your changes will be built in a deploy preview. 
 
 ## What to contribute
 
-### A practice _must_ be
+### A legislation draft _must_ be
 
 - **Empowering** - It helps teams discover and deliver iteratively.
 - **Concise** - It can be read in a few minutes.
 - **Agnostic** - It doesn't require the team to follow a specific project management framework.
 - **Proven** - It has been tested in the real world by the practice author.
 
-### A practice _should_ be
+### A legislation draft _should_ be
 
 - **Approachable** - It can be understood by someone who's not an expert in project management.
-- **Visual** - It includes images and videos.
 - **Accessible** - It includes alt text for images and captions for videos.
 - **Novel** - It isn't already covered by another practice.
 - **Deep** - It provides links to related resources, examples, and other materials for readers who want to explore further.
