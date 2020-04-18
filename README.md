@@ -6,7 +6,7 @@
 
 [Turq](https://turq.io) provides a platform to host competitions to create Citizen Legislation. To learn more about the philosophy behind Turq, see [about.md](content/page/about.md).
 
-## Legisaltion workflow
+## Legislation workflow
 
 ### Drafters
 
