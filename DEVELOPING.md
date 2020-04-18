@@ -53,4 +53,4 @@ These steps build the whole site, including card images and the search index. Th
 
 ## Deploying
 
-When changes are merged to master, the `build.sh` script will run, and the site will be deployed to https://openpracticelibrary.com. The [build log](https://app.netlify.com/sites/openpracticelibrary/deploys?filter=master) shows the status of each build.
+When changes are merged to master, the `build.sh` script will run, and the site will be deployed to https://turq.io. The [build log](https://app.netlify.com/sites/openpracticelibrary/deploys?filter=master) shows the status of each build.
