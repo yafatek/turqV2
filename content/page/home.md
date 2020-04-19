@@ -6,19 +6,28 @@ weight: 6
 type: "home"
 ---
 
-![library-loop](/images/loop-labels-path.svg)
+![placeholder](/images/loop-labels-path.svg)
 
-Turq is awesome!
+<h1>Citizen Legislation Workflow</h1>
 
-To help navigate the Library, all practices can be visualised on a canvas based on the [Outcome Delivery](http://outcomedelivery.com/) framework which has three parts:
+<h2>SPONSORS</h2>
 
-* Discovery - to generate the Outcomes
-* Options - to identify how to get there
-* Delivery - to implement and put your ideas to the test. Learn what works and what doesn’t.
+1. Select “Request Competition” above, or contact our team with an idea for Citizen Legislation.
+2. Work with the team to set the competition prize level.
+3. Review legislation finalists.
+4. Payout prize funds.
+5. Turq will submit the winning draft to the State House of Representatives for the legislation to become law.
 
-These are connected with an infinity loop called Mobius. In addition to this is a foundation layer to capture practices providing culture & collaboration and technical engineering. These combined enable sustainable continuous delivery.
+<h2>Drafters</h2>
+
+1. Read competition details and the Terms & Conditions.
+2. Research the subject matter of the legislation competition.
+3. Review the drafting manual, if desired.
+4. Draft a piece of Citizen Legislation.
+5. Send it in to Turq.
+6. If selected as the competition winner, receive prize funds.
 
 #### Our Mission
-This Library is intended to be a wealth of knowledge on product Discovery and Delivery practices to be adopted and evolved by a positive, engaged and supportive global community.
+Turq makes direct democracy viable by enabling the citizenry to draft and submit it's own legisaltion.
 
-[Learn more about this library](/about) and how to contribute to it, or [see what's new](https://github.com/openpracticelibrary/openpracticelibrary/pulls?q=is%3Apr+is%3Aclosed+base%3Amaster).
+[Learn more about Turq](/about) and how to contribute to it.
