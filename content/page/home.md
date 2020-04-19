@@ -8,9 +8,9 @@ type: "home"
 
 ![placeholder](/images/loop-labels-path.svg)
 
-<h1>Citizen Legislation Workflow</h1>
+<h2>Citizen Legislation Workflow</h2>
 
-<h2>SPONSORS</h2>
+#### Sponsors
 
 1. Select “Request Competition” above, or contact our team with an idea for Citizen Legislation.
 2. Work with the team to set the competition prize level.
@@ -18,7 +18,7 @@ type: "home"
 4. Payout prize funds.
 5. Turq will submit the winning draft to the State House of Representatives for the legislation to become law.
 
-<h2>Drafters</h2>
+#### Drafters
 
 1. Read competition details and the Terms & Conditions.
 2. Research the subject matter of the legislation competition.
