@@ -8,7 +8,9 @@ type: "home"
 
 ![placeholder](/images/loop-labels-path.svg)
 
-<h2>Citizen Legislation Workflow</h2>
+##Citizen Legislation Workflow
+
+
 
 #### Sponsors
 
@@ -27,7 +29,7 @@ type: "home"
 5. Send it in to Turq.
 6. If selected as the competition winner, receive prize funds.
 
-#### Our Mission
+##### Our Mission ####
 Turq makes direct democracy viable by enabling the citizenry to draft and submit it's own legisaltion.
 
 [Learn more about Turq](/about) and how to contribute to it.
