@@ -8,7 +8,7 @@ type: "home"
 
 ![library-loop](/images/loop-labels-path.svg)
 
-The Open Practice Library is a community-driven repository of practices and tools. These are shared <i>by people</i> currently using them day-to-day <i>for people</i> looking to be inspired with new ideas and experience.
+Turq is awesome!
 
 To help navigate the Library, all practices can be visualised on a canvas based on the [Outcome Delivery](http://outcomedelivery.com/) framework which has three parts:
 
