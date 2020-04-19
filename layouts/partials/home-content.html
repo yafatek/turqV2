@@ -1,5 +1,4 @@
-
- {{ range .Data.Pages }}
+ {{ range .Site.Pages }}
         {{if eq .Type "home" }}
         <div class="index-content post">
           <div class="post-content">
@@ -22,12 +21,12 @@
       {{ $practiceMap := newScratch }}
       {{ range $list }}
         {{ $currentItem := (dict "pageParams" .Params "RelPermalink" .RelPermalink ) }}
-        {{ $practiceMap.Add .Params.area (slice $currentItem) }}
+        {{ $practiceMap.Add "test" (slice $currentItem) }}
       {{end}}
 
       {{ partial "button.html" (dict "absolutePath" "/admin/#/collections/practice/new" "buttonText" "Draft Citizen Legislation") }}
-
-      <section class="loop-categories">
+  <!--
+     <section class="loop-categories">
           <a name="discovery-loop-outcomes"></a><a name="discovery-loop-why"></a>
           <h2>Sponsored Citizen Legislation</h2>
           <p>These are requests for Citizen Legislation which have been funded and ready to draft.</p>
@@ -42,7 +41,7 @@
 
       </section>
 
-    <!--  <section class="loop-categories">
+    <section class="loop-categories">
         <a name="options"></a>
         <h2>Options Pivot</h2>
         <p>The Options Pivot explores how you will deliver the outcomes. <i> What are the different options? What do you need to make this happen?</i></p>
@@ -82,6 +81,7 @@
           {{end}}
         </div>
 
-      </section> -->
+      </section>
+      -->
 
     </div>
