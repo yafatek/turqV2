@@ -8,7 +8,7 @@ type: "home"
 
 ![placeholder](/images/loop-labels-path.svg)
 
-##Citizen Legislation Workflow
+<h2>Citizen Legislation Workflow</h2>
 
 
 
