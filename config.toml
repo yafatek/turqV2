@@ -1,44 +1,15 @@
-# https://gohugo.io/getting-started/configuration/
-
-baseURL = "https://www.turq.io/"
-languageCode = "en-us"
-title = "Turq"
-theme = "casper"
-enableGitInfo = true
-
+BaseUrl= "https://youthful-bell-73b5e0.netlify.app/"
+LanguageCode= "en-US"
+Title= "Turq"
+paginate = 5
+Copyright = "All rights reserved - 2020"
+canonifyurls = true
 
 [params]
-paginatedsections = ["practice"]
-logo = "images/turq_logo.PNG"
-description = "Make direct democracy viable by enabling the citizenry to draft and submit its own legislation."
-hideHUGOSupport = true
-googleAnalyticsUserID = ""
-
-customCSS = [
-  "css/custom.css",
-  "https://fonts.googleapis.com/css?family=Arimo:400,700"
-]
-
-[[menu.main]]
-name = "Perspectives"
-weight = 5
-identifier = "Perspectives"
-url = "/perspective/"
-
-[[menu.main]]
-name = "GitHub"
-weight = 2
-identifier = "GitHub"
-url = "https://github.com/TurqPBC/turqV2"
-
-[[menu.main]]
-name = "Gitter"
-weight = 1
-identifier = "Gitter"
-url = "https://gitter.im/"
-
-[[menu.main]]
-name = "What's New"
-weight = 0
-identifier = "What's New"
-url = "https://github.com/TurqPBC/turqV2/pulls?q=is%3Apr+is%3Aclosed+base%3Amaster"
+  description = "Turq provides a platform to host competitions to create Citizen Legislation."
+  metadescription = "Turq - Citizen Legislation"
+  cover = "images/cover.jpg"
+  logo = "images/turq_logo.PNG"
+  hideHUGOSupport = false
+  
+  hjsStyle = "default"

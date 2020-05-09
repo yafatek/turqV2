@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Turq - Citizens Legislation
 menu: main
 url: /
 weight: 6

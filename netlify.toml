@@ -1,20 +1,30 @@
-
 [build]
-  # This will be your default build command
-  command = "./build.sh"
-  # This is the directory that you are publishing from (relative to root of your repo)
-  publish = "public"
-
-[context.deploy-preview.environment]
-  HUGO_VERSION = "0.51"
+publish = "public"
+command = "hugo -t casper --gc --minify"
 
 [context.production.environment]
-  HUGO_VERSION = "0.51"
+HUGO_VERSION = "0.68.3"
+HUGO_ENV = "production"
+HUGO_ENABLEGITINFO = "true"
 
-[context.staging]
-  # This will be your default build command
-  command = "./build.sh"
-  # This is the directory that you are publishing from (relative to root of your repo)
-  publish = "public"
-  [context.staging.environment]
-    HUGO_VERSION = "0.51"
+[context.split1]
+command = "hugo --gc --minify --enableGitInfo"
+
+[context.split1.environment]
+HUGO_VERSION = "0.68.3"
+HUGO_ENV = "production"
+
+[context.deploy-preview]
+command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+
+[context.deploy-preview.environment]
+HUGO_VERSION = "0.68.3"
+
+[context.branch-deploy]
+command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
+
+[context.branch-deploy.environment]
+HUGO_VERSION = "0.68.3"
+
+[context.next.environment]
+HUGO_ENABLEGITINFO = "true"
