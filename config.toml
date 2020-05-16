@@ -13,3 +13,18 @@ canonifyurls = true
   hideHUGOSupport = false
   
   hjsStyle = "default"
+
+[menu]
+
+  [[menu.main]]
+    identifier = "legislation"
+    name = "legislation"
+    url = "/legislation/"
+    weight = -110
+    
+  [[menu.main]]
+    identifier = "competitions"
+    name = "competitions"
+    url = "/competition/"
+    weight = -100
+
