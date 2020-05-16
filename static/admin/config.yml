@@ -13,27 +13,32 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - {label: "Title of practice", hint: "The name of the practice", name: "title", widget: "string"}
-      - {label: "Subtitle", hint: "Catchy one liner for the article", name: "subtitle", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Authors", hint: "Comma-separated list of github usernames eg., springdo, rdebeasi, tdbeattie", name: "authors", widget: "list", default: []}
-      - {label: "Area of the Library Loop", hint: "Choose the position on the Library Loop where your practice lives", name: "area", widget: "select", options:
-          [{label: "Discovery - Why", value: "discovery-loop-why"},
-          {label: "Discovery - Outcomes", value: "discovery-loop-outcomes"},
-          {label: "Options", value: "options"},
-          {label: "Delivery - Deliver", value: "delivery-deliver"},
-          {label: "Delivery - Measure & Learn", value: "delivery-measure-and-learn"},
-          {label: "Foundation - Culture & Collaboration", value: "foundation-culture-and-collaboration"},
-          {label: "Foundation - Technical",  value: "foundation-technical"}]}
-      - {label: "Related Perspectives", hint: "Comma-separated list of slugs e.g., domain-driven-design, product-ownership", name: "perspectives", widget: "list", default: [], required: false}
-      - {label: "Tile icon", name: "icon", hint: "Icon to be used on the home screen and cards for the practice", widget: "image", required: false}
-      - {label: "Jumbotron image", hint: "Large full width image for under the titles", name: "jumbotron", widget: "image", required: false}
-      - {label: "Jumbotron alt text", hint: "Accessible description of the image for screen readers", name: "jumbotronAlt", widget: "string", required: false}
-      - {label: "No. of people required", hint: "How many people are needed for the practice eg 2+ or 10", name: "people", widget: "string", required: false}
-      - {label: "Time length", hint: "How long is needed to facilitate this practice", name: "time", widget: "string", required: false}
-      - {label: "Facilitation difficulty", hint: "How difficult is it to facilitate this practice", name: "difficulty", widget: "select", required: false, options:
-          [{label: "Easy", value: "easy"},
-          {label: "Moderate", value: "moderate"},
-          {label: "Hard", value: "hard"}]}
-      - {label: "Expected participants", hint: "Who should attend when running this practice? eg., The Team, The Product Owner, BAs", name: "participants", required: false, widget: "list", default: []}
-      - {label: "Body", name: "body", widget: "markdown", default: "## What is it? \n\n## Why use it? \n\n## Further Information\n\n"}
+      - {label: "Official Title", hint: "The name of the legislation. Ex. An Act Establishing Financial Literacy Education In Massachusetts", name: "title", widget: "string"}
+
+      - {label: "What Chapter of the General Laws Do You Want to Modify?", hint: "Ex. Chapter 69 of the General Law is hereby amended by inserting the following after section 1Q the following section::", name: "chapter", widget: "string"}
+
+      - {label: "General Laws Section", hint: "If you want to modify a Section of that Chapter, provide the number below. If you want to add a Section to the Chapter, give it a number below. Provide a Title for the new Section. Ex. Section 1R. Financial Literacy Education in Massachusetts", name: "section", widget: "string"}
+
+      - {label: "Describe what this bill accomplishes in 1-2 sentences", hint: "Ex. This document specifies minimum requirements for the implementation of a financial literacy education program in the public schools of the Commonwealth of Massachusetts.", name: "accomplishes", widget: "string"}
+
+      - {label: "Define the terms you will be using in this legislation", hint: "Ex. Public School - A school that is located in the Commonwealth of Massachusetts and maintained at public expense, including state, local, and federal funding, for the education of the children of a community or district and that constitutes a part of a system of free public education commonly including primary and secondary schools.  Private School - A school that is located in the Commonwealth of Massachusetts and privately funded through parent paid tuition charges or sponsored by organizations of specific religious, cultural, ethnic, or other non-inclusive class demographics. Characterized by no allocation of public funds, no requirement to accept enrollment from the public, conflicting interest in separation of church and state matters.
+Curriculum - The aggregate of courses of study given in public schools.  Financial Literacy - Knowledge of the complex and real world systems involved in managing money on a daily basis, credit and credit worthiness, savings, budgeting, investments.", name: "terms", widget: "text"}
+
+      - {label: "Statement of Purpose (expand and go deeper on Bill description)", hint: "Ex. There is extensive debate regarding the efficacy of financial literacy education and the correlation between applied knowledge of personal finance best known methods and overall good financial health/satisfaction. There has been very little data collection with enough participants over a long enough time to make effective causal correlation between financial literacy education and long term financial behavior (Robb).  This legislation introduces general requirements in the Massachusetts K - 12 Public Education and Charter School curriculum for financial literacy educational inclusion. It provides data collection and standardized testing outlines for evaluation of financial literacy education effectiveness.
+This legislation commissions the creation of an opt-in voluntary study in which students graduating the Massachusetts Public or Charter School System allow the ongoing, long-term collection of income, credit worthiness, and other financial health and satisfaction metrics as defined by the study authors.", name: "purpose", widget: "text"}
+
+      - {label: "Provisions", hint: "Ex. This legislation applies to all Massachusetts Public and Charter Schools that receive public federal funding in the Commonwealth of Massachusetts.  This legislation complies with the recommendation set forth by the National Association of State Boards of Education (NASBE) issued in Who Will Own Our Children? The Report of the NASBE Commission on Financial and Investor Literacy (McCormick).  State boards of education must be fully informed about the status of financial literacy in their states.  The Massachusetts State Board of Education or designated agent shall develop K - 6 financial literacy curriculum that include the following; to constitute no less than 40 hours of in class instruction per year: Financial goal setting, saving money, banks and savings accounts, parental involvement in opening a savings account, interest returned on savings. The Massachusetts State Board of Education or designated agent shall develop years 7 - 9 financial literacy curriculum that include the following; to constitute no less than 80 hours of in class instruction per year: Financial goal setting, saving money, banks and all account types (including checking), parental involvement in establishing banking as a minor, interest rates and return on investment, budgeting, check writing and debit card usage, deposits, withdrawals, and account reconciliation, overdrafts and resulting consequences, consumer reporting agencies for banking and credit (i.e. chex systems, the major three), bankable versus unbankable as it relates to poor account management and consumer reporting agencies, financial emergencies and the benefits of emergency funds, saving versus spending, need versus want spending. The Massachusetts State Board of Education or designated agent shall develop years 10 - 12 financial literacy curriculum that include the following; to constitute no less than 120 hours of in class instruction per year: All 7 - 9 year listed curriculum points, credit worthiness and the impact of negative credit, the FCRA (Fair Credit Reporting Act), credit report disputes, collection actions and garnishments, bankruptcy law and consequences, costs associated with college, financing options, and impacts, scholarships, online banking (simulated with real world closed system software), loans, credit cards, debt to income ratio, tax and student loan debts, buying a house versus renting, cryptocurrencies, stocks and investing, retirement planning", name: "provisions", widget: "text"}
+
+      - {label: "Special Exceptions", hint: "Ex. Private Schools are exempt from this legislation.Special Education curriculum and instruction are exempt from this legislation.", name: "exceptions", widget: "string"}
+
+      - {label: "Other Provisions", hint: "Ex. A position on the Massachusetts State Board of Education shall be created to act as a liaison between the United States Department of Education and other State Boards of Education as it pertains to the education of financial literacy. This includes but is not limited to proliferating standardized assessment and standardized best known method infrastructure for financial literacy instruction.  Annual reports shall be made to the Massachusetts State Board of Education from every local district relating to the results of financial literacy standardized testing.  Financial literacy shall only be taught by certified teachers.", name: "other", widget: "string"}
+      - {label: "competition", hint: "competition", name: "competition", widget: "hidden"}
+  - name: "Competitions" # Used in routes, e.g., /admin/collections/blog
+    label: "Competitions" # Used in the UI
+    folder: "content/competition" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", hint: "Name of the competition", name: "title", widget: "string"}
+      - {label: "Reward", hint: "Reward", name: "reward", widget: "string"}
+      - {label: "Description", hint: "Name of the competition", name: "Description", widget: "text"}
