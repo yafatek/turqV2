@@ -15,12 +15,6 @@ canonifyurls = true
   hjsStyle = "default"
 
 [menu]
-
-  [[menu.main]]
-    identifier = "legislation"
-    name = "legislation"
-    url = "/legislation/"
-    weight = -110
     
   [[menu.main]]
     identifier = "competitions"
