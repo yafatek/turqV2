@@ -1,14 +1,11 @@
     <!-- Loop through all competitions --> 
+    <h2>Competitions</h2>
     {{ range where .Site.RegularPages "Section" "competition"}}
-      {{ if eq .Type "home" }}
-        {{ .Content }}
-      {{ end }}
-          <div class="index-content post">
-          <a href="{{.RelPermalink}}">{{.Title}}</a>
-          {{.Summary}}
-          <a href="{{.Site.BaseURL}}/admin/#/collections/Draft-Legislation/new?competition={{.Title}}" class="button">Submit New Legislation</a>
-          <a href="{{.Site.BaseURL}}/legislation?competition={{.Title}}" class="button">View Legislation for This Competition</a>
-          </div>
+        <div class="index-content post">
+        <a href="{{.RelPermalink}}"><h4>{{.Title}}</h4></a>
+        {{ truncate 70 .Params.Description }}<br>
+        <a href="{{.Site.BaseURL}}/admin/#/collections/Draft-Legislation/new?competition={{.File.BaseFileName}}" class="button">Submit New Legislation For This Competition</a>
+        </div>
     {{ end }}
 
     {{ if not ($.Scratch.Get "paginatedSections") }}

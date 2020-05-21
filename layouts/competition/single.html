@@ -34,7 +34,6 @@
 
     <header class="post-header">
         <h1 class="post-title">{{.Title}}</h1>
-        <small>{{.Description}}</small>
 
         <section class="post-meta">
         {{ if eq .Section "post"}}
@@ -48,59 +47,34 @@
         </section>
     </header>
 
-    <section class="post-content">
-      {{ if .Params.chapter }}
-        SECTION 1 - {{ .Params.chapter }}
-      {{ end }}
-      {{ if .Params.section }}
-        <br><br>
-        {{ .Params.section }}
-      {{ end }}
-      {{ if .Params.Title }}
-        <br><br>
-        SECTION 1 - {{ .Params.Title }}
-      {{ end }}
-      {{ if .Params.accomplishes }}
-        <br><br>
-        {{ .Params.accomplishes }}
-      {{ end }}
-      {{ if .Params.terms }}
-        <br><br>
-        SECTION 2 - DEFINITIONS
-        <br><br>
-        {{ .Params.terms }}
-      {{ end }}
-      {{ if .Params.purpose }}
-        <br><br>
-        SECTION 3 - STATEMENT OF PURPOSE
-        <br><br>
-        {{ .Params.purpose }}
-      {{ end }}
-      {{ if .Params.provisions }}
-        <br><br>
-        SECTION 4 - PROVISIONS
-        <br><br>
-        {{ .Params.provisions }}
-      {{ end }}
-      {{ if .Params.exceptions }}
-        <br><br>
-        SECTION 5 - SPECIAL EXCEPTIONS
-        <br><br>
-        {{ .Params.exceptions }}
-      {{ end }}
-      {{ if .Params.other }}
-        <br><br>
-        SECTION 6 - OTHER PROVISIONS
-        <br><br>
-        {{ .Params.other }}
-      {{ end }}
+    <section>
+      <b>Prizes</b><br>
+      {{ .Params.prizes }}
+      <br><br>
+      <b>Description</b><br>
+      {{ .Params.description }}
+      <br><br>
+      <b>Rules</b><br>
+      {{ .Params.rules }}
+      <br><br>
+      <b>Judging Criteria</b><br>
+      {{ .Params.criteria }}
+      <br><br>
     </section>
 
-    <hr>
-
     <section class="post-content">
-      <!-- The .File.BaseFileName will correspond to the slug used by Netlify CMS -->
-      <a href="{{.Site.BaseURL}}/admin/#/collections/Draft-Legislation/entries/{{.File.BaseFileName}}">Edit this legislation</a>
+      <h2>Legislation Submitted For This Competition</h2>
+      <!-- Get the baseFileName, which is the slug from Netlify CMS, for comparison in the range below since it will not be available in that context-->
+      {{ $competition := .File.BaseFileName }}
+      {{ range where .Site.RegularPages "Section" "legislation" }}
+        <!-- Check that current page slug is equal to the competition parameter on the legislation -->
+        {{ if eq $competition .Params.competition }}
+          <div class="index-content post">
+            <a href="{{.RelPermalink}}"><h4>{{.Title}}</h4></a>
+            {{ truncate 70 .Params.accomplishes }}<br>
+          </div>
+        {{ end }}
+      {{ end }}
     </section>
 
 
