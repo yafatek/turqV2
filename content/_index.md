@@ -6,7 +6,6 @@ weight: 6
 type: "home"
 ---
 
-![placeholder](/images/loop-labels-path.svg)
 
 <h2>Citizen Legislation Workflow</h2>
 
