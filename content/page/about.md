@@ -7,10 +7,5 @@ aliases:
 ---
 
 ## Goals of Turq
-Turq is a platform that enables the citizenry to draw and submit its own legislation.
-
-While improving the legislative process is our main focus, we emphasize improving business processes as well.
-
-
-![placeholder](/images/loop-labels-path.svg)
+Turq allows citizens to write legislation for one another.
 
