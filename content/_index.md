@@ -26,7 +26,5 @@ type: "home"
 4. Use Turq's in-built drafting assistant to write the legislation.
 5. If selected as the competition winner, receive prize funds.
 
-##### Our Mission ####
-Legislators are overhwlemed with requests to write bills. We solve this problem by enabling citizens to write bills for one another.
 
 [Learn more about Turq](/about) and how to contribute to it.
