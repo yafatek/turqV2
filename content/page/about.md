@@ -7,7 +7,7 @@ aliases:
 ---
 
 ## Goals of Turq
-Turq allows citizens to write legislation for one another.
+Make direct democracy viable my enabling citizens draft and submit their own legislation.
 
 
 ##### Our Mission ####
