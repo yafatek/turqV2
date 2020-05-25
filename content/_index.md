@@ -6,10 +6,8 @@ weight: 6
 type: "home"
 ---
 
-
-<h2>Citizen Legislation Workflow</h2>
 <br>
-<h3> Currently serving Massachusetts legislations only. More States coming soon.</h3>
+### Currently serving Massachusetts legislations only. More States coming soon.
 <br>
 
 #### Sponsors
