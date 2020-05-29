@@ -22,11 +22,16 @@ purpose: There is extensive debate regarding the efficacy of financial literacy
   best known methods and overall good financial health/satisfaction. There has
   been very little data collection with enough participants over a long enough
   time to make effective causal correlation between financial literacy education
-  and long term financial behavior (Robb). This legislation introduces general
-  requirements in the Massachusetts K - 12 Public Education and Charter School
+  and long term financial behavior (Robb). 
+  
+
+  This legislation introduces general requirements in the Massachusetts K - 12 Public Education and Charter School
   curriculum for financial literacy educational inclusion. It provides data
   collection and standardized testing outlines for evaluation of financial
-  literacy education effectiveness. This legislation commissions the creation of
+  literacy education effectiveness.
+ 
+
+  This legislation commissions the creation of
   an opt-in voluntary study in which students graduating the Massachusetts
   Public or Charter School System allow the ongoing, long-term collection of
   income, credit worthiness, and other financial health and satisfaction metrics
@@ -36,7 +41,10 @@ provisions: "This legislation applies to all Massachusetts Public and Charter
   Massachusetts. This legislation complies with the recommendation set forth by
   the National Association of State Boards of Education (NASBE) issued in Who
   Will Own Our Children? The Report of the NASBE Commission on Financial and
-  Investor Literacy (McCormick). State boards of education must be fully
+  Investor Literacy (McCormick).
+
+
+  State boards of education must be fully
   informed about the status of financial literacy in their states. The
   Massachusetts State Board of Education or designated agent shall develop K - 6
   financial literacy curriculum that include the following; to constitute no
@@ -53,7 +61,10 @@ provisions: "This legislation applies to all Massachusetts Public and Charter
   agencies for banking and credit (i.e. chex systems, the major three), bankable
   versus unbankable as it relates to poor account management and consumer
   reporting agencies, financial emergencies and the benefits of emergency funds,
-  saving versus spending, need versus want spending. The Massachusetts State
+  saving versus spending, need versus want spending.
+
+
+  The Massachusetts State
   Board of Education or designated agent shall develop years 10 - 12 financial
   literacy curriculum that include the following; to constitute no less than 120
   hours of in class instruction per year: All 7 - 9 year listed curriculum

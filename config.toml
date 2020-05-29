@@ -1,18 +1,31 @@
 BaseUrl= "https://turq.netlify.app/"
 LanguageCode= "en-US"
 Title= "Turq"
-paginate = 5
-Copyright = "All rights reserved - 2020"
-canonifyurls = true
+theme = "hugo-cards"
+paginate = 6
+themesDir = "./themes"
 
 [params]
-  description = "Turq provides a platform to host competitions to create Citizen Legislation."
-  metadescription = "Turq - Citizen Legislation"
-  cover = "images/cover.jpg"
-  logo = "images/turq_logo.PNG"
-  hideHUGOSupport = false
-  
-  hjsStyle = "default"
+  builtBy = "bool"
+  defaultImage = "turq_logo.PNG"
+
+  facebook = ""
+  quora = ""
+  twitter = "http://twitter.com/bul_ikana"
+  github = "http://github.com/bul-ikana"
+  email = ""
+
+  fbLikeBox = ""
+  fbAppId = ""
+  fbPageUrl = ""
+  fbPageTitle = ""
+
+  analytics = ""
+  disqus = ""
+
+  [params.copyright]
+     name = "bool"
+     link = "https://bool.netlify.com"
 
 [menu]
     

@@ -1,150 +1,71 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
 
+<div class="home">
+ 
+ {{ .Content }}
+  
+    <div class="row pack">
 
-
-{{if .Params.image}}
-  {{if or (eq (substr .Params.image 0 7) "http://") (eq (substr .Params.image 0 8) "https://")}}
-  <header class="main-header post-head" style="background-image: url({{.Params.image}})">
-  {{ else }}
-  <header class="main-header post-head" style="background-image: url({{.Params.image | relURL}})">
-  {{ end }}
-  <nav class="main-nav overlay clearfix">
-{{else}}
-<header class="main-header post-head no-cover">
-    <nav class="main-nav overlay clearfix">
-{{end}}
-
-      {{ if .Site.Params.logo }}
-        <a class="blog-logo" href="{{.Site.BaseURL}}"><img src="{{ .Site.Params.logo | relURL }}" alt="Home" /></a>
-      {{end}}
-      {{ if .Site.Menus.main }}
-          <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
-      {{else}}
-        {{ if .Site.Params.RSSLink}}
-          <a class="menu-button icon-feed" href="{{.Site.Params.RSSLink }}">&nbsp;&nbsp;Subscribe</a>
-        {{else}}
-          <a class="menu-button icon-feed" href="{{ .RSSLink }}">&nbsp;&nbsp;Subscribe</a>
-        {{end}}
-      {{end}}
-    </nav>
-
-    {{if eq .Params.index true}}
-    <div class="vertical">
-        <div class="main-header-content inner">
-            <h1 class="page-title">{{.Title}}</h1>
-            <h2 class="page-description">
-                {{if .Params.description}}
-                    {{.Params.description}}
-                {{end}}
-            </h2>
-        </div>
-    </div>
-    {{end}}
-
-
-</header>
-
-
-
-<main class="content" role="main">
-
-  <article class="post {{ .Section }}">
-    <header class="post-header">
-
-
-        <h1 class="post-title">{{.Title}}</h1>
-        <small>{{.Description}}</small>
-
-        <section class="post-meta">
-        {{ if eq .Section "post"}}
-          <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
-            {{ .Date.Format "Jan 2, 2006" }}
-          </time>
-        {{end}}
-         {{ range .Params.tags }}
-          <span class="post-tag small"><a href="{{$.Site.BaseURL}}/tags/{{ . | urlize }}/">#{{ . }}</a></span>
-         {{ end }}
-        </section>
-    </header>
-
-    <section class="post-content">
-
-
-{{ .Content }}
-
-<main id="content" class="content" role="main">
-
-{{ partial "home-content.html" . }}
-
-</main>
-
-
-{{if ne .Params.index true}}
-{{if .Menus.main.HasChildren }}
-<nav class="navchildren">
-  <ul>
-    <!-- Children contents -->
-
-    {{ range .Menus.main.Children }}
-    <li><a href="{{.URL}}" >{{ .Name }}</a></li>
-    {{ end }}
-
-  </ul>
-</nav>
-{{ end }}
-{{ end }}
-
-{{if eq .Params.index true}}
-<nav class="navpage">
-
-{{ $currentNode := . }}
-{{ range .Site.Menus.main }}
-{{if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .)}}
-      {{ range .Children }}
-      <ul>
-      <li><a href="{{.URL}}">{{.Name}}</a>
-      {{ if .HasChildren }}
-        <ul>
-        {{ range .Children }}
-          <li><a href="{{.URL}}">{{.Name}}</a>
-          {{ if .HasChildren }}
-            <ul>
-            {{ range .Children }}
-            <li><a href="{{.URL}}">{{ .Name }}</a></li>
-            {{ end }}
-            </ul>
+        {{ $paginator := .Paginate (where .Site.RegularPages "Section" "competition") }}
+        {{ range $paginator.Pages }}   
+            <div class="col-md-4 card">
+             <a href="{{ .Permalink }}" class="index-anchor">    
+                <div class="panel panel-default">
+                  
+                  {{ if .Params.img }}
+                  <img width="100%" src="{{ .Site.BaseURL }}images/{{ .Params.img }}" alt="{{ .Title }}">
+                  {{ else }}
+                  <img width="100%" src="{{ .Site.BaseURL }}images/{{ .Site.Params.defaultImage }}" alt="{{ .Site.Title }}">
+                  {{ end }}
+                  
+                  <div class="panel-body">
+                    <h3 class="panel-title pull-left">{{ .Title | truncate 25 }}</h3><span class="post-meta pull-right"><small>{{ .Date.Format "January 2, 2006" }}</small></span>
+                  </div>
+                  
+                  <div class="panel-body"><small>
+                    {{ .Params.description | plainify | truncate 180 }}</small>
+                  </div>
+                </div>
+                </a>
+            </div>
+        
           {{ end }}
+
+    </div> 
+    
+<div class="row">
+    <div class="col-md-4">  </div>
+    <div class="col-md-4">
+        {{ if gt .Paginator.TotalPages 1 }}
+        <ul class="pagination">
+          {{ if .Paginator.HasPrev }}
+            <li><a href="{{ .Paginator.Prev.URL }}">&laquo; Prev</a></li>
+          {{ else }}
+            <li><span>&laquo; Prev</span></li>
+          {{ end }}
+
+          {{ $scratch := newScratch }}
+          {{ $scratch.Set "current" .Paginator.PageNumber }} 
+
+          {{ range .Paginator.Pagers }}
+            {{ if eq .PageNumber ($scratch.Get "current") }}
+              <li class="active"><span><em>{{ .PageNumber }}</em></span></li>
+            {{ else }}
+            <li><a href="{{ .URL }}">{{ .PageNumber }}</a></li>
+            {{ end }}
+          {{ end }}
+
+          {{ if .Paginator.HasNext }}
+            <li><a href="{{ .Paginator.Next.URL }}">Next &raquo;</a></li>
+          {{ else }}
+            <li><span >Next &raquo;</span></li>
+          {{ end }}
+          </ul>
         {{ end }}
-        </ul>
-      {{ end }}
-      </li>
-      </ul>
-      {{ end }}
 
+    </div>
+    <div class="col-md-4">  </div>
+</div>
+</div>
 
-{{end}}
-{{end}}
-
-</nav>
-{{end}}
-
-    </section>
-
-
-  <footer class="post-footer">
-
-
-    {{if .Site.Params.logo}}
-    <figure class="author-image">
-        <a class="img" href="{{.Site.BaseURL}}" style="background-image: url({{.Site.Params.logo | relURL}})"><span class="hidden">{{.Site.Params.author}}'s Picture</span></a>
-    </figure>
-    {{end}}
-
-    {{ partial "share.html" . }}
-
-  </footer>
-</article>
-
-</main>
-
-{{ partial "footer.html" . }}
+{{ end }}
