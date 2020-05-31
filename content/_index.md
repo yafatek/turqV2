@@ -7,6 +7,8 @@ type: "home"
 ---
   
   
+  ANY AND ALL FEEDBACK EMAIL [tim@turq.io](mailto:tim@turq.io)
+  
 #### Currently serving Massachusetts. More States coming very soon.
   
 
