@@ -6,11 +6,9 @@ weight: 6
 type: "home"
 ---
   
-\
   
-#### Currently serving Massachusetts legislations only. More States coming soon.
+#### Currently serving Massachusetts. More States coming very soon.  
 
- \ 
   
 #### Sponsors
 
