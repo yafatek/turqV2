@@ -11,6 +11,7 @@ collections:
     label: "Draft Legislation" # Used in the UI
     folder: "content/legislation" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
+    delete: false
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: "Official Title", hint: "The name of the legislation. Ex. An Act Establishing Financial Literacy Education In Massachusetts", name: "title", widget: "string"}
@@ -35,6 +36,7 @@ collections:
     label: "Competitions" # Used in the UI
     folder: "content/competition" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
+    delete: false
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: "Title", hint: "Name of the competition", name: "title", widget: "string"}
