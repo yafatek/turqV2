@@ -2,7 +2,13 @@
 
 <div class="home">
  
- {{ .Content }}
+ <section>
+   {{ .Content }}
+ </section>
+ <div class="text-center">
+  <a href="{{ .Site.BaseURL }}/admin/#/collections/Competitions/new"><button type="button" class="btn btn-secondary btn-lg">Create New Competition!</button></a>
+ </div>
+ <hr>
   
     <div class="row pack">
 
