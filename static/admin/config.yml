@@ -42,7 +42,12 @@ collections:
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: "Title", hint: "Name of the competition", name: "title", widget: "string"}
-      - {label: "Prizes", hint: "Prizes rewared for this competition", name: "prizes", widget: "string"}
-      - {label: "Description", hint: "Name of the competition", name: "description", widget: "text", default: "Background\nTimeline"}
-      - {label: "Rules", hint: "Competition Rules", name: "rules", widget: "text"}
-      - {label: "Judging Criteria", hint: "Judgement Criteria", name: "criteria", widget: "text", default: "## Initial Screening\n## Evaluation and Selection\n* Technical Merit\n* Originality\n* Impact\n* Practicality\n## Drafting Manual"}
+      - label: "End Date"
+        name: "endDate"
+        widget: "date"
+        default: ""
+        format: "MMM Do YY"
+      - {label: "Prizes", hint: "Prizes rewared for this competition", name: "prizes", widget: "text"}
+      - {label: "Description", hint: "Name of the competition", name: "description", widget: "markdown", default: "**Background**\n**Timeline**"}
+      - {label: "Rules", hint: "Competition Rules", name: "rules", widget: "markdown"}
+      - {label: "Judging Criteria", hint: "Judgement Criteria", name: "criteria", widget: "markdown", default: "## Initial Screening\n## Evaluation and Selection\n* **Technical Merit**\n* **Originality**\n* **Impact**\n* **Practicality**"}
