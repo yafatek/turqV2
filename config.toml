@@ -1,4 +1,4 @@
-BaseUrl= "https://turq.netlify.app/"
+BaseUrl= "https://turq.io/"
 LanguageCode= "en-US"
 Title= "Turq"
 theme = "hugo-cards"
