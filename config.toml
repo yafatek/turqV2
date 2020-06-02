@@ -8,6 +8,7 @@ themesDir = "./themes"
 [params]
   builtBy = "bool"
   defaultImage = "turq_logo.PNG"
+  defaultImageInverse = "turq_logo_inverse.PNG"
 
   facebook = ""
   quora = ""
