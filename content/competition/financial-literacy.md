@@ -1,5 +1,5 @@
 ---
-title: Financial Literacy
+title: Turq Challenge: Financial Literacy
 endDate: Jun 19th 20
 prizes: >-
   Payout: $40
