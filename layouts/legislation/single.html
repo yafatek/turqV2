@@ -62,7 +62,9 @@
 
             <section class="post-content">
               <!-- The .File.BaseFileName will correspond to the slug used by Netlify CMS -->
-              <a href="{{.Site.BaseURL}}/admin/#/collections/Draft-Legislation/entries/{{.File.BaseFileName}}" target="_blank">Edit this legislation</a>
+              <div class="text-center">
+                <a href="{{.Site.BaseURL}}/admin/#/collections/Draft-Legislation/entries/{{.File.BaseFileName}}" target="_blank"><button type="button" class="btn btn-secondary btn-lg">Edit this Legislation!</button></a>
+              </div>
             </section>
           </div>
 

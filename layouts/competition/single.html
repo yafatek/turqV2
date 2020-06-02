@@ -28,14 +28,16 @@
                   {{ partial "markdown2html" (dict "section" .Params.criteria "divId" "criteria") }}
                 </div>
               </div>
-              <h3>Submission</h3>
-                <div id="submission">
-                  <a href="{{.Site.BaseURL}}/admin/#/collections/Draft-Legislation/new?competition={{.File.BaseFileName}}" target="_blank" class="button">Submit New Legislation</a>
-                </div>
+              <br>
+             <div class="text-center">
+               <a href="{{ .Site.BaseURL }}/admin/#/collections/Competitions/Draft-Legislation/new?competition={{.File.BaseFileName}}" target="_blank"><button type="button" class="btn btn-secondary btn-lg">Create New Legislation!</button></a>
+             </div>
             </section>
-
+            <br>
+            <hr>
+            <br>
             <section class="post-content">
-              <h2>Legislation Submitted For This Competition</h2>
+            <h2>Legislation Submitted For This Competition</h2>
               <!-- Get the baseFileName, which is the slug from Netlify CMS, for comparison in the range below since it will not be available in that context-->
               {{ $competition := .File.BaseFileName }}
               <!-- Check that current page slug is equal to the competition parameter on the legislation -->
@@ -45,15 +47,16 @@
                 {{ range $legislation }}
                   <div class="index-content post">
                     <a href="{{.RelPermalink}}"><h4>{{.Title}}</h4></a>
-                    {{ truncate 70 .Params.accomplishes }}<br>
+                    {{ truncate 170 .Params.accomplishes }}<br>
                   </div>
                   <hr>
                 {{ end }}
               {{ else }}
-                <div class="index-content post">
-                  No legislation has been submitted yet,
-                  <a href="{{.Site.BaseURL}}/admin/#/collections/Draft-Legislation/new?competition={{.File.BaseFileName}}" target="_blank" class="button">Be The First To Submit New Legislation!</a>
+               <div class="text-center">
+                 <div class="index-content post">
+                 - No legislation has been created yet -
                 </div>
+               </div>
               {{ end }}
             </section>
           </div>
