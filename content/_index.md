@@ -13,7 +13,7 @@ type: "home"
   
 #### Sponsors
 
-1. Select “Request Competition” below, to submit your idea for Citizen Legislation.
+1. Select “Create New Competition!” below, to submit your idea for Citizen Legislation.
 2. Work with the team to set the competition prize level.
 3. Review legislation finalists.
 4. Payout prize funds the the winner.
