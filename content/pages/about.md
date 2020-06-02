@@ -16,19 +16,19 @@ Legislators are overhwlemed with requests to write bills. We solve this problem 
   **What to contribute**
 A legislation draft must follow the principles of
 
--Simplicity - Select short, familiar words and phrases that best express the intended meaning according to common and approved usage. Avoid “legalese.”The language of a statute should be dignified, not pompous.Examples: Use “after”, instead of "subsequent to;" use "before" instead of "prior to."
--Conciseness - Omit needless language and use the shortest sentence that conveys the intendedmeaning.
--Consistency - Be consistent in the use of language throughout the bill. Do not use the same word or phrase to convey different meanings. Do not use different language to convey the same meaning.
--Directness - If a concept can be expressed positively or negatively, express it positively.
--Ordinary English - Draft in ordinary English. Avoid words that might be considered slang. Also try to avoid using a complicated word when a simple word will convey the same concept.Generally do not use abbreviations and contractions.In rare instances where an abbreviation is used, insert a definition of the abbreviated term.
--Appropriate Material for Inclusion - It is usually best not to include material that has no legal effect in a bill.
--Outdated Terminology - Change or remove questionable, imprecise or outmoded words or terminology.Please check the names of state agencies as they occasionally change.
--Novelty - It isn't already covered by another section of the State Code.
--Revision - After completing the draft of a bill, revise it carefully and critically. Review each use of a defined term to make sure it is used consistently in its defined sense.
+* Simplicity - Select short, familiar words and phrases that best express the intended meaning according to common and approved usage. Avoid “legalese.”The language of a statute should be dignified, not pompous.Examples: Use “after”, instead of "subsequent to;" use "before" instead of "prior to."
+* Conciseness - Omit needless language and use the shortest sentence that conveys the intendedmeaning.
+* Consistency - Be consistent in the use of language throughout the bill. Do not use the same word or phrase to convey different meanings. Do not use different language to convey the same meaning.
+* Directness - If a concept can be expressed positively or negatively, express it positively.
+* Ordinary English - Draft in ordinary English. Avoid words that might be considered slang. Also try to avoid using a complicated word when a simple word will convey the same concept.Generally do not use abbreviations and contractions.In rare instances where an abbreviation is used, insert a definition of the abbreviated term.
+* Appropriate Material for Inclusion - It is usually best not to include material that has no legal effect in a bill.
+* Outdated Terminology - Change or remove questionable, imprecise or outmoded words or terminology.Please check the names of state agencies as they occasionally change.
+* Novelty - It isn't already covered by another section of the State Code.
+* Revision - After completing the draft of a bill, revise it carefully and critically. Review each use of a defined term to make sure it is used consistently in its defined sense.
 
 **A legislation draft should be**
 
--Approachable - It can be understood by someone who's not an expert.
+* Approachable - It can be understood by someone who's not an expert.
 
 **Gathering Feedback**
 
