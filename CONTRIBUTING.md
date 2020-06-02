@@ -37,7 +37,7 @@ As a community, we strive to provide kind and constructive feedback on your PR.
 
 If a pull request doesn't meet the "must be" guidelines, we may ask that the draft be updated before it's merged. If a pull request doesn't meet the "should be" guidelines, we may merge the pull request and add an issue for future improvements to the practice.
 
-Again, thank you so much for your interest and support! We look forward to enhancing the Open Practice Library.
+Again, thank you so much for your interest and support! We look forward to enhancing Turq.
 
 ## Style
 
