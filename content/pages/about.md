@@ -13,7 +13,7 @@ Make direct democracy viable my enabling citizens draft and submit their own leg
 #### Our Mission
 Legislators are overhwlemed with requests to write bills. We solve this problem by enabling citizens to write bills for one another.
   
-  What to contribute
+  **What to contribute**
 A legislation draft must follow the principles of
 
     Simplicity - Select short, familiar words and phrases that best express the intended meaning according to common and approved usage. Avoid “legalese.”The language of a statute should be dignified, not pompous.Examples: Use “after”, instead of "subsequent to;" use "before" instead of "prior to."
@@ -26,11 +26,11 @@ A legislation draft must follow the principles of
     Novelty - It isn't already covered by another section of the State Code.
     Revision - After completing the draft of a bill, revise it carefully and critically. Review each use of a defined term to make sure it is used consistently in its defined sense.
 
-A legislation draft should be
+**A legislation draft should be**
 
     Approachable - It can be understood by someone who's not an expert.
 
-Gathering Feedback
+**Gathering Feedback**
 
 As a community, we strive to provide kind and constructive feedback on your legislation.
 
@@ -41,7 +41,7 @@ Again, thank you so much for your interest and support! We look forward to enhan
 #### Legal ####
 [Terms of Service](turq.io/termsofservice) 
 
-*Licenses*  
+**Licenses**  
 [Netlify](https://www.netlify.com/legal/self-serve-subscription-agreement/)  
 [Netlify CMS](https://github.com/netlify/netlify-cms/blob/master/LICENSE)  
 [Hugo](https://gohugo.io/about/license/)  
