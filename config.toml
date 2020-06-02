@@ -11,8 +11,8 @@ themesDir = "./themes"
 
   facebook = ""
   quora = ""
-  twitter = "http://twitter.com/bul_ikana"
-  github = "http://github.com/bul-ikana"
+  twitter = ""
+  github = ""
   email = ""
 
   fbLikeBox = ""
@@ -22,10 +22,6 @@ themesDir = "./themes"
 
   analytics = ""
   disqus = ""
-
-  [params.copyright]
-     name = "bool"
-     link = "https://bool.netlify.com"
 
 [menu]
     

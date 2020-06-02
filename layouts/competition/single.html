@@ -11,21 +11,27 @@
 
           <div class="post-content" itemprop="articleBody">
             <section>
-              <b>Prizes</b><br>
-              {{ replace .Params.prizes "\n" "<br/>" | safeHTML }}
-              <br><br>
-              <b>Description</b><br>
-              {{ replace .Params.description "\n" "<br/>" | safeHTML }}
-              <br><br>
-              <b>Rules</b><br>
-              {{ replace .Params.rules "\n" "<br/>" | safeHTML }}
-              <br><br>
-              <b>Judging Criteria</b><br>
-              {{ replace .Params.criteria "\n" "<br/>" | safeHTML }}
-              <br><br>
-              <b>Submission</b><br>
-              <a href="{{.Site.BaseURL}}/admin/#/collections/Draft-Legislation/new?competition={{.File.BaseFileName}}" target="_blank" class="button">Submit New Legislation</a>
-              <br><br>
+              <h3>Prizes</h3>
+              <div id="prizes">
+                {{ partial "markdown2html" (dict "section" .Params.prizes "divId" "prizes") }}
+              </div>
+              <h3>Description</h3>
+                <div id="description">
+                  {{ partial "markdown2html" (dict "section" .Params.description "divId" "description") }}
+                </div>
+              <h3>Rules</h3>
+                <div id="rules">
+                  {{ partial "markdown2html" (dict "section" .Params.rules "divId" "rules") }}
+                </div>
+              <h3>Judging Criteria</h3>
+                <div id="criteria">
+                  {{ partial "markdown2html" (dict "section" .Params.criteria "divId" "criteria") }}
+                </div>
+              </div>
+              <h3>Submission</h3>
+                <div id="submission">
+                  <a href="{{.Site.BaseURL}}/admin/#/collections/Draft-Legislation/new?competition={{.File.BaseFileName}}" target="_blank" class="button">Submit New Legislation</a>
+                </div>
             </section>
 
             <section class="post-content">
