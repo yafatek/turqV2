@@ -41,7 +41,7 @@ Again, thank you so much for your interest and support! We look forward to enhan
 #### Legal ####
 [Terms of Service](turq.io/termsofservice) 
 
-*Licenses*
+*Licenses*  
 [Netlify](https://www.netlify.com/legal/self-serve-subscription-agreement/)  
 [Netlify CMS](https://github.com/netlify/netlify-cms/blob/master/LICENSE)  
 [Hugo](https://gohugo.io/about/license/)  
