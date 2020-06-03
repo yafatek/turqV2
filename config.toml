@@ -1,4 +1,4 @@
-BaseUrl= "https://turq.netlify.app/"
+BaseUrl= "https://turq.io/"
 LanguageCode= "en-US"
 Title= "Turq"
 theme = "hugo-cards"
@@ -8,11 +8,12 @@ themesDir = "./themes"
 [params]
   builtBy = "bool"
   defaultImage = "turq_logo.PNG"
+  defaultImageInverse = "turq_logo_inverse.PNG"
 
   facebook = ""
   quora = ""
-  twitter = "http://twitter.com/bul_ikana"
-  github = "http://github.com/bul-ikana"
+  twitter = ""
+  github = ""
   email = ""
 
   fbLikeBox = ""
@@ -22,10 +23,6 @@ themesDir = "./themes"
 
   analytics = ""
   disqus = ""
-
-  [params.copyright]
-     name = "bool"
-     link = "https://bool.netlify.com"
 
 [menu]
     

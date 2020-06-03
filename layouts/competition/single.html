@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="row">
-<div class="col-md-8">
+<div class="col-md-10 col-md-offset-1">
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
           <header class="post-header">
@@ -11,25 +11,33 @@
 
           <div class="post-content" itemprop="articleBody">
             <section>
-              <b>Prizes</b><br>
-              {{ replace .Params.prizes "\n" "<br/>" | safeHTML }}
-              <br><br>
-              <b>Description</b><br>
-              {{ replace .Params.description "\n" "<br/>" | safeHTML }}
-              <br><br>
-              <b>Rules</b><br>
-              {{ replace .Params.rules "\n" "<br/>" | safeHTML }}
-              <br><br>
-              <b>Judging Criteria</b><br>
-              {{ replace .Params.criteria "\n" "<br/>" | safeHTML }}
-              <br><br>
-              <b>Submission</b><br>
-              <a href="{{.Site.BaseURL}}/admin/#/collections/Draft-Legislation/new?competition={{.File.BaseFileName}}" class="button">Submit New Legislation</a>
-              <br><br>
+              <h3>Prizes</h3>
+              <div id="prizes">
+                {{ partial "markdown2html" (dict "section" .Params.prizes "divId" "prizes") }}
+              </div>
+              <h3>Description</h3>
+                <div id="description">
+                  {{ partial "markdown2html" (dict "section" .Params.description "divId" "description") }}
+                </div>
+              <h3>Rules</h3>
+                <div id="rules">
+                  {{ partial "markdown2html" (dict "section" .Params.rules "divId" "rules") }}
+                </div>
+              <h3>Judging Criteria</h3>
+                <div id="criteria">
+                  {{ partial "markdown2html" (dict "section" .Params.criteria "divId" "criteria") }}
+                </div>
+              </div>
+              <br>
+             <div class="text-center">
+               <a href="{{ .Site.BaseURL }}/admin/#/collections/Draft-Legislation/new?competition={{.File.BaseFileName}}" target="_blank"><button type="button" class="btn btn-secondary btn-lg">Create New Legislation!</button></a>
+             </div>
             </section>
-
+            <br>
+            <hr>
+            <br>
             <section class="post-content">
-              <h2>Legislation Submitted For This Competition</h2>
+            <h2>Legislation Submitted For This Competition</h2>
               <!-- Get the baseFileName, which is the slug from Netlify CMS, for comparison in the range below since it will not be available in that context-->
               {{ $competition := .File.BaseFileName }}
               <!-- Check that current page slug is equal to the competition parameter on the legislation -->
@@ -39,15 +47,16 @@
                 {{ range $legislation }}
                   <div class="index-content post">
                     <a href="{{.RelPermalink}}"><h4>{{.Title}}</h4></a>
-                    {{ truncate 70 .Params.accomplishes }}<br>
+                    {{ truncate 170 .Params.accomplishes }}<br>
                   </div>
                   <hr>
                 {{ end }}
               {{ else }}
-                <div class="index-content post">
-                  No legislation has been submitted yet,
-                  <a href="{{.Site.BaseURL}}/admin/#/collections/Draft-Legislation/new?competition={{.File.BaseFileName}}" class="button">Be The First To Submit New Legislation!</a>
+               <div class="text-center">
+                 <div class="index-content post">
+                 - No legislation has been created yet -
                 </div>
+               </div>
               {{ end }}
             </section>
           </div>
@@ -57,17 +66,6 @@
         {{ if .Site.Params.disqus }}
          {{ partial "disqus.html" . }}
         {{ end }}
-    </div>
-    
-    <div class="row">
-            <ul class="pager">
-             {{ with .Next }}
-                    <li><a class="next" href="{{ .URL }}">&laquo; {{ .Title }}</a></li>
-              {{ end }}
-              {{ with .Prev }}
-                <li><a class="previous" href="{{ .URL }}">{{ .Title }} &raquo;</a></li>
-              {{ end }}
-            </ul>
     </div>
 </div>
 

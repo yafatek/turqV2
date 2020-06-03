@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="row d-flex justify-content-center">
-<div class="col-md-8 d-flex justify-content-center">
+<div class="col-md-10 col-md-offset-1">
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
           <header class="post-header">
@@ -62,7 +62,9 @@
 
             <section class="post-content">
               <!-- The .File.BaseFileName will correspond to the slug used by Netlify CMS -->
-              <a href="{{.Site.BaseURL}}/admin/#/collections/Draft-Legislation/entries/{{.File.BaseFileName}}">Edit this legislation</a>
+              <div class="text-center">
+                <a href="{{.Site.BaseURL}}/admin/#/collections/Draft-Legislation/entries/{{.File.BaseFileName}}" target="_blank"><button type="button" class="btn btn-secondary btn-lg">Edit this Legislation!</button></a>
+              </div>
             </section>
           </div>
 
@@ -71,17 +73,6 @@
         {{ if .Site.Params.disqus }}
          {{ partial "disqus.html" . }}
         {{ end }}
-    </div>
-    
-    <div class="row">
-            <ul class="pager">
-             {{ with .Next }}
-                    <li><a class="next" href="{{ .URL }}">&laquo; {{ .Title }}</a></li>
-              {{ end }}
-              {{ with .Prev }}
-                <li><a class="previous" href="{{ .URL }}">{{ .Title }} &raquo;</a></li>
-              {{ end }}
-            </ul>
     </div>
 </div>
 

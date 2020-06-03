@@ -36,7 +36,7 @@ rules: >-
   This challenge is open to all citizens of the United States of America.
 
 
-  See the [terms and conditions](https://www.turq.io/s/Terms-Conditions.pdf) here.
+  See the [terms and conditions](https://www.turq.io/terms/Terms_Conditions.pdf) here.
 
 
   Teams that do not comply with the rules, terms and conditions may be disqualified.
@@ -44,7 +44,7 @@ criteria: >-
   **Initial Screening**
 
 
-  All submissions will be put through an initial screening to ensure compliance with challenge [terms and conditions](https://www.turq.io/s/Terms-Conditions.pdf).
+  All submissions will be put through an initial screening to ensure compliance with challenge [terms and conditions](https://www.turq.io/terms/Terms_Conditions.pdf).
 
 
   **Evaluation and Selection**
