@@ -9,7 +9,7 @@ type: "home"
   
 #### Currently serving Massachusetts. More States coming very soon, so go ahead and participate!  
 
-If you want a legislative bill writen, your have limited options. Either write it yourself, or get an politcians to write it for you. But thousands of people are asking their politicians to write them legislation everyday, and witing it yourself can be intimidating.  
+If you want a legislative bill writen, you have limited options. Either write it yourself, or get an politcians to write it for you. But thousands of people are asking their politicians to write them legislation everyday, and witing it yourself can be intimidating.  
 
 Turq is citizens writing legislation for one another.  If you want some legislation made, become a Sponsor and fund a bill wirting competition. If you want to help bring someone's legislative dreams into reality, become a Drafter and make some money along the way.  
  
