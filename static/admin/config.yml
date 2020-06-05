@@ -13,7 +13,7 @@ collections:
     label: "Draft Legislation" # Used in the UI
     folder: "content/legislation" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    delete: true
+    delete: false
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: "Official Title", hint: "The name of the legislation. Ex. An Act Establishing Financial Literacy Education In Massachusetts", name: "title", widget: "string"}
@@ -48,6 +48,6 @@ collections:
         default: ""
         format: "MMM Do YY"
       - {label: "Prizes", hint: "Prizes rewared for this competition", name: "prizes", widget: "text"}
-      - {label: "Description", hint: "Name of the competition", name: "description", widget: "markdown", default: "**Background**\n\n**Timeline**"}
-      - {label: "Rules", hint: "Competition Rules", name: "rules", widget: "markdown"}
-      - {label: "Judging Criteria", hint: "Judgement Criteria", name: "criteria", widget: "markdown", default: "**Initial Screening**\n**Evaluation and Selection**\n* **Technical Merit**\n* **Originality**\n* **Impact**\n* **Practicality**"}
+      - {label: "Description", hint: "Please note that will section headers do not appear in the preview currently they will be displayed when published so there is no need to add them!", name: "description", widget: "markdown", default: "**Background**\n\n**Timeline**"}
+      - {label: "Rules", hint: "Please note that will section headers do not appear in the preview currently they will be displayed when published so there is no need to add them!", name: "rules", widget: "markdown"}
+      - {label: "Judging Criteria", hint: "Please note that will section headers do not appear in the preview currently they will be displayed when published so there is no need to add them!", name: "criteria", widget: "markdown", default: "**Initial Screening**\n**Evaluation and Selection**\n* **Technical Merit**\n* **Originality**\n* **Impact**\n* **Practicality**"}

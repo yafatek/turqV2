@@ -10,8 +10,38 @@
   <div class="post-content">
     {{ .Content }}
   </div>
+{{ if .Params.showCompetitions }}
+<br>
+<hr>
+    <h2>Competitions</h2>
+        <div class="row pack">
 
+            {{ range (where .Site.RegularPages "Section" "competition") }}
+                <div class="col-md-4 card">
+                <a href="{{ .Permalink }}" class="index-anchor">
+                    <div class="panel panel-default">
+                    
+                    {{ if .Params.img }}
+                    <img width="100%" src="{{ .Site.BaseURL }}/images/{{ .Params.img }}" alt="{{ .Title }}">
+                    {{ else }}
+                    <img width="100%" src="{{ .Site.BaseURL }}/images/{{ .Site.Params.defaultImage }}" alt="{{ .Site.Title }}">
+                    {{ end }}
+                    
+                    <div class="panel-body">
+                        <h3 id="card-title" class="panel-title pull-left">{{ partial "compTitle" (dict "title" .Title "endDate" .Params.endDate "divId" "card-title" "trunc" 35) }}</h3><span class="post-meta pull-right"></span>
+                    </div>
+                    
+                    <div class="panel-body"><small>
+                        {{ .Params.description | plainify | truncate 180 }}</small>
+                    </div>
+                    </div>
+                    </a>
+                </div>
+            
+            {{ end }}
+
+        </div> 
+    {{ end }}
 </article>
-
 {{ partial "fb-script.html" . }}
 {{ end }}

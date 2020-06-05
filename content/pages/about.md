@@ -1,7 +1,8 @@
 ---
 title: About
-menu: main
-weight: 3
+weight: 0
+info: Learn more about turq and our mission
+showCompetitions: false
 aliases:
   /about/
 ---
