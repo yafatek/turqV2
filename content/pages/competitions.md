@@ -7,6 +7,8 @@ url: /competition
 weight: 20
 ---
 
+If you want to help bring someone's legislative dreams into reality, become a Drafter and make some money along the way.  
+
 #### Drafters
 
 1. Read competition details and the Terms & Conditions.
