@@ -1,7 +1,12 @@
 <script>
-  var target = document.getElementById('{{ .divId }}');
+  var target = document.getElementById('title-{{ .divId }}');
   var today = new Date();
-  title = ( {{ .endDate }} > today ) ? '{{ .title }}' : 'CLOSED - {{ .title }}';
-  title = title.substring(0,{{ .trunc }});
+  var compDate = new Date({{ .endDate }});
+  console.log(today)
+  console.log(compDate)
+  title = ( compDate > today ) ? '{{ .title }}' : 'CLOSED - {{ .title }}';
+  if ( {{.trunc}} ) {
+    title = title.substring(0,{{ .trunc }});
+  }
   target.innerHTML = title;
 </script>

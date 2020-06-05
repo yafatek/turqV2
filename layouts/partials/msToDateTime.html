@@ -1,0 +1,5 @@
+<script>
+  var target = document.getElementById('{{ .divId }}');
+  var compDate = new Date({{ .endDate }});
+  target.innerHTML = "End Date: " + compDate.toDateString();
+</script>

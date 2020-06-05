@@ -28,7 +28,7 @@
                     {{ end }}
                     
                     <div class="panel-body">
-                        <h3 id="card-title" class="panel-title pull-left">{{ partial "compTitle" (dict "title" .Title "endDate" .Params.endDate "divId" "card-title" "trunc" 35) }}</h3><span class="post-meta pull-right"></span>
+                        <h3 id="title-{{ .Title }}" class="panel-title pull-left">{{ partial "compTitle" (dict "title" .Title "endDate" .Params.endDate "divId" .Title "trunc" 35) }}</h3><span class="post-meta pull-right"></span>
                     </div>
                     
                     <div class="panel-body"><small>

@@ -46,7 +46,7 @@ collections:
         name: "endDate"
         widget: "date"
         default: ""
-        format: "MMM Do YY"
+        format: "x"
       - {label: "Prizes", hint: "Prizes rewared for this competition", name: "prizes", widget: "text"}
       - {label: "Description", hint: "Please note that will section headers do not appear in the preview currently they will be displayed when published so there is no need to add them!", name: "description", widget: "markdown", default: "**Background**\n\n**Timeline**"}
       - {label: "Rules", hint: "Please note that will section headers do not appear in the preview currently they will be displayed when published so there is no need to add them!", name: "rules", widget: "markdown"}

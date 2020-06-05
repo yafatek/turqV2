@@ -4,8 +4,8 @@
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
           <header class="post-header">
-		  <h1 class="post-title" id="title" itemprop="name headline">{{ partial "compTitle" (dict "title" .Title "endDate" .Params.endDate "divId" "title" "trunc" 35) }}</h1>
-            <p class="post-meta">Competition Closes: <time datetime='{{ .Date.Format "Jun 19th 20" }}' itemprop="datePublished">{{ .Params.endDate }}</time></p>
+          <h1 class="post-title" id="title-title" itemprop="name headline">{{ partial "compTitle" (dict "title" .Title "endDate" .Params.endDate "divId" "title") }}</h1>
+          <p id="endDate">{{ partial "msToDateTime" (dict "endDate" .Params.endDate "divId" "endDate") }}</p>
           </header>
 
           <div class="post-content" itemprop="articleBody">
