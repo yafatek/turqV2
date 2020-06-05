@@ -10,6 +10,8 @@ aliases:
 
 #### Currently serving Massachusetts. More States coming very soon, so go ahead and participate!  
 
+If you want some legislation made, become a Sponsor and fund a bill writing competition for others to draft your legislation for you.  
+
 #### Sponsors
 
 1. Select “Create a New Competition!” below, to submit your idea for Citizen Legislation.  
