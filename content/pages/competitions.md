@@ -3,7 +3,7 @@ title: Draft a Bill
 info: If you want to help bring someone's legislative dreams into reality, become a Drafter and make some money along the way
 menu: main
 showCompetitions: true
-url: /competition
+url: /competitions
 weight: 20
 ---
 

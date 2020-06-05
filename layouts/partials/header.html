@@ -15,8 +15,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a style="color:#40e0d0" href="{{ .Site.BaseURL }}/competition/">Draft a Bill</a></li>
-        <li><a style="color:#40e0d0" href="{{ .Site.BaseURL }}/pages/sponsor/">Sponsor a Bill</a></li>
+		{{- range .Site.Menus.main }}
+        <li><a style="color:#40e0d0" href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
+		{{- end }}
         <li><a style="color:#40e0d0" href="{{ .Site.BaseURL }}/pages/about/">About</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
