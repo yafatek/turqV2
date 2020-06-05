@@ -15,7 +15,9 @@ aliases:
 1. Select “Create a New Competition!” below, to submit your idea for Citizen Legislation.  
 2. Review legislation finalists.
 3. Payout prize funds the the winner.
-4. Turq submits the bill to the State House automatically.
+4. Turq submits the bill to the State House automatically.  
+
+ANY AND ALL FEEDBACK, EMAIL [tim@turq.io](mailto:tim@turq.io)  
 
 {{< rawhtml >}}
 <br>
