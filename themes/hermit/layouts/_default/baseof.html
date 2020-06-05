@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="{{.Site.LanguageCode}}">
 
@@ -18,13 +17,7 @@
 	{{ end -}}
 	{{ $style := resources.Get "scss/style.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
 	<link rel="stylesheet" href="{{ $style.Permalink }}" {{ printf "integrity=%q" $style.Data.Integrity | safeHTMLAttr }} crossorigin="anonymous">
-	{{ if .Site.Params.bgImg -}}
-	<style>.bg-img {background-image: url('{{.Site.Params.bgImg}}');}</style>
-	{{- else if .Site.Params.images -}}
-		{{- range first 1 .Site.Params.images -}}
-		<style>.bg-img {background-image: url('{{. | absURL}}');}</style>
-		{{- end -}}
-	{{- end -}}
+	{{- block "head" . -}}{{- end }}
 	{{- range .Site.Params.customCSS }}
 	<link rel="stylesheet" href="{{ . | absURL }}">
 	{{- end }}
@@ -34,36 +27,9 @@
 </head>
 
 <body id="page">
-    {{ block "header" . -}}{{ end -}}
-    {{- if (or .Site.Params.images .Site.Params.bgImg) }}
-	<div class="bg-img"></div>
-	{{- end }}
-	<div id="spotlight" class="animated fadeIn">
-		<div id="home-center">
-            <div id="title-center">
-                <a href="#"><img style="display: inline-block;" class="" width="300px"  src="{{ .Site.BaseURL }}/images/{{ .Site.Params.defaultImageInverse }}" alt="{{ .Site.Title }}"></a>
-            </div>
-			{{- with .Site.Params.homeSubtitle }}
-			<p id="home-subtitle">{{.}}</p>
-			{{- end }}
-			{{- with .Site.Params.siteDescription }}
-			<p id="site-description">{{.}}</p>
-			{{- end }}
-			{{- with .Site.Params.social }}
-			<div id="home-social">
-				{{ partialCached "social-icons.html" . }}
-			</div>
-			{{- end }}
-			<nav id="home-nav" class="site-nav">
-				{{ partialCached "menu.html" . }}
-			</nav>
-		</div>
-		<div id="home-footer">
-			<p>
-				&copy; {{ now.Format "2006" }} <a href="{{ .Site.BaseURL }}">{{ .Site.Author.name }}</a>{{ .Site.Params.footerCopyright | safeHTML }}
-			</p>
-		</div>
-	</div>
+	{{ block "header" . -}}{{ end -}}
+	{{ block "main" . -}}{{ end -}}
+	{{ block "footer" . -}}{{ end }}
 
 	{{ $main := resources.Get "js/main.js" -}}
 	{{ if .Site.Params.code_copy_button | default true -}}

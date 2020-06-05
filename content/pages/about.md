@@ -1,7 +1,8 @@
 ---
 title: About
-menu: main
-weight: 3
+weight: 0
+info: Learn more about turq and our mission
+showCompetitions: false
 aliases:
   /about/
 ---
@@ -39,7 +40,7 @@ If a draft doesn't meet the "must be" guidelines, we may ask that the draft be u
 Again, thank you so much for your interest and support! We look forward to enhancing Turq.  
 
 #### Legal ####
-[Terms of Service](turq.io/termsofservice) 
+[Terms of Use](https://github.com/TurqPBC/turqV2/blob/master/TERMS_OF_USE.md) 
 
 **Licenses**  
 [Netlify](https://www.netlify.com/legal/self-serve-subscription-agreement/)  

@@ -1,6 +1,7 @@
 ---
 title: Financial Literacy
-endDate: Jun 19th 20
+endDate: Jan 19th 20
+type: "competition"
 prizes: >-
   Payout: $40
 
