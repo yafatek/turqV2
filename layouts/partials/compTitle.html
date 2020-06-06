@@ -1,7 +1,7 @@
 <script>
   var target = document.getElementById('title-{{ .divId }}');
   var today = new Date();
-  var compDate = new Date({{ .endDate }});
+  var compDate = new Date(parseInt({{ .endDate }}));
   console.log(today)
   console.log(compDate)
   title = ( compDate > today ) ? '{{ .title }}' : 'CLOSED - {{ .title }}';

@@ -1,6 +1,6 @@
 ---
 title: Financial Literacy
-endDate: 1582585051111
+endDate: "1582585051111"
 type: "competition"
 prizes: >-
   Payout: $40
