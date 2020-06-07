@@ -8,11 +8,11 @@ aliases:
 ---
 
 #### Goals of Turq
-Make direct democracy viable my enabling citizens draft and submit their own legislation.
+Make direct democracy viable by enabling citizens draft and submit their own legislation.
 
 
 #### Our Mission
-Legislators are overhwlemed with requests to write bills. We solve this problem by enabling citizens to write bills for one another.
+Legislators are overwhelmed with requests to write bills. We solve this problem by enabling citizens to write bills for one another.
   
   **What to contribute**
 A legislation draft must follow the principles of
