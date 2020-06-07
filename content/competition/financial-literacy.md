@@ -33,14 +33,6 @@ description: >-
 
 
   There is no current timeline. All submissions to this page will be accepted until a winner is found.
-rules: >-
-  This challenge is open to all citizens of the United States of America.
-
-
-  See the [terms and conditions](https://www.turq.io/terms/Terms_Conditions.pdf) here.
-
-
-  Teams that do not comply with the rules, terms and conditions may be disqualified.
 criteria: >-
   **Initial Screening**
 

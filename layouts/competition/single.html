@@ -19,9 +19,12 @@
                   {{ partial "markdown2html" (dict "section" .Params.description "divId" "description") }}
                 </div>
               <h3>Rules</h3>
-                <div id="rules">
-                  {{ partial "markdown2html" (dict "section" .Params.rules "divId" "rules") }}
-                </div>
+                    <div id="rules">
+                        {{ if .Params.rules }}
+                            {{ partial "markdown2html" (dict "section" .Params.rules "divId" "rules") }}
+                        {{ end }}
+                        <p>{{ .Site.Params.generalRules | safeHTML}}</p>
+                    </div>
               <h3>Judging Criteria</h3>
                 <div id="criteria">
                   {{ partial "markdown2html" (dict "section" .Params.criteria "divId" "criteria") }}

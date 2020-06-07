@@ -7,7 +7,11 @@ themesDir = "./themes"
 
 [params]
   homeSubtitle="Legislation for the people, by the people"
-  siteDescription="If you want a legislative bill writen, you have limited options. Either write it yourself, or get a politcian to write it for you. But thousands of people are asking their politicians to write them legislation everyday, and writing it yourself can be intimidating. Turq is the solution."
+  siteDescription="If you want a legislative bill writen, you have limited options. Either write it yourself, or get a politician to write it for you. But thousands of people are asking their politicians to write them legislation everyday, and writing it yourself can be intimidating. Turq is the solution."
+  generalRules="""This challenge is open to all citizens of the United States of America.<br><br>
+See the terms and conditions <a href="terms/Terms_Conditions.pdf">here</a>.<br><br>
+Teams that do not comply with the rules, terms and conditions may be disqualified.
+"""
   builtBy = "bool"
   defaultImage = "turq_logo.PNG"
   defaultImageInverse = "turq_logo_inverse.PNG"
