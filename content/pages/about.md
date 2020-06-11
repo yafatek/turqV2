@@ -39,6 +39,9 @@ If a draft doesn't meet the "must be" guidelines, we may ask that the draft be u
 
 Again, thank you so much for your interest and support! We look forward to enhancing Turq.  
 
+#### Contact ####
+[tim@turq.io](mailto:tim@turq.io) 
+
 #### Legal ####
 [Terms of Use](https://github.com/TurqPBC/turqV2/blob/master/TERMS_OF_USE.md) 
 
