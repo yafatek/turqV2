@@ -1,0 +1,16 @@
+.bgimage {
+  width:100%;
+  height:700px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  border-bottom: 6px solid #40e0d0;
+  background: linear-gradient( rgba(10,10,10, .6), rgba(10,10,10, .75)), url(https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80);
+}
+.bgimage h2 {
+  color:white;
+  text-shadow:2px 2px #333;
+}
+.bgimage p {
+  color:white;
+}

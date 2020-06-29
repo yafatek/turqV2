@@ -1,6 +1,0 @@
-<script>
-  var target = document.getElementById('{{ .divId }}');
-  var converter = new showdown.Converter({disableForced4SpacesIndentedSublists: true});
-  var html = converter.makeHtml( {{ .section }});
-  target.innerHTML = html;
-</script>

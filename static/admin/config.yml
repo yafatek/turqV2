@@ -7,11 +7,11 @@ media_library:
   name: 'disabled'
 media_folder: "static/images" # Media files will be stored in the repo under images/uploads
 public_folder: "/images" # The src attribute for uploaded media will begin with /images/uploads
-display_url: https://turq.io/
+display_url: https://turq-test.netlify.app/
 collections:
   - name: "Draft-Legislation" # Used in routes, e.g., /admin/collections/blog
     label: "Draft Legislation" # Used in the UI
-    folder: "content/legislation" # The path to the folder where the documents are stored
+    folder: "src/markdown/legislation" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     delete: false
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
@@ -34,20 +34,20 @@ collections:
 
       - {label: "Other Provisions", hint: "Ex. A position on the Massachusetts State Board of Education shall be created to act as a liaison between the United States Department of Education and other State Boards of Education as it pertains to the education of financial literacy...", name: "other", widget: "string", required: false}
       - {label: "competition", hint: "competition", name: "competition", widget: "hidden"}
-  - name: "Competitions" # Used in routes, e.g., /admin/collections/blog
-    label: "Competitions" # Used in the UI
-    folder: "content/competition" # The path to the folder where the documents are stored
+  - name: "Contests" # Used in routes, e.g., /admin/collections/blog
+    label: "Contests" # Used in the UI
+    folder: "src/markdown/contest" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     delete: false
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - {label: "Title", hint: "Name of the competition", name: "title", widget: "string"}
+      - {label: "Title", hint: "Name of the Contest", name: "title", widget: "string"}
       - label: "End Date"
         name: "endDate"
         widget: "date"
         default: ""
         format: "x"
-      - {label: "Prizes", hint: "Prizes rewared for this competition", name: "prizes", widget: "text"}
+      - {label: "Prizes", hint: "Prizes rewared for this Contest", name: "prizes", widget: "text"}
       - {label: "Description", hint: "Please note that will section headers do not appear in the preview currently they will be displayed when published so there is no need to add them!", name: "description", widget: "markdown", default: "**Background**\n\n**Timeline**"}
       - {label: "Rules", hint: "Please note that will section headers do not appear in the preview currently they will be displayed when published so there is no need to add them!", name: "rules", widget: "markdown", required: false}
       - {label: "Judging Criteria", hint: "Please note that will section headers do not appear in the preview currently they will be displayed when published so there is no need to add them!", name: "criteria", widget: "markdown", default: "**Initial Screening**\n**Evaluation and Selection**\n* **Technical Merit**\n* **Originality**\n* **Impact**\n* **Practicality**"}
