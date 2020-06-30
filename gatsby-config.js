@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Turq`,
-    description: `Make direct democracy viable my enabling citizens draft and submit their own legislation.`,
+    description: `Make direct democracy viable by enabling citizens to draft and submit their own legislation.`,
     author: `@michaelbconlon`,
     competitionRules: `This challenge is open to all citizens of the United States of America.\n\nSee the terms and conditions [here](/terms/Terms_Conditions.pdf).\n\n Teams that do not comply with the rules, terms and conditions may be disqualified.`
   },
