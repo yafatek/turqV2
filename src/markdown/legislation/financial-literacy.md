@@ -1,7 +1,7 @@
 ---
-title: An Act relative to financial literacy in Massachusetts
-chapter: Chapter 13.1.abcd
-section: Section 11.8.e
+title: An Act relative to Financial Literacy in Massachusetts
+chapter: Chapter 69 of the General Law is hereby amended by inserting the following after section 1Q the following section
+section: 1R. Financial Literacy Education in Massachusetts
 accomplishes: This document specifies minimum requirements for the
   implementation of a financial literacy education program in the public schools
   of the Commonwealth of Massachusetts.
