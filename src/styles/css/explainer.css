@@ -1,0 +1,11 @@
+.panel-left {
+  min-height: 400px;
+}
+.panel-right {
+  min-height: 400px;
+  background-color: #f4f4f4;
+}
+
+.explainer {
+  border-bottom: 3px solid #f4f4f4;
+}
