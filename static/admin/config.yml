@@ -8,6 +8,7 @@ media_library:
 media_folder: "static/images" # Media files will be stored in the repo under images/uploads
 public_folder: "/images" # The src attribute for uploaded media will begin with /images/uploads
 display_url: https://turq-test.netlify.app/
+logo_url: https://turq.io/images/turq_logo_inverse.png
 collections:
   - name: "Draft-Legislation" # Used in routes, e.g., /admin/collections/blog
     label: "Draft Legislation" # Used in the UI

@@ -11,9 +11,9 @@ export default function Template({
   const { html } = markdownRemark
   return (
   <Layout>
-    <SEO title="About" />
+    <SEO title="Sponsor" />
     <div dangerouslySetInnerHTML={{__html: html}} />
-    <Button variant="turq" size="lg" href="/admin/#/collections/Contests/new">Create a New Contest!</Button>
+    <Button variant="turq" size="lg" target="_blank" href="/admin/#/collections/Contests/new">Create a New Contest!</Button>
   </Layout>
   )
 }

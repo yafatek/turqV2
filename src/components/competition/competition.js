@@ -47,7 +47,7 @@ function Competition ({title, prizes, description, rules, criteria, endDate, but
 
           <div className="row justify-content-center align-self-center">
             <div className="col mt-5">
-              <Button variant={isPastEndDate(endDate) ? "secondary" : "turq"} size="lg" href={buttonLink} disabled={isPastEndDate(endDate)}>Create New Legislation</Button>
+              <Button variant={isPastEndDate(endDate) ? "secondary" : "turq"} size="lg" target="_blank" href={buttonLink} disabled={isPastEndDate(endDate)}>Create New Legislation</Button>
             </div>
           </div>
 

@@ -6,7 +6,9 @@ body {
 }
 $theme-colors: (
   "turq": #40e0d0,
+  "turq-secondary": #FF40FF,
 );
+@import "../css/drafter.css";
 @import "../css/explainer.css";
 @import "../css/competition.css";
 @import "../css/hero.css";
