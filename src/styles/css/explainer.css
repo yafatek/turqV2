@@ -1,9 +1,11 @@
-.panel-left {
+.drafter-panel {
   min-height: 400px;
+  border-top: 6px solid #40e0d0;
 }
-.panel-right {
+.sponsor-panel {
   min-height: 400px;
   background-color: #f4f4f4;
+  border-top: 6px solid #40e0d0;
 }
 
 .explainer {

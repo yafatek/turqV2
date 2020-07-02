@@ -4,7 +4,7 @@ import NumberCircleTile from "./numberCircleTile"
 
 const HowItWorks = ({id}) => (
 <section id={id}>
-  <div className="container-fluid panel-left">
+  <div className="container-fluid">
     <div className="row">
       <div className="col-10 mx-auto mt-5">
         <h2> How It Works </h2>
