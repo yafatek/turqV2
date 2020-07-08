@@ -1,7 +1,7 @@
 ---
 title: Municipal Protective Services Reform
 endDate: "1592585051111"
-prizes: $100
+prizes: 100
 description: >-
   **Background**
 

@@ -2,7 +2,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { Button } from "react-bootstrap"
-import Legislation from "../components/legislation/legislation"
+import LegislationText from "../components/legislation/legislationText"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { isPastEndDate } from "../util/dateCompare"
@@ -20,7 +20,7 @@ export default function Template({
       <Link to={contest.fields.slug}> {"< Back to " + contest.frontmatter.title + " Contest"}</Link>
       <br />
       <br />
-      <Legislation
+      <LegislationText
         title={frontmatter.title}
         chapter={frontmatter.chapter}
         section={frontmatter.section}

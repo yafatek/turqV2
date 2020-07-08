@@ -1,0 +1,20 @@
+//colors
+$turq-primary: #40E0D0;
+$turq-secondary: #FF40FF;
+$light-gray: #F1F1F1;
+$dark-gray: #666666;
+$white: #FFFFFF;
+
+//misc
+$text-color: #444444;
+$background-color: #f8f9fa;
+
+//fonts
+$legal-font: "Times New Roman", Times, serif;
+
+//bootstrap overrides
+$theme-colors: (
+  "turq": $turq-primary,
+  "turq-secondary": $turq-secondary,
+);
+
