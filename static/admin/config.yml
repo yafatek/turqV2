@@ -31,9 +31,9 @@ collections:
 
       - {label: "Provisions", hint: "Ex. This legislation applies to all Massachusetts Public and Charter Schools that receive public federal funding in the Commonwealth of Massachusetts...", name: "provisions", widget: "text"}
 
-      - {label: "Special Exceptions", hint: "Ex. Private Schools are exempt from this legislation.Special Education curriculum and instruction are exempt from this legislation.", name: "exceptions", widget: "string", required: false}
+      - {label: "Special Exceptions", hint: "Ex. Private Schools are exempt from this legislation.Special Education curriculum and instruction are exempt from this legislation.", name: "exceptions", widget: "text", required: false}
 
-      - {label: "Other Provisions", hint: "Ex. A position on the Massachusetts State Board of Education shall be created to act as a liaison between the United States Department of Education and other State Boards of Education as it pertains to the education of financial literacy...", name: "other", widget: "string", required: false}
+      - {label: "Other Provisions", hint: "Ex. A position on the Massachusetts State Board of Education shall be created to act as a liaison between the United States Department of Education and other State Boards of Education as it pertains to the education of financial literacy...", name: "other", widget: "text", required: false}
       - {label: "competition", hint: "competition", name: "competition", widget: "hidden"}
   - name: "Contests" # Used in routes, e.g., /admin/collections/blog
     label: "Contests" # Used in the UI
@@ -48,7 +48,7 @@ collections:
         widget: "date"
         default: ""
         format: "x"
-      - {label: "Prizes", hint: "Prizes rewared for this Contest", name: "prizes", widget: "text"}
-      - {label: "Description", hint: "Please note that will section headers do not appear in the preview currently they will be displayed when published so there is no need to add them!", name: "description", widget: "markdown", default: "**Background**\n\n**Timeline**"}
-      - {label: "Rules", hint: "Please note that will section headers do not appear in the preview currently they will be displayed when published so there is no need to add them!", name: "rules", widget: "markdown", required: false}
-      - {label: "Judging Criteria", hint: "Please note that will section headers do not appear in the preview currently they will be displayed when published so there is no need to add them!", name: "criteria", widget: "markdown", default: "**Initial Screening**\n**Evaluation and Selection**\n* **Technical Merit**\n* **Originality**\n* **Impact**\n* **Practicality**"}
+      - {label: "Prizes", hint: "Cash prize (USD) to be awarded for this project", name: "prizes", widget: "number", valueType:"int", min: 10}
+      - {label: "Description", hint: "Description of the purpose, background, and need for this legislation", name: "description", widget: "markdown"}
+      - {label: "Rules", hint: "Rules that you would like to set for this competition", name: "rules", widget: "markdown", required: false}
+      - {label: "Judging Criteria", hint: "Criteria that you will be using to select the winning legislation such as practicality, impact, technical merit, originality, etc", name: "criteria", widget: "markdown"}
