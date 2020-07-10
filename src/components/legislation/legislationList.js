@@ -10,7 +10,6 @@ const legislationList = legislation
                 key={law.node.id}
                 slug={law.node.fields.slug}
               />)
-              console.log(legislationList.length);
 return(
     <div className="row">
         <div className="col">

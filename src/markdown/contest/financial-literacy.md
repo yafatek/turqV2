@@ -2,11 +2,7 @@
 title: Financial Literacy
 endDate: "1582585051111"
 type: "competition"
-prizes: >-
-  Payout: $40
-
-
-  The winner will be contacted by Turq to get PayPal or other details in order to send payout funds.
+prizes: 40
 description: >-
   **Background**
 

@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import { Card } from "react-bootstrap"
 import Truncate from "react-truncate"
-import CompetitionTitle from "./competitionTitle"
 
 
 const CompetitionCard = ({title, slug, description, endDate}) => (
@@ -12,7 +11,7 @@ const CompetitionCard = ({title, slug, description, endDate}) => (
       <Card.Header className="competition-card-header">
         <h4>
           <Truncate lines={2}>
-            <CompetitionTitle title={title} endDate={endDate}/>
+            {title}
           </Truncate>
         </h4>
       </Card.Header>

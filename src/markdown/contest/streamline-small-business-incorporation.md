@@ -1,7 +1,7 @@
 ---
 title: Streamline Small Business Incorporation
 endDate: "1592625600000"
-prizes: $100
+prizes: 100
 description: >-
   **Background**
 

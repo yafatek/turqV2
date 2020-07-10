@@ -1,6 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Competition from "../components/competition/competition"
+import { Button } from 'react-bootstrap'
+import { isPastEndDate } from "../util/dateCompare"
+import LegislationList from "../components/legislation/legislationList"
+import CompetitionText from "../components/competition/competitionText"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -13,16 +16,36 @@ export default function Template({
   return (
   <Layout>
     <SEO title={frontmatter.title} />
-      <Competition
-        title={frontmatter.title}
-        endDate={frontmatter.endDate}
-        prizes={frontmatter.prizes}
-        description={frontmatter.description}
-        rules={frontmatter.rules}
-        criteria={frontmatter.criteria}
-        legislation={edges}
-        buttonLink={"/admin/#/collections/Draft-Legislation/new?competition=" + fields.name}
-      />
+    <CompetitionText
+      title={frontmatter.title}
+      endDate={frontmatter.endDate}
+      prizes={frontmatter.prizes}
+      description={frontmatter.description}
+      rules={frontmatter.rules}
+      criteria={frontmatter.criteria}
+    />
+    <div className="row justify-content-center align-self-center">
+      <div className="col mt-5">
+        <Button
+          variant={isPastEndDate(frontmatter.endDate) ? "secondary" : "turq"}
+          size="lg"
+          target="_blank"
+          href={"/admin/#/collections/Draft-Legislation/new?competition=" + fields.name}
+          disabled={isPastEndDate(frontmatter.endDate)}
+        >
+            Create New Legislation
+        </Button>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div className="row">
+      <div className="col mb-5">
+        <h2>Legislation Submitted For This Contest</h2>
+        <hr />
+        <LegislationList legislation={edges}/>
+      </div>
+    </div>
   </Layout>
   )
 }
