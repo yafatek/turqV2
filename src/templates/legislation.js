@@ -35,11 +35,10 @@ export default function Template({
       <Button
         variant={isPastEndDate(contest.frontmatter.endDate) ? "secondary" : "turq"}
         size="lg"
-	target="_blank"
         href={"/admin/#/collections/Draft-Legislation/entries/" + fields.name}
         disabled={isPastEndDate(contest.frontmatter.endDate)}
       >
-        Edit this Legislation
+       Contribute to this Legislation
       </Button>
   </Layout>
   )

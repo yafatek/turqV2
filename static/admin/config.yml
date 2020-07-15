@@ -2,6 +2,7 @@ backend:
   name: git-gateway
   repo: TurqPBC/turqV2
   branch: staging
+  login: false
 
 media_library:
   name: 'disabled'
