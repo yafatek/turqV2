@@ -29,7 +29,6 @@ export default function Template({
         <Button
           variant={isPastEndDate(frontmatter.endDate) ? "secondary" : "turq"}
           size="lg"
-          target="_blank"
           href={"/admin/#/collections/Draft-Legislation/new?competition=" + fields.name}
           disabled={isPastEndDate(frontmatter.endDate)}
         >

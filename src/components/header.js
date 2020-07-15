@@ -13,12 +13,12 @@ const Header = () => (
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav float-right">
     <Nav className="mr-auto">
-      <Link className="nav-link" to="/sponsor"> Sponsors </Link>
-      <NavDropdown title="Drafters" id="basic-nav-dropdown">
-        <Link className="dropdown-item" to="/contest">View Contests</Link>
-        <Link className="dropdown-item" to="/howToContribute">How To Contribute</Link>
-      </NavDropdown>
-      <Link className="nav-link" to="/about"> About </Link>
+      <Link className="nav-link" activeClassName="header-active" to="/sponsor"> Create Contest </Link>
+      <Link className="nav-link" activeClassName="header-active" to="/contest"> Explore Contests </Link>
+    </Nav>
+    <Nav className="ml-auto mr-3">
+      <Link className="nav-link" activeClassName="header-active" to="/drafter">Drafting Guidelines</Link>
+      <Link className="nav-link" activeClassName="header-active" to="/about">About</Link>
     </Nav>
   </Navbar.Collapse>
 </Navbar>

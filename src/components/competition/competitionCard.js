@@ -17,7 +17,7 @@ const CompetitionCard = ({title, slug, description, endDate}) => (
       </Card.Header>
       <Card.Body>
         <Card.Text>
-          <Truncate lines={4}>
+          <Truncate lines={5} ellipsis={<span>... </span>}>
             {description}
           </Truncate>
         </Card.Text>

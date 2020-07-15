@@ -6,7 +6,7 @@ const NumberCircleTile = ({number, title, detail, primary}) => (
     <span className={`numberCircle float-left background-${ primary ? "primary" : "secondary" }`}>{number}</span>
     <h2 className="my-auto ml-4">{title}</h2>
   </div>
-  <div className="row mt-3 mr-5">
+  <div className="row mt-3 mr-2">
     <p>{detail}</p>
   </div>
   </>

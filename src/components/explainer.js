@@ -8,7 +8,7 @@ const Explainer = ({id}) => (
       <div className="sponsor-panel col-12 col-md-6">
         <Panel
         title="Sponsor a Contest"
-        buttonText="Learn More »"
+        buttonText="Create A Contest »"
         link="/sponsor"
         imgSrc="https://img.icons8.com/ios-glyphs/64/000000/contract.png"
         altTxt="award"
@@ -17,8 +17,8 @@ const Explainer = ({id}) => (
       <div className="drafter-panel col-12 col-md-6">
         <Panel
         title="Draft Legislation"
-        buttonText="Learn More »"
-        link="/howToContribute"
+        buttonText="View Drafting Guidelines »"
+        link="/drafter"
         imgSrc="https://img.icons8.com/pastel-glyph/64/000000/ball-point-pen.png"
         altTxt="Pen"
         subtitle="If you want to help bring someone's legislative dreams into reality, become a Drafter and make some money along the way" />
