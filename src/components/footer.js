@@ -4,8 +4,8 @@ import { faTwitterSquare, faGithubSquare, faInstagramSquare, faRedditSquare } fr
 
 
 const Footer = () => (
-<footer className="container-fluid mt-5">
-    <div className="row footer py-4">
+<footer className="footer container-fluid mt-5">
+    <div className="row py-4">
       <div className="col-12 col-md-3 mx-auto my-3">
         <h3 className="footer-header">legal</h3>
         <span className="footer-text">
