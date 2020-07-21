@@ -5,23 +5,17 @@ import { faTwitterSquare, faGithubSquare, faInstagramSquare, faRedditSquare } fr
 
 const Footer = () => (
 <footer className="footer container-fluid mt-5">
-    <div className="row py-4">
-      <div className="col-12 col-md-3 mx-auto my-3">
-        <h3 className="footer-header">legal</h3>
-        <span className="footer-text">
-          <a href="https://github.com/TurqPBC/turqV2/blob/master/TERMS_OF_USE.md" classname="footer-text">terms of use</a>
-        </span>
-        <br />
-        <span className="footer-text">© copyright 2020 turq, pbc</span>
+    <div className="row py-2">
+      <div className="col-12 col-md-3 mx-auto my-2 text-right" align="center">
+        <div className="footer-text">© copyright 2020 turq, pbc</div>
       </div>
-      <div className="col-12 col-md-3 mx-auto my-3">
-        <h3 className="footer-header">Social Media</h3>
-        <span>
+      <div className="col-12 col-md-3 mx-auto my-2" align="center">
+        <div className="mx-auto">
           <a
             href="https://twitter.com/Turqpbc"
             target="_blank"
             rel="noreferrer"
-            className="mr-2"
+            className="mx-2"
           >
             <FontAwesomeIcon className="footer-text" size="2x" icon={faTwitterSquare} />
           </a>
@@ -49,9 +43,12 @@ const Footer = () => (
           >
             <FontAwesomeIcon className="footer-text" size="2x" icon={faRedditSquare} />
           </a>
-        </span>
+        </div>
       </div>
-      <div className="col-12 col-md-3 mx-auto">
+      <div className="col-12 col-md-3 my-2 text-left mx-auto" align="center">
+        <div>
+          <a className="footer-link" href="https://github.com/TurqPBC/turqV2/blob/master/TERMS_OF_USE.md">Terms of Use</a>
+        </div>
       </div>
     </div>
 </footer>
