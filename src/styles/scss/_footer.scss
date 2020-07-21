@@ -1,10 +1,23 @@
 .footer {
   width: 100%;
-  line-height: 120px;
   background-color: $dark-gray;
 }
 
 .footer-text {
-  color: $white;
+  color: $light-gray;
+  line-height: 28px;
+}
+
+.footer-link {
+  line-height: 28px;
+}
+
+.footer-header {
+  color: $medium-gray;
+}
+
+.product-hunt {
+  width: 250px;
+  height: 54px;
 }
 
