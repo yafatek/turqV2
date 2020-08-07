@@ -3,6 +3,7 @@ title: Financial Literacy
 endDate: "1582585051111"
 type: "competition"
 prizes: 40
+legislatureLink: "https://malegislature.gov/Bills/191/HD4938"
 description: >-
   **Background**
 

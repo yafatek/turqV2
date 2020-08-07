@@ -11,27 +11,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const competitionTemplate = require.resolve(`./src/templates/competition.js`)
   const legislationTemplate = require.resolve(`./src/templates/legislation.js`)
 
-  const pages = await graphql(`
-    {
-      allMarkdownRemark(
-        limit: 1000
-        filter: {frontmatter: {type: {eq: "page"}}}
-      ) {
-        edges {
-          node {
-            html
-            fields {
-              slug
-            }
-            frontmatter {
-              template
-            }
-          }
-        }
-      }
-    }
-  `)
-  
   const legislation = await graphql(`
     {
       allMarkdownRemark(
@@ -81,19 +60,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-
-  pages.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: require.resolve(
-          `./src/templates/${String(node.frontmatter.template)}.js`
-        ),
-      context: {
-        id: node.id,
-        slug: node.fields.slug,
-      },
-    })
-  })
 
   legislation.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({

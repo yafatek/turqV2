@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Button } from 'react-bootstrap'
+import { Button, Alert } from 'react-bootstrap'
 import { isPastEndDate } from "../util/dateCompare"
 import LegislationList from "../components/legislation/legislationList"
 import CompetitionText from "../components/competition/competitionText"
@@ -13,9 +13,30 @@ export default function Template({
   const { markdownRemark, allMarkdownRemark } = data 
   const { frontmatter, fields } = markdownRemark
   const { edges } = allMarkdownRemark
+
+  var pastEndDate = isPastEndDate(frontmatter.endDate)
+  var alert;
+  if (pastEndDate && !!frontmatter.legislatureLink) {
+    alert =
+    <Alert variant="info">
+      <Alert.Heading>This Competition Has Ended!</Alert.Heading>
+      <p className="mb-2"> The winning legislation is making it's way through the legislature now!  </p>
+      <p className="my-0"> Check it out here: <a target="_blank" href={frontmatter.legislatureLink}>{frontmatter.legislatureLink}</a></p>
+    </Alert>
+  } else if (pastEndDate) {
+    alert =
+    <Alert variant="info">
+      <Alert.Heading>This Competition Has Ended!</Alert.Heading>
+      <p className="mb-2"> The winning legislation is still being selected</p>
+    </Alert>
+  } else {
+    alert = null
+  }
+
   return (
   <Layout>
     <SEO title={frontmatter.title} />
+    {alert}
     <CompetitionText
       title={frontmatter.title}
       endDate={frontmatter.endDate}
@@ -63,6 +84,7 @@ export const pageQuery = graphql`
         description
         rules
         criteria
+        legislatureLink
       }
     }
     allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/markdown/legislation//"}, frontmatter: {competition: {eq: $name}}}) {

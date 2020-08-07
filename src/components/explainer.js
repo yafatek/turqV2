@@ -1,8 +1,10 @@
 import React from "react"
 import Panel from "./panel"
+import pen from "../images/pen.png"
+import contract from "../images/contract.png"
 
 const Explainer = ({id}) => (
-<section id={id}>
+<section id={id} className="mx-auto">
   <div className="explainer container-fluid">
     <div className="row">
       <div className="sponsor-panel col-12 col-md-6">
@@ -10,7 +12,7 @@ const Explainer = ({id}) => (
         title="Sponsor a Contest"
         buttonText="Create A Contest »"
         link="/sponsor"
-        imgSrc="https://img.icons8.com/ios-glyphs/64/000000/contract.png"
+        imgSrc={contract}
         altTxt="award"
         subtitle="If you want some legislation made, become a Sponsor and fund a bill writing contest for others to draft your legislation for you." />
       </div>
@@ -19,7 +21,7 @@ const Explainer = ({id}) => (
         title="Draft Legislation"
         buttonText="View Drafting Guidelines »"
         link="/drafter"
-        imgSrc="https://img.icons8.com/pastel-glyph/64/000000/ball-point-pen.png"
+        imgSrc={pen}
         altTxt="Pen"
         subtitle="If you want to help bring someone's legislative dreams into reality, become a Drafter and make some money along the way" />
       </div>
