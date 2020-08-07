@@ -1,30 +1,73 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Team from "../components/about/team"
+import Vision from "../components/about/vision"
+import Story from "../components/about/process"
 
-const AboutPage = () => (
-  <Layout fullWidth>
-    <SEO title="About" />
-    <div className="row about-header pt-5">
-      <div className="col text-center">
-        <h1 className="about-title">About Turq</h1>
+
+class AboutPage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {view: "story" }
+  }
+
+  changeView = (newView) => {
+    this.setState({view: newView})
+  }
+
+  getClassNames = (view) => {
+    return "col-12 col-md-2 col-xl-1 text-center my-auto about-header-text " + (this.state.view === view ? "about-text-highlight" : "" );
+  }
+
+  renderPage(view) {
+    switch(view) {
+      case 'team':
+        return <Team />;
+      case 'vision':
+        return <Vision />;
+      default:
+        return <Story />;
+    }
+  }
+
+  render() {
+    return <Layout fullWidth>
+      <SEO title="About" />
+      <div className="row">
+        <div className={"col-12 mx-auto"}>
+          <div className="row">
+            <div className="col text-center">
+              <h1 className="about-title">Turq</h1>
+            </div>
+          </div>
+          <div className="row about-header">
+            <div className="col text-center">
+              <p className="about-subtitle">
+                We're bringing democracy back to the people
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div className="row about-header pb-5">
-      <div className="col text-center">
-        <p className="about-subtitle">
-          We're bringing democracy back to the people
-        </p>
+      <div className="row about-task">
+        <button onClick={() => {this.changeView("team") }}  className={this.getClassNames("team") + " ml-auto"}>
+          <h4>Our Team</h4>
+        </button>
+        <button onClick={() => {this.changeView("story") }} className={this.getClassNames("story")}>
+          <h4>Our Process</h4>
+        </button>
+        <button onClick={() => {this.changeView("vision") }} className={this.getClassNames("vision") + " mr-auto"}>
+          <h4>Our Vision</h4>
+        </button>
       </div>
-    </div>
-    <div className="row">
-      <div className="col-6 mx-auto text-center">
-        <p className="about-text">
-        Turq's mission is to make direct democracy viable by enabling citizens to draft and submit their own legislation. Our goal is to alleviate the pressure on legislators by enabling citizens to write bills for one another.
-        </p>
+      <div className="row">
+        <div className={"col-12 mx-auto"}>
+          {this.renderPage(this.state.view)}
+        </div>
       </div>
-    </div>
-  </Layout>
-)
+    </Layout>
+  }
+}
 
 export default AboutPage

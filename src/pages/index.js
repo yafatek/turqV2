@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -30,7 +31,9 @@ const IndexPage = ({
     </div>
     <div className=" mt-5">
       <div className="col-9 mx-auto">
-        <CompetitionList edges={currentContests} title="Recent Contests"/>
+        <div className="content mx-auto">
+          <CompetitionList edges={currentContests} title="Recent Contests"/>
+        </div>
       </div>
     </div>
   </Layout>

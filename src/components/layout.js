@@ -16,9 +16,9 @@ const Layout = ({ children, fullWidth }) => {
         <div className="container-fluid main">
           <div className="row">
             <div
-              className={fullWidth ? "col-12" : "col-9 my-5 mx-auto"}
+              className={fullWidth ? "col-12 mx-auto" : "col-9 my-5 mx-auto"}
             >
-              <main>{children}</main>
+              <main className={fullWidth ? "" : "content mx-auto"}>{children}</main>
             </div>
           </div>
         </div>
