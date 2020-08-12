@@ -5,7 +5,7 @@ prizes: 20
 description: >-
   **Background:  Due to chemical pesticides being used to spray golf courses,
   humans are experiencing reactions to the chemicals.  Other natural pesticides
-  should be used..**
+  should be used.**
 
 
   **Timeline:  Deadline for essays by July 31, 2020.**
