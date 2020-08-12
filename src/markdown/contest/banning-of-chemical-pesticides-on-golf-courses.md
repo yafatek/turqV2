@@ -1,5 +1,5 @@
 ---
-title: Banning of Chemical Pesticides on Golf Courses
+title: Banning of Chemical Pesticides on Golf Courses.
 endDate: "1598846400000"
 prizes: 20
 description: >-
