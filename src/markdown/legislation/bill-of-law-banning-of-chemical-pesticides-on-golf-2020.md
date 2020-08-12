@@ -1,5 +1,5 @@
 ---
-title: "Bill of Law: Banning of Chemical Pesticides on Golf 2020."
+title: "Bill of Law: Banning of Chemical Pesticides on Golf 2020"
 chapter: No text
 section: No text
 accomplishes: "The objectives of this law are: 1. Control the maintenance of
