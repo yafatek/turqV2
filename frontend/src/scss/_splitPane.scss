@@ -1,0 +1,28 @@
+/* styles.css */
+.editor_split-pane {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3px;
+}
+
+.editor_split-pane-left,
+.editor_split-pane-right {
+  flex: 1;
+  background-color: $light-gray;
+}
+
+.editor_split-pane-left {
+}
+.editor_split-pane-right {
+  width: 100%;
+  overflow: auto;
+}
+
+.editor_separator {
+  width: 10px;
+  background-color: #BBBBBB;
+  border: 4px solid  #D8D8D8;
+  cursor: col-resize;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
