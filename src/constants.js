@@ -1,5 +1,5 @@
 // Data API Links 
-const BASE_URL = 'https:turq.dev'
+const BASE_URL = 'https://turq.dev'
 export const CONTEST_DATA_URL = `${BASE_URL}/contest`
 export const LEGISLATION_DATA_URL = `${BASE_URL}/legislation`
 export const LOGIN_URL = `${BASE_URL}/login`
