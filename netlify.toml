@@ -1,0 +1,9 @@
+[build]
+publish = "build"
+command = "yarn build"
+
+[context.deploy-preview]
+command = "yarn build"
+
+[context.branch-deploy]
+command = "yarn build"
