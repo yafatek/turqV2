@@ -6,6 +6,7 @@ class StringInput extends React.Component {
     return (
       <input
         { ...this.props }
+        value={this.props.value === undefined ? "" : this.props.value}
       />
     )
   }

@@ -12,7 +12,7 @@ function logoutSuccess() {
 
 export function logout() {
 
-  localStorage.clear()
+  localStorage.removeItem("token")
 
   return dispatch => {
     dispatch(logoutSuccess())

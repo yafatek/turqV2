@@ -27,6 +27,8 @@ class ContestEditor extends React.Component {
   }
 
   componentDidMount() {
+    const prev_data = localStorage.getItem('unsaved_contest')
+
     //If we have a parameter we need to get the info for that contest
     if (this.props.match.params.id) {
       axios.get(CONTEST_DATA_URL + "/" + this.props.match.params.id)
@@ -38,10 +40,19 @@ class ContestEditor extends React.Component {
       ).catch(function (error) {
         console.log(error);
       })
+    } else if (prev_data !== null) {
+      var contest = JSON.parse(prev_data);
+      contest.endDate = new Date(contest.endDate);
+      this.setState({...this.state, isLoaded: true, contest: {...contest}})
+
     } else {
       // Set to true automatically if we aren't requesting data
-      this.setState({...this.state, isLoaded: true})
+      this.setState({...this.state, isLoaded: true, contest: {}})
     }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('unsaved_contest', JSON.stringify(this.state.contest))
   }
 
   _handleDateChange(date, name) {
@@ -84,6 +95,7 @@ class ContestEditor extends React.Component {
       }).catch(function (error) {
         console.log(error);
       })
+      localStorage.removeItem('unsaved_contest')
   }
 
   render () {

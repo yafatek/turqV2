@@ -20,6 +20,8 @@ class LegislationEditor extends React.Component {
   }
   
   componentDidMount() {
+    const prev_data = localStorage.getItem('unsaved_legislation')
+
     //If we have a parameter we need to get the info for that contest
     var contest = new URLSearchParams(this.props.location.search).get('contest')
     if (this.props.match.params.id) {
@@ -31,11 +33,18 @@ class LegislationEditor extends React.Component {
         }).catch(function (error) {
           console.log(error);
         })
+    } else if (prev_data !== null) {
+      var legislation = JSON.parse(prev_data);
+      this.setState({...this.state, isLoaded: true, legislation: {...legislation}, contest: contest})
     } else if (contest) {
       contest = parseInt(contest)
       // Set to true automatically if we aren't requesting data
       this.setState({...this.state, isLoaded: true, contest: contest})
     }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('unsaved_legislation', JSON.stringify(this.state.legislation))
   }
 
   _handleSubmit() {
@@ -50,6 +59,7 @@ class LegislationEditor extends React.Component {
       }).catch(function (error) {
         console.log(error);
       })
+      localStorage.removeItem('unsaved_legislation')
   }
 
   _handleChange(event) {
@@ -114,7 +124,7 @@ class LegislationEditor extends React.Component {
                       className="editor-textarea col-12 form-control"
                       onChange={event => this.handleChange(event)}
                       value={legislation.terms}
-                      name="terms"x
+                      name="terms"
                     />
                   </InputWrapper>
                   <InputWrapper title="Statement of Purpose (expand and go deeper on Bill description)" hint="test" >
