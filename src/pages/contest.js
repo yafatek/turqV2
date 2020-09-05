@@ -71,13 +71,11 @@ class ContestPage extends React.Component {
               <Link
                 to={EDITOR_PAGE_URL + "/legislation?contest=" + contest.id}
               >
-                <Button
-                  variant={isPastEndDate(contest.endDate) ? "secondary" : "turq"}
-                  size="lg"
-                  disabled={isPastEndDate(contest.endDate)}
-                >
-                    Create New Legislation
-                </Button>
+
+                {!isPastEndDate(contest.endDate)
+                  ? <Button variant="turq" size="lg" > Create New Legislation </Button>
+                  : null
+                }
               </Link>
             </div>
           </div>

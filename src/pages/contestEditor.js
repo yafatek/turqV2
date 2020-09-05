@@ -2,10 +2,9 @@ import React from "react"
 import { draftToMarkdown, markdownToDraft } from "markdown-draft-js";
 import { convertToRaw, convertFromRaw } from "draft-js"
 import axios from "axios"
-import { Button } from "react-bootstrap"
 import { connect } from 'react-redux'
 
-import Layout from "../components/layout"
+import EditorLayout from "../components/editor/layout"
 import CompetitionText from "../components/competition/competitionText"
 import Editor, { LeftPanel, RightPanel } from "../components/editor/editor"
 import StringInput from "../components/editor/input/stringInput"
@@ -94,17 +93,10 @@ class ContestEditor extends React.Component {
     var initialCriteria = convertFromRaw(markdownToDraft(contest.criteria))
 
     return (
-      <Layout fullWidth>
+      <EditorLayout onSubmit={this.handleSubmit}>
         {this.state.isLoaded ?
           <div className="row">
             <div className="col">
-            <Button
-              variant="turq"
-              size="lg"
-              onClick={this.handleSubmit}
-            >
-            Contribute to this Legislation
-            </Button>
               <Editor>
                 <LeftPanel>
                   <div className="my-3 mx-5">
@@ -178,7 +170,7 @@ class ContestEditor extends React.Component {
           </div>
           : <div />
         }
-      </Layout>
+      </EditorLayout>
     )
   }
 }

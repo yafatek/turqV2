@@ -1,9 +1,8 @@
 import React from "react"
 import axios from "axios"
-import { Button } from "react-bootstrap"
 import { connect } from 'react-redux'
 
-import Layout from "../components/layout"
+import EditorLayout from "../components/editor/layout"
 import LegislationText from "../components/legislation/legislationText"
 import Editor, { LeftPanel, RightPanel } from "../components/editor/editor"
 import StringInput from "../components/editor/input/stringInput"
@@ -66,17 +65,10 @@ class LegislationEditor extends React.Component {
     const legislation = this.state.legislation
 
     return (
-      <Layout fullWidth>
+      <EditorLayout onSubmit={this.handleSubmit}>
       {this.state.isLoaded ?
         <div className="row">
           <div className="col">
-            <Button
-              variant="turq"
-              size="lg"
-              onClick={this.handleSubmit}
-            >
-            Contribute to this Legislation
-            </Button>
             <Editor>
               <LeftPanel>
                 <div className="my-3 mx-5">
@@ -184,7 +176,7 @@ class LegislationEditor extends React.Component {
         </div>
         : <div />
       }
-      </Layout>
+      </EditorLayout>
     )
   }
 }
