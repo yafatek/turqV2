@@ -1,50 +1,56 @@
 import React from "react"
-import axios from "axios";
+import { connect } from 'react-redux'
+
 import Layout from "../components/layout"
 import CompetitionList from "../components/competition/competitionList"
+import { fetchAllContests } from '../actions/contestActions'
 import {isPastEndDate } from "../util/dateCompare"
-import { CONTEST_DATA_URL } from "../constants"
 
 class ContestPage extends React.Component {
   
   componentDidMount() {
-    axios.get(CONTEST_DATA_URL)
-      .then(res => {
-        const contests = res.data;
-        this.setState({contests});
-      }
-    ).catch(function (error) {
-      console.log(error);
-    })
+    this.props.dispatch(fetchAllContests())
   }
 
   render() {
-    var currentContests = null 
-    var pastContests = null 
-    if (this.state && this.state.contests) {
-      currentContests = this.state.contests 
+    var currentContests = []
+    var pastContests = []
+    if (this.props.allContests) {
+      currentContests = this.props.allContests 
         .filter(contest => !isPastEndDate(contest.endDate))
-      pastContests = this.state.contests
+      pastContests = this.props.allContests
         .filter(contest => isPastEndDate(contest.endDate))
     }
 
     return (
       <Layout>
-        {currentContests && pastContests
-        ? <>
-          <div>
-            <CompetitionList title="Active Contests" contests={currentContests} />
-          </div>
-          <div className="mt-5">
-            <CompetitionList title="Past Contests" contests={pastContests} />
-          </div>
-        </>
-        : <></>
+        {this.props.allContests
+          ? <>
+            <div>
+              <CompetitionList title="Active Contests" contests={currentContests} />
+            </div>
+            <div className="mt-5">
+              <CompetitionList title="Past Contests" contests={pastContests} />
+            </div>
+          </>
+          : <></>
         }
       </Layout>
     )
   }
 }
 
+function mapStateToProps(state) {
 
-export default ContestPage
+  const { contest } = state
+  const { allContests, isFetching } = contest
+
+  return {
+    allContests,
+    isFetching
+  }
+
+}
+
+
+export default connect(mapStateToProps)(ContestPage)

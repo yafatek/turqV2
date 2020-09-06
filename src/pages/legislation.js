@@ -1,35 +1,26 @@
-
 import React from "react"
 import { Button } from "react-bootstrap"
-import axios from "axios"
 import { Link } from "react-router-dom"
+import { connect } from 'react-redux'
+
 import LegislationText from "../components/legislation/legislationText"
 import Layout from "../components/layout"
 import { isPastEndDate } from "../util/dateCompare"
-import { LEGISLATION_DATA_URL, CONTEST_PAGE_URL, EDITOR_PAGE_URL } from "../constants"
+import { CONTEST_PAGE_URL, EDITOR_PAGE_URL } from "../constants"
+import { fetchLegislation } from '../actions/legislationActions'
 
 class LegislationPage extends React.Component {
 
   componentDidMount () {
-    axios.get(LEGISLATION_DATA_URL + "/" + this.props.match.params.id)
-    .then(res => {
-      const legislation = res.data;
-      this.setState({legislation})
-    }).catch(function (error) {
-      console.log(error);
-    })
+    this.props.dispatch(fetchLegislation(this.props.match.params.id))
   }
 
   render() {
-
-    var legislation
-    if (this.state && this.state.legislation) {
-      legislation = this.state.legislation
-    }
+    var legislation = this.props.legislation
 
     return (
       <Layout>
-        {legislation 
+        {legislation
         ? <>
           <Link to={CONTEST_PAGE_URL + "/" + legislation.contest.id}> {"< Back to " + legislation.contest.title + " Contest"}</Link>
           <br />
@@ -63,7 +54,16 @@ class LegislationPage extends React.Component {
       </Layout>
     )
   }
-
 }
 
-export default LegislationPage
+function mapStateToProps(state) {
+
+  var { legislation } = state
+  legislation = legislation.legislation
+
+  return {
+    legislation
+  }
+}
+
+export default connect(mapStateToProps)(LegislationPage)

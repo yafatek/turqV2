@@ -4,13 +4,14 @@ import PropTypes from "prop-types"
 import LegislationListItem from "./legislationListItem"
 
 function LegislationList ({legislation}) {
-const legislationList = legislation
-  .map(law => <LegislationListItem
-                title={law.title}
-                description={law.accomplishes}
-                key={law.id}
-                id={law.id}
-              />)
+  legislation = legislation ? legislation : []
+  const legislationList = legislation
+    .map(law => <LegislationListItem
+                  title={law.title}
+                  description={law.accomplishes}
+                  key={law.id}
+                  id={law.id}
+                />)
 return(
     <div className="row">
         <div className="col">

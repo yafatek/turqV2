@@ -1,4 +1,5 @@
 import axios from "axios"
+import { toast } from 'react-toastify';
 import { LOGIN_URL } from "../constants"
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
@@ -54,6 +55,7 @@ export function login(creds) {
       dispatch(loginSuccess(res.data.jwttoken, res.data.email))
     }).catch(function (error) {
       dispatch(loginFailure(error))
+      toast.error("Login Failed");
     })
   }
 }

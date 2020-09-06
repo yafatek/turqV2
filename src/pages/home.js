@@ -1,9 +1,10 @@
 import React from "react"
 import axios from "axios";
+import { toast } from 'react-toastify';
+
 import CompetitionList from "../components/competition/competitionList"
 import {isPastEndDate } from "../util/dateCompare"
 import { CONTEST_DATA_URL } from "../constants"
-
 import Layout from "../components/layout"
 import Hero from "../components/hero"
 import Explainer from "../components/explainer"
@@ -17,7 +18,7 @@ class Home extends React.Component {
         this.setState({contests});
       }
     ).catch(function (error) {
-      console.log(error);
+      toast.error("Unable to load contest, plese try again in a few minutes");
     })
   }
   
@@ -41,7 +42,7 @@ class Home extends React.Component {
         </div>
         <div className=" mt-5">
           <div className="col-9 mx-auto">
-            <div className="content mx-auto">
+            <div className="content mx-auto mb-5">
             {currentContests && currentContests.length > 0
             ? <div>
                 <CompetitionList title="Active Contests" contests={currentContests} />

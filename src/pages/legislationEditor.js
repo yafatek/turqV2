@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios"
 import { connect } from 'react-redux'
+import { toast } from 'react-toastify';
 
 import EditorLayout from "../components/editor/layout"
 import LegislationText from "../components/legislation/legislationText"
@@ -9,6 +10,7 @@ import StringInput from "../components/editor/input/stringInput"
 import TextInput from "../components/editor/input/textInput"
 import InputWrapper from "../components/editor/input/inputWrapper"
 import { LEGISLATION_DATA_URL } from "../constants"
+import { updateLegislation } from '../actions/legislationActions'
   
 class LegislationEditor extends React.Component {
 
@@ -31,7 +33,7 @@ class LegislationEditor extends React.Component {
           this.setState({...this.state, legislation, isLoaded: true});
           console.log(this.state)
         }).catch(function (error) {
-          console.log(error);
+          toast.error("Unable to load contest, plese try again in a few minutes");
         })
     } else if (prev_data !== null) {
       var legislation = JSON.parse(prev_data);
@@ -51,15 +53,7 @@ class LegislationEditor extends React.Component {
       const legislationId = this.props.match.params.id
       const token = this.props.token
       const data = {...this.state.legislation, contestId: this.state.contest}
-      axios({
-        method: (legislationId !== undefined ? 'PUT' : 'POST'),
-        url: LEGISLATION_DATA_URL + (legislationId !== undefined ? "/" + this.props.match.params.id : ""),
-        headers: { Authorization: `Bearer ${token}` },
-        data: data
-      }).catch(function (error) {
-        console.log(error);
-      })
-      localStorage.removeItem('unsaved_legislation')
+      this.props.dispatch(updateLegislation(legislationId, data, token))
   }
 
   _handleChange(event) {

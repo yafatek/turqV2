@@ -1,6 +1,9 @@
 import React from 'react';
+import axios from "axios";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { loadProgressBar } from 'axios-progress-bar'
+import {Helmet} from "react-helmet";
+import { ToastContainer } from 'react-toastify';
 import PrivateRoute from "./components/privateRoute"
 import Home from './pages/home';
 import About from './pages/about';
@@ -14,10 +17,12 @@ import LegislationEditor from './pages/legislationEditor';
 import Login from './pages/login';
 import Register from './pages/register';
 import * as constants from './constants'
-import {Helmet} from "react-helmet";
 
 // Loading bar for pages with axios requests
-loadProgressBar()
+let api = axios.create({
+  timeout: 10000,
+})
+loadProgressBar('',api)
 
 function App() {
   return (
@@ -27,6 +32,13 @@ function App() {
           <meta charset="utf-8" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       </Helmet>
+      <ToastContainer
+        closeOnClick
+        position="top-center"
+        autoClose={4000}
+        draggable
+        newestOnTop={false}
+      />
     </div>
 
     <Switch>

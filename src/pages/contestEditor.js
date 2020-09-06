@@ -3,6 +3,7 @@ import { draftToMarkdown, markdownToDraft } from "markdown-draft-js";
 import { convertToRaw, convertFromRaw } from "draft-js"
 import axios from "axios"
 import { connect } from 'react-redux'
+import { toast } from 'react-toastify';
 
 import EditorLayout from "../components/editor/layout"
 import CompetitionText from "../components/competition/competitionText"
@@ -13,6 +14,7 @@ import DateInput from "../components/editor/input/dateInput"
 import NumberInput from "../components/editor/input/numberInput"
 import InputWrapper from "../components/editor/input/inputWrapper"
 import { CONTEST_DATA_URL } from "../constants"
+import { updateContest } from "../actions/contestActions"
   
 class ContestEditor extends React.Component {
 
@@ -38,13 +40,12 @@ class ContestEditor extends React.Component {
           this.setState({...this.state, contest, isLoaded: true});
         }
       ).catch(function (error) {
-        console.log(error);
+        toast.error("Unable to load contest information, plese try again in a few minutes");
       })
     } else if (prev_data !== null) {
       var contest = JSON.parse(prev_data);
       contest.endDate = new Date(contest.endDate);
       this.setState({...this.state, isLoaded: true, contest: {...contest}})
-
     } else {
       // Set to true automatically if we aren't requesting data
       this.setState({...this.state, isLoaded: true, contest: {}})
@@ -85,17 +86,9 @@ class ContestEditor extends React.Component {
   }
 
   _handleSubmit() {
-      const contestId = this.props.match.params.id
-      const token = this.props.token
-      axios({
-        method: (contestId !== undefined ? 'PUT' : 'POST'),
-        url: CONTEST_DATA_URL + (contestId !== undefined ? "/" + this.props.match.params.id : ""),
-        data: this.state.contest,
-        headers: { Authorization: `Bearer ${token}` }
-      }).catch(function (error) {
-        console.log(error);
-      })
-      localStorage.removeItem('unsaved_contest')
+    const contestId = this.props.match.params.id
+
+    this.props.dispatch(updateContest(contestId, this.state.contest, this.props.token))
   }
 
   render () {
