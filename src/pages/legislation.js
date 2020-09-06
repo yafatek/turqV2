@@ -22,7 +22,9 @@ class LegislationPage extends React.Component {
       <Layout>
         {legislation
         ? <>
-          <Link to={CONTEST_PAGE_URL + "/" + legislation.contest.id}> {"< Back to " + legislation.contest.title + " Contest"}</Link>
+          <Link to={CONTEST_PAGE_URL + "/" + legislation.contest.id}>
+            {"< Back to " + legislation.contest.title + " Contest"}
+            </Link>
           <br />
           <br />
           <LegislationText
@@ -37,20 +39,24 @@ class LegislationPage extends React.Component {
             other={legislation.other}
             exceptions={legislation.exceptions}
           />
-          <Link 
-            to={EDITOR_PAGE_URL + "/legislation/" + legislation.id}
-          >
-            <Button
-              className="mt-3"
-              variant={isPastEndDate(legislation.contest.endDate) ? "secondary" : "turq"}
-              size="lg"
-              disabled={isPastEndDate(legislation.contest.endDate)}
-            >
-            Contribute to this Legislation
-            </Button>
-          </Link>
+          {(this.props.isAuthenticated && this.props.email === this.props.legislation.author.email)
+          ? <>
+              <Link 
+                to={EDITOR_PAGE_URL + "/legislation/" + legislation.id}
+              >
+                <Button
+                  className="mt-3"
+                  variant={isPastEndDate(legislation.contest.endDate) ? "secondary" : "turq"}
+                  size="lg"
+                  disabled={isPastEndDate(legislation.contest.endDate)}
+                >
+                  Update this legislation
+                </Button>
+              </Link>
+            </>
+          : <></> }
           </>
-          : <></>}
+          : <></> }
       </Layout>
     )
   }
@@ -58,11 +64,15 @@ class LegislationPage extends React.Component {
 
 function mapStateToProps(state) {
 
-  var { legislation } = state
+  var { legislation, auth } = state
   legislation = legislation.legislation
 
+  const { isAuthenticated, email } = auth
+
   return {
-    legislation
+    legislation,
+    isAuthenticated,
+    email
   }
 }
 

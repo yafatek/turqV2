@@ -2,6 +2,8 @@ import React from "react"
 import axios from "axios"
 import { connect } from 'react-redux'
 import { toast } from 'react-toastify';
+import { Button } from 'react-bootstrap'
+import isEmpty from 'underscore/modules/isEmpty'
 
 import EditorLayout from "../components/editor/layout"
 import LegislationText from "../components/legislation/legislationText"
@@ -9,6 +11,7 @@ import Editor, { LeftPanel, RightPanel } from "../components/editor/editor"
 import StringInput from "../components/editor/input/stringInput"
 import TextInput from "../components/editor/input/textInput"
 import InputWrapper from "../components/editor/input/inputWrapper"
+import Modal from "../components/modal"
 import { LEGISLATION_DATA_URL } from "../constants"
 import { updateLegislation } from '../actions/legislationActions'
   
@@ -19,6 +22,7 @@ class LegislationEditor extends React.Component {
     this.state = { isLoaded: false, legislation: {}};
     this.handleChange = this._handleChange.bind(this);
     this.handleSubmit = this._handleSubmit.bind(this);
+    this.populateSavedData = this._populateSavedData.bind(this);
   }
   
   componentDidMount() {
@@ -31,13 +35,13 @@ class LegislationEditor extends React.Component {
         .then(res => {
           const legislation = res.data;
           this.setState({...this.state, legislation, isLoaded: true});
-          console.log(this.state)
         }).catch(function (error) {
           toast.error("Unable to load contest, plese try again in a few minutes");
         })
     } else if (prev_data !== null) {
       var legislation = JSON.parse(prev_data);
-      this.setState({...this.state, isLoaded: true, legislation: {...legislation}, contest: contest})
+      var showModal = isEmpty(legislation) ? false : true
+      this.setState({...this.state, isLoaded: true, showModal: showModal, savedData: {...legislation}, contest: contest})
     } else if (contest) {
       contest = parseInt(contest)
       // Set to true automatically if we aren't requesting data
@@ -56,6 +60,15 @@ class LegislationEditor extends React.Component {
       this.props.dispatch(updateLegislation(legislationId, data, token))
   }
 
+  _populateSavedData(populateData) {
+    if (populateData) {
+      this.setState({...this.state, showModal: false, legislation: this.state.savedData, savedData: null, })
+    } else {
+      this.setState({...this.state, showModal: false, savedData: null })
+    }
+    localStorage.removeItem('unsaved_legislation')
+  }
+
   _handleChange(event) {
     const target = event.target;
     const value = target.value;
@@ -68,11 +81,24 @@ class LegislationEditor extends React.Component {
   render () {
     const legislation = this.state.legislation
 
+    var modal = null
+    if (this.state.savedData && this.state.showModal) {
+      modal = 
+        <Modal
+          show={this.state.showModal}
+          header="Previous Data Found!"
+          body="You have unsaved work, would you like to load it now?">
+            <Button variant="primary" onClick={() => this.populateSavedData(true)}>Accept</Button>
+            <Button variant="Secondary" onClick={() => this.populateSavedData(false)}>Decline</Button>
+        </Modal>
+    }
+
     return (
       <EditorLayout onSubmit={this.handleSubmit}>
       {this.state.isLoaded ?
         <div className="row">
           <div className="col">
+            {modal}
             <Editor>
               <LeftPanel>
                 <div className="my-3 mx-5">
