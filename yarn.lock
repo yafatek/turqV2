@@ -9870,6 +9870,15 @@ react-side-effect@^2.1.0:
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.0.tgz#1ce4a8b4445168c487ed24dab886421f74d380d3"
   integrity sha512-IgmcegOSi5SNX+2Snh1vqmF0Vg/CbkycU9XZbOHJlZ6kMzTmi3yc254oB1WCkgA7OQtIAoLmcSFuHTc/tlcqXg==
 
+react-toastify@^6.0.8:
+  version "6.0.8"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-6.0.8.tgz#84625d81d0fd01902a7f4c6f317eb074cb3bba67"
+  integrity sha512-NSqCNwv+C4IfR+c92PFZiNyeBwOJvigrP2bcRi2f6Hg3WqcHhEHOknbSQOs9QDFuqUjmK3SOrdvScQ3z63ifXg==
+  dependencies:
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+    react-transition-group "^4.4.1"
+
 react-transition-group@^4.4.1:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.1.tgz#63868f9325a38ea5ee9535d828327f85773345c9"
@@ -11602,6 +11611,11 @@ uncontrollable@^7.0.0:
     "@types/react" "^16.9.11"
     invariant "^2.2.4"
     react-lifecycles-compat "^3.0.4"
+
+underscore@^1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.11.0.tgz#dd7c23a195db34267186044649870ff1bab5929e"
+  integrity sha512-xY96SsN3NA461qIRKZ/+qox37YXPtSBswMGfiNptr+wrt6ds4HaMw23TP612fEyGekRE6LNRiLYr/aqbHXNedw==
 
 unherit@^1.0.4:
   version "1.1.3"

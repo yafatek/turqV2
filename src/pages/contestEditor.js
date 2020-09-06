@@ -2,10 +2,12 @@ import React from "react"
 import { draftToMarkdown, markdownToDraft } from "markdown-draft-js";
 import { convertToRaw, convertFromRaw } from "draft-js"
 import axios from "axios"
-import { Button } from "react-bootstrap"
 import { connect } from 'react-redux'
+import { toast } from 'react-toastify';
+import { Button } from 'react-bootstrap'
+import isEmpty from 'underscore/modules/isEmpty'
 
-import Layout from "../components/layout"
+import EditorLayout from "../components/editor/layout"
 import CompetitionText from "../components/competition/competitionText"
 import Editor, { LeftPanel, RightPanel } from "../components/editor/editor"
 import StringInput from "../components/editor/input/stringInput"
@@ -13,7 +15,9 @@ import MarkdownInput from "../components/editor/input/markdownInput"
 import DateInput from "../components/editor/input/dateInput"
 import NumberInput from "../components/editor/input/numberInput"
 import InputWrapper from "../components/editor/input/inputWrapper"
+import Modal from "../components/modal"
 import { CONTEST_DATA_URL } from "../constants"
+import { updateContest } from "../actions/contestActions"
   
 class ContestEditor extends React.Component {
 
@@ -25,9 +29,12 @@ class ContestEditor extends React.Component {
     this.handleMarkdownChange = this._handleMarkdownChange.bind(this);
     this.handleDateChange = this._handleDateChange.bind(this);
     this.handleSubmit = this._handleSubmit.bind(this);
+    this.populateSavedData = this._populateSavedData.bind(this);
   }
 
   componentDidMount() {
+    const prev_data = localStorage.getItem('unsaved_contest')
+
     //If we have a parameter we need to get the info for that contest
     if (this.props.match.params.id) {
       axios.get(CONTEST_DATA_URL + "/" + this.props.match.params.id)
@@ -37,12 +44,23 @@ class ContestEditor extends React.Component {
           this.setState({...this.state, contest, isLoaded: true});
         }
       ).catch(function (error) {
-        console.log(error);
+        toast.error("Unable to load contest information, plese try again in a few minutes");
       })
+    } else if (prev_data !== null && prev_data !== {}) {
+      var contest = JSON.parse(prev_data);
+      if (contest.endDate) {
+        contest.endDate = new Date(contest.endDate);
+      }
+      var showModal = (isEmpty(contest)) ? false : true
+      this.setState({...this.state, isLoaded: true, savedData: {...contest}, showModal: showModal})
     } else {
       // Set to true automatically if we aren't requesting data
-      this.setState({...this.state, isLoaded: true})
+      this.setState({...this.state, isLoaded: true, contest: {}})
     }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('unsaved_contest', JSON.stringify(this.state.contest))
   }
 
   _handleDateChange(date, name) {
@@ -75,36 +93,45 @@ class ContestEditor extends React.Component {
   }
 
   _handleSubmit() {
-      const contestId = this.props.match.params.id
-      const token = this.props.token
-      axios({
-        method: (contestId !== undefined ? 'PUT' : 'POST'),
-        url: CONTEST_DATA_URL + (contestId !== undefined ? "/" + this.props.match.params.id : ""),
-        data: this.state.contest,
-        headers: { Authorization: `Bearer ${token}` }
-      }).catch(function (error) {
-        console.log(error);
-      })
+    const contestId = this.props.match.params.id
+
+    this.props.dispatch(updateContest(contestId, this.state.contest, this.props.token))
+  }
+
+  _populateSavedData(populateData) {
+    if (populateData) {
+      this.setState({...this.state, showModal: false, contest: this.state.savedData, savedData: null, })
+    } else {
+      this.setState({...this.state, showModal: false, savedData: null })
+    }
+    localStorage.removeItem('unsaved_contest')
   }
 
   render () {
+
+    var modal = null
+    if (this.state.savedData && this.state.showModal) {
+      modal = 
+        <Modal
+          show={this.state.showModal}
+          header="Previous Data Found!"
+          body="You have unsaved work, would you like to load it now?">
+            <Button variant="primary" onClick={() => this.populateSavedData(true)}>Accept</Button>
+            <Button variant="Secondary" onClick={() => this.populateSavedData(false)}>Decline</Button>
+        </Modal>
+    }
+
     const contest = this.state.contest
     var initialDescription = convertFromRaw(markdownToDraft(contest.description))
     var initialRules = convertFromRaw(markdownToDraft(contest.rules))
     var initialCriteria = convertFromRaw(markdownToDraft(contest.criteria))
 
     return (
-      <Layout fullWidth>
+      <EditorLayout onSubmit={this.handleSubmit}>
         {this.state.isLoaded ?
           <div className="row">
             <div className="col">
-            <Button
-              variant="turq"
-              size="lg"
-              onClick={this.handleSubmit}
-            >
-            Contribute to this Legislation
-            </Button>
+              {modal}
               <Editor>
                 <LeftPanel>
                   <div className="my-3 mx-5">
@@ -178,7 +205,7 @@ class ContestEditor extends React.Component {
           </div>
           : <div />
         }
-      </Layout>
+      </EditorLayout>
     )
   }
 }

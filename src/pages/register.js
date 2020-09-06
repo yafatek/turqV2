@@ -29,7 +29,6 @@ class RegisterPage extends React.Component {
       referer = this.props.location.state.referer || '/';
     }
     if (this.props.isAuthenticated) {
-      console.log("redirect")
       return <Redirect to={referer} />
     }
 

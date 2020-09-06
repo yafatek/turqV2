@@ -1,8 +1,13 @@
 import React from "react"
 import { Route, Redirect } from "react-router-dom"
 import { connect } from "react-redux"
+import { toast } from 'react-toastify'
 
 function PrivateRoute({ component: Component, isAuthenticated, ...rest }) {
+
+  if (!isAuthenticated) {
+    toast.info("Please log in to view this page, you will be automatically redirected after login")
+  }
 
   return (
     <Route {...rest} render={props =>

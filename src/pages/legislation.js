@@ -1,37 +1,30 @@
-
 import React from "react"
 import { Button } from "react-bootstrap"
-import axios from "axios"
 import { Link } from "react-router-dom"
+import { connect } from 'react-redux'
+
 import LegislationText from "../components/legislation/legislationText"
 import Layout from "../components/layout"
 import { isPastEndDate } from "../util/dateCompare"
-import { LEGISLATION_DATA_URL, CONTEST_PAGE_URL, EDITOR_PAGE_URL } from "../constants"
+import { CONTEST_PAGE_URL, EDITOR_PAGE_URL } from "../constants"
+import { fetchLegislation } from '../actions/legislationActions'
 
 class LegislationPage extends React.Component {
 
   componentDidMount () {
-    axios.get(LEGISLATION_DATA_URL + "/" + this.props.match.params.id)
-    .then(res => {
-      const legislation = res.data;
-      this.setState({legislation})
-    }).catch(function (error) {
-      console.log(error);
-    })
+    this.props.dispatch(fetchLegislation(this.props.match.params.id))
   }
 
   render() {
-
-    var legislation
-    if (this.state && this.state.legislation) {
-      legislation = this.state.legislation
-    }
+    var legislation = this.props.legislation
 
     return (
       <Layout>
-        {legislation 
+        {legislation
         ? <>
-          <Link to={CONTEST_PAGE_URL + "/" + legislation.contest.id}> {"< Back to " + legislation.contest.title + " Contest"}</Link>
+          <Link to={CONTEST_PAGE_URL + "/" + legislation.contest.id}>
+            {"< Back to " + legislation.contest.title + " Contest"}
+            </Link>
           <br />
           <br />
           <LegislationText
@@ -46,24 +39,41 @@ class LegislationPage extends React.Component {
             other={legislation.other}
             exceptions={legislation.exceptions}
           />
-          <Link 
-            to={EDITOR_PAGE_URL + "/legislation/" + legislation.id}
-          >
-            <Button
-              className="mt-3"
-              variant={isPastEndDate(legislation.contest.endDate) ? "secondary" : "turq"}
-              size="lg"
-              disabled={isPastEndDate(legislation.contest.endDate)}
-            >
-            Contribute to this Legislation
-            </Button>
-          </Link>
+          {(this.props.isAuthenticated && this.props.email === this.props.legislation.author.email)
+          ? <>
+              <Link 
+                to={EDITOR_PAGE_URL + "/legislation/" + legislation.id}
+              >
+                <Button
+                  className="mt-3"
+                  variant={isPastEndDate(legislation.contest.endDate) ? "secondary" : "turq"}
+                  size="lg"
+                  disabled={isPastEndDate(legislation.contest.endDate)}
+                >
+                  Update this legislation
+                </Button>
+              </Link>
+            </>
+          : <></> }
           </>
-          : <></>}
+          : <></> }
       </Layout>
     )
   }
-
 }
 
-export default LegislationPage
+function mapStateToProps(state) {
+
+  var { legislation, auth } = state
+  legislation = legislation.legislation
+
+  const { isAuthenticated, email } = auth
+
+  return {
+    legislation,
+    isAuthenticated,
+    email
+  }
+}
+
+export default connect(mapStateToProps)(LegislationPage)

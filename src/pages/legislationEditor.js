@@ -1,15 +1,19 @@
 import React from "react"
 import axios from "axios"
-import { Button } from "react-bootstrap"
 import { connect } from 'react-redux'
+import { toast } from 'react-toastify';
+import { Button } from 'react-bootstrap'
+import isEmpty from 'underscore/modules/isEmpty'
 
-import Layout from "../components/layout"
+import EditorLayout from "../components/editor/layout"
 import LegislationText from "../components/legislation/legislationText"
 import Editor, { LeftPanel, RightPanel } from "../components/editor/editor"
 import StringInput from "../components/editor/input/stringInput"
 import TextInput from "../components/editor/input/textInput"
 import InputWrapper from "../components/editor/input/inputWrapper"
+import Modal from "../components/modal"
 import { LEGISLATION_DATA_URL } from "../constants"
+import { updateLegislation } from '../actions/legislationActions'
   
 class LegislationEditor extends React.Component {
 
@@ -18,9 +22,12 @@ class LegislationEditor extends React.Component {
     this.state = { isLoaded: false, legislation: {}};
     this.handleChange = this._handleChange.bind(this);
     this.handleSubmit = this._handleSubmit.bind(this);
+    this.populateSavedData = this._populateSavedData.bind(this);
   }
   
   componentDidMount() {
+    const prev_data = localStorage.getItem('unsaved_legislation')
+
     //If we have a parameter we need to get the info for that contest
     var contest = new URLSearchParams(this.props.location.search).get('contest')
     if (this.props.match.params.id) {
@@ -28,10 +35,13 @@ class LegislationEditor extends React.Component {
         .then(res => {
           const legislation = res.data;
           this.setState({...this.state, legislation, isLoaded: true});
-          console.log(this.state)
         }).catch(function (error) {
-          console.log(error);
+          toast.error("Unable to load contest, plese try again in a few minutes");
         })
+    } else if (prev_data !== null) {
+      var legislation = JSON.parse(prev_data);
+      var showModal = isEmpty(legislation) ? false : true
+      this.setState({...this.state, isLoaded: true, showModal: showModal, savedData: {...legislation}, contest: contest})
     } else if (contest) {
       contest = parseInt(contest)
       // Set to true automatically if we aren't requesting data
@@ -39,18 +49,24 @@ class LegislationEditor extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+    localStorage.setItem('unsaved_legislation', JSON.stringify(this.state.legislation))
+  }
+
   _handleSubmit() {
       const legislationId = this.props.match.params.id
       const token = this.props.token
       const data = {...this.state.legislation, contestId: this.state.contest}
-      axios({
-        method: (legislationId !== undefined ? 'PUT' : 'POST'),
-        url: LEGISLATION_DATA_URL + (legislationId !== undefined ? "/" + this.props.match.params.id : ""),
-        headers: { Authorization: `Bearer ${token}` },
-        data: data
-      }).catch(function (error) {
-        console.log(error);
-      })
+      this.props.dispatch(updateLegislation(legislationId, data, token))
+  }
+
+  _populateSavedData(populateData) {
+    if (populateData) {
+      this.setState({...this.state, showModal: false, legislation: this.state.savedData, savedData: null, })
+    } else {
+      this.setState({...this.state, showModal: false, savedData: null })
+    }
+    localStorage.removeItem('unsaved_legislation')
   }
 
   _handleChange(event) {
@@ -65,18 +81,24 @@ class LegislationEditor extends React.Component {
   render () {
     const legislation = this.state.legislation
 
+    var modal = null
+    if (this.state.savedData && this.state.showModal) {
+      modal = 
+        <Modal
+          show={this.state.showModal}
+          header="Previous Data Found!"
+          body="You have unsaved work, would you like to load it now?">
+            <Button variant="primary" onClick={() => this.populateSavedData(true)}>Accept</Button>
+            <Button variant="Secondary" onClick={() => this.populateSavedData(false)}>Decline</Button>
+        </Modal>
+    }
+
     return (
-      <Layout fullWidth>
+      <EditorLayout onSubmit={this.handleSubmit}>
       {this.state.isLoaded ?
         <div className="row">
           <div className="col">
-            <Button
-              variant="turq"
-              size="lg"
-              onClick={this.handleSubmit}
-            >
-            Contribute to this Legislation
-            </Button>
+            {modal}
             <Editor>
               <LeftPanel>
                 <div className="my-3 mx-5">
@@ -122,7 +144,7 @@ class LegislationEditor extends React.Component {
                       className="editor-textarea col-12 form-control"
                       onChange={event => this.handleChange(event)}
                       value={legislation.terms}
-                      name="terms"x
+                      name="terms"
                     />
                   </InputWrapper>
                   <InputWrapper title="Statement of Purpose (expand and go deeper on Bill description)" hint="test" >
@@ -184,7 +206,7 @@ class LegislationEditor extends React.Component {
         </div>
         : <div />
       }
-      </Layout>
+      </EditorLayout>
     )
   }
 }

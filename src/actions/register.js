@@ -1,4 +1,5 @@
 import axios from "axios"
+import { toast } from 'react-toastify';
 import { REGISTER_URL } from "../constants"
 
 export const REGISTER_REQUEST = 'REGISTER_REQUEST'
@@ -54,6 +55,7 @@ export function register(creds) {
       dispatch(registerSuccess(res.data.jwttoken, res.data.email))
     }).catch(function (error) {
       dispatch(registerFailure(error))
+      toast.error("Registration Failed");
     })
   }
 }

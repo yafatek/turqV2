@@ -1,9 +1,13 @@
 import React from "react"
 import axios from "axios";
+import { toast } from 'react-toastify';
 import { Link } from "react-router-dom"
-import { Button, Alert } from "react-bootstrap"
+import { Button } from "react-bootstrap"
+import { connect } from 'react-redux'
 
 import Layout from "../components/layout"
+import { fetchContest } from "../actions/contestActions"
+import DismissableAlert from "../components/dismissableAlert"
 import {isPastEndDate } from "../util/dateCompare"
 import LegislationList from "../components/legislation/legislationList"
 import CompetitionText from "../components/competition/competitionText"
@@ -11,43 +15,40 @@ import { CONTEST_DATA_URL, EDITOR_PAGE_URL } from "../constants"
 
 class ContestPage extends React.Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {legislationList: []}
+  }
+
   componentDidMount() {
-    axios.get(CONTEST_DATA_URL + "/" + this.props.match.params.id)
-      .then(res => {
-        const contest = res.data;
-        this.setState({...this.state, contest});
-      }).catch(function (error) {
-        console.log(error);
-      })
+    this.props.dispatch(fetchContest(this.props.match.params.id))
+    //this.props.dispatch(fetchLegislationByContest(this.props.match.params.id))
     axios.get(CONTEST_DATA_URL + "/" + this.props.match.params.id + "/legislation")
       .then(res => {
         const legislationList = res.data;
         this.setState({...this.state, legislationList});
       }).catch(function (error) {
-        console.log(error);
+        toast.error("Unable to load legislation, plese try again in a few minutes");
       })
   }
 
   render() {
-    var contest
+    var contest = this.props.contest
     var alert;
 
-    if (this.state && this.state.contest) {
-      contest = this.state.contest
+    if (contest) {
       var pastEndDate = isPastEndDate(contest.endDate)
       if (pastEndDate && !!contest.legislatureLink) {
         alert =
-        <Alert variant="info">
-          <Alert.Heading>This Competition Has Ended!</Alert.Heading>
+        <DismissableAlert variant="turq" heading="This Competition Has Ended!">
           <p className="mb-2"> The winning legislation is making it's way through the legislature now!  </p>
           <p className="my-0"> Check it out here: <a target="_blank" rel="noopener noreferrer" href={contest.legislatureLink}>{contest.legislatureLink}</a></p>
-        </Alert>
+        </DismissableAlert>
       } else if (pastEndDate) {
         alert =
-        <Alert variant="info">
-          <Alert.Heading>This Competition Has Ended!</Alert.Heading>
+        <DismissableAlert variant="turq" heading="This Competition Has Ended!">
           <p className="mb-2"> The winning legislation is still being selected</p>
-        </Alert>
+        </DismissableAlert>
       } else {
         alert = null
       }
@@ -71,13 +72,11 @@ class ContestPage extends React.Component {
               <Link
                 to={EDITOR_PAGE_URL + "/legislation?contest=" + contest.id}
               >
-                <Button
-                  variant={isPastEndDate(contest.endDate) ? "secondary" : "turq"}
-                  size="lg"
-                  disabled={isPastEndDate(contest.endDate)}
-                >
-                    Create New Legislation
-                </Button>
+
+                {!isPastEndDate(contest.endDate)
+                  ? <Button variant="turq" size="lg" > Create New Legislation </Button>
+                  : null
+                }
               </Link>
             </div>
           </div>
@@ -96,4 +95,14 @@ class ContestPage extends React.Component {
   }
 }
 
-export default ContestPage
+function mapStateToProps(state) {
+
+  var { contest } = state
+  contest = contest.contest
+
+  return {
+    contest
+  }
+}
+
+export default connect(mapStateToProps)(ContestPage)

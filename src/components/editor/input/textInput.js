@@ -6,6 +6,7 @@ class TextInput extends React.Component {
     return (
       <textarea
         { ...this.props }
+        value={this.props.value === undefined ? "" : this.props.value}
       />
     )
   }

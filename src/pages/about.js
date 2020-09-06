@@ -31,7 +31,7 @@ class AboutPage extends React.Component {
   }
 
   render() {
-    return <Layout fullWidth>
+    return <Layout fullWidth pageTitle="Turq | About" description="Turq's mission is to make direct democracy viable by enabling citizens to draft and submit their own legislation">
       <div className="row about-task">
         <button onClick={() => {this.changeView("team") }}  className={this.getClassNames("team") + " ml-auto"}>
           <h4>Our Team</h4>
