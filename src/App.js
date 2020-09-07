@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { loadProgressBar } from 'axios-progress-bar'
 import {Helmet} from "react-helmet";
 import { ToastContainer } from 'react-toastify';
+
 import PrivateRoute from "./components/privateRoute"
 import Home from './pages/home';
 import About from './pages/about';
@@ -37,7 +38,8 @@ function App() {
       <ToastContainer
         closeOnClick
         position="top-center"
-        autoClose={4000}
+        autoClose={5000}
+        hideProgressBar={true}
         draggable
         newestOnTop={false}
       />

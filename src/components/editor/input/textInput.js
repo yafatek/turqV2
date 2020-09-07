@@ -6,6 +6,7 @@ class TextInput extends React.Component {
     return (
       <textarea
         { ...this.props }
+        spellcheck="true"
         value={this.props.value === undefined ? "" : this.props.value}
       />
     )

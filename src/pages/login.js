@@ -9,7 +9,11 @@ class LoginPage extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { register: false, creds: { email: '', password: ''}}
+    var referer = '/'
+    if (this.props.location.state) {
+      referer = this.props.location.state.referer || '/';
+    }
+    this.state = { referer, creds: { email: '', password: ''}}
     this.handleChange = this._handleChange.bind(this)
   }
 
@@ -24,12 +28,8 @@ class LoginPage extends React.Component {
 
   render() {
 
-    var referer = '/'
-    if (this.props.location.state) {
-      referer = this.props.location.state.referer || '/';
-    }
     if (this.props.isAuthenticated) {
-      return <Redirect to={referer} />
+      return <Redirect to={this.state.referer} />
     }
 
     return (
@@ -64,7 +64,7 @@ class LoginPage extends React.Component {
             <button
             onClick={(e) => {e.preventDefault(); this.props.dispatch(login(this.state.creds))}}
             className="btn btn-primary btn-block">Login</button>
-            <span className="float-right">First Time?&nbsp;<Link className="float-right" to="/register">Create New Account</Link></span>
+            <span className="float-right">First Time?&nbsp;<Link className="float-right" to={{pathname: "/register", state: { referer: this.state.referer}}}>Create New Account</Link></span>
           </form>
         </div>
       </Layout>
