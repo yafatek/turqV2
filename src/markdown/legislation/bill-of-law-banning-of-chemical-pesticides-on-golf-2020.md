@@ -1,65 +1,56 @@
 ---
-title: "Bill of Law: Banning of Chemical Pesticides on Golf 2020"
-chapter: No text
-section: No text
-accomplishes: "The objectives of this law are: 1. Control the maintenance of
-  pest control and pesticide use; 2. Prevent risks to human health at that time
-  in Covid-19 that can weaken the immunity resulting from the use of pesticides;
-  3. Protect plants and the environment from the adverse effects of pesticides;"
+title: An Act Relative to the Prohibition of Chemical Pesticides on Golf Courses
+chapter: "Chapter 132B of the General Law is hereby amended by inserting the
+  following after Section 11 the following Section:"
+section: Section 11B. Prohibition of Pesticides on Golf Courses
+accomplishes: This document specifies the prohibition of the use of pesticides
+  on golf courses in order to prevent additional risks to public health in a
+  time of pandemic as well as curb the environmental impacts of chemical use on
+  large swathes of land.
 terms: >-
-  1- Any Golf Club that wishes to use Pesticides needs to undergo a technical
-  evaluation in order to carry out a comparative analysis with the health record
-  of regulars, visitors and spectators for the application of qualified
-  pesticides that will not harm the health of those who practice Golf.
+  Golf Course - grounds where the game of golf is played comprising a series of
+  holes, each consisting of a teeing ground, a fairway, the rough and other
+  hazards, and a green
 
 
-  2- Any pesticide existing before the enactment of this Law is considered unusable and a fine and temporary closure of the same are permitted for the evaluation and restructuring of alternative elements for combating pests and improving the quality of grass and natural elements in this environment.
+  Pesticide - a substance or mixture of substances intended for preventing, destroying, repelling, or mitigating any pest, and any substance or mixture of substances intended for use as a plant regulator, defoliant, or desiccant; provided that the term ''Pesticide'' shall not include any article that is a ''new animal drug'' within the meaning of section 201 (w) of the Federal Food, Drug and Cosmetic Act (21 U.S.C. s 321 (w), or that has been determined by the Secretary of the United States Department of Health, Education and Welfare not to be a new animal drug by a regulation establishing conditions of use for the article, or that is an animal feed within the meaning of section 201 (x) of such act (21 U.S.C. s 321 (x))
+
+
+  Department - the Department of Food and Agriculture
+
+
+  Technical Evaluation - a comparative analysis by the Department to understand the environmental impacts of the use of any pesticide on any golf course
+
+
+  Waiver - an official exception authorized by the Department to use pesticides on a specific golf course after a technical evaluation
 purpose: >-
-  With the world reaching the peak of this pandemic caused by COVID-19, and the
-  big question that all golfers are asking, how is our daily golf? The concept
-  of Quality of Life is not unanimously defined, being often ambiguous and
-  elusive, however factors such as education, health, environment, politics,
-  economy, living conditions, society and productivity can be part of this
-  concept. This narrative review, observes golf as a recreational or sport
-  activity, which produces beneficial effects on several of these factors since
-  it promotes low intensity physical exercise, appropriate even for cardiac
-  patients. The improvements in balance, strength, physiological and mental
-  parameters are noticeable, especially in the population. It can be practiced
-  simultaneously by children, adults and the elderly, through the Handicap
-  System, something that few sports can do, serving as a stimulus for social
-  activities of a population. Golf is therefore a lifelong activity, which
-  improves Quality
+  Even though pesticides are sprayed on land, many times, they can make their
+  way into a water source, such as a river, ocean, or pond. For instance:
+  Pesticides from an orchid may end up in a nearby stream due to runoff. If a
+  body of water becomes contaminated with the chemicals, many fish and other
+  animals may die and get sick. This can throw the whole ecosystem off balance.
 
-  of Life of all its practitioners, also serving as a tool for social inclusion.
+  Pesticides can also affect groundwater by a process known as leeching. Many people depend on groundwater for their drinking supply, yet, if that water has pesticides in it, it is unsanitary and harmful for the people to drink.
+
+
+  Another way pesticides can spread and cause potential harm is by volatilization. Volatilization occurs when a pesticide turns into a gas or vapor after it has been sprayed, allowing it to travel through the air and spread to different pieces of land. (Vapor Drift) This can be harmful for wildlife, such as frogs. Some scientists even believe that the pesticide, atrazine, causes reproductive problems in the frogs that affect the frog's biological goal, which is to survive to reproduce.
+
+
+  Not only are pesticides dangerous to the environment, but they are also hazardous to a person's health. Pesticides are stored in your colon, where they slowly but surely poison the body. You may not realize this, but when you are eating a non-organic apple, you are also eating over 30 different pesticides that have been sprayed on the apple. Even if you wash a piece of fruit, such as an apple, there are still many pesticides lingering on it and they could have seeped into the fruit or vegetable. Strawberries, apples, carrots, celery, spinach, grapes, apples, cucumbers are just a few types of food that you should not eat if they are not organic because the pesticide level is the highest on them.
+
+
+  After countless studies, pesticides have been linked to cancer, Alzheimer's Disease, ADHD, and even birth defects. Pesticides also have the potential to harm the nervous system, the reproductive system, and the endocrine system. Pesticides can even be very harmful to fetuses because the chemicals can pass from the mother during pregnancy or if a woman nurses her child. Although one piece of fruit with pesticides won't kill you, if they build up in your body, they can be potentially detrimental to your health and should be avoided as much as possible.
 provisions: >-
-  (1) Biological control uses natural enemies of pests and diseases on plants
-  and soils to reduce their impact, which means using three times fewer
-  chemicals, with the same performance and lower cost. Advantages and weaknesses
-  revolve around this key alternative to ensure the sustainability of the
-  systems.
+  The use of pesticides on golf courses is prohibited.
 
 
-  (2) Use the club's vacation and maintenance period for the application of new inputs to combat pests and preserve the environment.
+  The department shall by regulation determine the means to inspect and enforce the prohibition of the use of pesticides on golf courses.
 
 
-  (3) Hire Professional Consultants to evaluate and check the current status of the golde club and offer short and medium term change measures
-
-
-  (4) Conserving the biological control agents available in nature, in order to obtain a systemic ecological benefit.
-exceptions: "Eccessions  All pesticide containers currently in the cluber must
-  be accompanied by an American language label, which should include:  (1)
-  Common and commercial names, concentration formulation and pesticide
-  ingredients.  (2) The type of product (for example, insecticide, fungicide,
-  herbicide, rodenticide). (3) The name of the pest that the pesticide is
-  intended to eradicate and the recommended dosage. It is important to compare
-  the health record of each member who frequents so as not to cause damage to
-  health. (4) Instructions for use, application methods, persistence and
-  pre-harvest interval. (5) Warnings and precautionary measures, including signs
-  and symptoms of poisoning and information on safety, health and first aid
-  measures, warning symbols and environmental protection precautions. (6) The
-  date of manufacture, validity, batch number and name of the country of
-  manufacture. (7) Other technical requirements related (8) Professional
-  technicians present on the golf course: Nurses and Chemistry Technicians."
+  The department shall by regulation establish such additional restrictions and prohibitions upon the use of pesticides as it deems necessary to protect health and the environment.
+exceptions: The department may grant a waiver to golf courses that, after a
+  technical evaluation, are able to prove the use of pesticides on their land
+  has no environmental impact and no public health risks.
 other: No text
 competition: banning-of-chemical-pesticides-on-golf-courses
 ---
