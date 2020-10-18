@@ -1,15 +1,17 @@
 import React from "react"
 import CompetitionCard from "./competitionCard"
+import PropTypes from "prop-types"
+import { CONTEST_PAGE_URL } from "../../constants"
 
-
-const CompetitionList = ({title, edges}) => {
-  const contests = edges
-    .map(edge => <CompetitionCard
-                   title={edge.node.frontmatter.title}
-                   slug={edge.node.fields.slug}
-                   description={edge.node.frontmatter.description}
-                   endDate={edge.node.frontmatter.endDate}
-                   key={edge.node.id}
+const CompetitionList = ({title, contests}) => {
+  const contestCards = contests
+    .map(contest => <CompetitionCard
+                   title={contest.title}
+                   link={CONTEST_PAGE_URL + "/" + contest.id}
+                   description={contest.description}
+                   endDate={contest.endDate}
+                   id={contest.id}
+                   key={contest.id}
                  />)
   return (
     <>
@@ -20,10 +22,20 @@ const CompetitionList = ({title, edges}) => {
         </div>
       </div>
       <div className="row">
-        {contests}
+        {contestCards}
       </div>
     </>
   )
 }
 
 export default CompetitionList
+
+CompetitionList.propTypes = {
+  title: PropTypes.string,
+  contests: PropTypes.array
+}
+
+CompetitionList.defaultProps = {
+  title: "",
+  contests: []
+}

@@ -1,25 +1,36 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 import LegislationListItem from "./legislationListItem"
 
 function LegislationList ({legislation}) {
-const legislationList = legislation
-  .map(law => <LegislationListItem
-                title={law.node.frontmatter.title}
-                description={law.node.frontmatter.accomplishes}
-                key={law.node.id}
-                slug={law.node.fields.slug}
-              />)
+  legislation = legislation ? legislation : []
+  const legislationList = legislation
+    .map(law => <LegislationListItem
+                  title={law.title}
+                  description={law.accomplishes}
+                  key={law.id}
+                  id={law.id}
+                />)
 return(
     <div className="row">
         <div className="col">
             {legislationList.length > 0 ? 
             legislationList 
-            : <p> -- Be the first to create new legislation for this contest! -- </p>
+            : <p> -- Be the first to create new legislation for this issue! -- </p>
             }
+            <hr />
         </div>
     </div>
 )
 }
 
 export default LegislationList
+
+LegislationList.propTypes = {
+  legislation: PropTypes.array
+}
+
+LegislationList.defaultProps = {
+  legislation: []
+}

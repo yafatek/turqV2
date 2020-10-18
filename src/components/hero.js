@@ -1,23 +1,25 @@
 import React from "react"
-import { Button } from "react-bootstrap"
-import { Link } from "gatsby"
+import Button from "@material-ui/core/Button"
+import Grid from '@material-ui/core/Grid';
+import { Link } from "react-router-dom";
 
 const Hero = ({header, subtext, link, buttonText}) => (
-<section className="hero-bgImage">
+<section>
   <div className="hero-blur"></div>
-  <div className="container-fluid h-100 d-flex">
-    <div className="row justify-content-center align-self-center">
-      <div className="col-9 mx-auto">
+  <Grid container justify="center" alignItems="center" className="hero-bg">
+    <Grid container item direction="column" alignItems="center">
+      <Grid item xs={9}>
         <h2 className="hero-header mt-4">{header}</h2>
         <p className="hero-subtitle mt-4">{subtext}</p>
         <p className="mt-4">
           <Link to={link}>
-            <Button variant="turq">{buttonText}</Button>
+            <Button variant="contained" color="primary">{buttonText}</Button>
           </Link>
         </p>
-      </div>
-    </div>
-  </div>
+
+      </Grid>
+    </Grid>
+  </Grid>
 </section>
 )
 

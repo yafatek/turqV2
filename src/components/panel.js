@@ -1,6 +1,6 @@
 import React from "react"
-import { Button } from "react-bootstrap"
-import { Link } from "gatsby"
+import { Button } from "@material-ui/core"
+import { Link } from "react-router-dom";
 
 const Panel = ({title, subtitle, buttonText, link, imgSrc, altTxt}) => (
 <div className="container-fluid col-md-8 col-11 d-flex h-100">
@@ -22,7 +22,7 @@ const Panel = ({title, subtitle, buttonText, link, imgSrc, altTxt}) => (
       <div className="row mt-4">
         <div className="col">
           <Link to={link}>
-            <Button variant="turq">{buttonText}</Button>
+            <Button variant="contained" color="primary">{buttonText}</Button>
           </Link>
         </div>
       </div>

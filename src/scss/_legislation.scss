@@ -1,0 +1,34 @@
+.legislation-SectionText {
+  line-height: 1.8;
+  font-family: $legal-font;
+  font-size: 1.3em;
+  overflow-wrap: break-word;
+  text-indent: 2em;
+}
+
+.legislation-SectionTitle {
+  line-height: 1.8;
+  font-family: $legal-font;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.legislation-title {
+  line-height: 1.8;
+  font-family: $legal-font;
+}
+
+.legislation-subtitle {
+  line-height: 1.8;
+  font-family: $legal-font;
+  font-style: italic;
+  font-size: 1.2em;
+  overflow-wrap: break-word;
+}
+
+.legislation-background {
+  background-color: $white;
+  box-shadow: 0 4px 8px -4px rgba(0,0,0,0.4);
+  border-radius: 0.2rem
+}

@@ -1,12 +1,12 @@
 import React from "react"
-import { Button } from "react-bootstrap"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import { Link } from "react-router-dom"
+import { Button } from "@material-ui/core"
+import Layout from "../components/layout/layout"
 import NumberCircleTile from "../components/numberCircleTile"
+import { EDITOR_PAGE_URL } from "../constants"
 
 const SponsorPage = () => (
   <Layout>
-    <SEO title="Contributing" />
     <div className="row about-header">
       <div className="col text-center">
         <h1 className="about-title">Sponsoring a Competition</h1>
@@ -57,7 +57,10 @@ const SponsorPage = () => (
         </div>
       </div>
     </div>
-    <Button variant="turq" size="lg" target="_blank" href="/admin/#/collections/Contests/new">Create a New Contest!</Button>
+    <Link to={EDITOR_PAGE_URL + "/contest"}
+    >
+      <Button variant="contained" color="primary" size="lg">Create a New Contest!</Button>
+    </Link>
   </Layout>
 )
 

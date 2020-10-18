@@ -1,59 +1,25 @@
 import React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import NumberCircleTile from "../components/numberCircleTile"
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
+import Layout from "../components/layout/layout"
 
 const DrafterPage = () => (
   <Layout>
-    <SEO title="Contributing" />
-    <div className="row about-header">
-      <div className="col text-center">
-        <h1 className="about-title">How To Draft Legislation</h1>
-      </div>
-    </div>
-    <div className="row about-header pb-2">
-      <div className="col text-center">
-        <p className="about-subtitle">
-          Help others to bring their legislative dream to reality
-        </p>
-      </div>
-    </div>
-    <div className="row mb-5 mt-4 mx-auto">
-      <div className="col-12 col-md-6 col-lg-3 mt-3">
-        <NumberCircleTile
-          title="Select"
-          number="1"
-          detail="Find a contest that interests you"
-          primary={false}
-        />
-      </div>
-      <div className="col-12 col-md-6 col-lg-3 mt-3">
-        <NumberCircleTile
-          title="Review"
-          number="2"
-          detail="Review the contest details and writing guides"
-          primary={false}
-        />
-      </div>
-      <div className="col-12 col-md-6 col-lg-3 mt-3">
-        <NumberCircleTile
-          title="Draft"
-          number="3"
-          detail="Begin writing new legislation or make edits to existing content"
-          primary={false}
-        />
-      </div>
-      <div className="col-12 col-md-6 col-lg-3 mt-3">
-        <NumberCircleTile
-          title="Win"
-          number="4"
-          detail="Receive the contest award when the sponsor accepts your legislation"
-          primary={false}
-        />
-      </div>
-    </div>
-    <div className="row">
-      <div className="col mx-auto">
+    <Grid container alignItems="center" justify="center">
+      <Grid container item xs={12}>
+        <Grid item xs={12}>
+          <Typography variant="h2" color="textPrimary" component="h2" align="center">
+            How To Draft Legislation
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography variant="h4" color="textSecondary" component="h4" align="center">
+            Help others to bring their legislative dream to reality
+          </Typography>
+        </Grid>
+      </Grid>
+      <Grid container item xs={9}>
         <h3>Drafting Guidelines</h3>
         <ul>
           <li>
@@ -87,8 +53,8 @@ const DrafterPage = () => (
             <b>Approachable</b> - It can be understood by someone who's not an expert.
           </li>
         </ul>
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   </Layout>
 )
 

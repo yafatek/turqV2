@@ -1,4 +1,5 @@
 import React from "react"
+import Grid from '@material-ui/core/Grid';
 import AboutPanel from "./aboutPanel"
 import Tim from "../../images/Tim_Wallis.jpeg"
 import John from "../../images/John_Daley.jpeg"
@@ -22,27 +23,35 @@ const Team = () => {
       <p>A native of Appleton, Wisconsin, Michael is a resident of Charlotte, North Carolina. He is an avid athlete who enjoys Ultra-Running, mountain biking, and rock climbing, among other endurance sports.</p>
     </div>
   return(
-  <>
-    <AboutPanel 
-      title="Tim Wallis"
-      text={aboutTim}
-      img={Tim}
-      alt="Tim Wallis Headshot"
-    />
-    <AboutPanel 
-      title="John Daley"
-      text={aboutJohn}
-      img={John}
-      alt="John Daley Headshot"
-      darkBackground
-    />
-    <AboutPanel 
-      title="Michael Conlon"
-      text={aboutMichael}
-      img={Michael}
-      alt="Michael Conlon Headshot"
-    />
-  </>
+    <div style={{ padding: 20 }}>
+      <Grid spacing={5} container justify="center">
+        <Grid item>
+          <AboutPanel 
+            title="Tim Wallis"
+            text={aboutTim}
+            img={Tim}
+            alt="Tim Wallis Headshot"
+          />
+        </Grid>
+        <Grid item>
+          <AboutPanel 
+            title="John Daley"
+            text={aboutJohn}
+            img={John}
+            alt="John Daley Headshot"
+            darkBackground
+          />
+        </Grid>
+        <Grid item>
+          <AboutPanel 
+            title="Michael Conlon"
+            text={aboutMichael}
+            img={Michael}
+            alt="Michael Conlon Headshot"
+          />
+        </Grid>
+      </Grid>
+    </div>
 )
 }
 

@@ -1,6 +1,8 @@
 import React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
+import Layout from "../components/layout/layout"
 import Team from "../components/about/team"
 import Vision from "../components/about/vision"
 import Story from "../components/about/process"
@@ -17,7 +19,7 @@ class AboutPage extends React.Component {
   }
 
   getClassNames = (view) => {
-    return "col-12 col-md-2 col-xl-1 text-center my-auto about-header-text " + (this.state.view === view ? "about-text-highlight" : "" );
+    return "about-header-text " + (this.state.view === view ? "about-text-highlight" : "" );
   }
 
   renderPage(view) {
@@ -32,42 +34,41 @@ class AboutPage extends React.Component {
   }
 
   render() {
-    return <Layout fullWidth>
-      <SEO title="About" />
-      <div className="row">
-        <div className={"col-12 mx-auto"}>
-          <div className="row">
-            <div className="col text-center">
-              <h1 className="about-title">Turq</h1>
-            </div>
-          </div>
-          <div className="row about-header">
-            <div className="col text-center">
-              <p className="about-subtitle">
-                We're bringing democracy back to the people
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="row about-task">
-        <button onClick={() => {this.changeView("team") }}  className={this.getClassNames("team") + " ml-auto"}>
-          <h4>Our Team</h4>
-        </button>
-        <button onClick={() => {this.changeView("story") }} className={this.getClassNames("story")}>
-          <h4>Our Process</h4>
-        </button>
-        <button onClick={() => {this.changeView("vision") }} className={this.getClassNames("vision") + " mr-auto"}>
-          <h4>Our Vision</h4>
-        </button>
-      </div>
-      <div className="row">
-        <div className={"col-12 mx-auto"}>
-          {this.renderPage(this.state.view)}
-        </div>
-      </div>
+    return (
+    <Layout fullWidth pageTitle="Turq | About" description="Turq's mission is to make direct democracy viable by enabling citizens to draft and submit their own legislation">
+      <Grid container alignItems="flex-start" direction="column">
+        <Grid item container direction="row" className="about-task" justify="center" alignItems="center">
+          <Grid item xs={2}>
+            <Typography align="center">
+              <button onClick={()=> {this.changeView("team") }}  className={this.getClassNames("team")}>
+                <h4>Our Team</h4>
+              </button>
+            </Typography>
+          </Grid>
+          <Grid item xs={2}>
+            <Typography align="center">
+              <button onClick={() => {this.changeView("story") }} className={this.getClassNames("story")}>
+                <h4>Our Process</h4>
+              </button>
+            </Typography>
+          </Grid>
+          <Grid item xs={2}>
+            <Typography align="center">
+              <button onClick={() => {this.changeView("vision") }} className={this.getClassNames("vision")}>
+                <h4>Our Vision</h4>
+              </button>
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item container>
+          <Grid item xs={12}>
+            {this.renderPage(this.state.view)}
+          </Grid>
+        </Grid>
+      </Grid>
     </Layout>
-  }
+  )}
+
 }
 
 export default AboutPage

@@ -1,12 +1,13 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link } from "react-router-dom"
 import { Card } from "react-bootstrap"
 import Truncate from "react-truncate"
+import PropTypes from "prop-types"
 
 
-const CompetitionCard = ({title, slug, description, endDate}) => (
+const CompetitionCard = ({title, id, description, link}) => (
 <div className="col-12 col-md-6 col-lg-4 mt-4">
-  <Link to={slug} className="unstyled-link">
+  <Link to={link} className="unstyled-link">
     <Card className="competition-card">
       <Card.Header className="competition-card-header">
         <h4>
@@ -28,3 +29,17 @@ const CompetitionCard = ({title, slug, description, endDate}) => (
 )
 
 export default CompetitionCard
+
+CompetitionCard.propTypes = {
+  title: PropTypes.string,
+  id: PropTypes.number,
+  description: PropTypes.string,
+  link: PropTypes.string
+}
+
+CompetitionCard.defaultProps = {
+  title: "",
+  id: null,
+  description: "",
+  link: ""
+}

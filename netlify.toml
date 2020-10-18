@@ -1,12 +1,9 @@
 [build]
-publish = "public"
-command = "gatsby build"
-
-[context.split1]
-command = "gatsby build"
+publish = "build"
+command = "yarn build"
 
 [context.deploy-preview]
-command = "gatsby build"
+command = "yarn build"
 
 [context.branch-deploy]
-command = "gatsby build"
+command = "yarn build"
