@@ -2,38 +2,33 @@ import React from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import {Helmet} from "react-helmet";
+import Grid from '@material-ui/core/Grid';
 
-import { logout } from "../actions/logout"
+import { logout } from "../../actions/logout"
 import Header from "./header"
 import Footer from "./footer"
-// The following import prevents a Font Awesome icon server-side rendering bug,
-// where the icons flash from a very large icon down to a properly sized one:
-import '@fortawesome/fontawesome-svg-core/styles.css';
-// Prevent fontawesome from adding its CSS since we did it manually above:
-import { config } from '@fortawesome/fontawesome-svg-core';
-config.autoAddCss = false; /* eslint-disable import/first */
 
-const Layout = ({ children, fullWidth, isAuthenticated, logout, pageTitle, description }) => {
+const Layout = ({ children, isAuthenticated, logout, pageTitle, description }) => {
   return (
-    <div className="site">
+    <>
+      <div className="site">
       <Helmet>
-          <meta charset="utf-8" />
           <meta name="description" content={description} />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
           <title>{pageTitle}</title>
       </Helmet>
-      <Header  logout={logout} isAuthenticated={isAuthenticated}/>
-        <div className="container-fluid main">
-          <div className="row">
-            <div
-              className={fullWidth ? "col-12 mx-auto" : "col-9 my-4 mx-auto"}
-            >
-              <main className={fullWidth ? "" : "content mx-auto"}>{children}</main>
-            </div>
-          </div>
-        </div>
-      <Footer />
+      <Grid direction="column" container className="main">
+        <Grid direction="row" item container>
+          <Header  logout={logout} isAuthenticated={isAuthenticated}/>
+        </Grid>
+        <Grid direction="row" item container className="main">
+          {children}
+        </Grid>
+        <Grid direction="row" item container>
+          <Footer />
+        </Grid>
+      </Grid>
     </div>
+    </>
   )
 }
 

@@ -8,11 +8,11 @@ function LegislationListItem ({description, title, id}) {
 return(
     <div className="row">
         <div className=" col">
+            <hr />
             <Link to={LEGISLATION_PAGE_URL + "/" + id}><h4>{title}</h4></Link>
             <Truncate lines={2}>
                 {description}
             </Truncate>
-            <hr />
         </div>
     </div>
 )

@@ -1,17 +1,17 @@
 import React from "react"
 import axios from "axios";
 import { toast } from 'react-toastify';
-import { Link } from "react-router-dom"
-import { Button } from "react-bootstrap"
 import { connect } from 'react-redux'
+import Grid from '@material-ui/core/Grid';
 
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import { fetchContest } from "../actions/contestActions"
 import DismissableAlert from "../components/dismissableAlert"
 import {isPastEndDate } from "../util/dateCompare"
-import LegislationList from "../components/legislation/legislationList"
+import ContestSubmissionsCard from "../components/competition/contestSubmissionsCard"
+import ContestFundingCard from "../components/competition/contestFundingCard"
 import CompetitionText from "../components/competition/competitionText"
-import { CONTEST_DATA_URL, EDITOR_PAGE_URL } from "../constants"
+import { CONTEST_DATA_URL } from "../constants"
 
 class ContestPage extends React.Component {
 
@@ -40,15 +40,14 @@ class ContestPage extends React.Component {
       var pastEndDate = isPastEndDate(contest.endDate)
       if (pastEndDate && !!contest.legislatureLink) {
         alert =
-        <DismissableAlert variant="turq" heading="This Competition Has Ended!">
+        <DismissableAlert variant="turq" heading="This Issue Has Been Closed!">
           <p className="mb-2"> The winning legislation is making it's way through the legislature now!  </p>
           <p className="my-0"> Check it out here: <a target="_blank" rel="noopener noreferrer" href={contest.legislatureLink}>{contest.legislatureLink}</a></p>
         </DismissableAlert>
       } else if (pastEndDate) {
         alert =
-        <DismissableAlert variant="turq" heading="This Competition Has Ended!">
-          <p className="mb-2"> The winning legislation is still being selected</p>
-        </DismissableAlert>
+        <DismissableAlert variant="turq" heading="This Issue Has Been Closed!">
+          <p className="mb-2"> The winning legislation is still being selected</p> </DismissableAlert>
       } else {
         alert = null
       }
@@ -56,38 +55,34 @@ class ContestPage extends React.Component {
 
     return (
       <Layout>
-        {alert}
-        {contest ? 
-          <>
-          <CompetitionText
-            title={contest.title}
-            prizes={contest.prize}
-            description={contest.description}
-            rules={contest.rules}
-            criteria={contest.criteria}
-            endDate={contest.endDate}
-          />
-          <div className="row justify-content-center align-self-center">
-            <div className="col mt-3">
-              <Link
-                to={EDITOR_PAGE_URL + "/legislation?contest=" + contest.id}
-              >
-
-                {!isPastEndDate(contest.endDate)
-                  ? <Button variant="turq" size="lg" > Create New Legislation </Button>
-                  : null
-                }
-              </Link>
-            </div>
-          </div>
-          <div className="row p-2 pt-3 mt-3 contest-legislation-list">
-            <div className="col">
-              <h2>Legislation Submitted For This Contest</h2>
-              <hr />
-              <LegislationList legislation={this.state.legislationList}/>
-            </div>
-          </div>
-          </>
+        {contest ?
+          <Grid container justify="center" direction="column" style={{padding:20}}>
+            <Grid item>
+              {alert}
+            </Grid>
+            <Grid container justify="center" spacing={5}>
+                <Grid item xs={12} md={8} >
+                  <CompetitionText
+                    title={contest.title}
+                    prizes={contest.prize}
+                    description={contest.description}
+                    rules={contest.rules}
+                    criteria={contest.criteria}
+                    endDate={contest.endDate}
+                  />
+                </Grid>
+                <Grid container item xs={12} md={4} style={{padding:20}}>
+                  <Grid container item direction="column" spacing={5}>
+                    <Grid item>
+                      <ContestFundingCard currentFunding={contest.prize} contestId={contest.id}/>
+                    </Grid>
+                    <Grid item>
+                      <ContestSubmissionsCard contest={contest} legislationList={this.state.legislationList} />
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
           : <></>
         }
       </Layout>

@@ -1,8 +1,9 @@
 import React from "react"
 import { connect } from 'react-redux'
+import Grid from '@material-ui/core/Grid';
 
-import Layout from "../components/layout"
-import CompetitionList from "../components/competition/competitionList"
+import Layout from "../components/layout/layout"
+import ContestPanelList from "../components/competition/contestPanelList"
 import { fetchAllContests } from '../actions/contestActions'
 import {isPastEndDate } from "../util/dateCompare"
 
@@ -26,12 +27,14 @@ class ContestPage extends React.Component {
       <Layout>
         {this.props.allContests
           ? <>
-            <div>
-              <CompetitionList title="Active Contests" contests={currentContests} />
-            </div>
-            <div className="mt-5">
-              <CompetitionList title="Past Contests" contests={pastContests} />
-            </div>
+            <Grid container>
+              <Grid item xs={12}>
+                <ContestPanelList title="Active Issues" contests={currentContests} />
+              </Grid>
+              <Grid item xs={12}>
+                <ContestPanelList title="Past Issues" contests={pastContests} />
+              </Grid>
+            </Grid>
           </>
           : <></>
         }

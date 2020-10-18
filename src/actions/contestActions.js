@@ -95,7 +95,7 @@ export function fetchAllContests() {
       dispatch(fetchAllContestsSuccess(res.data))
     }).catch(function (error) {
       dispatch(fetchAllContestsFailure(error))
-      toast.error("Unable load contest, please try again in a few minutes")
+      toast.error("Unable load contest, please try again in a few minutes: " + error)
     })
   }
 }

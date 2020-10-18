@@ -6,7 +6,11 @@ class NumberInput extends React.Component {
 
   render() {
     return (
-      <NumberFormat {...this.props} />
+      <NumberFormat
+        {...this.props}
+        thousandSeparator
+        decimalScale={2}
+      />
     )
   }
 }

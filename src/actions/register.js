@@ -55,7 +55,7 @@ export function register(creds) {
       dispatch(registerSuccess(res.data.jwttoken, res.data.email))
     }).catch(function (error) {
       dispatch(registerFailure(error))
-      toast.error("Registration Failed");
+      toast.error("Registration Failed: " + error.response.data.detail);
     })
   }
 }

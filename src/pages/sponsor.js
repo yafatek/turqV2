@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { Button } from "react-bootstrap"
-import Layout from "../components/layout"
+import { Button } from "@material-ui/core"
+import Layout from "../components/layout/layout"
 import NumberCircleTile from "../components/numberCircleTile"
 import { EDITOR_PAGE_URL } from "../constants"
 
@@ -59,7 +59,7 @@ const SponsorPage = () => (
     </div>
     <Link to={EDITOR_PAGE_URL + "/contest"}
     >
-      <Button variant="turq" size="lg">Create a New Contest!</Button>
+      <Button variant="contained" color="primary" size="lg">Create a New Contest!</Button>
     </Link>
   </Layout>
 )

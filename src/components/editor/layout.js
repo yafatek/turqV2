@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import EditorHeader from "./header"
-import Footer from "../footer"
+import Footer from "../layout/footer"
 
 const EditorLayout = ({ children, onSubmit }) => {
   return (

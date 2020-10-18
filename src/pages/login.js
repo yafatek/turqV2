@@ -1,9 +1,12 @@
 import React from "react"
 import { connect } from 'react-redux'
 import { Redirect, Link } from "react-router-dom"
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button'
+
 import { login } from "../actions/login"
-import StringInput from "../components/editor/input/stringInput"
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 
 class LoginPage extends React.Component {
 
@@ -18,55 +21,71 @@ class LoginPage extends React.Component {
   }
 
   _handleChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
     this.setState({ ...this.state,
-      creds: { ...this.state.creds, [name]: value }
+      creds: { ...this.state.creds, [event.target.id]: event.target.value }
     });
   }
 
   render() {
-
     if (this.props.isAuthenticated) {
       return <Redirect to={this.state.referer} />
     }
 
     return (
       <Layout>
-        <div className="login-form col col-md-6 mx-auto">
+      <Grid container spacing={0} className="main login-form-area" justify="center">
+        <Grid item xs={12} md={9} xl={6}>
+          <h2>Sign In</h2>
           <form>
-            <h2>Sign In</h2>
-
-            <div className="form-group">
-              <label>Email address</label>
-              <StringInput
-                placeholder="email"
-                className="login-form col-12 form-control"
+            <Grid item xs={12}>
+              <TextField
+                id="email"
+                label="Email"
+                placeholder="Email"
+                fullWidth
+                margin="normal"
                 onChange={event => this.handleChange(event)}
-                name="email"
                 value={this.state.creds.email}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
               />
-            </div>
-
-            <div className="form-group">
-              <label>Password</label>
-              <StringInput
-                className="login-form col-12 form-control"
-                type="password"
-                placeholder="password"
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="password"
+                label="Password"
+                placeholder="Password"
+                fullWidth
+                margin="normal"
                 onChange={event => this.handleChange(event)}
-                name="password"
                 value={this.state.creds.password}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+                type="password"
               />
-            </div>
-
-            <button
-            onClick={(e) => {e.preventDefault(); this.props.dispatch(login(this.state.creds))}}
-            className="btn btn-primary btn-block">Login</button>
-            <span className="float-right">First Time?&nbsp;<Link className="float-right" to={{pathname: "/register", state: { referer: this.state.referer}}}>Create New Account</Link></span>
+            </Grid>
+            <Grid item container xs={12} justify="space-between">
+              <Grid item xs={8}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={(e) => {e.preventDefault(); this.props.dispatch(login(this.state.creds))}}>
+                    Login
+                </Button>
+              </Grid>
+              <Grid item xs>
+                <div className="login-switch">
+                  <span>First Time?&nbsp;<Link to={{pathname: "/register", state: { referer: this.state.referer}}}>Create New Account</Link></span>
+                </div>
+              </Grid>
+            </Grid>
           </form>
-        </div>
+        </Grid>
+      </Grid>
       </Layout>
     )
   }

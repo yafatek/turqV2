@@ -17,8 +17,9 @@ return(
         <div className="col">
             {legislationList.length > 0 ? 
             legislationList 
-            : <p> -- Be the first to create new legislation for this contest! -- </p>
+            : <p> -- Be the first to create new legislation for this issue! -- </p>
             }
+            <hr />
         </div>
     </div>
 )

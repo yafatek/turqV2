@@ -55,7 +55,7 @@ export function login(creds) {
       dispatch(loginSuccess(res.data.jwttoken, res.data.email))
     }).catch(function (error) {
       dispatch(loginFailure(error))
-      toast.error("Login Failed");
+      toast.error("Login Failed: " + error.response.data.detail);
     })
   }
 }

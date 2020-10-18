@@ -30,3 +30,18 @@
   box-shadow: 0 4px 8px -4px rgba(0,0,0,0.4);
   border-radius: 0.2rem
 }
+
+.left-contest-panel {
+  min-height: 400px;
+  background-color: $white;
+  border: 2px solid $medium-gray;
+}
+.right-contest-panel {
+  min-height: 400px;
+  background-color: $light-gray;
+  border: 2px solid $medium-gray;
+}
+
+.checkout-highlighted {
+  border-radius: 8rem !important;
+}

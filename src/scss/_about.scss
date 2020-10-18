@@ -13,6 +13,7 @@
 }
 
 .about-text-centered {
+  margin-top: 40px;
   font-size: 1.25rem;
   font-weight: 400;
   text-align: center;
@@ -35,6 +36,7 @@
 .about-task {
   background-color: $dark-gray;
   min-height:70px;
+  max-height: 70px;
 }
 
 .about-header-text {

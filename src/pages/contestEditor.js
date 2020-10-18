@@ -4,7 +4,7 @@ import { convertToRaw, convertFromRaw } from "draft-js"
 import axios from "axios"
 import { connect } from 'react-redux'
 import { toast } from 'react-toastify';
-import { Button } from 'react-bootstrap'
+import { Button } from '@material-ui/core'
 import isEmpty from 'underscore/modules/isEmpty'
 
 import EditorLayout from "../components/editor/layout"
@@ -13,7 +13,6 @@ import Editor, { LeftPanel, RightPanel } from "../components/editor/editor"
 import StringInput from "../components/editor/input/stringInput"
 import MarkdownInput from "../components/editor/input/markdownInput"
 import DateInput from "../components/editor/input/dateInput"
-import NumberInput from "../components/editor/input/numberInput"
 import InputWrapper from "../components/editor/input/inputWrapper"
 import Modal from "../components/modal"
 import { CONTEST_DATA_URL } from "../constants"
@@ -40,7 +39,9 @@ class ContestEditor extends React.Component {
       axios.get(CONTEST_DATA_URL + "/" + this.props.match.params.id)
         .then(res => {
           const contest = res.data;
-          contest.endDate = new Date(contest.endDate);
+          if (contest.endDate !== null) {
+            contest.endDate = new Date(contest.endDate);
+          }
           this.setState({...this.state, contest, isLoaded: true});
         }
       ).catch(function (error) {
@@ -116,8 +117,8 @@ class ContestEditor extends React.Component {
           show={this.state.showModal}
           header="Previous Data Found!"
           body="You have unsaved work, would you like to load it now?">
-            <Button variant="primary" onClick={() => this.populateSavedData(true)}>Accept</Button>
-            <Button variant="Secondary" onClick={() => this.populateSavedData(false)}>Decline</Button>
+            <Button variant="contained" color="primary" onClick={() => this.populateSavedData(true)}>Accept</Button>
+            <Button variant="contained" color="secondary" onClick={() => this.populateSavedData(false)}>Decline</Button>
         </Modal>
     }
 
@@ -151,17 +152,6 @@ class ContestEditor extends React.Component {
                         value={contest.endDate}
                       />
                     </InputWrapper>
-                    <InputWrapper title="Prize" hint="Cash prize in $USD" >
-                      <NumberInput
-                        className="form-control editor-number col-12"
-                        prefix="$"
-                        thousandSeparator
-                        decimalScale={2}
-                        placeholder="prize"
-                        onValueChange={(val) => this.handleNumberChange(val, "prize")}
-                        value={contest.prize}
-                      />
-                    </InputWrapper>
                     <InputWrapper title="Description" hint="Contest description" >
                       <MarkdownInput
                         placeholder="Description"
@@ -178,7 +168,7 @@ class ContestEditor extends React.Component {
                         name="rules"
                       />
                     </InputWrapper>
-                    <InputWrapper title="Judging Criteria" hint="Contest description" >
+                    <InputWrapper title="Judging Criteria (Optional)" hint="Contest description" >
                       <MarkdownInput
                         placeholder="Juding Criteria"
                         onChange={this.handleMarkdownChange}

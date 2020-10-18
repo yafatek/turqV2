@@ -4,6 +4,7 @@ export const CONTEST_DATA_URL = `${BASE_URL}/contest`
 export const LEGISLATION_DATA_URL = `${BASE_URL}/legislation`
 export const LOGIN_URL = `${BASE_URL}/login`
 export const REGISTER_URL = `${BASE_URL}/register`
+export const PAYMENTS_URL = `${BASE_URL}/payments`
 // Local Links
 export const ABOUT_PAGE_URL = '/about'
 export const CONTEST_PAGE_URL = '/contest'
@@ -14,15 +15,22 @@ export const HOME_PAGE_URL = '/'
 export const EDITOR_PAGE_URL = '/editor'
 export const LOGIN_PAGE_URL = '/login'
 export const REGISTER_PAGE_URL = '/register'
+export const CHECKOUT_PAGE_URL = '/checkout'
+export const THANKYOU_URL = `/thankyou`
 // Default Text
 export const DEFAULT_CONTEST_RULES = 'This challenge is open to all citizens of the United States of America.\n\nSee the terms and conditions [here](/terms/Terms_Conditions.pdf).\n\n Teams that do not comply with the rules, terms and conditions may be disqualified.'
+export const DEFAULT_CONTEST_CRITERIA = `
+**Initial Screening**\n\nAll submissions will be put through an initial screening to ensure compliance with challenge terms and conditions.\n\n**Evaluation and Selection**\n\nA panel of subject-matter-experts, will evaluate, rate and rank submissions. After evaluating, rating and ranking the submissions, the SME’s will select finalists. Those finalists will then be narrowed down to a singular winner. As stated above, that winner will be contact in order to transfer the prize money.\n\nDecisions will be based on the following factors:\n\n\n\n * **Technical Merit**\n\n    * Has the submission presented a clear understanding of the associated problems being addressed? Has the submission developed a logical and workable solution and approach to solving the problem/s? What are the most significant aspects of this concept? Has the submission clearly described the breadth of impact of the change?\n\n\n\n * **Originality**\n\n   * To what extent is this concept new, or in what way is this a variation of an existing idea? How is this concept unique? Does the concept use technical solutions rather than traditional approaches that often rely on enforcement? (think the laws that require cars to include seatbelt reminder alerts, not seatbelts laws that require traffic stops to enforce)\n\n\n\n * **Practicality**\n\n    * Who directly benefits from this concept? Can the improvements and the related activities be implemented in a practical manner? To what extent does the concept demonstrate a reasonable path for implementation? How likely is the concept to be accepted and easily used by the public sector? What are the costs anticipated to be incurred and the costs saved by executing this concept compared to the benefit to the public\n\n
+`
 export const LEGISLATION_SUBTEXT = 'Be it enacted by the Senate and House of Representatives in General Court assembled, and by the authority of the same, as follows:'
 // Editor Text
 // Contest
 export const LEGISLATION_TITLE = 'Official Title'
 export const LEGISLATION_TITLE_HINT = 'The name of the legislation. Ex. An Act Establishing Financial Literacy Education In Massachusetts'
-export const LEGISLATION_SECTION = 'What Chapter of the General Laws Do You Want to Modify?'
-export const LEGISLATION_SECTION_HINT = 'Ex. Chapter 69 of the General Law is hereby amended by inserting the following after section 1Q the following section:'
+export const LEGISLATION_CHAPTER = 'What Chapter of the General Laws Do You Want to Modify?'
+export const LEGISLATION_CHAPTER_HINT = 'Ex. Chapter 69 of the General Law is hereby amended by inserting the following after section 1Q the following section:'
+export const LEGISLATION_SECTION = 'GENERAL LAWS SECTION'
+export const LEGISLATION_SECTION_HINT = 'If you want to modify a Section of that Chapter, provide the number below. If you want to add a Section to the Chapter, give it a number below. Provide a Title for the new Section. Ex. Section 1R. Financial Literacy Education in Massachusetts'
 export const LEGISLATION_ACCOMPLISHES = 'Describe what this bill accomplishes in 1-2 sentences'
 export const LEGISLATION_ACCOMPLISHES_HINT = 'Ex. This document specifies minimum requirements for the implementation of a financial literacy education program in the public schools of the Commonwealth of Massachusetts.'
 export const LEGISLATION_TERMS = 'Define the terms you will be using in this legislation'

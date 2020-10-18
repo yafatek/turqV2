@@ -1,13 +1,14 @@
 import React from "react"
 import axios from "axios";
 import { toast } from 'react-toastify';
+import Grid from '@material-ui/core/Grid';
 
-import CompetitionList from "../components/competition/competitionList"
-import {isPastEndDate } from "../util/dateCompare"
+import ContestPanelList from "../components/competition/contestPanelList"
 import { CONTEST_DATA_URL } from "../constants"
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import Hero from "../components/hero"
-import Explainer from "../components/explainer"
+import { isPastEndDate } from "../util/dateCompare"
+import { CONTEST_PAGE_URL } from '../constants'
 
 class Home extends React.Component {
 
@@ -30,28 +31,22 @@ class Home extends React.Component {
     }
     return (
       <Layout fullWidth>
-        <div className="row">
-          <Hero
-            link="/about"
-            header="Legislation for the people, by the people"
-            buttonText="Learn More About Turq »"
-            subtext="If you want better public policy, you need a legislative bill written. If you want a bill written, you have limited options. Either write it yourself, or get a politician to write it for you. But thousands of other constituents are also asking politicians to write them legislation everyday, and writing it yourself can be intimidating. Turq is the solution."/>
-        </div>
-        <div className="row">
-          <Explainer id="HowItWorks"/>
-        </div>
-        <div className=" mt-5">
-          <div className="col-9 mx-auto">
-            <div className="content mx-auto mb-5">
-            {currentContests && currentContests.length > 0
-            ? <div>
-                <CompetitionList title="Active Contests" contests={currentContests} />
-              </div>
+        <Grid container>
+          <Grid item>
+            <Hero
+              link={CONTEST_PAGE_URL}
+              header="Support Signature Ready Legislation"
+              buttonText="View Our Open Issues »"
+              subtext="Our platform funds a network of citizen lawmakers who draft signature ready Legislation for State and local Legislatures. Turq takes the pressure off representatives by offloading the writing of Legislation to a network of citizens lawmakers. We then pipeline that Legislation into your State or local Legislature. The result is that Representatives have no constraints on serving the needs of all their constituents."
+            />
+          </Grid>
+          <Grid item xs={12}>
+            {currentContests
+            ? <ContestPanelList title="Active Issues" contests={currentContests} />
             : <></>
             }
-            </div>
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </Layout>
     )
   }

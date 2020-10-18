@@ -3,12 +3,11 @@ import { Link } from "react-router-dom"
 import { Card } from "react-bootstrap"
 import Truncate from "react-truncate"
 import PropTypes from "prop-types"
-import { CONTEST_PAGE_URL } from "../../constants"
 
 
-const CompetitionCard = ({title, id, description, endDate}) => (
+const CompetitionCard = ({title, id, description, link}) => (
 <div className="col-12 col-md-6 col-lg-4 mt-4">
-  <Link to={CONTEST_PAGE_URL + "/" + id} className="unstyled-link">
+  <Link to={link} className="unstyled-link">
     <Card className="competition-card">
       <Card.Header className="competition-card-header">
         <h4>
@@ -35,12 +34,12 @@ CompetitionCard.propTypes = {
   title: PropTypes.string,
   id: PropTypes.number,
   description: PropTypes.string,
-  endDate: PropTypes.string
+  link: PropTypes.string
 }
 
 CompetitionCard.defaultProps = {
   title: "",
   id: null,
   description: "",
-  endDate: null
+  link: ""
 }

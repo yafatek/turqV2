@@ -1,6 +1,5 @@
 import React from "react"
 
-
 const editorContext = React.createContext();
 
 function Editor({children, ...props }) {

@@ -1,12 +1,13 @@
 import React from "react"
 import CompetitionCard from "./competitionCard"
 import PropTypes from "prop-types"
+import { CONTEST_PAGE_URL } from "../../constants"
 
 const CompetitionList = ({title, contests}) => {
   const contestCards = contests
     .map(contest => <CompetitionCard
                    title={contest.title}
-                   slug={contest.slug}
+                   link={CONTEST_PAGE_URL + "/" + contest.id}
                    description={contest.description}
                    endDate={contest.endDate}
                    id={contest.id}

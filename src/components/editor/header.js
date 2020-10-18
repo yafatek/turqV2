@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, useHistory } from "react-router-dom";
-import { Navbar, Nav, Button } from "react-bootstrap"
+import { Navbar, Nav } from "react-bootstrap"
+import { Button } from "@material-ui/core"
 import Logo from "../logo"
 
 function EditorHeader ({onSubmit}) {
@@ -18,7 +19,8 @@ function EditorHeader ({onSubmit}) {
         </Navbar.Brand>
         <Nav className="ml-auto mr-1">
           <Button
-            variant="turq"
+            variant="contained"
+            color="primary"
             onClick={onSubmit}
           > 
             Save

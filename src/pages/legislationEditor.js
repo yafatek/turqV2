@@ -2,7 +2,7 @@ import React from "react"
 import axios from "axios"
 import { connect } from 'react-redux'
 import { toast } from 'react-toastify';
-import { Button } from 'react-bootstrap'
+import { Button } from '@material-ui/core'
 import isEmpty from 'underscore/modules/isEmpty'
 
 import EditorLayout from "../components/editor/layout"
@@ -14,6 +14,7 @@ import InputWrapper from "../components/editor/input/inputWrapper"
 import Modal from "../components/modal"
 import { LEGISLATION_DATA_URL } from "../constants"
 import { updateLegislation } from '../actions/legislationActions'
+import * as constants from '../constants'
   
 class LegislationEditor extends React.Component {
 
@@ -88,8 +89,8 @@ class LegislationEditor extends React.Component {
           show={this.state.showModal}
           header="Previous Data Found!"
           body="You have unsaved work, would you like to load it now?">
-            <Button variant="primary" onClick={() => this.populateSavedData(true)}>Accept</Button>
-            <Button variant="Secondary" onClick={() => this.populateSavedData(false)}>Decline</Button>
+            <Button color="primary" onClick={() => this.populateSavedData(true)}>Accept</Button>
+            <Button color="default" onClick={() => this.populateSavedData(false)}>Decline</Button>
         </Modal>
     }
 
@@ -102,7 +103,7 @@ class LegislationEditor extends React.Component {
             <Editor>
               <LeftPanel>
                 <div className="my-3 mx-5">
-                  <InputWrapper title="Title" hint="test" >
+                  <InputWrapper title="Title" hint={constants.LEGISLATION_TITLE_HINT} >
                     <StringInput
                       placeholder="Title"
                       className="editor-input col-12 form-control"
@@ -111,7 +112,7 @@ class LegislationEditor extends React.Component {
                       name="title"
                     />
                   </InputWrapper>
-                  <InputWrapper title="Chapter" hint="test" >
+                  <InputWrapper title="Chapter" hint={constants.LEGISLATION_CHAPTER_HINT} >
                     <StringInput
                       placeholder="Chapter"
                       className="editor-input col-12 form-control"
@@ -120,7 +121,7 @@ class LegislationEditor extends React.Component {
                       name="chapter"
                     />
                   </InputWrapper>
-                  <InputWrapper title="General Laws Section" hint="test" >
+                  <InputWrapper title="General Laws Section" hint={constants.LEGISLATION_ACCOMPLISHES_HINT} >
                     <StringInput
                       placeholder="General Laws Section"
                       className="editor-input col-12 form-control"
@@ -129,7 +130,7 @@ class LegislationEditor extends React.Component {
                       name="section"
                     />
                   </InputWrapper>
-                  <InputWrapper title="Describe what this bill accomplishes in 1-2 sentences" hint="test" >
+                  <InputWrapper title="Describe what this bill accomplishes in 1-2 sentences" hint={constants.LEGISLATION_ACCOMPLISHES_HINT} >
                     <StringInput
                       placeholder="General Laws Section"
                       className="editor-input col-12 form-control"
@@ -138,7 +139,7 @@ class LegislationEditor extends React.Component {
                       name="accomplishes"
                     />
                   </InputWrapper>
-                  <InputWrapper title="Define the terms you will be using in this legislation" hint="test" >
+                  <InputWrapper title="Define the terms you will be using in this legislation" hint={constants.LEGISLATION_TERMS_HINT} >
                     <TextInput
                       placeholder="Terms"
                       className="editor-textarea col-12 form-control"
@@ -147,7 +148,7 @@ class LegislationEditor extends React.Component {
                       name="terms"
                     />
                   </InputWrapper>
-                  <InputWrapper title="Statement of Purpose (expand and go deeper on Bill description)" hint="test" >
+                  <InputWrapper title="Statement of Purpose (expand and go deeper on Bill description)" hint={constants.LEGISLATION_PURPOSE_HINT} >
                     <TextInput
                       placeholder="Purpose"
                       className="editor-textarea col-12 form-control"
@@ -156,7 +157,7 @@ class LegislationEditor extends React.Component {
                       name="purpose"
                     />
                   </InputWrapper>
-                  <InputWrapper title="Provisions" hint="test" >
+                  <InputWrapper title="Provisions" hint={constants.LEGISLATION_PROVISIONS_HINT} >
                     <TextInput
                       placeholder="Provisions"
                       className="editor-textarea col-12 form-control"
@@ -165,7 +166,7 @@ class LegislationEditor extends React.Component {
                       name="provisions"
                     />
                   </InputWrapper>
-                  <InputWrapper title="Special Exceptions (optional)" hint="test" >
+                  <InputWrapper title="Special Exceptions (optional)" hint={constants.LEGISLATION_EXCEPTIONS_HINT} >
                     <TextInput
                       placeholder="Exceptions"
                       className="editor-textarea col-12 form-control"
@@ -174,7 +175,7 @@ class LegislationEditor extends React.Component {
                       name="exceptions"
                     />
                   </InputWrapper>
-                  <InputWrapper title="Other Provisions (optional)" hint="test" >
+                  <InputWrapper title="Other Provisions (optional)" hint={constants.LEGISLATION_OTHER_HINT} >
                     <TextInput
                       placeholder="Other Provisions"
                       className="editor-textarea col-12 form-control"
