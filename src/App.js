@@ -29,7 +29,7 @@ let api = axios.create({
 })
 loadProgressBar('',api)
 
-const stripePromise = loadStripe('pk_live_51HbZ1nHON50b1YxWbkJC4VBlKm2zB9mqyHRsHOvYqgLWBfSMej0lb3MwRQpqoxI39rdluend2h2VC4leXChcGlEn00b23IRf2V');
+const stripePromise = loadStripe(constants.STRIPE_KEY);
 
 function App() {
   return (
