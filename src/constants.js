@@ -1,3 +1,5 @@
+// Errors
+export const TOKEN_ERROR_CODE = 401
 // Stripe
 export const STRIPE_KEY = process.env.REACT_APP_STRIPE_KEY
 // Data API Links 

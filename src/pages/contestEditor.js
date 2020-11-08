@@ -1,9 +1,7 @@
 import React from "react"
 import { draftToMarkdown, markdownToDraft } from "markdown-draft-js";
 import { convertToRaw, convertFromRaw } from "draft-js"
-import axios from "axios"
 import { connect } from 'react-redux'
-import { toast } from 'react-toastify';
 import { Button } from '@material-ui/core'
 import isEmpty from 'underscore/modules/isEmpty'
 
@@ -15,14 +13,13 @@ import MarkdownInput from "../components/editor/input/markdownInput"
 import DateInput from "../components/editor/input/dateInput"
 import InputWrapper from "../components/editor/input/inputWrapper"
 import Modal from "../components/modal"
-import { CONTEST_DATA_URL } from "../constants"
-import { updateContest } from "../actions/contestActions"
+import { updateContest, fetchContest } from "../actions/contestActions"
   
 class ContestEditor extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { isLoaded: false, contest: {}};
+    this.state = {contest: {}};
     this.handleChange = this._handleChange.bind(this);
     this.handleNumberChange = this._handleNumberChange.bind(this);
     this.handleMarkdownChange = this._handleMarkdownChange.bind(this);
@@ -36,17 +33,7 @@ class ContestEditor extends React.Component {
 
     //If we have a parameter we need to get the info for that contest
     if (this.props.match.params.id) {
-      axios.get(CONTEST_DATA_URL + "/" + this.props.match.params.id)
-        .then(res => {
-          const contest = res.data;
-          if (contest.endDate !== null) {
-            contest.endDate = new Date(contest.endDate);
-          }
-          this.setState({...this.state, contest, isLoaded: true});
-        }
-      ).catch(function (error) {
-        toast.error("Unable to load contest information, plese try again in a few minutes");
-      })
+      this.props.dispatch(fetchContest(this.props.match.params.id))
     } else if (prev_data !== null && prev_data !== {}) {
       var contest = JSON.parse(prev_data);
       if (contest.endDate) {
@@ -58,6 +45,14 @@ class ContestEditor extends React.Component {
       // Set to true automatically if we aren't requesting data
       this.setState({...this.state, isLoaded: true, contest: {}})
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    var endDate
+    if (nextProps.contest && nextProps.contest.endDate) {
+      endDate = new Date(nextProps.contest.endDate);
+    }
+    this.setState({...this.state, contest: {...nextProps.contest, endDate}})
   }
 
   componentDidUpdate() {
@@ -117,8 +112,8 @@ class ContestEditor extends React.Component {
           show={this.state.showModal}
           header="Previous Data Found!"
           body="You have unsaved work, would you like to load it now?">
-            <Button variant="contained" color="primary" onClick={() => this.populateSavedData(true)}>Accept</Button>
-            <Button variant="contained" color="secondary" onClick={() => this.populateSavedData(false)}>Decline</Button>
+            <Button color="primary" onClick={() => this.populateSavedData(true)}>Accept</Button>
+            <Button color="secondary" onClick={() => this.populateSavedData(false)}>Decline</Button>
         </Modal>
     }
 
@@ -129,7 +124,7 @@ class ContestEditor extends React.Component {
 
     return (
       <EditorLayout onSubmit={this.handleSubmit}>
-        {this.state.isLoaded ?
+        {!this.props.isFetching ?
           <div className="row">
             <div className="col">
               {modal}
@@ -200,15 +195,17 @@ class ContestEditor extends React.Component {
   }
 }
 
-
 function mapStateToProps(state) {
 
-  const { auth } = state
-  const { isAuthenticated, token } = auth
+  var { contest, auth } = state
+  const isFetching = contest.isFetching
+  contest = contest.contest
+  const { isAuthenticated } = auth
 
   return {
     isAuthenticated,
-    token
+    isFetching,
+    contest
   }
 }
 

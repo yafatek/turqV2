@@ -1,6 +1,7 @@
 import axios from "axios"
 import { toast } from 'react-toastify';
-import { CONTEST_DATA_URL } from "../constants"
+import { CONTEST_DATA_URL, TOKEN_ERROR_CODE } from "../constants"
+import { logout } from './logout'
 
 // Fetch individual Contest
 
@@ -39,7 +40,6 @@ export function fetchContest(contestId) {
   }
 
   return dispatch => {
-
     dispatch(fetchContestRequest())
     return axios(config)
     .then(res => {
@@ -84,7 +84,7 @@ export function fetchAllContests() {
 
   var config = {
     method: 'GET',
-    url: CONTEST_DATA_URL
+    url: CONTEST_DATA_URL,
   }
 
   return dispatch => {
@@ -134,24 +134,25 @@ export function updateContest(contestId, contest, token) {
     method: (contestId !== undefined ? 'PUT' : 'POST'),
     url: CONTEST_DATA_URL + (contestId !== undefined ? `/${contestId}` : ""),
     data: contest,
-    headers: { Authorization: `Bearer ${token}` }
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
   }
 
   return dispatch => {
-
     dispatch(updateContestRequest())
-    axios(config)
-    .then(() => {
+    return axios(config)
+    .then(res => {
       dispatch(updateContestSuccess())
       localStorage.removeItem('unsaved_contest')
       toast.success("Contest Saved");
     }).catch(function (error) {
       dispatch(updateContestFailure(error))
-      if (error.repsonse) {
+      if (error.response) {
         if (error.response.status === 400) {
           toast.error("You must log in to make changes to a contest");
         } else if (error.response.status === 402) {
           toast.error("You are not authorized to edit this contest");
+        } else if (error.response.status === TOKEN_ERROR_CODE) {
+          dispatch(logout())
         }
       } else {
           toast.error("Failed to update contest");

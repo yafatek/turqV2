@@ -1,7 +1,5 @@
 import React from "react"
-import axios from "axios"
 import { connect } from 'react-redux'
-import { toast } from 'react-toastify';
 import { Button } from '@material-ui/core'
 import isEmpty from 'underscore/modules/isEmpty'
 
@@ -12,15 +10,14 @@ import StringInput from "../components/editor/input/stringInput"
 import TextInput from "../components/editor/input/textInput"
 import InputWrapper from "../components/editor/input/inputWrapper"
 import Modal from "../components/modal"
-import { LEGISLATION_DATA_URL } from "../constants"
-import { updateLegislation } from '../actions/legislationActions'
+import { updateLegislation, fetchLegislation } from '../actions/legislationActions'
 import * as constants from '../constants'
   
 class LegislationEditor extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { isLoaded: false, legislation: {}};
+    this.state = {legislation: {}};
     this.handleChange = this._handleChange.bind(this);
     this.handleSubmit = this._handleSubmit.bind(this);
     this.populateSavedData = this._populateSavedData.bind(this);
@@ -32,13 +29,7 @@ class LegislationEditor extends React.Component {
     //If we have a parameter we need to get the info for that contest
     var contest = new URLSearchParams(this.props.location.search).get('contest')
     if (this.props.match.params.id) {
-      axios.get(LEGISLATION_DATA_URL + "/" + this.props.match.params.id)
-        .then(res => {
-          const legislation = res.data;
-          this.setState({...this.state, legislation, isLoaded: true});
-        }).catch(function (error) {
-          toast.error("Unable to load contest, plese try again in a few minutes");
-        })
+      this.props.dispatch(fetchLegislation(this.props.match.params.id))
     } else if (prev_data !== null) {
       var legislation = JSON.parse(prev_data);
       var showModal = isEmpty(legislation) ? false : true
@@ -48,6 +39,10 @@ class LegislationEditor extends React.Component {
       // Set to true automatically if we aren't requesting data
       this.setState({...this.state, isLoaded: true, contest: contest})
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({...this.state, legislation: {...nextProps.legislation}})
   }
 
   componentDidUpdate() {
@@ -96,7 +91,7 @@ class LegislationEditor extends React.Component {
 
     return (
       <EditorLayout onSubmit={this.handleSubmit}>
-      {this.state.isLoaded ?
+      {!this.props.isFetching ?
         <div className="row">
           <div className="col">
             {modal}
@@ -212,15 +207,18 @@ class LegislationEditor extends React.Component {
   }
 }
 
+
 function mapStateToProps(state) {
 
-  const { auth } = state
-  const { isAuthenticated, token } = auth
+  var { legislation, auth } = state
+  const isFetching = legislation.isFetching
+  legislation = legislation.legislation
+  const { isAuthenticated } = auth
 
   return {
-    isAuthenticated,
-    token
+    isFetching,
+    legislation,
+    isAuthenticated
   }
 }
-
 export default connect(mapStateToProps)(LegislationEditor)
