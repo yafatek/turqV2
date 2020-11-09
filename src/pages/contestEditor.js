@@ -163,7 +163,7 @@ class ContestEditor extends React.Component {
                         name="rules"
                       />
                     </InputWrapper>
-                    <InputWrapper title="Judging Criteria (Optional)" hint="Contest description" >
+                    <InputWrapper title="Legislation Acceptance Criteria (Optional)" hint="Contest description" >
                       <MarkdownInput
                         placeholder="Juding Criteria"
                         onChange={this.handleMarkdownChange}
