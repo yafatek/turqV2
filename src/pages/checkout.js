@@ -62,12 +62,12 @@ function CheckoutForm({location, dispatch, isComplete, isSuccess, isFetching}) {
         <Grid container item direction="column" spacing={10} justify="center" alignItems="center" style={{padding: 20}}>
           <Grid container item xs={12} md={9}>
             <Checkout handleChange={handleChange} cardName={cardName} setAmount={setAmount} handleAmountChange={handleAmountChange}/>
-          </Grid>
-          <Grid container item justify="center">
-            <Grid item xs={12} md={3}>
-              <Button fullWidth variant="contained" color="primary" type="submit" disabled={!stripe || isFetching} onClick={() => handleSubmit()}>
-                Pay Now
-              </Button>
+            <Grid item container justify="center" style={{paddingTop: 20}}>
+              <Grid item xs={12} md={3}>
+                <Button fullWidth variant="contained" color="primary" type="submit" disabled={!stripe || isFetching} onClick={() => handleSubmit()}>
+                  Pay Now
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
