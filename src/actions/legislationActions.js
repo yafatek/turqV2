@@ -1,6 +1,7 @@
 import axios from "axios"
 import { toast } from 'react-toastify';
-import { LEGISLATION_DATA_URL } from "../constants"
+import { LEGISLATION_DATA_URL, TOKEN_ERROR_CODE } from "../constants"
+import { logout } from './logout'
 
 // Fetch individual Legislation
 
@@ -147,11 +148,13 @@ export function updateLegislation(legislationId, legislation, token) {
       toast.success("Legislation Saved");
     }).catch(function (error) {
       dispatch(updateLegislationFailure(error))
-      if (error.repsonse) {
+      if (error.response) {
         if (error.response.status === 400) {
           toast.error("You must log in to make changes to a legislation");
         } else if (error.response.status === 402) {
           toast.error("You are not authorized to edit this legislation");
+        } else if (error.response.status === TOKEN_ERROR_CODE) {
+          dispatch(logout())
         }
       } else {
           toast.error("Failed to update legislation");

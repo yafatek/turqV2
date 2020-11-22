@@ -14,7 +14,7 @@ const ContestPanel = ({title, link, description, left, buttonText}) => (
       <Typography gutterBottom  variant="h5" component="h2">
         {title}
       </Typography>
-      <Typography variant="body2" color="textSecondary" component="p">
+      <Typography variant="body2" color="textSecondary" component="div">
         <Truncate lines={5} ellipsis={<div>... </div>}>
           {description}
         </Truncate>

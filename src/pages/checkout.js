@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from "axios";
 import { Redirect } from "react-router-dom"
 import { toast } from 'react-toastify';
 import Grid from '@material-ui/core/Grid';
@@ -7,19 +6,18 @@ import {useStripe, useElements, CardNumberElement} from '@stripe/react-stripe-js
 import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button';
 
-import { PAYMENTS_URL, THANKYOU_URL } from "../constants"
+import { THANKYOU_URL } from "../constants"
 import Layout from "../components/layout/layout"
 import Checkout from '../components/payments/checkout'
+import { payment } from '../actions/paymentsActions'
 
   
-function CheckoutForm({location, token}) {
+function CheckoutForm({location, dispatch, isComplete, isSuccess, isFetching}) {
 
   const stripe = useStripe();
   const elements = useElements();
   const [cardName, setCardName] = useState("");
   const [amount, setAmount] = useState(0);
-  const [pending, setPending] = useState(false);
-  const [completed, setCompleted] = useState(false);
 
   useEffect(() => {
     if (location.state.contest === undefined) {
@@ -44,44 +42,7 @@ function CheckoutForm({location, token}) {
       toast.error("Payment Failed: Please Provide the name on your credit card");
       return
     }
-    setPending(true);
-    let config = {
-      method: 'POST',
-      url: PAYMENTS_URL + "/contest/" + location.state.contest,
-      data: {
-        // Stripe expects a no decimal long to represent the value
-        // 100 = $1.00
-        amount: amount*100 
-      },
-      headers: { Authorization: `Bearer ${token}` }
-    }
-
-    var response = await axios(config);
-
-    var secret = response.data.secret;
-
-    const result = await stripe.confirmCardPayment(secret, {
-      payment_method: {
-        card: elements.getElement(CardNumberElement),
-        billing_details: {
-          name: cardName,
-        },
-      }
-    });
-
-    if (result.error) {
-      // Show error to your customer (e.g., insufficient funds)
-      toast.error("Payment Failed: " + result.error.message);
-      setPending(false);
-    } else {
-      // The payment has been processed!
-      if (result.paymentIntent.status === 'succeeded') {
-        toast.success("Payment Success");
-      }
-      setPending(false);
-      setCompleted(true);
-    }
-
+    dispatch(payment(location.state.contest, amount, elements.getElement(CardNumberElement), cardName, stripe))
   };
 
   const handleChange = (event) => {
@@ -94,19 +55,19 @@ function CheckoutForm({location, token}) {
 
   return(
     <>
-    { completed 
+    { !isFetching && isComplete && isSuccess
     ? <Redirect to={THANKYOU_URL} />
     : <Layout fullWidth>
       <Grid container style={{padding: 40}}>
         <Grid container item direction="column" spacing={10} justify="center" alignItems="center" style={{padding: 20}}>
           <Grid container item xs={12} md={9}>
             <Checkout handleChange={handleChange} cardName={cardName} setAmount={setAmount} handleAmountChange={handleAmountChange}/>
-          </Grid>
-          <Grid container item justify="center">
-            <Grid item xs={12} md={3}>
-              <Button fullWidth variant="contained" color="primary" type="submit" disabled={!stripe || pending} onClick={() => handleSubmit()}>
-                Pay Now
-              </Button>
+            <Grid item container justify="center" style={{paddingTop: 20}}>
+              <Grid item xs={12} md={3}>
+                <Button fullWidth variant="contained" color="primary" type="submit" disabled={!stripe || isFetching} onClick={() => handleSubmit()}>
+                  Pay Now
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
@@ -119,12 +80,15 @@ function CheckoutForm({location, token}) {
 
 function mapStateToProps(state) {
 
-  const { auth } = state
-  const { isAuthenticated, token } = auth
+  const { auth, payments } = state
+  const { isAuthenticated } = auth
+  const { isFetching, isComplete, isSuccess } = payments
 
   return {
-    isAuthenticated,
-    token
+    isFetching,
+    isComplete,
+    isSuccess,
+    isAuthenticated
   }
 }
 

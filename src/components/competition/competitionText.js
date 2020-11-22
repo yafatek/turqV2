@@ -35,7 +35,7 @@ function CompetitionText ({title, description, rules, endDate}) {
           <ReactMarkdown source={DEFAULT_CONTEST_RULES} />
         </Typography>
         <Typography gutterBottom  variant="h4" component="h2">
-          Judging Criteria
+          Legislation Acceptance Criteria
         </Typography>
         <Typography variant="body2" color="textSecondary" component="div">
           <ReactMarkdown source={DEFAULT_CONTEST_CRITERIA} />

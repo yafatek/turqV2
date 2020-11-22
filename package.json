@@ -18,8 +18,10 @@
     "axios-progress-bar": "^1.2.0",
     "bootstrap": "^4.5.0",
     "classnames": "^2.2.6",
+    "dotenv": "^8.2.0",
     "draft-js": "^0.11.6",
     "emotion": "^10.0.27",
+    "env-cmd": "^10.1.0",
     "helmet": "^3.23.2",
     "install": "^0.13.0",
     "is-hotkey": "^0.1.6",
@@ -45,6 +47,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:development": "env-cmd -f .env.development yarn build",
+    "build:production": "env-cmd -f .env yarn build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
