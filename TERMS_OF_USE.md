@@ -8,6 +8,7 @@ Content
 Except as expressly provided in these Terms of Use, no part of the Site and no Content may be copied, reproduced, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted or distributed in any way (including "mirroring") to any other computer, server, Web site or other medium for publication or distribution or for any commercial enterprise, without Turq’s express prior written consent.
 
 You may use information on Turq products and services (such as data sheets, knowledge base articles, and similar materials) purposely made available by Turq for downloading from the Site, provided that you (1) not remove any proprietary notice language in all copies of such documents, (2) use such information only for your personal, non-commercial informational purpose and do not copy or post such information on any networked computer or broadcast it in any media, (3) make no modifications to any such information, and (4) not make any additional representations or warranties relating to such documents.
+
 Your Use of the Site
 
 You may not use any "deep-link", "page-scrape", "robot", "spider" or other automatic device, program, algorithm or methodology, or any similar or equivalent manual process, to access, acquire, copy or monitor any portion of the Site or any Content, or in any way reproduce or circumvent the navigational structure or presentation of the Site or any Content, to obtain or attempt to obtain any materials, documents or information through any means not purposely made available through the Site. Turq reserves the right to bar any such activity.
@@ -51,7 +52,7 @@ Certain features or services offered on or through the Site may require you to o
 You may not use anyone else’s Turq ID, password or account at any time without the express permission and consent of the holder of that Turq ID, password or account. Turq cannot and will not be liable for any loss or damage arising from your failure to comply with these obligations.
 Privacy
 
-Turq’s Privacy Policy applies to use of this Site, and its terms are made a part of these Terms of Use by this reference. To view Turq’s Privacy Policy, click here. Additionally, by using the Site, you acknowledge and agree that Internet transmissions are never completely private or secure. You understand that any message or information you send to the Site may be read or intercepted by others, even if there is a special notice that a particular transmission (for example, credit card information) is encrypted.
+Turq’s Privacy Policy applies to use of this Site, and its terms are made a part of these Terms of Use by this reference. Additionally, by using the Site, you acknowledge and agree that Internet transmissions are never completely private or secure. You understand that any message or information you send to the Site may be read or intercepted by others, even if there is a special notice that a particular transmission (for example, credit card information) is encrypted.
 Links to Other Sites and to the Turq Site
 
 This Site may contain links to other independent third-party Web sites ("Linked Sites"). These Linked Sites are provided solely as a convenience to our visitors. Such Linked Sites are not under Turq’s control, and Turq is not responsible for and does not endorse the content of such Linked Sites, including any information or materials contained on such Linked Sites. You will need to make your own independent judgment regarding your interaction with these Linked Sites.
@@ -62,6 +63,7 @@ TURQ DOES NOT PROMISE THAT THE SITE OR ANY CONTENT, SERVICE OR FEATURE OF THE SI
 The above disclaimer applies to any damages, liability or injuries caused by any failure of performance, error, omission, interruption, deletion, defect, delay in operation or transmission, computer virus, communication line failure, theft or destruction of or unauthorized access to, alteration of, or use, whether for breach of contract, tort, negligence or any other cause of action.
 
 Turq reserves the right to do any of the following, at any time, without notice: (1) to modify, suspend or terminate operation of or access to the Site, or any portion of the Site, for any reason; (2) to modify or change the Site, or any portion of the Site, and any applicable policies or terms; and (3) to interrupt the operation of the Site, or any portion of the Site, as necessary to perform routine or non-routine maintenance, error correction, or other changes.
+
 Limitation of Liability
 
 Except where prohibited by law, in no event will Turq be liable to you for any indirect, consequential, exemplary, incidental or punitive damages, including lost profits, even if Turq has been advised of the possibility of such damages.
@@ -84,6 +86,7 @@ If Turq does take any legal action against you as a result of your violation of 
 Governing Law; Dispute Resolution
 
 You agree that all matters relating to your access to or use of the Site, including all disputes, will be governed by the laws of the United States and by the laws of the State of California without regard to its conflicts of laws provisions. You agree to the personal jurisdiction by and venue in the state and federal courts in Santa Clara County, California, and waive any objection to such jurisdiction or venue. The preceding provision regarding venue does not apply if you are a consumer based in the European Union. If you are a consumer based in the European Union, you may make a claim in the courts of the country where you reside. Any claim under these Terms of Use must be brought within one (1) year after the cause of action arises, or such claim or cause of action is barred. Claims made under the separate terms and conditions of purchase for goods and services are not subject to this limitation. No recovery may be sought or received for damages other than out-of-pocket expenses, except that the prevailing party will be entitled to costs and attorneys’ fees. In the event of any controversy or dispute between Turq and you arising out of or in connection with your use of the Site, the parties shall attempt, promptly and in good faith, to resolve any such dispute. If we are unable to resolve any such dispute within a reasonable time (not to exceed thirty (30) days), then either party may submit such controversy or dispute to mediation. If the dispute cannot be resolved through mediation, then the parties shall be free to pursue any right or remedy available to them under applicable law.
+
 Void Where Prohibited
 
 Turq administers and operates the www.turq.io Site from its location in Summerville, Massachusetts USA; other Turq sites may be administered and operated from various locations outside the United States. Although the Site is accessible worldwide, not all features, products or services discussed, referenced, provided or offered through or on the Site are available to all persons or in all geographic locations, or appropriate or available for use outside the United States. Turq reserves the right to limit, in its sole discretion, the provision and quantity of any feature, product or service to any person or geographic area. Any offer for any feature, product or service made on the Site is void where prohibited. If you choose to access the Site from outside the United States, you do so on your own initiative and you are solely responsible for complying with applicable local laws.
@@ -101,5 +104,5 @@ Any feedback you provide at this site shall be deemed to be non-confidential. Tu
 The information contained in this web site is subject to change without notice.
 Turq, pbc, 28 Cameron Ave, Summerville, MA 02144, USA.
 
-Updated by The Turq Team on June. 03, 2020
+Updated by The Turq Team on October. 31, 2020
 
