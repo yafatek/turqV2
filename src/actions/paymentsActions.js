@@ -79,23 +79,33 @@ export function payment(contestId, amount, CardNumberElement, cardName, stripe) 
         }
       })
       .then(res => {
-        if (res.paymentIntent.status === "succeeded") {
+        if (res.error) {
+          toast.error("Payment Failed: " + res.error.message);
+          dispatch(paymentReset())
+        }
+        else if (res.paymentIntent.status === "succeeded") {
           toast.success("Payment Success");
           dispatch(paymentSuccess())
         }
       }).catch(function (error) {
         toast.error("Payment Failed: " + error.message);
+        dispatch(paymentReset())
       })
     }).catch(function (error) {
       dispatch(paymentFailure(error))
       if (error.response) {
         if (error.response.status === 400) {
           toast.error("You must log in to Donate");
-        } else if (error.response.status === TOKEN_ERROR_CODE) {
           dispatch(logout())
+          dispatch(paymentReset())
+        } else if (error.response.status === TOKEN_ERROR_CODE) {
+          toast.error("Please log back in");
+          dispatch(logout())
+          dispatch(paymentReset())
         }
       } else {
           toast.error("Failed to Post Payment");
+          dispatch(paymentReset())
       }
     })
   }
