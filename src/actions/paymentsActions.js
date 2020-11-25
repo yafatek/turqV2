@@ -6,6 +6,7 @@ import { logout } from './logout'
 export const PAYMENT_REQUEST = 'PAYMENT_REQUEST '
 export const PAYMENT_SUCCESS = 'PAYMENT_SUCCESS '
 export const PAYMENT_FAILURE = 'PAYMENT_FAILURE '
+export const PAYMENT_RESET = 'PAYMENT_RESET '
 
 function paymentRequest() {
   return {
@@ -31,6 +32,21 @@ function paymentFailure() {
     isFetching: false,
     isComplete: true,
     isSuccess: false,
+  }
+}
+
+function paymentReset() {
+  return {
+    type: PAYMENT_RESET,
+    isFetching: false,
+    isComplete: false,
+    isSuccess: false,
+  }
+}
+
+export function resetPayment() {
+  return dispatch => {
+    dispatch(paymentReset())
   }
 }
 
@@ -63,7 +79,6 @@ export function payment(contestId, amount, CardNumberElement, cardName, stripe) 
         }
       })
       .then(res => {
-        console.log(res)
         if (res.paymentIntent.status === "succeeded") {
           toast.success("Payment Success");
           dispatch(paymentSuccess())

@@ -5,9 +5,10 @@ import NumberFormat from 'react-number-format';
 class NumberInput extends React.Component {
 
   render() {
+    let {inputRef, ...others} = this.props;
     return (
       <NumberFormat
-        {...this.props}
+        {...others}
         thousandSeparator
         decimalScale={2}
       />
