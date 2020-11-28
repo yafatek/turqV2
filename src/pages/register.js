@@ -52,7 +52,7 @@ class RegisterPage extends React.Component {
     return (
       <Layout>
         <Grid container spacing={0} className="main login-form-area" justify="center">
-          <Grid item xs={12} md={9} xl={6}>
+          <Grid item xs={10} md={9} xl={6}>
             <h2>Sign Up</h2>
             <form>
               <Grid item xs={12}>
@@ -87,7 +87,7 @@ class RegisterPage extends React.Component {
                 />
               </Grid>
               <Grid item container xs={12} justify="space-between">
-                <Grid item xs={8}>
+                <Grid item>
                   <Button
                     variant="contained"
                     color="primary"
@@ -95,7 +95,7 @@ class RegisterPage extends React.Component {
                       Sign Up
                   </Button>
                 </Grid>
-                <Grid item xs>
+                <Grid item>
                   <div className="login-switch">
                     <span>Already Have an Account?&nbsp;<Link to={{pathname: "/login", state: { referer: this.state.referer}}}>Sign In</Link></span>
                   </div>
