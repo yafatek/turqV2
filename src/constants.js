@@ -69,3 +69,5 @@ export const CONTEST_RULES_HINT = 'Rules that you would like to set for this com
 export const CONTEST_CRITERIA = 'Judging Criteria'
 export const CONTEST_CRITERIA_HINT = 'Criteria that you will be using to select the winning legislation such as practicality, impact, technical merit, originality, etc'
 
+// Social Media
+export const TWITTER_SHARE_TEXT = "Join me in supporting this issue! "
