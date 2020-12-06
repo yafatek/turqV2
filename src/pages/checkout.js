@@ -4,11 +4,11 @@ import { toast } from 'react-toastify';
 import Grid from '@material-ui/core/Grid';
 import {useStripe, useElements, CardNumberElement} from '@stripe/react-stripe-js';
 import { connect } from 'react-redux'
-import Button from '@material-ui/core/Button';
 
 import { THANKYOU_URL } from "../constants"
 import Layout from "../components/layout/layout"
 import Checkout from '../components/payments/checkout'
+import Donation from '../components/payments/donation'
 import { payment } from '../actions/paymentsActions'
 
   
@@ -49,29 +49,32 @@ function CheckoutForm({location, dispatch, isComplete, isSuccess, isFetching}) {
     setCardName(event.target.value)
   }
 
-  const handleAmountChange = (event) => {
-    setAmount(event.target.value)
-  }
-
   return(
     <>
     { !isFetching && isComplete && isSuccess
     ? <Redirect to={THANKYOU_URL} />
     : <Layout fullWidth>
-      <Grid container style={{padding: 40}}>
-        <Grid container item direction="column" spacing={10} justify="center" alignItems="center" style={{padding: 20}}>
-          <Grid container item xs={12} md={9}>
-            <Checkout handleChange={handleChange} cardName={cardName} setAmount={setAmount} handleAmountChange={handleAmountChange}/>
-            <Grid item container justify="center" style={{paddingTop: 20}}>
-              <Grid item xs={12} md={3}>
-                <Button fullWidth variant="contained" color="primary" type="submit" disabled={!stripe || isFetching} onClick={() => handleSubmit()}>
-                  Pay Now
-                </Button>
-              </Grid>
+      <div className="checkout-page">
+        <Grid container spacing={5} justify="center" alignItems="stretch">
+          <Grid container item xs={12} md={6}>
+            <Donation setAmount={setAmount} />
+          </Grid>
+          <Grid container item xs={12} md={6}>
+            <Checkout
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                cardName={cardName}
+                stripe={stripe}
+                isFetching={isFetching}
+              />
+          </Grid>
+          <Grid container item xs={12} justify="center">
+            <Grid item>
+              <img src="/images/stripe-blurple.png" alt="Powered by Stripe" style={{height:50}}/>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
+      </div>
     </Layout>
 }
     </>

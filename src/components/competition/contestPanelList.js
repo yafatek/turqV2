@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 const ContestPanelList = ({title, contests}) => {
   const contestCards = contests
     .map((contest, idx) =>
-                <Grid item xs={12} md={6} xl={4} key={contest.id}>
+                <Grid container item xs={12} md={4} key={contest.id}>
                   <ContestPanel
                    title={contest.title}
                    description={contest.description}
