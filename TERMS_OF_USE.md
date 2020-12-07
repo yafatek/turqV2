@@ -64,6 +64,14 @@ The above disclaimer applies to any damages, liability or injuries caused by any
 
 Turq reserves the right to do any of the following, at any time, without notice: (1) to modify, suspend or terminate operation of or access to the Site, or any portion of the Site, for any reason; (2) to modify or change the Site, or any portion of the Site, and any applicable policies or terms; and (3) to interrupt the operation of the Site, or any portion of the Site, as necessary to perform routine or non-routine maintenance, error correction, or other changes.
 
+Our Fees
+
+Creating an account on Turq is free. If you support an issue, we collect a 20% fee and our payment partners may collect fees. Our partners’ fees may vary slightly based on your location.
+
+Some funds pledged by backers are collected by payment providers. Each payment provider is its own company, and Turq isn’t responsible for its performance.
+
+You’re responsible for paying any additional fees or taxes associated with your use of Turq.
+
 Limitation of Liability
 
 Except where prohibited by law, in no event will Turq be liable to you for any indirect, consequential, exemplary, incidental or punitive damages, including lost profits, even if Turq has been advised of the possibility of such damages.
@@ -102,7 +110,7 @@ Feedback and Information
 Any feedback you provide at this site shall be deemed to be non-confidential. Turq shall be free to use such information on an unrestricted basis.
 
 The information contained in this web site is subject to change without notice.
-Turq, pbc, 28 Cameron Ave, Summerville, MA 02144, USA.
+Turq, pbc, 158 Brayton Rd, Boston, MA 02135, USA.
 
-Updated by The Turq Team on October. 31, 2020
+Updated by The Turq Team on November. 24, 2020
 
