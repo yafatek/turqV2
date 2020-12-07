@@ -135,7 +135,7 @@ export function updateLegislation(legislationId, legislation, token) {
     method: (legislationId !== undefined ? 'PUT' : 'POST'),
     url: LEGISLATION_DATA_URL + (legislationId !== undefined ? `/${legislationId}` : ""),
     data: legislation,
-    headers: { Authorization: `Bearer ${token}` }
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
   }
 
   return dispatch => {

@@ -23,7 +23,7 @@ const ContestSubmissionsCard = ({contest, legislationList}) => (
     <CardActions>
       <Link to={EDITOR_PAGE_URL + "/legislation?contest=" + contest.id} >
         {!isPastEndDate(contest.endDate)
-          ? <Button  color="primary"> Create New Legislation</Button>
+          ? <Button color="primary"> Create New Legislation</Button>
           : null
         }
       </Link>

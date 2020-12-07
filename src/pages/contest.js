@@ -10,6 +10,7 @@ import DismissableAlert from "../components/dismissableAlert"
 import {isPastEndDate } from "../util/dateCompare"
 import ContestSubmissionsCard from "../components/competition/contestSubmissionsCard"
 import ContestFundingCard from "../components/competition/contestFundingCard"
+import ContestShareCard from "../components/competition/contestShareCard"
 import CompetitionText from "../components/competition/competitionText"
 import { CONTEST_DATA_URL } from "../constants"
 
@@ -75,6 +76,9 @@ class ContestPage extends React.Component {
                   <Grid container item direction="column" spacing={5}>
                     <Grid item>
                       <ContestFundingCard currentFunding={contest.prize} contestId={contest.id}/>
+                    </Grid>
+                    <Grid item>
+                      <ContestShareCard />
                     </Grid>
                     <Grid item>
                       <ContestSubmissionsCard contest={contest} legislationList={this.state.legislationList} />
