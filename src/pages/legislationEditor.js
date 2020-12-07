@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from 'react-redux'
 import { Button } from '@material-ui/core'
 import isEmpty from 'underscore/modules/isEmpty'
+import { toast } from 'react-toastify';
 
 import EditorLayout from "../components/editor/layout"
 import LegislationText from "../components/legislation/legislationText"
@@ -49,7 +50,42 @@ class LegislationEditor extends React.Component {
     localStorage.setItem('unsaved_legislation', JSON.stringify(this.state.legislation))
   }
 
+  _checkMandatoryFields() {
+    var isValid = true
+    const legislation = this.state.legislation
+    if (legislation === undefined) {
+      toast.error('Document Empty: Please fill in required Fields');
+      isValid = false
+    } else if (legislation.title === undefined || legislation.title === "") {
+      toast.error('Missing Required Fields: Please include "Title"');
+      isValid = false
+    } else if (legislation.chapter === undefined || legislation.chapter === "") {
+      toast.error('Missing Required Fields: Please include "Chapter"');
+      isValid = false
+    } else if (legislation.section === undefined || legislation.section === "") {
+      toast.error('Missing Required Fields: Please include "General Laws Section"');
+      isValid = false
+    } else if (legislation.accomplishes === undefined || legislation.accomplishes === "") {
+      toast.error('Missing Required Fields: Please include "Describe what this bill accomplishes in 1-2 sentences"');
+      isValid = false
+    } else if (legislation.terms === undefined || legislation.terms === "") {
+      toast.error('Missing Required Fields: Please include "Define the terms you will be using in this legislation"');
+      isValid = false
+    } else if (legislation.purpose === undefined || legislation.purpose === "") {
+      toast.error('Missing Required Fields: Please include "Statement of Purpose"');
+      isValid = false
+    } else if (legislation.provisions === undefined || legislation.provisions === "") {
+      toast.error('Missing Required Fields: Please include "Provisions"');
+      isValid = false
+    }
+    return isValid
+  }
+
   _handleSubmit() {
+      if (!this._checkMandatoryFields()) {
+
+        return
+      }
       const legislationId = this.props.match.params.id
       const token = this.props.token
       const data = {...this.state.legislation, contestId: this.state.contest}
