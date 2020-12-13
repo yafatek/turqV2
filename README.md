@@ -2,7 +2,7 @@
 
 ## About
 
-[Turq.io](https://turq.io) funds, enables, and pipelines signature ready Legislation created by everyday people. To learn more about the philosophy behind the platform, see [turq.io/about](https://turq.io/about).
+[Turq.io](https://turq.io) funds, enables, and pipelines state & local signature ready Legislation created by everyday people. To learn more about the philosophy behind the platform, see [turq.io/about](https://turq.io/about).
 
 
 ## Contributing
