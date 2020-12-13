@@ -8,7 +8,7 @@ Welcome! Thank you for taking the time to contribute. This project thrives with 
 
 This project is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). All participants are expected to uphold this code. Violations of the code can be reported by contacting the project team at [tim@turq.io](mailto:tim@turq.io).
 
-### How we work together
+## How we work together
 
 We're using the "optimistic merging" strategy to make contributing simple and enjoyable.
 
@@ -31,25 +31,25 @@ To learn more, see [Why Optimistic Merging Works Better](http://hintjens.com/blo
 
 This workflow is still being refined and improved. If you have feedback, feel free to [get in touch via email](mailto:tim@turq.io).
 
-### How to contribute
+## How to contribute
 
 Fork the repo, add or change files, and create a pull request. You can make these changes via the GitHub web interface, the command line, or a git client of your choice.
 
 Once you create a pull request, your changes will be built in a deploy preview. That way, you can see your changes without having to run a local development environment. To display the link to this preview, click "show all checks" at the bottom of a pull request.
 
-### Running the site locally
+## Running the site locally
 
 Turq.io was built using React and ...
 
-### Quick start
+## Quick start
 
 The first steps are ...
 
-### Full build
+## Full build
 
 These steps build the whole site ...
 
-### Gathering Feedback
+## Gathering Feedback
 
 As a community, we strive to provide kind and constructive feedback on your PR.
 
@@ -57,6 +57,6 @@ If a pull request doesn't meet the "must be" guidelines, we may ask that the dra
 
 Again, thank you so much for your interest and support! We look forward to enhancing Turq.
 
-### Deploying
+## Deploying
 
 When changes are merged to master, the `build.sh` script will run, and the site will be deployed to https://turq.io. The [build log](https://app.netlify.com/sites/openpracticelibrary/deploys?filter=master) shows the status of each build.
