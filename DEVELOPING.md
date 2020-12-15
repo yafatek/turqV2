@@ -1,5 +1,13 @@
 # Developing
 
+## Contributing
+
+Welcome! Thank you for taking the time to contribute. This project thrives with an active and involved community, and we really appreciate your support.
+
+## Code of Conduct
+
+This project is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). All participants are expected to uphold this code. Violations of the code can be reported by contacting the project team at [tim@turq.io](mailto:tim@turq.io).
+
 ## How we work together
 
 We're using the "optimistic merging" strategy to make contributing simple and enjoyable.
@@ -19,37 +27,35 @@ We're using the "optimistic merging" strategy to make contributing simple and en
 
 If the person reviewing the PR has feedback on a change that is a "correct patch", he or she will merge the PR and include that feedback in a new issue.
 
-To learn more, see [Why Optimistic Merging Works Better](http://hintjens.com/blog:106) and [Collective Code Construction Contract (C4)](https://rfc.zeromq.org/spec:42/C4/) from Pieter Hintjens, who coined the term "optimistic merging". The Open Practice Library community has discussed this way of working in #208.
+To learn more, see [Why Optimistic Merging Works Better](http://hintjens.com/blog:106) and [Collective Code Construction Contract (C4)](https://rfc.zeromq.org/spec:42/C4/) from Pieter Hintjens, who coined the term "optimistic merging".
 
-This workflow is still being refined and improved. If you have feedback, feel free to [get in touch via Gitter](https://gitter.im/openpracticelibrary/).
+This workflow is still being refined and improved. If you have feedback, feel free to [get in touch via email](mailto:tim@turq.io).
+
+## How to contribute
+
+Fork the repo, add or change files, and create a pull request. You can make these changes via the GitHub web interface, the command line, or a git client of your choice.
+
+Once you create a pull request, your changes will be built in a deploy preview. That way, you can see your changes without having to run a local development environment. To display the link to this preview, click "show all checks" at the bottom of a pull request.
 
 ## Running the site locally
-Open Practice Library is built with [Hugo](http://gohugo.io/) and the [Casper theme](https://github.com/vjeantet/hugo-theme-casper).
 
-### Quick start
-These steps don't build card images or a search index, but they'll get the site up and running quickly. These steps should work on any platform.
+Turq.io was built using React and ...
 
-1. [Install Hugo](https://gohugo.io/getting-started/installing/).
-2. Check out this repo.
-3. Navigate to the directory where you checked out this repo.
-4. Run `git submodule update --init --recursive` to download the theme.
-5. Run `hugo serve` to serve the site.
+## Quick start
 
-### Full build
-These steps build the whole site, including card images and the search index. They are a bit more involved and require macOS or Linux. We're working on making this better - stay tuned!!
+The first steps are ...
 
-1. [Install Hugo](https://gohugo.io/getting-started/installing/).
-2. [Install Node.js](https://nodejs.org/en/download/).
-3. Check out this repo.
-4. Navigate to the directory where you checked out this repo.
-5. Install ImageMagick:
-  - macOS: `brew install imagemagick`
-  - Fedora/CentOS: `dnf install imagemagick` or `yum install imagemagick`
-  - Ubuntu: `apt-get install imagemagick`
-6. Run `git submodule update --init --recursive` to download the theme.
-7. Run `chmod +x build.sh` to make the build script executable.
-8. Run `./build.sh` to build the site.
-9. Run `hugo serve` to serve the site.
+## Full build
+
+These steps build the whole site ...
+
+## Gathering Feedback
+
+As a community, we strive to provide kind and constructive feedback on your PR.
+
+If a pull request doesn't meet the "must be" guidelines, we may ask that the draft be updated before it's merged. If a pull request doesn't meet the "should be" guidelines, we may merge the pull request and add an issue for future improvements to the practice.
+
+Again, thank you so much for your interest and support! We look forward to enhancing Turq.
 
 ## Deploying
 
