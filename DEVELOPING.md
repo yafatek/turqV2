@@ -37,17 +37,22 @@ Fork the repo, add or change files, and create a pull request. You can make thes
 
 Once you create a pull request, your changes will be built in a deploy preview. That way, you can see your changes without having to run a local development environment. To display the link to this preview, click "show all checks" at the bottom of a pull request.
 
+## Tech Stack
+
+Turq.io is built with [React](https://reactjs.org/) and [materialUI](https://material-ui.com/).
+
 ## Running the site locally
 
-Turq.io was built using React and ...
+First download and Install [yarn](https://yarnpkg.com/)
 
-## Quick start
+Download the necessary dependencies by running `yarn install`  
+Run the local develop server with `yarn start`
 
-The first steps are ...
+This will start a local server at `localhost:3000`. The default development configuration will pull test data from our hosted backend instance. There is no need to run a backend server to begin frontend development locally.
 
 ## Full build
 
-These steps build the whole site ...
+Build the entire site with `yarn build` and serve the compiled files with `yarn serve`
 
 ## Gathering Feedback
 
