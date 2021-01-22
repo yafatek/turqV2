@@ -10,11 +10,14 @@ import { Tooltip } from "@material-ui/core";
 
 import PropTypes from "prop-types";
 
+const textColor = "#7D7D7D",
+  font = "Roboto 30px underline";
+
 const ItemizedFundingItem = ({text, quantity, tip}) => (
-  <TableRow>
-    <TableCell align="left">
+  <TableRow style={{borderBottom: "none"}}>
+    <TableCell align="left" >
       <Tooltip title={tip}>
-        <Typography>{text}</Typography>
+        <Typography style={{font, color: textColor, textDecoration: "underline"}}>{text}</Typography>
       </Tooltip>
     </TableCell>
     <TableCell align="right">
@@ -24,7 +27,7 @@ const ItemizedFundingItem = ({text, quantity, tip}) => (
 );
 
 const drafterTooltipText = (
-  <React.Fragment>
+  <div>
     <Typography component="p">
       The Turq platform enables and funds the efforts to draft legislation to solve the problems of everyday people.
       The folks who draft legislation on the Turq platform are known as Citizen Lawmakers.
@@ -33,11 +36,11 @@ const drafterTooltipText = (
       We believe the work of Citizen Lawmakers is valuable and should be compensated.
       Therefore, approximately 80% of all funds submitted to the platform go to supporting the work of Citizen Lawmakers.
     </Typography>
-  </React.Fragment>
+  </div>
 );
 
 const platFeeTooltipText = (
-  <React.Fragment>
+  <div>
     <Typography component="p">
       The platform fee is the money we here at Turq take as commission for our work.
       Our site needs funding in order to survive and bring new and better features to our users.
@@ -46,11 +49,11 @@ const platFeeTooltipText = (
       Turq is organized as a For-Benefit B Corp, which means we put our mission above everything.
       That mission is to turn everyday people into Citizen Lawmakers.
     </Typography>
-  </React.Fragment>
+  </div>
 );
 
 const procTooltipText = (
-  <React.Fragment>
+  <div>
     <Typography component="p">
       Here at Turq we use the trusted service Stripe to process all transactions on our platform.
       Stripe charges $0.30 for every transaction on top of a 2.9% fee.
@@ -58,7 +61,7 @@ const procTooltipText = (
     <Typography component="p">
       We feel this fee is worth the cost given how respected a name Stripe is, and the easy experience it provides our users.
     </Typography>
-  </React.Fragment>
+  </div>
 );
 
 
@@ -69,7 +72,7 @@ const ItemizedFunding = ({total}) => {
 
   return (
     <TableContainer>
-      <Table>
+      <Table cellPadding={0} size="small">
         <TableBody>
           <ItemizedFundingItem text="Pay to Drafter(s)" quantity={drafterPay} tip={drafterTooltipText} />
           <ItemizedFundingItem text="Platform Fee" quantity={platFee} tip={platFeeTooltipText} />
