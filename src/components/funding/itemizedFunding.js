@@ -21,7 +21,7 @@ const ItemizedFundingItem = ({text, quantity, tip}) => (
       </Tooltip>
     </TableCell>
     <TableCell align="right">
-      <Typography>{Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(quantity/100)}</Typography>
+      <Typography style={{color: textColor}}>{Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(quantity/100)}</Typography>
     </TableCell>
   </TableRow>
 );
