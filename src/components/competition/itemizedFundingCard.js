@@ -5,7 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
-import { Paper } from '@material-ui/core';
+
 import { CHECKOUT_PAGE_URL } from "../../constants";
 
 import ItemizedFunding from "../funding/itemizedFunding";
