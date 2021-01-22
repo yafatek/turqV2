@@ -16,7 +16,7 @@ const textColor = "#7D7D7D",
 const ItemizedFundingItem = ({text, quantity, tip}) => (
   <TableRow style={{borderBottom: "none"}}>
     <TableCell align="left" >
-      <Tooltip title={tip}>
+      <Tooltip title={tip} placement="left-start">
         <Typography style={{font, color: textColor, textDecoration: "underline"}}>{text}</Typography>
       </Tooltip>
     </TableCell>
