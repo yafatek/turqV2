@@ -15,19 +15,19 @@ import PropTypes from "prop-types";
 const itemizedStyle = {
   backgroundColor: "#C4C4C4",
   color: "#7D7D7D",
-  font: "Roboto 30px underline"
+  font: "Roboto 30px underline",
+  margin: "auto",
+  width: "95%"
 };
 
 const ItemizedFundingCard = ({ currentFunding, contestId }) => (
-  <Container padding={0}>
+  <Container style={{ paddingLeft: 0, paddingRight: 0}}>
     <Card>
       <CardContent>
-
         <Typography variant="h4" color="textSecondary" component="h2">
           {/*Divide by 100 to convert to decimal because we handle everything as an int*/}
           { "Current Funding: " + Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(currentFunding/100)}
         </Typography>
-
       </CardContent>
       <CardActions>
         <Link to={{pathname: CHECKOUT_PAGE_URL, state: {contest: contestId}}}>
