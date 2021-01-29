@@ -13,14 +13,15 @@ import PropTypes from "prop-types";
 const textColor = "#7D7D7D",
   font = "Roboto 30px underline";
 
+
 const ItemizedFundingItem = ({text, quantity, tip}) => (
   <TableRow style={{border: "none"}}>
-    <TableCell align="left">
+    <TableCell align="left" style={{borderBottom: 0}}>
       <Tooltip title={tip} placement="left-start">
         <Typography style={{font, color: textColor, textDecoration: "underline"}}>{text}</Typography>
       </Tooltip>
     </TableCell>
-    <TableCell align="right">
+    <TableCell align="right" style={{borderBottom: 0}}>
       <Typography style={{color: textColor}}>{Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(quantity/100)}</Typography>
     </TableCell>
   </TableRow>
