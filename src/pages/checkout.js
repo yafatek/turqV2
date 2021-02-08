@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Redirect } from "react-router-dom"
 import { toast } from 'react-toastify';
 import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 import {useStripe, useElements, CardNumberElement} from '@stripe/react-stripe-js';
 import { connect } from 'react-redux'
 
@@ -11,7 +13,9 @@ import Checkout from '../components/payments/checkout'
 import Donation from '../components/payments/donation'
 import { payment } from '../actions/paymentsActions'
 
-  
+import ItemizedFunding from '../components/funding/itemizedFunding';
+import AddressCard from '../components/payments/addressCard';
+
 function CheckoutForm({location, dispatch, isComplete, isSuccess, isFetching}) {
 
   const stripe = useStripe();
@@ -58,6 +62,16 @@ function CheckoutForm({location, dispatch, isComplete, isSuccess, isFetching}) {
         <Grid container spacing={5} justify="center" alignItems="stretch">
           <Grid container item xs={12} md={6}>
             <Donation setAmount={setAmount} />
+          </Grid>
+          <Grid container item xs={12} md={6}>
+            <Card>
+              <CardContent>
+                <ItemizedFunding total={amount*100}/>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid container item xs={12} md={6}>
+            <AddressCard/>
           </Grid>
           <Grid container item xs={12} md={6}>
             <Checkout
