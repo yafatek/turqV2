@@ -11,7 +11,7 @@ import TextField from '@material-ui/core/TextField';
 
 import axios from 'axios';
 
-const GEOCODE_AUTH_KEY = "AlzaSyBA5uahhmef0kofBT1go-8kOa79z-OiOvw";
+const GEOCODE_AUTH_KEY = "AIzaSyBA5uahhmef0kofBT1go-8kOa79z-OiOvw";
 
 /**
  * Fetch city and state from google maps
@@ -26,8 +26,10 @@ async function getAreaFromZip(zip, country) {
     method: "GET",
     responseType: "json"
   }).then((response) => {
+
     if (response.status === 200 && response.data.status === "OK") {
-      const components = response.data.results.address_components;
+
+      const components = response.data.results[0].address_components;
 
       const city = components.find(({types}) => types.includes("locality")).long_name;
       const state = components.find(({types}) => types.includes("administrative_area_level_1")).short_name;
