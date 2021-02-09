@@ -31,10 +31,12 @@ async function getAreaFromZip(zip, country) {
       const state = components.find(({types}) => types.includes("administrative_area_level_1")).short_name;
       return [city, state];
     } else {
-      throw new Error(JSON.stringify(response));
+      console.error(response);
+      throw new Error(`Google APIs error: ${response.status} ${response.statusText}`);
     }
   }, (err) => {
-    return ["error from Google Maps API", ""+err];
+    console.error(err);
+    throw new Error(`Google APIs error: ${''+err}`);
   })
 }
 
