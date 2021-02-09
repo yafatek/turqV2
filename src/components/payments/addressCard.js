@@ -1,13 +1,9 @@
 import React, { useState } from "react"
-//import { Link } from "react-router-dom";
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
-//import CardActions from '@material-ui/core/CardActions';
-//import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-
-//import PropTypes from "prop-types";
+import Grid from '@material-ui/core/Grid';
 
 import axios from 'axios';
 
@@ -52,20 +48,20 @@ const AddressCard = () => {
   return <Card>
     <CardHeader title="Billing Address"/>
     <CardContent>
-      <form id="address-form" >
-        <TextField fullWidth variant="outlined" label="Address line 1" id="address-line-1"
+      <form id="address-form"><Grid container spacing={1}>
+        <Grid item md={12} fullWidth><TextField fullWidth variant="outlined" label="Address line 1" id="address-line-1"
           value={addr1}
           onChange={function (e) {
             setAddr1(e.target.value);
           }}
-        />
-        <TextField fullWidth variant="outlined" label="Address line 2" id="address-line-2"
+        /></Grid>
+        <Grid item md={12} fullWidth><TextField fullWidth variant="outlined" label="Address line 2" id="address-line-2"
           value={addr2}
           onChange={function (e) {
             setAddr2(e.target.value);
           }}
-        />
-        <TextField variant="outlined" label="Zip Code" id="address-zip"
+        /></Grid>
+        <Grid item><TextField variant="outlined" label="Zip Code" id="address-zip"
           inputProps={{
             pattern: "[0-9][0-9][0-9][0-9][0-9]"
           }}
@@ -83,16 +79,16 @@ const AddressCard = () => {
 
             }
           }
-        />
-        <TextField variant="outlined" label="City" id="address-city" name="city"
+        /></Grid>
+        <Grid item><TextField variant="outlined" label="City" id="address-city" name="city"
           value={cityName}
           disabled
-        />
-        <TextField variant="outlined" label="State or Territory" id="address-state" name="state"
+        /></Grid>
+        <Grid item><TextField variant="outlined" label="State or Territory" id="address-state" name="state"
           value={stateName}
           disabled
-        />
-      </form>
+        /></Grid>
+      </Grid></form>
     </CardContent>
   </Card>;
 }
