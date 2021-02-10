@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Redirect } from "react-router-dom"
 import { toast } from 'react-toastify';
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import {useStripe, useElements, CardNumberElement} from '@stripe/react-stripe-js';
 import { connect } from 'react-redux'
 
@@ -13,7 +11,7 @@ import Checkout from '../components/payments/checkout'
 import Donation from '../components/payments/donation'
 import { payment } from '../actions/paymentsActions'
 
-import ItemizedFunding from '../components/funding/itemizedFunding';
+import DonationBreakdownCard from '../components/payments/donationBreakdownCard';
 import AddressCard from '../components/payments/addressCard';
 
 function CheckoutForm({location, dispatch, isComplete, isSuccess, isFetching}) {
@@ -61,19 +59,15 @@ function CheckoutForm({location, dispatch, isComplete, isSuccess, isFetching}) {
       <div className="checkout-page">
         <Grid container spacing={5} justify="center" alignItems="stretch">
           <Grid container item xs={12} md={6}>
-            <Donation setAmount={setAmount} />
+            <Donation setAmount={setAmount}/>
           </Grid>
-          <Grid container item xs={12} md={6}>
-            <Card>
-              <CardContent>
-                <ItemizedFunding total={amount*100}/>
-              </CardContent>
-            </Card>
+          <Grid item xs={12} md={6} alignContent="stretch">
+            <DonationBreakdownCard amount={amount}/>
           </Grid>
-          <Grid container item xs={12} md={6}>
+          <Grid container item xs={12} md={6} alignItems="stretch">
             <AddressCard/>
           </Grid>
-          <Grid container item xs={12} md={6}>
+          <Grid container item xs={12} md={6} alignItems="stretch">
             <Checkout
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
