@@ -67,9 +67,11 @@ const procTooltipText = (
 
 
 const ItemizedFunding = ({total}) => {
+  // This used to be drafterPay = 0.8*(total - procFee) (as requested)
+  // That wasn't adding up, so I removed the parens.
   const procFee = 0.029*total + 0.3,
     platFee = 0.2*total,
-    drafterPay = 0.8*(total - procFee);
+    drafterPay = 0.8*total - procFee;
 
   return (
     <TableContainer>
