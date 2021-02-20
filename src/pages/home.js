@@ -35,9 +35,9 @@ class Home extends React.Component {
           <Grid item>
             <Hero
               link={CONTEST_PAGE_URL}
-              header="Support Signature Ready Legislation"
+              header="Lawmakers Are Overwhelmed"
               buttonText="View Our Open Issues »"
-              subtext="Our platform funds a network of citizen lawmakers who draft signature ready Legislation for State and local Legislatures. Turq takes the pressure off representatives by offloading the writing of Legislation to a network of citizens lawmakers. We then pipeline that Legislation into your State or local Legislature. The result is that Representatives have no constraints on serving the needs of all their constituents."
+              subtext="More calls and emails don’t solve anything. What lawmakers need is to be given a ready made piece of legislation. At turq.io we make that happen. We connect you with people that will solve your issue and turn the solution into legislation. Think Upwork, but for legislation. We then help you get that legislation submitted to the right place. Your problems are solved and lawmakers lives are made simpler."
             />
           </Grid>
           <Grid item xs={12}>
