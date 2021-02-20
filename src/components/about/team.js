@@ -13,7 +13,7 @@ const Team = () => {
     </div>
   const aboutJohn = <div>
       <p> John | Head of Marketing</p>
-      <p> I am a former U.S. Senator staffer, currently Signals Officer in the Army National Guard, and MBA student at the University of Massachusetts.</p>
+      <p> I am a former U.S. Senator staffer, current Signals Officer in the Army National Guard, and MBA student at the University of Massachusetts.</p>
     </div>
   const aboutMichael = <div>
       <p>Michael | Co-Founder and CTO</p>
