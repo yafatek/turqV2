@@ -9,7 +9,7 @@ const Team = () => {
   const aboutTim = <div>
       <p> Tim | Co-Founder and CEO</p>
       <p> I ran for State Senate in North Carolina. That experience opened my eyes to the difficult nature of advancing causes in a system with such limited capacity.</p>
-      <p> Check out my interview with BostInno [here](https://www.bizjournals.com/boston/inno/stories/profiles/2020/11/03/civic-tech-startup-turq-local-legislation-bills.html).</p>
+      <p> Check out my interview with BostInno <a href="https://www.bizjournals.com/boston/inno/stories/profiles/2020/11/03/civic-tech-startup-turq-local-legislation-bills.html" title="here"></a>.</p>
     </div>
   const aboutJohn = <div>
       <p> John | Marketing Director</p>
