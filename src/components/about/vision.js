@@ -7,7 +7,7 @@ const Vision = () => {
     <Grid container justify="center">
       <Grid item xs={6} style={{marginTop: 30}}>
         <Typography variant="subtitle1" color="textPrimary" component="p" align="left" paragraph>
-          Turq's mission is to make direct democracy viable by enabling citizens to draft and submit their own legislation. Our focus is on alleviating the pressure on legislators by enabling citizens to write bills for one another.
+          Lawmakers are overwhelmed and don’t have the time to make all the legislation that is needed of them. Our focus is to alleviate the pressure on legislators by enabling citizens to write bills for one another. We get that legislation made and submitted for you to make the ask of elected lawmakers as lightweight as possible.
         </Typography>
       </Grid>
     </Grid>
