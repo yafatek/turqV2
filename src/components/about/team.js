@@ -12,8 +12,8 @@ const Team = () => {
       <p> Check out my interview with BostInno <a href="https://www.bizjournals.com/boston/inno/stories/profiles/2020/11/03/civic-tech-startup-turq-local-legislation-bills.html">here</a>.</p>
     </div>
   const aboutJohn = <div>
-      <p> John | Marketing Director</p>
-      <p> I am a former a U.S. Senator staffer, currently Signals Officer in the Army National Guard, and MBA student at the University of Massachusetts.</p>
+      <p> John | Head of Marketing</p>
+      <p> I am a former U.S. Senator staffer, currently Signals Officer in the Army National Guard, and MBA student at the University of Massachusetts.</p>
     </div>
   const aboutMichael = <div>
       <p>Michael | Co-Founder and CTO</p>
