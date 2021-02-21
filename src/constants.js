@@ -28,7 +28,7 @@ export const DEFAULT_CONTEST_CRITERIA = `
 **Initial Screening**\n\n
 All legislation submissions will be put through an initial screening to ensure compliance with terms and conditions.\n\n
 **Evaluation and Selection**\n\n
-A panel of subject-matter-experts will evaluate, rate, and rank all submissions of Legislation. After evaluation one will be selected to be sent to the respective Legislature for a vote. The author of this submission will receive funds pledged to support the given Issue.\n\n
+// A panel of subject-matter-experts will evaluate, rate, and rank all submissions of Legislation. After evaluation one will be selected to be sent to the respective Legislature for a vote. The author of this submission will receive funds pledged to support the given Issue.\n\n
 Decisions will be based on the following factors:\n\n\n\n
 * **Technical Merit**\n\n  * Has the submission presented a clear understanding of the associated problems being addressed?\n  * Has the submission developed a logical and workable solution and approach to solving the problem(s)?\n  * What are the most significant aspects of this concept?\n  * Has the submission clearly described the breadth of impact of the change?\n\n\n\n
 * **Originality**\n\n  * To what extent is this concept new, or in what way is this a variation of an existing idea?\n  * How is this concept unique?\n  * Does the concept use technical solutions rather than traditional approaches that often rely on enforcement?\n    * (Aim to create a law like the one that requires cars to include seatbelt reminder alerts, not like seatbelt laws that require traffic stops to enforce.)\n\n\n\n
