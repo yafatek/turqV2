@@ -2,7 +2,7 @@ import React from "react"
 import Grid from '@material-ui/core/Grid';
 import AboutPanel from "./aboutPanel"
 import Tim from "../../images/Tim_Wallis.jpeg"
-import John from "../../images/John_Daley.jpeg"
+import John from "../../images/johnPicture.png"
 import Michael from "../../images/Michael_Conlon.jpeg"
 
 const Team = () => {
