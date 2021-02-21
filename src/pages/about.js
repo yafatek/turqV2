@@ -35,7 +35,7 @@ class AboutPage extends React.Component {
 
   render() {
     return (
-    <Layout fullWidth pageTitle="Turq | About" description="Turq's mission is to make direct democracy viable by enabling citizens to draft and submit their own legislation">
+    <Layout fullWidth pageTitle="Turq | About" description="Lawmakers are overwhelmed and don’t have the time to make all the legislation that is needed of them. Our focus is to alleviate the pressure on legislators by enabling citizens to write bills for one another. We get that legislation made and submitted for you to make the ask of elected lawmakers as lightweight as possible.">
       <Grid container alignItems="flex-start" direction="column">
         <Grid item container direction="row" className="about-task" justify="center" alignItems="center">
           <Grid item xs={2}>
