@@ -38,6 +38,7 @@ class Home extends React.Component {
               header="Lawmakers Are Overwhelmed"
               buttonText="View Our Open Issues »"
               subtext="More calls and emails don’t solve anything. What lawmakers need is to be given a readymade piece of legislation. At turq.io we make that happen. We connect you with people that will solve your issue and turn that solution into legislation. Think Upwork, but for legislation. We then help you get that legislation submitted to the right people. Your problems are solved, and lawmakers’ lives are made simpler."
+              subtext="Share your Issues with us by emailing tim@turq.io."
             />
           </Grid>
           <Grid item xs={12}>
