@@ -37,9 +37,9 @@ const DesktopHeader = ({isAuthenticated, logout}) => {
               </Grid>
                 <Grid item>
                   <Typography align="center">
-                    <Link to={DRAFTER_PAGE_URL}>
+                    <a href={DRAFTER_PAGE_URL}>
                       <Button>Drafting Guidelines</Button>
-                    </Link>
+                    </a>
                     <Link to={CONTEST_PAGE_URL}>
                       <Button>Explore Issues</Button>
                     </Link>
