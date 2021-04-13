@@ -11,7 +11,9 @@ import Checkout from '../components/payments/checkout'
 import Donation from '../components/payments/donation'
 import { payment } from '../actions/paymentsActions'
 
-  
+import DonationBreakdownCard from '../components/payments/donationBreakdownCard';
+import AddressCard from '../components/payments/addressCard';
+
 function CheckoutForm({location, dispatch, isComplete, isSuccess, isFetching}) {
 
   const stripe = useStripe();
@@ -57,9 +59,15 @@ function CheckoutForm({location, dispatch, isComplete, isSuccess, isFetching}) {
       <div className="checkout-page">
         <Grid container spacing={5} justify="center" alignItems="stretch">
           <Grid container item xs={12} md={6}>
-            <Donation setAmount={setAmount} />
+            <Donation setAmount={setAmount}/>
           </Grid>
-          <Grid container item xs={12} md={6}>
+          <Grid item xs={12} md={6} alignContent="stretch">
+            <DonationBreakdownCard amount={amount}/>
+          </Grid>
+          <Grid container item xs={12} md={6} alignItems="stretch">
+            <AddressCard/>
+          </Grid>
+          <Grid container item xs={12} md={6} alignItems="stretch">
             <Checkout
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
