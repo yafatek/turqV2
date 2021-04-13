@@ -21,7 +21,7 @@ const ContestSubmissionsCard = () => (
           options={{
             text: TWITTER_SHARE_TEXT,
             size: "large",
-            hashtags: "Turq,democracy",
+            hashtags: "Turq",
             related: "Turqpbc"
           }}
         />

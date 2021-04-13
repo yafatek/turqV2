@@ -45,7 +45,7 @@ const ContestPanel = ({title, link, description, buttonText, funding}) => (
             options={{
               text: TWITTER_SHARE_TEXT,
               size: "large",
-              hashtags: "Turq,democracy",
+              hashtags: "Turq",
               related: "Turqpbc"
             }}
           />
@@ -71,6 +71,6 @@ ContestPanel.defaultProps = {
   id: null,
   description: "",
   link: "",
-  buttonText: "View Issue",
+  buttonText: "Issue Details",
   funding: 0.00
 }
