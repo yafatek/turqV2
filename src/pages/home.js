@@ -37,10 +37,10 @@ class Home extends React.Component {
               link={CONTEST_PAGE_URL}
               header="Lawmakers Are Overwhelmed"
               buttonText="View Our Open Issues »"
-              subtext="More calls and emails don’t solve anything. What lawmakers need is to be given a readymade piece of legislation. At turq.io we make that happen. We connect you with people that will solve your issue and turn that solution into legislation. Think Upwork, but for legislation. We then get that legislation submitted to the right people. If you're just an avergae person with an issue you care about we're here to solve your problem while at the same time making lawmakers’ lives are made simpler. Get your issue posted by emailing tim@turq.io!"
+              subtext="More calls and emails don’t solve anything. What lawmakers need is to be given a readymade piece of legislation. At turq.io we make that happen. We connect you with people that will solve your issue and turn that solution into legislation. Think Upwork, but for legislation. We then get that legislation submitted to the right people. If you're just an avergae person with an issue you care about we're here to solve your problem while at the same time making lawmakers’ lives are made simpler. Get your issue posted by emailing tim@turq.io or texting (617) 383-4266‬!"
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="active-issue-section">
             {currentContests
             ? <ContestPanelList title="Active Issues" contests={currentContests} />
             : <></>
