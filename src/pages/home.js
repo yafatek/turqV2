@@ -42,7 +42,7 @@ class Home extends React.Component {
           </Grid>
           <Grid item xs={12} className="active-issue-section">
             {currentContests
-            ? <ContestPanelList title="Active Issues" contests={currentContests} />
+            ? <ContestPanelList title="Explore Issues" contests={currentContests} size={6}/>
             : <></>
             }
           </Grid>

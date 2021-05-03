@@ -13,6 +13,7 @@ import ContestSubmissionsCard from "../components/competition/contestSubmissions
 import ItemizedFundingCard from "../components/competition/itemizedFundingCard"
 import ContestShareCard from "../components/competition/contestShareCard"
 import CompetitionText from "../components/competition/competitionText"
+import GoalRing from "../components/legislation/goalRing"
 import { CONTEST_DATA_URL } from "../constants"
 
 
@@ -74,8 +75,13 @@ class ContestPage extends React.Component {
                     endDate={contest.endDate}
                   />
                 </Grid>
-                <Grid container item xs={12} md={4} style={{padding:20}}>
+                <Grid container item xs={12} md={4} style={{padding:34}}>
                   <Grid container item direction="column" spacing={5}>
+                    <Grid container justify="center" align="center">
+                      <Grid item xs={4}>
+                        <GoalRing currentFunding={contest.prize}/>
+                      </Grid>
+                    </Grid>
                     <Grid item>
                       <ItemizedFundingCard currentFunding={contest.prize} contestId={contest.id}/>
                     </Grid>

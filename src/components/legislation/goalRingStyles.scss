@@ -1,0 +1,48 @@
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: url(#idCSS);
+}
+
+.ring-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 247px;
+}
+
+.marker {
+  width: 20px;
+  height: 72px;
+  background-color: black;
+  position: absolute;
+  bottom: -8.6%;
+}
+
+.bar {
+  background-color: black;
+  height: 22%;
+  width: 0.5px;
+  flex-basis: 101%;
+  position: absolute;
+  bottom: -5px;
+}
+
+.separator {
+  background-color: transparent;
+  width: 0.5px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 50%;
+  bottom: 0;
+}
+.top-banner {
+  margin-top: 30px;
+}
+
+span {
+  color: black;
+  font-size: 36px;
+  margin-bottom: 5px;
+  margin-top: 0;
+  line-height: 42.19px;
+}

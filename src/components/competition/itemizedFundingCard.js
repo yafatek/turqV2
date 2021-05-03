@@ -5,12 +5,10 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
+import PropTypes from "prop-types";
 
 import { CHECKOUT_PAGE_URL } from "../../constants";
-
 import ItemizedFunding from "../funding/itemizedFunding";
-
-import PropTypes from "prop-types";
 
 const itemizedStyle = {
   backgroundColor: "#C4C4C4",
