@@ -2,7 +2,6 @@ import React from "react";
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import PropTypes from "prop-types";
-import './goalRingStyles.scss';
 import { useCallback } from 'react'
 
 const GoalRing = ({ currentFunding }) => {
@@ -107,8 +106,8 @@ const getTier = useCallback(() => {
         </div>
         <div className="marker" />
       </CircularProgressbarWithChildren>
-      {!isGoalComplete && <span class="top-banner">{`${currentTier.current} Goal`}</span>}
-      <span style={isGoalComplete ? { color: '#38B7AA', marginTop: '20px'} : { color: 'black' }} class="goal-number">{Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(tiers[currentTier.current].max)}</span>
+      {!isGoalComplete && <span className="top-banner">{`${currentTier.current} Goal`}</span>}
+      <span style={isGoalComplete ? { color: '#38B7AA', marginTop: '20px'} : { color: 'black' }} className="goal-number">{' $' + tiers[currentTier.current].max}</span>
     </div>
   )
 }
