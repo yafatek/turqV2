@@ -28,7 +28,7 @@ const DesktopHeader = ({isAuthenticated, logout}) => {
     <div>
       <AppHeader position="fixed">
         <Toolbar>
-          <Grid md={12} container justify="space-between" alignItems="center">
+          <Grid container justify="space-between" alignItems="center">
             <Grid container item xs={6} alignItems="center">
               <Grid item>
                   <Link to="/">

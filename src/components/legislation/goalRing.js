@@ -1,9 +1,9 @@
 import React from "react";
-import ReactDOM from 'react-dom';
-import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import PropTypes from "prop-types";
 import './goalRingStyles.scss';
+import { useCallback } from 'react'
 
 const GoalRing = ({ currentFunding }) => {
   const currentFundingDecimal = currentFunding / 100; // funding to decimal value.
@@ -21,7 +21,10 @@ const GoalRing = ({ currentFunding }) => {
   }
 
   // iterates through the keys to select a tier.
-  const getTier = () => Object.keys(tiers).find(key => currentFundingDecimal >= tiers[key].min && currentFundingDecimal <= tiers[key].max)
+
+const getTier = useCallback(() => {
+	return Object.keys(tiers).find(key => currentFundingDecimal >= tiers[key].min && currentFundingDecimal <= tiers[key].max)
+}, [currentFundingDecimal, tiers])
 
   React.useEffect(() => {
     if (currentFunding) {
@@ -42,7 +45,7 @@ const GoalRing = ({ currentFunding }) => {
       }
     }
     return () => { }
-  }, [currentFunding]);
+  }, [currentFunding, getTier, tiers]);
 
   function calculateSepDegrees() {
     return ((currentFunding / tiers[currentTier.current].max) * 270) / 75

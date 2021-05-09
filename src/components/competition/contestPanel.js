@@ -33,7 +33,7 @@ const ContestPanel = ({title, link, description, buttonText, funding}) => (
       </Grid>
     </CardContent>
     <CardActions>
-      <Grid container xs={12} alignItems="center" justify="space-between">
+      <Grid container alignItems="center" justify="space-between">
         <Grid item>
           <Link to={link}>
             <Button  color="primary">{buttonText}</Button>
