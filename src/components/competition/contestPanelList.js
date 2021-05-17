@@ -2,14 +2,15 @@ import React from "react"
 import PropTypes from "prop-types"
 import ContestPanel from "./contestPanel"
 import { CONTEST_PAGE_URL } from "../../constants"
+import { dynamicSort } from "../../util/sort"
 import Grid from '@material-ui/core/Grid';
 
 const ContestPanelList = ({title, contests, size}) => {
-  var contestCards = contests;
+  var contestCards = contests || [];
   if (size > -1) {
     contestCards = contests.slice(0,size);
   }
-  contestCards = contestCards
+  contestCards = contestCards.sort(dynamicSort('-prize'))
     .map((contest, idx) =>
                 <Grid container item xs={12} md={4} key={contest.id}>
                   <ContestPanel

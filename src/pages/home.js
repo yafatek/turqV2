@@ -2,6 +2,8 @@ import React from "react"
 import axios from "axios";
 import { toast } from 'react-toastify';
 import Grid from '@material-ui/core/Grid';
+import { Button } from "@material-ui/core"
+import { Link } from "react-router-dom";
 
 import ContestPanelList from "../components/competition/contestPanelList"
 import { CONTEST_DATA_URL } from "../constants"
@@ -45,6 +47,11 @@ class Home extends React.Component {
             ? <ContestPanelList title="Explore Issues" contests={currentContests} size={9}/>
             : <></>
             }
+          </Grid>
+          <Grid item style={{padding: 10}}>
+            <Link to={CONTEST_PAGE_URL}>
+              <Button variant="contained" color="primary">View All Issues</Button>
+            </Link>
           </Grid>
         </Grid>
       </Layout>
