@@ -33,7 +33,7 @@ class Home extends React.Component {
     }
     return (
       <Layout fullWidth>
-        <Grid container>
+        <Grid container justify="center" alignItems="center">
           <Grid item>
             <Hero
               link={CONTEST_PAGE_URL}
