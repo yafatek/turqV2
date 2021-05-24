@@ -17,23 +17,25 @@ const GoalRing = ({ currentFunding }) => {
     Bronze: { min: 0.00, max: 200.00 },
     Silver: { min: 201.00, max: 350.00 },
     Gold: { min: 351.00, max: 500 },
+    Completed: { min: 500.00 },
   }
 
   // iterates through the keys to select a tier.
 
-const getTier = useCallback(() => {
-	return Object.keys(tiers).find(key => currentFundingDecimal >= tiers[key].min && currentFundingDecimal <= tiers[key].max)
-}, [currentFundingDecimal, tiers])
+  const getTier = () => Object.keys(tiers).find(key => currentFundingDecimal >= tiers[key].min && currentFundingDecimal <= tiers[key].max)
 
   React.useEffect(() => {
     if (currentFunding) {
-      currentTier.current = getTier();
+      currentTier.current = getTier() || 'Completed';
+	    console.log('testing',currentTier.current)
 
       // verify and update the gradient colors
       if (currentTier.current === 'Silver') {
         setBarColor({ start: '#CD7F32', end: '#C0C0C0'})
       } else if (currentTier.current === 'Gold') {
         setBarColor({ start: '#C0C0C0', end: '#D4AF37'})
+      } else if (currentTier.current === 'Complete') {
+        setBarColor({ start: '#D4AF37', end: '#D4AF37'})
       }
       
       // check if the goal has been completed.
@@ -44,7 +46,7 @@ const getTier = useCallback(() => {
       }
     }
     return () => { }
-  }, [currentFunding, getTier, tiers]);
+  }, []);
 
   function calculateSepDegrees() {
     return ((currentFunding / tiers[currentTier.current].max) * 270) / 75
@@ -107,7 +109,9 @@ const getTier = useCallback(() => {
         <div className="marker" />
       </CircularProgressbarWithChildren>
       {!isGoalComplete && <span className="top-banner">{`${currentTier.current} Goal`}</span>}
-      <span style={isGoalComplete ? { color: '#38B7AA', marginTop: '20px'} : { color: 'black' }} className="goal-number">{' $' + tiers[currentTier.current].max}</span>
+	  {
+		  tiers[currentTier.current].max  && 
+      <span style={isGoalComplete ? { color: '#38B7AA', marginTop: '20px'} : { color: 'black' }} className="goal-number">{' $' + tiers[currentTier.current].max}</span>}
     </div>
   )
 }
