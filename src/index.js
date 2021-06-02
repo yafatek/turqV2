@@ -10,10 +10,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.render(
-  <React.StrictMode>
     <Provider store={configureStore()}>
       <App />
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
   document.getElementById('root')
 );
