@@ -37,10 +37,10 @@ const DesktopHeader = ({isAuthenticated, logout}) => {
               </Grid>
                 <Grid item>
                   <Typography align="center">
-                    <a href={DRAFTER_PAGE_URL} target="_blank">
+                    <a href={DRAFTER_PAGE_URL} target="_blank"  rel="noopener noreferrer">
                       <Button>How To</Button>
                     </a>
-                    <a href={DRAFT_GUIDE_PAGE_URL} target="_blank">
+                    <a href={DRAFT_GUIDE_PAGE_URL} target="_blank"  rel="noopener noreferrer">
                       <Button>Guides</Button>
                     </a>
                     <Link to={CONTEST_PAGE_URL}>
