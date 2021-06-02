@@ -1,12 +1,12 @@
 [build]
 publish = "build"
-command = "yarn build"
+command = "CI= yarn build"
 
 [context.master]
-command = "yarn build:production"
+command = "CI= yarn build:production"
 
 [context.deploy-preview]
-command = "yarn build:development"
+command = "CI= yarn build:development"
 
 [context.branch-deploy]
-command = "yarn build:development"
+command = "CI= yarn build:development"
