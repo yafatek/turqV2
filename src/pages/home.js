@@ -8,7 +8,7 @@ import { CONTEST_DATA_URL } from "../constants"
 import Layout from "../components/layout/layout"
 import Hero from "../components/hero"
 import { isPastEndDate } from "../util/dateCompare"
-import { CONTEST_PAGE_URL, POST_ISSUE_URL } from '../constants'
+import { POST_ISSUE_URL } from '../constants'
 
 class Home extends React.Component {
 
