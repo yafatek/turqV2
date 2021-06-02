@@ -5,13 +5,14 @@ import { connect } from 'react-redux'
 import Grid from '@material-ui/core/Grid';
 
 import Layout from "../components/layout/layout"
-import { fetchContest } from "../actions/contestActions"
+import { fetchContest, updateContestStatus } from "../actions/contestActions"
 import DismissableAlert from "../components/dismissableAlert"
 import {isPastEndDate } from "../util/dateCompare"
 import ContestSubmissionsCard from "../components/competition/contestSubmissionsCard"
 //import ContestFundingCard from "../components/competition/contestFundingCard"
 import ItemizedFundingCard from "../components/competition/itemizedFundingCard"
 import ContestShareCard from "../components/competition/contestShareCard"
+import ContestStateCard from "../components/competition/contestStateCard"
 import CompetitionText from "../components/competition/competitionText"
 import GoalRing from "../components/legislation/goalRing"
 import { CONTEST_DATA_URL } from "../constants"
@@ -22,6 +23,12 @@ class ContestPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {legislationList: []}
+    this.handleStatusUpdate = this._handleStatusUpdate.bind(this);
+  }
+
+  _handleStatusUpdate(statusId) {
+    const contestId = this.props.match.params.id
+    this.props.dispatch(updateContestStatus(contestId, statusId))
   }
 
   componentDidMount() {
@@ -89,6 +96,9 @@ class ContestPage extends React.Component {
                       <ContestShareCard />
                     </Grid>
                     <Grid item>
+                      <ContestStateCard currentStatus={contest.status} isAdmin={this.props.isAdmin} onSubmit={event => this.handleStatusUpdate(event)}/>
+                    </Grid>
+                    <Grid item>
                       <ContestSubmissionsCard contest={contest} legislationList={this.state.legislationList} />
                     </Grid>
                   </Grid>
@@ -104,11 +114,12 @@ class ContestPage extends React.Component {
 
 function mapStateToProps(state) {
 
-  var { contest } = state
+  var { contest, auth } = state
   contest = contest.contest
-
+  
   return {
-    contest
+    contest,
+    isAdmin: auth.isAdmin()
   }
 }
 

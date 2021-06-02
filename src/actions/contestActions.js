@@ -160,3 +160,35 @@ export function updateContest(contestId, contest, token) {
     })
   }
 }
+
+export function updateContestStatus(contestId, statusId) {
+
+  var config = {
+    method: 'POST',
+    url: `${CONTEST_DATA_URL}/${contestId}/updateStatus`,
+    data: { status: statusId },
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+  }
+
+  return dispatch => {
+    dispatch(updateContestRequest())
+    return axios(config)
+    .then(res => {
+      dispatch(fetchContestSuccess(res.data))
+      toast.success("Contest Status Updated");
+    }).catch(function (error) {
+      dispatch(updateContestFailure(error))
+      if (error.response) {
+        if (error.response.status === 400) {
+          toast.error("You must log in to make changes to a contest");
+        } else if (error.response.status === 402) {
+          toast.error("You are not authorized to edit this contest");
+        } else if (error.response.status === TOKEN_ERROR_CODE) {
+          dispatch(logout())
+        }
+      } else {
+          toast.error("Failed to update contest status");
+      }
+    })
+  }
+}
