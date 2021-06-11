@@ -1,4 +1,5 @@
 import React, { useState} from "react";
+import { Redirect } from "react-router-dom"
 import Grid from "@material-ui/core/Grid"
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux'
@@ -7,6 +8,7 @@ import {useStripe, useElements, CardNumberElement} from '@stripe/react-stripe-js
 import Checkout from "./checkout";
 import Donation from "./donation";
 import AddressCard from "./addressCard";
+import { THANKYOU_URL } from "../../constants"
 import { supportPayment } from '../../actions/paymentsActions'
 
 const CheckoutMini = ({dispatch, isComplete, isSuccess, isFetching}) => {
@@ -41,7 +43,10 @@ const CheckoutMini = ({dispatch, isComplete, isSuccess, isFetching}) => {
     }
 
     return (
-        <div className="checkout-page">
+      <>
+      { !isFetching && isComplete && isSuccess
+        ? <Redirect to={THANKYOU_URL} /> 
+        : <div className="checkout-page">
             <Grid container 
                 spacing={0} 
                 justify="center" 
@@ -68,6 +73,8 @@ const CheckoutMini = ({dispatch, isComplete, isSuccess, isFetching}) => {
                 <img src="/images/stripe-blurple.png" alt="Powered by Stripe" style={{height:25, width:110}}/>
             </Grid>
         </div>
+      }
+      </>
     )
 }
 function mapStateToProps(state) {
