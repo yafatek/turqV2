@@ -1,0 +1,96 @@
+.support-hero {
+    width: 100%;
+    min-height: 457px;
+    position: relative;
+    &::after {
+        content: "";
+        background-image: url("/images/hero_image.jpeg");
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;   
+      }
+    .intro{
+        position: absolute;
+        top: 54px;
+        right: 9%;
+        width: 48%;
+        min-width: 700px;
+        height: 350px;
+        padding: 9px 35px 9px 35px; 
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;  
+        p{
+            font-style: bold;
+            font-size: 36px;
+            line-height: 42px;
+            vertical-align: center;
+        }
+    }
+    .checkout-page{
+        position: absolute;
+        left: 8.5%;
+        top: 200px;
+        width: 342px;
+        height: 498px;
+        padding: 0;
+        border: 10px solid black;
+        .MuiCardHeader-title{
+            font-weight: bold;
+            text-align: left;
+        }
+        .powered{
+            position: absolute;
+            bottom: -35px;
+        }
+    }
+}
+.support-body {
+    width: 100%;
+    height: 1174px;
+}
+
+.support-body-header{
+    width: 37%!important;
+    min-width: 342px;
+    height: 181px;
+    margin-top: 335px;
+    .title{
+        font-weight: bold;
+    }
+    .extra{
+        font-size: 22px;
+        color: #a6a6a6;
+    }
+}
+  
+.support-body-subwrap{
+    height: 162px;
+    margin-top: 65px;
+    .sub{
+        width: 262px;
+        margin-right: 63px;
+        img{
+            width: 18%;
+            height: 70px;
+        }
+        .desc{
+            margin-top: 14px;
+            height: 78px;
+        }
+    }
+}
+
+.support-mid-section{
+    margin-top: 349px;
+    .info{
+        width: 221px;
+        line-height: 55px;
+        background: #ffffff; 
+    }
+}

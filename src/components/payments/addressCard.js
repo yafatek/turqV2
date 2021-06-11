@@ -51,18 +51,18 @@ const AddressCard = () => {
     <CardHeader title="Billing Address"/>
     <CardContent>
       <form id="address-form"><Grid container spacing={1}>
-        <Grid item md={12} fullWidth><TextField fullWidth variant="outlined" label="Address line 1" id="address-line-1"
+        <Grid item md={12}><TextField fullWidth variant="outlined" label="Address line 1" id="address-line-1"
           inputProps={{
-            ariaRole: "textbox"
+            ariarole: "textbox"
           }}
           value={addr1}
           onChange={function (e) {
             setAddr1(e.target.value);
           }}
         /></Grid>
-        <Grid item md={12} fullWidth><TextField fullWidth variant="outlined" label="Address line 2" id="address-line-2"
+        <Grid item md={12}><TextField fullWidth variant="outlined" label="Address line 2" id="address-line-2"
           inputProps={{
-            ariaRole: "textbox"
+            ariarole: "textbox"
           }}
           value={addr2}
           onChange={function (e) {
@@ -72,7 +72,7 @@ const AddressCard = () => {
         <Grid item><TextField variant="outlined" label="Zip Code" id="address-zip"
           inputProps={{
             pattern: "[0-9][0-9][0-9][0-9][0-9]",
-            ariaRole: "textbox"
+            ariarole: "textbox"
           }}
           value={zip}
           onChange={

@@ -27,7 +27,7 @@ const Donation = ({setAmount}) => {
     <Card className="checkout-card">
       <CardHeader title="Amount to Pledge" />
       <CardContent>
-        <Grid container xs={12} spacing={2} alignItems="center" justify="flex-start">
+        <Grid container spacing={2} alignItems="center" justify="flex-start">
           {/*Remember we don't set decimals for stripe so those amounts are correct --- 500 = $5.00 */}
           <Grid item xs={6}>
             <Button size="large" variant={active === "5" ? "contained" : "outlined"} fullWidth color="primary" onClick={() => setButtonAmount(5, "5")}> $5 </Button>
