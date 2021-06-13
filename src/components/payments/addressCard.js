@@ -69,7 +69,7 @@ const AddressCard = () => {
             setAddr2(e.target.value);
           }}
         /></Grid>
-        <Grid item><TextField variant="outlined" label="Zip Code" id="address-zip"
+        <Grid item xs={4}><TextField variant="outlined" label="Zip Code" id="address-zip"
           inputProps={{
             pattern: "[0-9][0-9][0-9][0-9][0-9]",
             ariarole: "textbox"
@@ -89,11 +89,11 @@ const AddressCard = () => {
             }
           }
         /></Grid>
-        <Grid item><TextField variant="outlined" label="City" id="address-city" name="city"
+        <Grid item xs={4}><TextField variant="outlined" label="City" id="address-city" name="city"
           value={cityName}
           disabled
         /></Grid>
-        <Grid item><TextField variant="outlined" label="State or Territory" id="address-state" name="state"
+        <Grid item xs={4}><TextField variant="outlined" label="State or Territory" id="address-state" name="state"
           value={stateName}
           disabled
         /></Grid>

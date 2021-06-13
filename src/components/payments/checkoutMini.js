@@ -51,7 +51,7 @@ const CheckoutMini = ({dispatch, isComplete, isSuccess, isFetching}) => {
                 spacing={0} 
                 justify="center" 
                 alignItems="stretch"  
-                style={{width: "200%", height: "200%", transform: `scale(0.5, 0.5)`, transformOrigin: "left top" }}
+                style={{width: "140%", height: "140%", transform: `scale(0.714, 0.714)`, transformOrigin: "left top" }}
             >
                 <Grid container item xs={12} md={12}>
                     <Donation setAmount={setAmount}/>

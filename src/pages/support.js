@@ -21,7 +21,7 @@ function SupportPage() {
                     <CheckoutMini/>
                 </Grid>
                 <Grid container direction="column" justify="flex-start"  alignItems="center" className="support-body">
-                    <Grid container direction="column" justify="center" className="support-body-header">
+                    <Grid container justify="center" className="support-body-header">
                         <Typography variant="h5" gutterBottom className="title">
                             We can’t do this without the generous support of yourself and other like you.
                         </Typography>
@@ -31,7 +31,7 @@ function SupportPage() {
                     </Grid>
                     <Grid container justify="center" className="support-body-subwrap">
                         <Grid className="sub">
-                            <img src="/images/change.png" alt="Powered by Stripe"/>
+                            <div><img src="/images/change.png" alt="Powered by Stripe"/></div>
                             <Grid container className="desc" alignItems="center">
                                 <Typography variant="h6">
                                     Giving people a means of making real change
@@ -39,7 +39,7 @@ function SupportPage() {
                             </Grid>
                         </Grid>
                         <Grid className="sub">
-                            <img src="/images/tools.png" alt="Powered by Stripe"/>
+                            <div><img src="/images/tools.png" alt="Powered by Stripe"/></div>
                             <Grid container className="desc" alignItems="center">
                                 <Typography variant="h6">
                                     Creating tools for everyday peope and pros alike
@@ -47,7 +47,7 @@ function SupportPage() {
                             </Grid>
                         </Grid>
                         <Grid className="sub">
-                            <img src="/images/ignored.png" alt="Powered by Stripe"/>
+                            <div><img src="/images/ignored.png" alt="Powered by Stripe"/></div>
                             <Grid container className="desc" alignItems="center">
                                 <Typography variant="h6">
                                     Ensuring you are never ignored again
