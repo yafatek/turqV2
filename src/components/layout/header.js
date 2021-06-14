@@ -14,7 +14,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 
-import { DRAFTER_PAGE_URL, CONTEST_PAGE_URL, DRAFT_GUIDE_PAGE_URL, ABOUT_PAGE_URL, LOGIN_PAGE_URL } from "../../constants"
+import { DRAFTER_PAGE_URL, CONTEST_PAGE_URL, SUPPORT_PAGE_URL, DRAFT_GUIDE_PAGE_URL, ABOUT_PAGE_URL, LOGIN_PAGE_URL } from "../../constants"
 
 
 const AppHeader = styled(AppBar)({
@@ -45,6 +45,9 @@ const DesktopHeader = ({isAuthenticated, logout}) => {
                     </a>
                     <Link to={CONTEST_PAGE_URL}>
                       <Button>Discover</Button>
+                    </Link>
+                    <Link to={SUPPORT_PAGE_URL}>
+                      <Button>Support</Button>
                     </Link>
                   </Typography>
                 </Grid>
@@ -86,6 +89,11 @@ const MobileHeader = ({isAuthenticated, logout}) => {
   };
 
   const menuItems = [
+    {
+      menuTitle: "Support",
+      pageURL: SUPPORT_PAGE_URL,
+      onClick: null
+    },
     {
       menuTitle: "Explore Issues",
       pageURL: CONTEST_PAGE_URL,
@@ -145,7 +153,7 @@ const MobileHeader = ({isAuthenticated, logout}) => {
                 {menuItems.map(menuItem => {
                   const { menuTitle, pageURL, onClick } = menuItem;
                   return (
-                    <Link to={pageURL}>
+                    <Link to={pageURL} key={menuItem.menuTitle}>
                       <MenuItem onClick={() => {onClick && onClick()}}>
                         <Typography align="center" color="textPrimary">
                             {menuTitle}

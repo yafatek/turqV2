@@ -20,7 +20,7 @@ const Checkout = ({handleChange, cardName, handleSubmit, isFetching, stripe}) =>
     <Card className="checkout-card">
       <CardHeader title="Credit Card Details" />
       <CardContent>
-        <Grid container xs={12} spacing={2} alignItems="center" justify="flex-start">
+        <Grid container spacing={2} alignItems="center" justify="flex-start">
           <Grid item xs={12}>
             <TextField
               id="cardName"
@@ -36,7 +36,7 @@ const Checkout = ({handleChange, cardName, handleSubmit, isFetching, stripe}) =>
               variant="outlined"
             />
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={6} md={6}>
             <TextField
               label="Credit Card Number"
               name="ccnumber"
@@ -53,7 +53,7 @@ const Checkout = ({handleChange, cardName, handleSubmit, isFetching, stripe}) =>
               }}
             />
           </Grid>
-          <Grid item xs={12} md={3}>
+          <Grid item xs={3} md={3}>
             <TextField
               label="Experation Date"
               name="Experation Date"
@@ -70,7 +70,7 @@ const Checkout = ({handleChange, cardName, handleSubmit, isFetching, stripe}) =>
               }}
             />
           </Grid>
-          <Grid item xs={12} md={3}>
+          <Grid item xs={3} md={3}>
             <TextField
               label="cvc"
               name="cvc"
@@ -90,7 +90,7 @@ const Checkout = ({handleChange, cardName, handleSubmit, isFetching, stripe}) =>
         </Grid>
       </CardContent>
       <CardActions>
-        <Grid container xs={12} alignItems="center" justify="center">
+        <Grid container alignItems="center" justify="center">
           <Grid item>
             <Button size="large" variant="contained" color="primary" type="submit" disabled={!stripe || isFetching} onClick={() => handleSubmit()}>
               Pay Now

@@ -14,6 +14,7 @@ import About from './pages/about';
 import Drafter from './pages/drafter';
 import ContestList from './pages/contestList';
 import Contest from './pages/contest';
+import Support from './pages/support';
 import Legislation from './pages/legislation';
 import ContestEditor from './pages/contestEditor';
 import LegislationEditor from './pages/legislationEditor';
@@ -57,6 +58,7 @@ function App() {
       <Switch>
         <Route path={constants.HOME_PAGE_URL} exact component={Home} />
         <Route path={constants.ABOUT_PAGE_URL} component={About} />
+        <Route path={constants.SUPPORT_PAGE_URL} component={Support} />
         <Route path={constants.DRAFTER_PAGE_URL} component={Drafter} />
         <Route path={constants.LOGIN_PAGE_URL} component={Login} />
         <Route path={constants.REGISTER_PAGE_URL} component={Register} />
