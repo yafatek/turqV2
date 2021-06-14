@@ -22,6 +22,7 @@ export const REGISTER_PAGE_URL = '/register'
 export const CHECKOUT_PAGE_URL = '/checkout'
 export const THANKYOU_URL = `/thankyou`
 export const POST_ISSUE_URL = '/editor/contest?new'
+export const SUPPORT_PAGE_URL = '/support'
 
 // Default Text
 export const DEFAULT_CONTEST_RULES = 'American citizens and permanent residents are eligible to draft Legislation to address this Issue..\n\nSee the terms and conditions [here](/terms/Terms_Conditions.pdf).\n\n Noncompliance with these rules or the terms and conditions may be disqualified from receiving funds for any participation.'
