@@ -16,7 +16,7 @@ const Footer = () => (
       </Grid>
       <Grid item xs={12} md={6}>
         <Typography variant="body1" color="textSecondary" component="h4" align="center">
-          <div className="footer-text">Contact Email: tim@turq.io Phone: (617) 383-4266</div>
+          <div className="footer-text">Contact: (617) 812-5799 or tim@turq.io</div>
         </Typography>
       </Grid>
     </Grid>
