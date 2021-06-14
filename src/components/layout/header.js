@@ -14,7 +14,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 
-import { DRAFTER_PAGE_URL, CONTEST_PAGE_URL, SUPPORT_PAGE_URL, ABOUT_PAGE_URL, LOGIN_PAGE_URL } from "../../constants"
+import { DRAFTER_PAGE_URL, CONTEST_PAGE_URL, SUPPORT_PAGE_URL, DRAFT_GUIDE_PAGE_URL, ABOUT_PAGE_URL, LOGIN_PAGE_URL } from "../../constants"
 
 
 const AppHeader = styled(AppBar)({
@@ -37,11 +37,14 @@ const DesktopHeader = ({isAuthenticated, logout}) => {
               </Grid>
                 <Grid item>
                   <Typography align="center">
-                    <a href={DRAFTER_PAGE_URL}>
-                      <Button>Drafting Guidelines</Button>
+                    <a href={DRAFTER_PAGE_URL} target="_blank"  rel="noopener noreferrer">
+                      <Button>How To</Button>
+                    </a>
+                    <a href={DRAFT_GUIDE_PAGE_URL} target="_blank"  rel="noopener noreferrer">
+                      <Button>Guides</Button>
                     </a>
                     <Link to={CONTEST_PAGE_URL}>
-                      <Button>Explore Issues</Button>
+                      <Button>Discover</Button>
                     </Link>
                     <Link to={SUPPORT_PAGE_URL}>
                       <Button>Support</Button>
