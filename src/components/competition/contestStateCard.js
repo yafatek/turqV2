@@ -45,6 +45,8 @@ class ContestStateCard extends React.Component {
           <CardContent>
             <Grid container alignItems="center" justify="space-between">
               <Grid item>
+              </Grid>
+              <Grid item>
                 <select name="status" value={this.state.value} onChange={this.handleChange} >
                   {statusList.map(status =>
                     <option key={status.id} value={status.id}>{status.name}</option>
@@ -55,7 +57,12 @@ class ContestStateCard extends React.Component {
                 <Button onClick={() => onSubmit(this.state.value)} color="primary">Submit</Button>
               </Grid>
             </Grid>
-          </CardContent> : ''
+          </CardContent> : 
+          <CardContent>
+            <Typography variant="h4" color="textSecondary" component="h2">
+              Issue Status
+            </Typography>
+          </CardContent>
         }
         <CardActions>
           <div style={{ padding: 10 }}>
