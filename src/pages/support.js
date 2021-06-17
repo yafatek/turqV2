@@ -42,7 +42,7 @@ function SupportPage() {
                             <div><img src="/images/tools.png" alt="Powered by Stripe"/></div>
                             <Grid container className="desc" alignItems="center">
                                 <Typography variant="h6">
-                                    Creating tools for everyday peope and pros alike
+                                    Creating tools for everyday people and pros alike
                                 </Typography>
                             </Grid>
                         </Grid>
