@@ -68,10 +68,10 @@ const CheckoutMini = ({dispatch, isComplete, isSuccess, isFetching}) => {
                         isFetching={false}
                     />
                 </Grid>
+                <Grid item container justify="center" className="powered">
+                  <img src="/images/stripe-blurple.png" alt="Powered by Stripe" style={{height:25, width:110}}/>
+                </Grid>
             </Grid>   
-            <Grid container justify="center" className="powered">
-                <img src="/images/stripe-blurple.png" alt="Powered by Stripe" style={{height:25, width:110}}/>
-            </Grid>
         </div>
       }
       </>
