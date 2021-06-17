@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Hero = ({header, subtext, link, buttonText}) => (
 <section>
   
-  <Grid container  alignItems="center" className="hero-bg">
+  <Grid container alignItems="center" className="hero-bg">
   <div className="hero-blur">
     <Grid container item direction="row" justify="center" alignItems="center">
       <Grid item xs={12} sm={6}>
@@ -19,7 +19,7 @@ const Hero = ({header, subtext, link, buttonText}) => (
         </p>
 
       </Grid>
-      <Grid item xs={12} sm={6} justify="center" alignItems="center" className="hero-video mt-4"><iframe width="90%" height="415" src="https://www.youtube.com/embed/nA79ZnhbRMM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></Grid>
+      <Grid item xs={12} sm={6} className="hero-video mt-4"><iframe width="90%" height="415" src="https://www.youtube.com/embed/nA79ZnhbRMM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe></Grid>
     </Grid>
     </div>
   </Grid>

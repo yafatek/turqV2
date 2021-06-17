@@ -2,13 +2,15 @@ import React from "react"
 import axios from "axios";
 import { toast } from 'react-toastify';
 import Grid from '@material-ui/core/Grid';
+import { Button } from "@material-ui/core"
+import { Link } from "react-router-dom";
 
 import ContestPanelList from "../components/competition/contestPanelList"
 import { CONTEST_DATA_URL } from "../constants"
 import Layout from "../components/layout/layout"
 import Hero from "../components/hero"
 import { isPastEndDate } from "../util/dateCompare"
-import { POST_ISSUE_URL } from '../constants'
+import { POST_ISSUE_URL, CONTEST_PAGE_URL } from '../constants'
 
 class Home extends React.Component {
 
@@ -31,7 +33,7 @@ class Home extends React.Component {
     }
     return (
       <Layout fullWidth>
-        <Grid container>
+        <Grid container justify="center" alignItems="center">
           <Grid item>
             <Hero
               link={POST_ISSUE_URL}
@@ -42,9 +44,14 @@ class Home extends React.Component {
           </Grid>
           <Grid item xs={12} className="active-issue-section">
             {currentContests
-            ? <ContestPanelList title="Active Issues" contests={currentContests} />
+            ? <ContestPanelList title="Explore Issues" contests={currentContests} size={9}/>
             : <></>
             }
+          </Grid>
+          <Grid item style={{padding: 10}}>
+            <Link to={CONTEST_PAGE_URL}>
+              <Button variant="contained" color="primary">View All Issues</Button>
+            </Link>
           </Grid>
         </Grid>
       </Layout>

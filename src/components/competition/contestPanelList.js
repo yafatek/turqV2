@@ -2,10 +2,15 @@ import React from "react"
 import PropTypes from "prop-types"
 import ContestPanel from "./contestPanel"
 import { CONTEST_PAGE_URL } from "../../constants"
+import { dynamicSort } from "../../util/sort"
 import Grid from '@material-ui/core/Grid';
 
-const ContestPanelList = ({title, contests}) => {
-  const contestCards = contests
+const ContestPanelList = ({title, contests, size}) => {
+  var contestCards = contests || [];
+  if (size > -1) {
+    contestCards = contests.slice(0,size);
+  }
+  contestCards = contestCards.sort(dynamicSort('-prize'))
     .map((contest, idx) =>
                 <Grid container item xs={12} md={4} key={contest.id}>
                   <ContestPanel
@@ -18,17 +23,15 @@ const ContestPanelList = ({title, contests}) => {
                   />
                 </Grid>)
   return (
-    <div style={{padding:20}}>
-      <Grid container spacing={5} direction="column" style={{padding:20}}>
-        <Grid item>
-          <h1>{title}</h1>
-          <hr/>
-        </Grid>
-        <Grid container item spacing={5}>
-          {contestCards}
-        </Grid>
+    <Grid container direction="column" style={{padding:10}}>
+      <Grid item>
+        <h1>{title}</h1>
+        <hr/>
       </Grid>
-    </div>
+      <Grid container item spacing={5}>
+        {contestCards}
+      </Grid>
+    </Grid>
   )
 }
 
@@ -36,10 +39,12 @@ export default ContestPanelList
 
 ContestPanelList.propTypes = {
   title: PropTypes.string,
-  contests: PropTypes.array
+  contests: PropTypes.array,
+  size: PropTypes.number
 }
 
 ContestPanelList.defaultProps = {
   title: "",
-  contests: []
+  contests: [],
+  size: -1,
 }

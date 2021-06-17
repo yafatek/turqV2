@@ -34,9 +34,19 @@
 .hero-video >iframe{
   
   float: left;
-  padding: 20px;
-  margin-left:5%;
+    padding: 0px;
+  margin-left:2%;
+  height: 400px;
+  width: 96%;
 }
 
+@media screen and (max-width: 600px) {
+  .hero-video >iframe{
 
-
+    float: left;
+    padding: 0px;
+    margin-left:2%;
+    height: 210px;
+    width: 96%;
+  }
+}
