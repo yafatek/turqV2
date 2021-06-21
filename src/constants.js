@@ -26,7 +26,7 @@ export const POST_ISSUE_URL = '/editor/contest?new'
 export const SUPPORT_PAGE_URL = '/support'
 
 // Default Text
-export const DEFAULT_CONTEST_RULES = 'American citizens and permanent residents are eligible to draft Legislation to address this Issue..\n\nSee the terms and conditions [here](/terms/Terms_Conditions.pdf).\n\n Noncompliance with these rules or the terms and conditions may be disqualified from receiving funds for any participation.'
+export const DEFAULT_CONTEST_RULES = 'American citizens and permanent residents are eligible to draft Legislation to address this Issue..\n\nSee the terms and conditions [here](/terms/Terms_of_Service.pdf).\n\n Noncompliance with these rules or the terms and conditions may be disqualified from receiving funds for any participation.'
 export const DEFAULT_CONTEST_CRITERIA = `
 **Initial Screening**\n\n
 All legislation submissions will be put through an initial screening to ensure compliance with terms and conditions.\n\n
