@@ -22,6 +22,7 @@ import Login from './pages/login';
 import Register from './pages/register';
 import Checkout from './pages/checkout';
 import PaymentThankyou from './pages/paymentThankyou';
+import PostContestPage from './pages/postContest';
 import * as constants from './constants'
 
 // Loading bar for pages with axios requests
@@ -63,6 +64,7 @@ function App() {
         <Route path={constants.LOGIN_PAGE_URL} component={Login} />
         <Route path={constants.REGISTER_PAGE_URL} component={Register} />
         <Route path={constants.CONTEST_PAGE_URL} exact component={ContestList} />
+        <Route path={constants.POST_CONTEST_PAGE_URL} exact component={PostContestPage}/>
         <Route path={constants.CONTEST_PAGE_URL + "/:id"} component={Contest}/>
         <Route path={constants.LEGISLATION_PAGE_URL + "/:id"} component={Legislation}/>
         <Route path={constants.THANKYOU_URL} component={PaymentThankyou} />

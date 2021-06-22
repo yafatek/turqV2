@@ -10,7 +10,7 @@ import { CONTEST_DATA_URL } from "../constants"
 import Layout from "../components/layout/layout"
 import Hero from "../components/hero"
 import { isPastEndDate } from "../util/dateCompare"
-import { POST_ISSUE_URL, CONTEST_PAGE_URL } from '../constants'
+import { CONTEST_PAGE_URL,POST_CONTEST_PAGE_URL } from '../constants'
 
 class Home extends React.Component {
 
@@ -36,10 +36,10 @@ class Home extends React.Component {
         <Grid container justify="center" alignItems="center">
           <Grid item>
             <Hero
-              link={POST_ISSUE_URL}
+              link={POST_CONTEST_PAGE_URL}
               header="Lawmakers Are Overwhelmed"
               buttonText="Launch an Issue"
-              subtext="Calls, emails, and petitions don't solve problems, they simply overwhelm Lawmakers. What Lawmakers need are readymade pieces of legislation. At turq.io we make that happen. We connect people like you with others that will solve your issue and turn that solution into legislation. Think Upwork, but for legislation. We then get that legislation to Lawmakers. Think Change.org, but with real results. We're here to solve the problems you care about while at the same time making Lawmakers’ lives simpler. Connect with us at (617) 812-5799, or launch your issue today!"
+              subtext="More calls and emails don’t solve anything. What lawmakers need is to be given a readymade piece of legislation. At turq.io we make that happen. We connect you with people that will solve your issue and turn that solution into legislation. Think Upwork, but for legislation. We then get that legislation submitted to the right people. If you're just an avergae person with an issue you care about we're here to solve your problem while at the same time making lawmakers’ lives are made simpler. Launch your issue today!"
             />
           </Grid>
           <Grid item xs={12} className="active-issue-section">
