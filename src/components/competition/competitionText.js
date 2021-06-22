@@ -17,14 +17,14 @@ import { DEFAULT_CONTEST_CRITERIA, DEFAULT_CONTEST_RULES } from "../../constants
 function CompetitionText ({title, description, rules, endDate}) {
 
 const theme = useTheme();
-const matches = useMediaQuery(theme.breakpoints.up('md'));
+const matches = useMediaQuery(theme.breakpoints.up('md'), {noSsr: true});
+console.log("Matches", matches);
 
   return (
     <Card>
       <CardContent>
         <Typography gutterBottom  variant="h3" component="h2">
           {title}
-          {matches}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="div">
           <header>
@@ -33,7 +33,7 @@ const matches = useMediaQuery(theme.breakpoints.up('md'));
             </p>
           </header>
         </Typography>
-        <Accordion DefaultExpanded={matches}>
+        <Accordion defaultExpanded={matches}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="Issue-Description-content"
