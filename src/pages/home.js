@@ -32,7 +32,7 @@ class Home extends React.Component {
         .filter(contest => !isPastEndDate(contest.endDate))
     }
     return (
-      <Layout fullWidth>
+      <Layout fullWidth pageTitle="Turq">
         <Grid container justify="center" alignItems="center">
           <Grid item>
             <Hero

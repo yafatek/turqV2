@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Layout from "../components/layout/layout"
 
 const DrafterPage = () => (
-  <Layout>
+  <Layout pageTitle="Drafter How To">
     <Grid container alignItems="center" justify="center">
       <Grid container item xs={12}>
         <Grid item xs={12}>

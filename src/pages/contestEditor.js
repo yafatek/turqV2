@@ -123,7 +123,7 @@ class ContestEditor extends React.Component {
     var initialCriteria = convertFromRaw(markdownToDraft(contest.criteria))
 
     return (
-      <EditorLayout onSubmit={this.handleSubmit}>
+      <EditorLayout onSubmit={this.handleSubmit}  pageTitle="Contest Editor">
         {!this.props.isFetching ?
           <div className="row">
             <div className="col">

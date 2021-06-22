@@ -36,7 +36,7 @@ class LoginPage extends React.Component {
       }
     }
     return (
-      <Layout>
+      <Layout pageTitle="Login">
       <Grid container spacing={0} className="main login-form-area" justify="center">
         <Grid item xs={10} md={9} xl={6}>
           <h2>Sign In</h2>

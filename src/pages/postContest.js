@@ -24,7 +24,7 @@ const PostContestPage = () => {
         setProgress(progress)
     }
     return (
-        <Layout>
+        <Layout pageTitle="Issue Posting">
             <Grid container spacing={0} classes={{root:"containerGrid"}}>
                 <Grid item md={6} classes={{root:"disclaimerSection"}}>
                     <LinearProgress variant="determinate" value={progress}  classes={{bar1Determinate:"linearProgressBarPrimary",root:"linearProgressBarRoot"}}/>

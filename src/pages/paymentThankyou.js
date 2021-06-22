@@ -21,7 +21,7 @@ function PaymentThankyou({dispatch, allContests}) {
 
 
   return(
-    <Layout fullWidth>
+    <Layout fullWidth pageTitle="Thank You">
       <Grid container style={{padding: 20}}>
         <Grid container item direction="column" spacing={10} justify="center" alignItems="center" style={{margin: 40}}>
           <Typography variant="h2" color="textPrimary" component="h2" align="center">

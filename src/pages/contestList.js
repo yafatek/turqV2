@@ -24,7 +24,7 @@ class ContestPage extends React.Component {
     }
 
     return (
-      <Layout>
+      <Layout pageTitle="Discover">
         {this.props.allContests
           ? <>
             <Grid container>
