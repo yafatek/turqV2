@@ -79,6 +79,8 @@ export const FundingForm = (props) => {
         <div hidden={props.value !== props.index} className="fundingForm">
             <Paper elevation={3}>
             <Donation setAmount={setFunding}/>
+            </Paper>
+            <Paper elevation={3} style={{marginTop:"10px"}}>
             <DonationBreakdownCard amount={funding}/>
             </Paper>
             <Paper elevation={3} classes={{root:"cardPaper"}}>
