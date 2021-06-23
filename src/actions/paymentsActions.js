@@ -95,7 +95,7 @@ export function payment(contestId, amount, CardNumberElement, cardName, stripe) 
       dispatch(paymentFailure(error))
       if (error.response) {
         if (error.response.status === 400) {
-          toast.error("You must log in to Donate");
+          toast.error("You must log in to Support");
           dispatch(logout())
           dispatch(paymentReset())
         } else if (error.response.status === TOKEN_ERROR_CODE) {
@@ -156,7 +156,7 @@ export function supportPayment(amount, CardNumberElement, cardName, stripe) {
       dispatch(paymentFailure(error))
       if (error.response) {
         if (error.response.status === 400) {
-          toast.error("You must log in to Donate");
+          toast.error("You must log in to Support");
           dispatch(logout())
           dispatch(paymentReset())
         } else if (error.response.status === TOKEN_ERROR_CODE) {
