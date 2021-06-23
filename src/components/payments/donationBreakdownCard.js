@@ -19,7 +19,7 @@ const DonationBreakdownCard = ({ amount }) => (
     <Card style={{minHeight: "100%"}}>
       <CardContent>
         <Typography variant="h5" component="h5">
-          { "Donation: " + Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(amount)}
+          { "Breakdown: " + Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(amount)}
         </Typography>
         <div style={itemizedStyle}>
           <ItemizedFunding total={amount*100}/>
