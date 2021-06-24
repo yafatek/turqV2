@@ -65,7 +65,7 @@ const Footer = () => (
     <Grid container item xs={12} md={4} justify="center">
       <Grid item>
         <Typography variant="body1" color="textSecondary" component="h4" align="center">
-          <a className="footer-link" href="https://github.com/TurqPBC/turqV2/blob/master/TERMS_OF_USE.md">Terms of Use</a>
+          <a className="footer-link" href="https://turq.io/terms/Terms_of_Service.pdf">Terms of Service</a>
         </Typography>
       </Grid>
     </Grid>
