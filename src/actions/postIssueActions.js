@@ -1,6 +1,7 @@
 import axios from "axios"
-import {CONTEST_PAGE_URL} from "../constants"
+import {CONTEST_PAGE_URL, TOKEN_ERROR_CODE} from "../constants"
 import { toast } from "react-toastify"
+import { logout } from './logout'
 export const POST_ISSUE = "POST_ISSUE"
 export const SAVE_HEADLINE = "SAVE_HEADLINE"
 export const SAVE_DESCRIPTION = "SAVE_DESCRIPTION"
@@ -60,6 +61,15 @@ export function postIssue(issue){
         dispatch(post_issue(issue))
         return axios(config).then((response) => {
             toast.success(response)
-        })
-    }
+        }).catch(function (error) {
+          if (error.response) {
+            if (error.response.status === 400) {
+              toast.error("You must log in to make changes to a contest");
+          } else if (error.response.status === TOKEN_ERROR_CODE) {
+            toast.error("Please log back in");
+            dispatch(logout())
+          }
+      }
+    })
+  }
 }

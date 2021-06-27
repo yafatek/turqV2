@@ -8,6 +8,9 @@ const initialState = {
     rules:"rules",
     criteria:"criteria",
     description:"",
+    headline:"",
+    legislation: "",
+    location: "",
     approved:"approved",
 }
 
@@ -15,7 +18,7 @@ export default (state = initialState, action) => {
     switch (action.type) {
       case SAVE_DESCRIPTION:
         return Object.assign({}, state, {
-          description:state.description +  action.description
+          description: action.description
         })
       case SAVE_FUNDING:
         return Object.assign({}, state, {
@@ -23,11 +26,11 @@ export default (state = initialState, action) => {
         })
       case SAVE_LOCATION:
         return Object.assign({}, state, {
-          description:state.description + "\n\n" + action.location
+          location: action.location
         })
       case SAVE_LEGISLATION:
         return Object.assign({}, state, {
-          description:state.description + "\n\n" + action.legislation
+          legislation: action.legislation
         })
       case SAVE_HEADLINE:
         return Object.assign({}, state, {

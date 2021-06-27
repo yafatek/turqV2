@@ -6,11 +6,12 @@ import {useStore,useDispatch} from "react-redux"
 import axios from "axios"
 import { useHistory } from "react-router"
 import { toast } from "react-toastify"
-import {POST_CONTEST_URL} from "../../constants"
+import {POST_CONTEST_URL, TOKEN_ERROR_CODE} from "../../constants"
 import Donation from "../payments/donation"
 import {useStripe, useElements, CardNumberElement} from '@stripe/react-stripe-js';
 import Checkout from "../payments/checkout"
 import { payment } from "../../actions/paymentsActions"
+import { logout } from '../../actions/logout'
 
 export const FundingForm = (props) => {
     const dispatch = useDispatch()
@@ -43,15 +44,30 @@ export const FundingForm = (props) => {
           return
         }
         dispatch({type:"SAVE_FUNDING",funding:funding})
+        // Delete following two lines once DB updates are made
+        var issue = store.getState().postIssue;
+        var description = issue.description + "\n\n" 
+                        + issue.legislation + "\n\n"
+                        + issue.location + "\n\n";
+        issue.description = description;
         var config = {
             method:"POST",
             url:POST_CONTEST_URL,
-            data:store.getState().postIssue,
+            data: issue,
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         }
         const contestID = await axios(config).then((response) => {
           return response.data.id
-        })
+        }).catch(function (error) {
+          if (error.response) {
+            if (error.response.status === 400) {
+              toast.error("You must log in to make changes to a contest");
+          } else if (error.response.status === TOKEN_ERROR_CODE) {
+            toast.error("Please log back in");
+            dispatch(logout())
+          }
+      }
+    })
         dispatch(payment(contestID, funding, elements.getElement(CardNumberElement), cardName, stripe))
         store.subscribe(() => {
           if(store.getState().payments.isSuccess){
