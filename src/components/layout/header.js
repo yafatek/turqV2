@@ -49,9 +49,6 @@ const DesktopHeader = ({isAuthenticated, logout}) => {
                     <Link to={SUPPORT_PAGE_URL}>
                       <Button>Support</Button>
                     </Link>
-                    <Link to={SUPPORT_PAGE_URL}>
-                      <Button>Support</Button>
-                    </Link>
                   </Typography>
                 </Grid>
               </Grid>
