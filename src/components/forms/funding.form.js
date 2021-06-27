@@ -8,6 +8,7 @@ import { useHistory } from "react-router"
 import { toast } from "react-toastify"
 import {POST_CONTEST_URL, TOKEN_ERROR_CODE} from "../../constants"
 import Donation from "../payments/donation"
+import DonationBreakdownCard from '../payments/donationBreakdownCard';
 import {useStripe, useElements, CardNumberElement} from '@stripe/react-stripe-js';
 import Checkout from "../payments/checkout"
 import { payment } from "../../actions/paymentsActions"
@@ -94,6 +95,9 @@ export const FundingForm = (props) => {
         <div hidden={props.value !== props.index} className="fundingForm">
             <Paper elevation={3}>
             <Donation setAmount={setFunding}/>
+            </Paper>
+            <Paper elevation={3} style={{marginTop:"10px"}}>
+            <DonationBreakdownCard amount={funding}/>
             </Paper>
             <Paper elevation={3} classes={{root:"cardPaper"}}>
             <Grid container spacing={1} classes={{root:"cardGrid"}}>

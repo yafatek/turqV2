@@ -25,7 +25,7 @@ const Donation = ({setAmount}) => {
 
   return (
     <Card className="checkout-card">
-      <CardHeader title="Amount to Pledge" />
+      <CardHeader title="Amount to Support" />
       <CardContent>
         <Grid container spacing={2} alignItems="center" justify="flex-start">
           {/*Remember we don't set decimals for stripe so those amounts are correct --- 500 = $5.00 */}
