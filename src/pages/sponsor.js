@@ -6,7 +6,7 @@ import NumberCircleTile from "../components/numberCircleTile"
 import { EDITOR_PAGE_URL } from "../constants"
 
 const SponsorPage = () => (
-  <Layout>
+  <Layout pageTitle="sponsor">
     <div className="row about-header">
       <div className="col text-center">
         <h1 className="about-title">Sponsoring a Competition</h1>

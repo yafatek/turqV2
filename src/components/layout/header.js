@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import propTypes from "prop-types"
 import Logo from "../logo"
 import AppBar from '@material-ui/core/AppBar';
@@ -23,7 +23,7 @@ const AppHeader = styled(AppBar)({
 });
 
 const DesktopHeader = ({isAuthenticated, logout}) => {
-
+  const history = useHistory()
   return (
     <div>
       <AppHeader position="fixed">
@@ -65,7 +65,7 @@ const DesktopHeader = ({isAuthenticated, logout}) => {
                     ?<Link to={LOGIN_PAGE_URL}>
                       <Button onClick={() => logout()}>Logout</Button>
                     </Link>
-                    :<Link to={LOGIN_PAGE_URL}>
+                    :<Link to={{pathname:LOGIN_PAGE_URL,state:{prevPath:history.location.pathname}}}>
                       <Button>Login</Button>
                     </Link>
                   }

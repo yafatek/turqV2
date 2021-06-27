@@ -22,6 +22,7 @@ import Login from './pages/login';
 import Register from './pages/register';
 import Checkout from './pages/checkout';
 import PaymentThankyou from './pages/paymentThankyou';
+import PostContestPage from './pages/postContest';
 import * as constants from './constants'
 
 // Loading bar for pages with axios requests
@@ -71,6 +72,7 @@ function App() {
         <PrivateRoute path={constants.EDITOR_PAGE_URL + "/contest/:id"}  exact component={ContestEditor}/>
         <PrivateRoute path={constants.EDITOR_PAGE_URL + "/legislation"} exact component={LegislationEditor}/>
         <PrivateRoute path={constants.EDITOR_PAGE_URL + "/legislation/:id"} exact component={LegislationEditor}/>
+        <PrivateRoute path={constants.POST_CONTEST_PAGE_URL} exact component={PostContestPage}/>
       </Switch>
 
     </BrowserRouter>

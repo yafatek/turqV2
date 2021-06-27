@@ -1,0 +1,163 @@
+.linearProgressBarPrimary {
+    background-color: $turq-primary !important;
+}
+
+.linearProgressBarRoot {
+    border-radius: 10px !important;
+    height:10px !important;
+    margin:10px !important;
+}
+
+.containerGrid {
+    margin: 50px !important;
+    @media screen and (max-width:500px) {
+        margin: 10px !important;    
+        width: 75% !important;
+    }
+}
+
+.tab {
+    min-width:100px !important;
+    width: 160px !important; 
+    max-width:160px !important
+}
+.tabs {
+    margin:10px !important;
+}
+
+.tabText{
+    color:#FFFFFF !important;
+}
+
+.headlineDisclaimer {
+    padding: 100px;
+    @media screen and (max-width:500px) {
+        padding:10px;
+    }
+}
+
+.disclaimerSection {
+    background-color: #2D4C4E;
+    @media screen and (max-width:500px) {
+        width: 120%;
+    }
+}
+
+.legislationDisclaimer {
+    padding:100px;
+    @media screen and (max-width:500px) {
+        padding:10px;
+    }
+}
+
+.legislationForm {
+    padding:100px;
+    @media screen and (max-width:800px) {
+        padding:0px;
+        padding-top: 10px;
+        width: 120%;
+    }
+}
+
+.headlineDisclaimerHeader{
+    color: white;
+}
+.issueDescriptionDisclaimerHeader{
+    color: white;
+}
+.locationForm {
+    padding: 100px;
+    @media screen and (max-width:500px){
+        padding:0px;
+    }
+}
+
+.fundingDisclaimer {
+    padding: 100px;
+    @media screen and (max-width:500px) {
+        padding:10px;
+    }
+}
+
+.fundingForm{
+    padding: 50px;
+    @media screen and (max-width:500px) {
+        padding:5px !important;
+    }
+}
+
+.paymentGrid{
+    padding: 20px;
+}
+.cardGrid{
+    padding: 20px;
+}
+.cardPaper{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.amountButton{
+    margin: 5px !important;
+    padding:5px !important;
+    color: green !important;
+}
+.amountTextInput {
+    width:100% !important;
+    margin:2.5px !important;
+    border-color: green !important;
+}
+.cardTextInput {
+    width: 100% !important;
+    border-color: green !important;
+    margin: 5px !important;
+}
+.payButton {
+    color: green !important;
+    float: right;
+}
+.stateInput {
+    width: 100%;
+    border-color: green;
+    box-sizing: border-box;
+    height: 50px;
+    margin:10px;
+}
+
+.headlineForm{
+    padding: 100px;
+    @media screen and (max-width:500px) {
+        padding:0px;
+        width: 120%;
+    }
+}
+.issueDescriptionForm {
+    padding:100px;
+    @media screen and (max-width:800px) {
+        padding: 0px;
+        padding-top: 10px;
+        width: 120%;
+    }
+}
+
+.issueDescriptionDisclaimer {
+    padding:100px;
+    @media screen and (max-width:500px) {
+        padding:10px
+    }
+}
+.greenText{
+    color:lightgreen
+}
+
+.nextButton{
+    background-color: green !important;
+    color: white !important;
+    float: right;
+}
+
+.headlineTextInput {
+    width:100% !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-color: green !important;
+}

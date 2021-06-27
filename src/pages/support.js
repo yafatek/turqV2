@@ -9,7 +9,7 @@ import CheckoutMini from "../components/payments/checkoutMini";
 function SupportPage() {
 
     return (
-        <Layout>
+        <Layout pageTitle="Support">
             <Grid container justify="center" align="center">
                 <Grid item xs={12} md={12} className="support-hero" zeroMinWidth>
                     <Paper className="intro">

@@ -12,6 +12,8 @@ export const PAYMENTS_URL = `${BASE_URL}/payments`
 // Local Links
 export const ABOUT_PAGE_URL = '/about'
 export const CONTEST_PAGE_URL = '/contest'
+export const POST_CONTEST_URL = `${BASE_URL}/contest`
+export const POST_CONTEST_PAGE_URL = '/post_contest'
 export const LEGISLATION_PAGE_URL = '/legislation'
 export const DRAFTER_PAGE_URL = 'https://app.gitbook.com/@turqtim/s/turq-io/'
 export const DRAFT_GUIDE_PAGE_URL = 'https://www.ncsl.org/legislators-staff/legislative-staff/research-editorial-legal-and-committee-staff/bill-drafting-manuals.aspx'
