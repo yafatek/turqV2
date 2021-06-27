@@ -55,7 +55,7 @@ function CheckoutForm({location, dispatch, isComplete, isSuccess, isFetching}) {
     <>
     { !isFetching && isComplete && isSuccess
     ? <Redirect to={THANKYOU_URL} />
-    : <Layout fullWidth>
+    : <Layout fullWidth  pageTitle="Checkout">
       <div className="checkout-page">
         <Grid container spacing={5} justify="center" alignItems="stretch">
           <Grid container item xs={12} md={6}>

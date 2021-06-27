@@ -65,7 +65,7 @@ class ContestPage extends React.Component {
     }
 
     return (
-      <Layout>
+      <Layout  pageTitle={`Issue ${this.props.match.params.id}`}>
         {contest ?
           <Grid container justify="center" direction="column" style={{padding:20}}>
             <Grid item>

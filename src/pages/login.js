@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button'
 
 import { login } from "../actions/login"
 import Layout from "../components/layout/layout"
+import { POST_CONTEST_PAGE_URL } from "../constants";
 
 class LoginPage extends React.Component {
 
@@ -28,11 +29,14 @@ class LoginPage extends React.Component {
 
   render() {
     if (this.props.isAuthenticated) {
-      return <Redirect to={this.state.referer} />
+      if(this.props.location.state.prevPath === "/post_contest"){
+        return <Redirect to={POST_CONTEST_PAGE_URL} />
+      }else{
+        return <Redirect to={this.state.referer} />
+      }
     }
-
     return (
-      <Layout>
+      <Layout pageTitle="Login">
       <Grid container spacing={0} className="main login-form-area" justify="center">
         <Grid item xs={10} md={9} xl={6}>
           <h2>Sign In</h2>

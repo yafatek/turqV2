@@ -21,7 +21,7 @@ class LegislationPage extends React.Component {
     var legislation = this.props.legislation
 
     return (
-      <Layout>
+      <Layout pageTitle={`Legislation ${this.props.match.params.id}`}>
         {legislation ?
           <Grid container justify="center" direction="column" style={{padding:20}}>
             <Link to={CONTEST_PAGE_URL + "/" + legislation.contest.id}>

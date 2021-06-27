@@ -33,14 +33,15 @@ function registerFailure(message) {
   }
 }
 
-export function register(creds) {
+export function register(creds,termsAccepted) {
 
   let config = {
     method: 'POST',
     url: REGISTER_URL,
     data: {
       email: creds.email,
-      password: creds.password
+      password: creds.password,
+      termsAccepted:termsAccepted
     }
   }
 

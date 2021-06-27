@@ -9,10 +9,16 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import { DEFAULT_CONTEST_CRITERIA, DEFAULT_CONTEST_RULES } from "../../constants";
 
 function CompetitionText ({title, description, rules, endDate}) {
+
+const theme = useTheme();
+const matches = useMediaQuery(theme.breakpoints.up('md'), {noSsr: true});
+console.log("Matches", matches);
 
   return (
     <Card>
@@ -27,7 +33,7 @@ function CompetitionText ({title, description, rules, endDate}) {
             </p>
           </header>
         </Typography>
-        <Accordion>
+        <Accordion defaultExpanded={matches}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="Issue-Description-content"

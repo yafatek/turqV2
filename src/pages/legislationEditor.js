@@ -126,7 +126,7 @@ class LegislationEditor extends React.Component {
     }
 
     return (
-      <EditorLayout onSubmit={this.handleSubmit}>
+      <EditorLayout onSubmit={this.handleSubmit} pageTitle="Legislation Editor">
       {!this.props.isFetching ?
         <div className="row">
           <div className="col">
