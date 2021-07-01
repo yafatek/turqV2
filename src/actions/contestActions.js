@@ -128,7 +128,7 @@ function updateContestFailure(error) {
   }
 }
 
-export function updateContest(contestId, contest, token) {
+export function updateContest(contestId, contest) {
 
   var config = {
     method: (contestId !== undefined ? 'PUT' : 'POST'),
