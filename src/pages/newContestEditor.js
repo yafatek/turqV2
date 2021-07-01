@@ -68,7 +68,7 @@ const ContestEditor = (props) => {
     }
     return (
         <Layout pageTitle="Edit Contest">
-            <Grid container direction="column" justify="center" spacing={10} alignItems="center">
+            <Grid container direction="column" justify="center" spacing={10} alignItems="center" style={{padding:"10px"}}>
             <Grid item md={6} >
                 <div>
                     <Typography variant="h3">

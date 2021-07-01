@@ -18,7 +18,6 @@ import GoalRing from "../components/legislation/goalRing"
 import { CONTEST_DATA_URL } from "../constants"
 import Card from "@material-ui/core/Card"
 import Link from "@material-ui/core/Link"
-import Container from "@material-ui/core/Container"
 
 class ContestPage extends React.Component {
 
