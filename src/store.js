@@ -18,7 +18,14 @@ export default function configureStore() {
         }
         return false
       },
-      email: undefined
+      fetchEmail: () => {
+        const token = localStorage.getItem('token')
+        if(token){
+          const decoded = jwt_decode(token)
+          return decoded? decoded.sub : ""
+        }
+        return ""
+      }
     }
   },
   applyMiddleware(thunk)

@@ -29,9 +29,12 @@ class LoginPage extends React.Component {
 
   render() {
     if (this.props.isAuthenticated) {
-      if(this.props.location.state.prevPath === "/post_contest"){
-        return <Redirect to={POST_CONTEST_PAGE_URL} />
-      }else{
+      if(this.props.location.state){
+        if(this.props.location.state.prevPath === "/post_contest"){
+          return <Redirect to={POST_CONTEST_PAGE_URL} />
+        }
+      }
+      else{
         return <Redirect to={this.state.referer} />
       }
     }

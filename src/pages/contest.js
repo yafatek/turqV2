@@ -16,7 +16,8 @@ import ContestStateCard from "../components/competition/contestStateCard"
 import CompetitionText from "../components/competition/competitionText"
 import GoalRing from "../components/legislation/goalRing"
 import { CONTEST_DATA_URL } from "../constants"
-
+import Card from "@material-ui/core/Card"
+import Link from "@material-ui/core/Link"
 
 class ContestPage extends React.Component {
 
@@ -92,6 +93,12 @@ class ContestPage extends React.Component {
                     <Grid item>
                       <ItemizedFundingCard currentFunding={contest.prize} contestId={contest.id}/>
                     </Grid>
+                    {contest.author.email === this.props.email || this.props.isAdmin ?
+                      (<Grid item alignContent="center">
+                        <Card style={{padding:"25px"}}>
+                            <Link href={`/editor/contest/${contest.id}`} TypographyClasses={{root:"editIssueButton"}}>Edit This Issue</Link>
+                        </Card>
+                    </Grid>) : null}
                     <Grid item>
                       <ContestShareCard />
                     </Grid>
@@ -119,7 +126,8 @@ function mapStateToProps(state) {
   
   return {
     contest,
-    isAdmin: auth.isAdmin()
+    isAdmin: auth.isAdmin(),
+    email:auth.fetchEmail()
   }
 }
 

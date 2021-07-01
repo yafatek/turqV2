@@ -39,11 +39,11 @@ export function fetchContest(contestId) {
     url: `${CONTEST_DATA_URL}/${contestId}`
   }
 
-  return dispatch => {
+  return async dispatch => {
     dispatch(fetchContestRequest())
     return axios(config)
-    .then(res => {
-      dispatch(fetchContestSuccess(res.data))
+    .then(async res => {
+      await dispatch(fetchContestSuccess(res.data))
     }).catch(function (error) {
       dispatch(fetchContestFailure(error))
       toast.error("Unable load contest, please try again in a few minutes")
@@ -128,7 +128,7 @@ function updateContestFailure(error) {
   }
 }
 
-export function updateContest(contestId, contest, token) {
+export function updateContest(contestId, contest) {
 
   var config = {
     method: (contestId !== undefined ? 'PUT' : 'POST'),
