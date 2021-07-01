@@ -29,7 +29,7 @@ const ContestEditor = (props) => {
                     const contest = store.getState().contest
                     console.log(contest.contest)
                     setHeadline(contest.contest.title)
-                    const data = contest.contest.description.split("\n")
+                    const data = contest.contest.description.split("\n\n")
                     setDescription(data[0])
                     setLegislation(data[1])
                     setQuery(data[2])    
@@ -61,7 +61,7 @@ const ContestEditor = (props) => {
     autocompleteCity.addListener('place_changed',handleChangeCity)
     const data = {
         title:headline,
-        description:description+"\n"+legislation+"\n"+query+"\n"+city
+        description:description+"\n\n"+legislation+"\n\n"+query+city
     }
     const update = () => {
         dispatch(updateContest(props.match.params.id,data))

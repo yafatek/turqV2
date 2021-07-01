@@ -95,12 +95,10 @@ class ContestPage extends React.Component {
                       <ItemizedFundingCard currentFunding={contest.prize} contestId={contest.id}/>
                     </Grid>
                     {contest.author.email === this.props.email || this.props.isAdmin ?
-                      (<Grid item>
-                      <Container style={{padding:"10px"}}>
-                        <Card>
-                            <Link href={`/editor/contest/${contest.id}`}>Edit This Issue</Link>
+                      (<Grid item alignContent="center">
+                        <Card style={{padding:"25px"}}>
+                            <Link href={`/editor/contest/${contest.id}`} TypographyClasses={{root:"editIssueButton"}}>Edit This Issue</Link>
                         </Card>
-                      </Container>
                     </Grid>) : null}
                     <Grid item>
                       <ContestShareCard />
