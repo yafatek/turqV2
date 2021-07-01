@@ -51,7 +51,7 @@ const AddressCard = () => {
     <CardHeader title="Billing Address"/>
     <CardContent>
       <form id="address-form"><Grid container spacing={1}>
-        <Grid item md={12}><TextField fullWidth variant="outlined" label="Address line 1" id="address-line-1"
+        <Grid item xs={6} md={12}><TextField fullWidth variant="outlined" label="Address line 1" id="address-line-1"
           inputProps={{
             ariarole: "textbox"
           }}
@@ -60,7 +60,7 @@ const AddressCard = () => {
             setAddr1(e.target.value);
           }}
         /></Grid>
-        <Grid item md={12}><TextField fullWidth variant="outlined" label="Address line 2" id="address-line-2"
+        <Grid item xs={6} md={12}><TextField fullWidth variant="outlined" label="Address line 2" id="address-line-2"
           inputProps={{
             ariarole: "textbox"
           }}

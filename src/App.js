@@ -64,7 +64,6 @@ function App() {
         <Route path={constants.LOGIN_PAGE_URL} component={Login} />
         <Route path={constants.REGISTER_PAGE_URL} component={Register} />
         <Route path={constants.CONTEST_PAGE_URL} exact component={ContestList} />
-        <Route path={constants.POST_CONTEST_PAGE_URL} exact component={PostContestPage}/>
         <Route path={constants.CONTEST_PAGE_URL + "/:id"} component={Contest}/>
         <Route path={constants.LEGISLATION_PAGE_URL + "/:id"} component={Legislation}/>
         <Route path={constants.THANKYOU_URL} component={PaymentThankyou} />
@@ -73,6 +72,7 @@ function App() {
         <PrivateRoute path={constants.EDITOR_PAGE_URL + "/contest/:id"}  exact component={ContestEditor}/>
         <PrivateRoute path={constants.EDITOR_PAGE_URL + "/legislation"} exact component={LegislationEditor}/>
         <PrivateRoute path={constants.EDITOR_PAGE_URL + "/legislation/:id"} exact component={LegislationEditor}/>
+        <PrivateRoute path={constants.POST_CONTEST_PAGE_URL} exact component={PostContestPage}/>
       </Switch>
 
     </BrowserRouter>
