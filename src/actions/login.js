@@ -52,7 +52,7 @@ export function login(creds) {
     .then(res => {
       localStorage.setItem('token', res.data.jwttoken)
       // Dispatch the success action
-      dispatch(loginSuccess(res.data.jwttoken, res.data.email))
+      dispatch(loginSuccess(res.data.jwttoken, creds.email))
     }).catch(function (error) {
       dispatch(loginFailure(error))
       toast.error("Login Failed: " + error.response.data.detail);

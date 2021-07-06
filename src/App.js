@@ -16,13 +16,13 @@ import ContestList from './pages/contestList';
 import Contest from './pages/contest';
 import Support from './pages/support';
 import Legislation from './pages/legislation';
-import ContestEditor from './pages/contestEditor';
 import LegislationEditor from './pages/legislationEditor';
 import Login from './pages/login';
 import Register from './pages/register';
 import Checkout from './pages/checkout';
 import PaymentThankyou from './pages/paymentThankyou';
 import PostContestPage from './pages/postContest';
+import ContestEditor from "./pages/newContestEditor"
 import * as constants from './constants'
 
 // Loading bar for pages with axios requests
