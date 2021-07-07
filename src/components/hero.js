@@ -14,7 +14,7 @@ const Hero = ({header, subtext, link, buttonText}) => (
         <p className="hero-subtitle mt-4">{subtext}</p>
         <p className="hero-button mt-4">
           <Link to={link}>
-            <Button variant="contained" color="primary">{buttonText}</Button>
+            <Button variant="contained" size="large" color="primary">{buttonText}</Button>
           </Link>
         </p>
 
