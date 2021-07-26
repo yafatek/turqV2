@@ -42,7 +42,7 @@ function App() {
       <div className="App">
         <Helmet>
             <meta charset="utf-8" />
-            <meta name="description" content="Make direct democracy viable by enabling citizens to draft and submit their own legislation." />
+            <meta name="description" content="Turq.io is a social action platform where users post issues and create real legislation that is introduced in State & Local Legislatures." />
             <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
             <title>Turq</title>
         </Helmet>

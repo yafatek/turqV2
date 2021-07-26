@@ -47,7 +47,7 @@ Layout.defaultProps = {
   isAuthenticated: false,
   logout: null,
   pageTitle: "Turq",
-  description: "Make direct democracy viable by enabling citizens to draft and submit their own legislation."
+  description: "Turq.io is a social action platform where users post issues and create real legislation that is introduced in State & Local Legislatures."
 }
 
 function mapStateToProps(state) {
