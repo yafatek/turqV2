@@ -113,7 +113,7 @@ export const FundingForm = (props) => {
             </Grid>
             </Paper>
             <Button onClick={goBack}>Back</Button>
-            <Button classes={{root:"payButton"}} onClick={share} disabled={funding === 0}>Can't Fund? Share instead</Button>
+            <Button classes={{root:"payButton"}} onClick={share}>Can't Fund? Share instead</Button>
         </div>
     )
 }
