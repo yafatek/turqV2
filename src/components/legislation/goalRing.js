@@ -26,7 +26,6 @@ const GoalRing = ({ currentFunding }) => {
   React.useEffect(() => {
     if (currentFunding) {
       currentTier.current = getTier() || 'Completed';
-	    console.log('testing',currentTier.current)
 
       // verify and update the gradient colors
       if (currentTier.current === 'Silver') {

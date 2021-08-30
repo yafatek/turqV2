@@ -18,7 +18,7 @@ const LegislationEditCard = ({legislation}) => (
       disabled={isPastEndDate(legislation.contest.endDate)}
       >
         <Typography variant="h5" component="h2">
-          <Link to={EDITOR_PAGE_URL + "/legislation/" + legislation.id} >
+          <Link to={EDITOR_PAGE_URL + "/legislation/" + legislation.id + "/" +  window.location.search} >
             Update this legislation
           </Link>
         </Typography>

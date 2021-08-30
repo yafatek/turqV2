@@ -27,7 +27,6 @@ const ContestEditor = (props) => {
         store.subscribe(() => {
                 try{
                     const contest = store.getState().contest
-                    console.log(contest.contest)
                     setHeadline(contest.contest.title)
                     const data = contest.contest.description.split("\n\n")
                     setDescription(data[0])
