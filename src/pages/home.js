@@ -37,7 +37,7 @@ class Home extends React.Component {
           <Grid item>
             <Hero
               link={POST_CONTEST_PAGE_URL}
-              header="Imagine if change.org were actually effective."
+              header="Imagine if petition sites like change.org and others were actually effective."
               buttonText="Raise an Issue"
               subtext="That’s what Turq.io does. We help you get REAL legislation created, not just another petition."
             />
