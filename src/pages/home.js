@@ -37,9 +37,9 @@ class Home extends React.Component {
           <Grid item>
             <Hero
               link={POST_CONTEST_PAGE_URL}
-              header="Lawmakers Are Overwhelmed"
-              buttonText="Launch an Issue"
-              subtext="More calls and emails don’t solve anything. What lawmakers need is to be given a readymade piece of legislation. At turq.io we make that happen. We connect you with people that will solve your issue and turn that solution into legislation. Think Upwork, but for legislation. We then get that legislation submitted to the right people. If you're just an avergae person with an issue you care about we're here to solve your problem while at the same time making lawmakers’ lives are made simpler. Launch your issue today!"
+              header="Imagine if petition sites like change.org and others were actually effective."
+              buttonText="Raise an Issue"
+              subtext="That’s what Turq.io does. We help you get REAL legislation created, not just another petition."
             />
           </Grid>
           <Grid item xs={12} className="active-issue-section">
