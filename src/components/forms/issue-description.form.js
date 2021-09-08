@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
 import {useDispatch} from "react-redux"
 const IssueDescriptionForm = (props) => {
-    const [description,setDescription] = useState("")
+    const [description,setDescription] = useState(localStorage.getItem("postIssue") ? JSON.parse(localStorage.getItem('postIssue')).description : "")
     const dispatch = useDispatch()
     const changeTab = () => {
         dispatch({type:"SAVE_DESCRIPTION",description:description})

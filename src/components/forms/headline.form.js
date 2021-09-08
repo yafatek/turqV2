@@ -3,13 +3,19 @@ import Typography from "@material-ui/core/Typography"
 import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
 import {useDispatch} from "react-redux"
+import { useHistory } from "react-router"
 
 const HeadlineForm = (props) => {
     const dispatch = useDispatch()
-    const [headline,setHeadline] = useState("")
+    const history = useHistory()
+    const [headline,setHeadline] = useState(localStorage.getItem("postIssue") ? JSON.parse(localStorage.getItem('postIssue')).title : "")
     const moveToNextTab = () => {
         dispatch({type:"SAVE_HEADLINE",headline:headline})
         props.changeTab(1,40)
+    }
+    
+    const moveToHome = () => {
+        history.push("/")
     }
     return (
         <div hidden={props.value !== props.index} className="headlineForm">
@@ -36,6 +42,7 @@ const HeadlineForm = (props) => {
             <Typography variant="subtitle1">
                 - Create instate tution for all veterans
             </Typography>
+            <Button onClick={moveToHome} classes={{root:"homeButton"}}>Skip to home</Button>
             <Button onClick={moveToNextTab} classes={{root:"nextButton"}} disabled={headline === ""}>Next</Button>
         </div>
     )

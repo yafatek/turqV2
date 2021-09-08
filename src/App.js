@@ -72,7 +72,7 @@ function App() {
         <PrivateRoute path={constants.EDITOR_PAGE_URL + "/contest/:id"}  exact component={ContestEditor}/>
         <PrivateRoute path={constants.EDITOR_PAGE_URL + "/legislation"} exact component={LegislationEditor}/>
         <PrivateRoute path={constants.EDITOR_PAGE_URL + "/legislation/:id"} exact component={LegislationEditor}/>
-        <PrivateRoute path={constants.POST_CONTEST_PAGE_URL} exact component={PostContestPage}/>
+        <Route path={constants.POST_CONTEST_PAGE_URL} exact component={PostContestPage}/>
       </Switch>
 
     </BrowserRouter>

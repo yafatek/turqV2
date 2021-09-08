@@ -20,7 +20,7 @@ export const FundingForm = (props) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardName, setCardName] = useState("");
-    const [funding,setFunding] = useState(0)
+    const [funding,setFunding] = useState(localStorage.getItem("postIssue") ? parseInt(JSON.parse(localStorage.getItem('postIssue')).prize) : "")
     
     const store = useStore()
     const goBack = () => {
@@ -47,6 +47,7 @@ export const FundingForm = (props) => {
         dispatch({type:"SAVE_FUNDING",funding:funding})
         // Delete following two lines once DB updates are made
         var issue = store.getState().postIssue;
+        localStorage.setItem('postIssue',JSON.stringify(store.getState().postIssue))
         var description = issue.description + "\n\n" 
                         + issue.legislation + "\n\n"
                         + issue.location + "\n\n";
@@ -72,6 +73,7 @@ export const FundingForm = (props) => {
         dispatch(payment(contestID, funding, elements.getElement(CardNumberElement), cardName, stripe))
         store.subscribe(() => {
           if(store.getState().payments.isSuccess){
+            localStorage.removeItem('postIssue')
             history.push(`/contest/${contestID}`)
           }
         })
@@ -113,7 +115,7 @@ export const FundingForm = (props) => {
             </Grid>
             </Paper>
             <Button onClick={goBack}>Back</Button>
-            <Button classes={{root:"payButton"}} onClick={share} disabled={funding === 0}>Can't Fund? Share instead</Button>
+            <Button classes={{root:"payButton"}} onClick={share}>Can't Fund? Share instead</Button>
         </div>
     )
 }

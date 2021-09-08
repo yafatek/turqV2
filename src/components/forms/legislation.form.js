@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField"
 import { useDispatch } from 'react-redux'
 const LegislationForm = (props) => {
     const dispatch = useDispatch()
-    const [legislation,setLegislation] = useState("")
+    const [legislation,setLegislation] = useState(localStorage.getItem("postIssue") ? JSON.parse(localStorage.getItem('postIssue')).legislation : "")
     const changeTab = () => {
         dispatch({type:"SAVE_LEGISLATION",legislation:legislation})
         props.changeTab(3,80)

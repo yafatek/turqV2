@@ -8,11 +8,11 @@ export const LocationForm = (props) => {
     const dispatch = useDispatch()
     let autocompleteCity = null
     let autocomplete = null
-    const [query,setQuery] = useState("")
-    const [city,setCity] = useState("")
+    const [query,setQuery] = useState(localStorage.getItem("postIssue") ? JSON.parse(localStorage.getItem('postIssue')).location.split(",").slice(0,2) : "")
+    const [city,setCity] = useState(localStorage.getItem("postIssue") ? JSON.parse(localStorage.getItem('postIssue')).location.split(",").slice(2,5) : "")
     
     const changeTab = () => {
-        dispatch({type:"SAVE_LOCATION",location:query+city})
+        dispatch({type:"SAVE_LOCATION",location:query+","+city})
         props.changeTab(4,100)
     }
     const goBack = () => {
