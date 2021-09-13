@@ -1,64 +1,80 @@
 .competition-card {
-  box-shadow: 0 4px 8px -4px rgba(0,0,0,0.4);
-  transition: box-shadow 0.35s ease-in-out;
+    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.35s ease-in-out;
 }
 
 .competition-card:hover {
-  box-shadow: 0 4px 13px -4px rgba(0,0,0,.4);
-  transition: box-shadow 0.35s ease-in-out;
+    box-shadow: 0 4px 13px -4px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.35s ease-in-out;
 }
-
+.half-a-border-on-top {
+    border-top: 1px solid black;
+    position: relative;
+}
+.half-a-border-on-top:after {
+    padding: 0;
+    margin: 0;
+    display: block; /* probably not really needed? */
+    content: "";
+    width: 60%;
+    height: 19px; /* slight higher to work around rounding errors(?) on some zoom levels in some browsers. */
+    background-color: #FFFF;
+    position: absolute;
+    border-radius:0 10px 10px 0 ;
+    right: 0;
+    top: -10.5px;
+}
 .unstyled-link {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 .unstyled-link:hover {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 .competition-card-header {
-  background-color: $turq-primary !important;
-  color: white;
-  min-height: 95px;
+    background-color: $turq-primary !important;
+    color: white;
+    min-height: 95px;
 }
 
 .contest-legislation-list,
 .contest-background {
-  background-color: $white;
-  box-shadow: 0 4px 8px -4px rgba(0,0,0,0.4);
-  border-radius: 0.2rem
+    background-color: $white;
+    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.4);
+    border-radius: 0.2rem
 }
 
 .left-contest-panel {
-  min-height: 400px;
-  background-color: $white;
-  border: 2px solid $medium-gray;
+    min-height: 400px;
+    background-color: $white;
+    border: 2px solid $medium-gray;
 }
 .right-contest-panel {
-  min-height: 400px;
-  background-color: $light-gray;
-  border: 2px solid $medium-gray;
+    min-height: 400px;
+    background-color: $light-gray;
+    border: 2px solid $medium-gray;
 }
 
 .checkout-highlighted {
-  border-radius: 8rem !important;
+    border-radius: 8rem !important;
 }
 
 .contest-card {
-  width: 100%;
-  margin: 16;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    width: 100%;
+    margin: 16;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .contest-card-content {
-  width: 100%;
-  height:100%;
-  margin: 16;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    margin: 16;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

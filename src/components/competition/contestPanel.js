@@ -1,76 +1,174 @@
 import React from "react"
-import { Button } from "@material-ui/core"
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types"
-import Truncate from "react-truncate"
-import Card from '@material-ui/core/Card';
+import Truncate from "react-truncate";
 import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import { Share } from 'react-twitter-widgets'
+import {Link} from 'react-router-dom'
+import {FaTwitter, FaChevronRight} from 'react-icons/fa';
+import {TWITTER_SHARE_TEXT} from "../../constants"
+import {
+    MDBCard,
+    MDBCardBody,
+    MDBCardTitle,
+    MDBCardText,
+   
+    MDBBtn,
+    
+    MDBFooter
+} from 'mdb-react-ui-kit';
 
-import { TWITTER_SHARE_TEXT } from "../../constants"
 
-const ContestPanel = ({title, link, description, buttonText, funding}) => (
-  <Card className="contest-card">
-    <CardHeader title={title} />
-    <CardContent className="contest-card-content">
-      <Grid container spacing={2} alignItems="flex-start">
-        <Grid item xs={12}>
-          <Typography gutterBottom  variant="body1" component="div" align="left">
-            Current Funding: {Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(funding/100)}
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant="body2" color="textSecondary" component="div">
-            <Truncate lines={2} ellipsis={<div>... </div>}>
-              {description}
-            </Truncate>
-          </Typography>
-        </Grid>
-      </Grid>
-    </CardContent>
-    <CardActions>
-      <Grid container alignItems="center" justify="space-between">
-        <Grid item>
-          <Link to={link}>
-            <Button  color="primary">{buttonText}</Button>
-          </Link>
-        </Grid>
-        <Grid item>
-          <Share
-            url={window.location.href}
-            options={{
-              text: TWITTER_SHARE_TEXT,
-              size: "large",
-              hashtags: "Turq",
-              related: "Turqpbc"
-            }}
-          />
-        </Grid>
-      </Grid>
-    </CardActions>
-  </Card>
+const ContestPanel = ({
+    title,
+    link,
+    description,
+    buttonText,
+    funding
+}) => (
+
+    <MDBCard className=" hover half-a-border-on-top clearfix"
+        style={
+            {
+                background: '#FFFFFF',
+                borderTop: "10px solid #22D3C1",
+                padding: 0,
+                display: 'flex',
+                
+                    justifyContent: 'center',
+                width: '350px',
+                borderRadius: '10px',
+                marginBottom: '25px'
+            }
+            
+    }
+    xs={12}
+    >
+
+        <MDBCardBody style={
+            {
+                background: '#FFFFFF',
+                color: 'black'
+            }
+        }>
+            <MDBCardTitle align='left' className='clearfix'
+                style={
+                    {fontSize: 'small'}
+            }>
+                <span style={
+                    {paddingRight: '25px'}
+                }>Current Funding:<span style={
+                        {color: '#22D3C1'}
+                    }>
+                        {
+                        Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'USD'
+                        }).format(funding / 100)
+                    } </span>
+                </span>
+                <span align='right'>
+                    Goal:
+                    <span style={
+                        {color: '#22D3C1'}
+                    }>$200</span>
+                </span>
+            </MDBCardTitle>
+            <div style={
+                {textAlign: 'left'}
+            }>
+                <b>{title}</b>
+            </div>
+            <MDBCardText style={
+                {textAlign: 'left'}
+            }>
+                <Typography variant="body2" color="textSecondary" component="div">
+                    <Truncate lines={2}
+                        ellipsis={
+                            <div>...</div>
+                    }>
+                        {description} </Truncate>
+                </Typography>
+                <CardActions align='right'></CardActions>
+
+            </MDBCardText>
+        </MDBCardBody>
+        <MDBFooter align="right"
+            style={
+                {
+                    background: 'white',
+                    borderRadius: '10px'
+
+                }
+        }>
+
+
+            <Link to={link}
+                style={
+                    {
+                        color: '#22D3C1',
+
+
+                        display: 'inline-block',
+                        fontSize: 'small'
+
+                    }
+            }>
+                <b>{buttonText}</b>
+                <FaChevronRight size={24}
+                    style={
+                        {marginRight: '5px'}
+                    }/>
+
+            </Link>
+            <a style={
+                    {
+                        color: 'white',
+                        fontSize: 'small'
+                    }
+                }
+                href={
+                    'https://twitter.com/intent/tweet?hashtags=Turq&original_referer=' + window.location.href + '&related=Turqpbc&text=' + TWITTER_SHARE_TEXT + '&url=' + window.location.href
+            }>
+                <MDBBtn size='sm'
+                    style={
+                        {
+                            padding: '0.8px 2px 0.8px 2px',
+                            marginRight: '5px',
+                            marginBottom: '5px',
+                            wight: '5px',
+                            hight: '3px'
+                        }
+                }>
+
+
+                    <FaTwitter/>
+                    Tweet
+                </MDBBtn>
+            </a>
+
+
+        </MDBFooter>
+    </MDBCard>
+
+
 )
 
 export default ContestPanel
 
 ContestPanel.propTypes = {
-  title: PropTypes.string,
-  id: PropTypes.number,
-  description: PropTypes.string,
-  link: PropTypes.string,
-  buttonText: PropTypes.string,
-  funding: PropTypes.number
+    title: PropTypes.string,
+    id: PropTypes.number,
+    description: PropTypes.string,
+    link: PropTypes.string,
+    buttonText: PropTypes.string,
+    funding: PropTypes.number
 }
 
 ContestPanel.defaultProps = {
-  title: "",
-  id: null,
-  description: "",
-  link: "",
-  buttonText: "Issue Details",
-  funding: 0.00
+    title: "",
+    id: null,
+    description: "",
+    link: "",
+    buttonText: "VIEW DETAILS",
+    funding: 0.00
 }
