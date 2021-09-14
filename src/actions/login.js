@@ -14,7 +14,8 @@ function loginRequest() {
   }
 }
 
-function loginSuccess(token, email) {
+export function loginSuccess(token, email) {
+  console.log('here')
   return {
     type: LOGIN_SUCCESS,
     isFetching: false,
