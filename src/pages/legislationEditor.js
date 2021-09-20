@@ -93,7 +93,7 @@ class LegislationEditor extends React.Component {
     }
     var contest = new URLSearchParams(this.props.location.search).get('contest')
     const legislationId = this.props.match.params.id
-    const data = {title: "testTitle" , ref: this.state.ref, contestId: contest, content: this.state.content}
+    const data = {title: "Submitted Bill" , ref: this.state.ref, contestId: contest, content: this.state.content}
     this.props.dispatch(updateLegislation(legislationId, data))
   }
 
