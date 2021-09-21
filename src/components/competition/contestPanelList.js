@@ -20,9 +20,6 @@ const ContestPanelList = ({title, contests, size}) => {
         <ContestPanel title={
                 contest.title
             }
-            description={
-                contest.description
-            }
             link={
                 CONTEST_PAGE_URL + "/" + contest.id
             }

@@ -24,6 +24,7 @@ import PaymentThankyou from './pages/paymentThankyou';
 import PostContestPage from './pages/postContest';
 import ContestEditor from "./pages/newContestEditor"
 import * as constants from './constants'
+import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 
 // Loading bar for pages with axios requests
 let api = axios.create({
