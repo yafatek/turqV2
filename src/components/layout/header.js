@@ -22,7 +22,7 @@ const AppHeader = styled(AppBar)({
   color: '#444444',
 });
 
-const DesktopHeader = ({isAuthenticated, logout}) => {
+const DesktopHeader = ({ isAuthenticated, logout }) => {
   const history = useHistory()
   return (
     <div>
@@ -31,38 +31,39 @@ const DesktopHeader = ({isAuthenticated, logout}) => {
           <Grid container justify="space-between" alignItems="center">
             <Grid container item xs={6} alignItems="center">
               <Grid item>
-                  <Link to="/">
-                    <Logo />
-                  </Link>
+                <Link to="/">
+                  <Logo />
+                </Link>
               </Grid>
-                <Grid item>
-                  <Typography align="center">
-                    <a href={DRAFTER_PAGE_URL} target="_blank"  rel="noopener noreferrer">
-                      <Button>How To</Button>
-                    </a>
-                    <a href={DRAFT_GUIDE_PAGE_URL} target="_blank"  rel="noopener noreferrer">
-                      <Button>Guides</Button>
-                    </a>
-                    <Link to={CONTEST_PAGE_URL}>
-                      <Button>Discover</Button>
-                    </Link>
-                    <Link to={SUPPORT_PAGE_URL}>
-                      <Button>Support</Button>
-                    </Link>
-                  </Typography>
-                </Grid>
-              </Grid>
+
+            </Grid>
             <Grid container item xs={6} justify="flex-end">
+              <Grid item>
+                <Typography align="center">
+                  <a href={DRAFTER_PAGE_URL} target="_blank" rel="noopener noreferrer">
+                    <Button>How To</Button>
+                  </a>
+                  <a href={DRAFT_GUIDE_PAGE_URL} target="_blank" rel="noopener noreferrer">
+                    <Button>Guides</Button>
+                  </a>
+                  <Link to={CONTEST_PAGE_URL}>
+                    <Button>Discover</Button>
+                  </Link>
+                  <Link to={SUPPORT_PAGE_URL}>
+                    <Button>Support</Button>
+                  </Link>
+                </Typography>
+              </Grid>
               <Grid item>
                 <Typography>
                   <Link to={ABOUT_PAGE_URL}>
                     <Button>About</Button>
                   </Link>
                   {isAuthenticated
-                    ?<Link to={LOGIN_PAGE_URL}>
+                    ? <Link to={LOGIN_PAGE_URL}>
                       <Button onClick={() => logout()}>Logout</Button>
                     </Link>
-                    :<Link to={{pathname:LOGIN_PAGE_URL,state:{prevPath:history.location.pathname}}}>
+                    : <Link to={{ pathname: LOGIN_PAGE_URL, state: { prevPath: history.location.pathname } }}>
                       <Button>Login</Button>
                     </Link>
                   }
@@ -79,7 +80,7 @@ const DesktopHeader = ({isAuthenticated, logout}) => {
   )
 }
 
-const MobileHeader = ({isAuthenticated, logout}) => {
+const MobileHeader = ({ isAuthenticated, logout }) => {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -117,7 +118,7 @@ const MobileHeader = ({isAuthenticated, logout}) => {
   ];
 
   return (
-    <div style={{flexGrow: 1}}>
+    <div style={{ flexGrow: 1 }}>
       <AppHeader position="static">
         <Toolbar>
           <Grid container justify="space-between" alignItems="center">
@@ -130,7 +131,7 @@ const MobileHeader = ({isAuthenticated, logout}) => {
               <IconButton
                 edge="start"
                 color="inherit"
-                aria-label="menu"
+                ariaLabel="menu"
                 onClick={handleMenu}
               >
                 <MenuIcon />
@@ -154,9 +155,9 @@ const MobileHeader = ({isAuthenticated, logout}) => {
                   const { menuTitle, pageURL, onClick } = menuItem;
                   return (
                     <Link to={pageURL} key={menuItem.menuTitle}>
-                      <MenuItem onClick={() => {onClick && onClick()}}>
+                      <MenuItem onClick={() => { onClick && onClick() }}>
                         <Typography align="center" color="textPrimary">
-                            {menuTitle}
+                          {menuTitle}
                         </Typography>
                       </MenuItem>
                     </Link>
@@ -171,13 +172,13 @@ const MobileHeader = ({isAuthenticated, logout}) => {
   )
 }
 
-const Header = ({isAuthenticated, logout}) => {
+const Header = ({ isAuthenticated, logout }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <>
-      { isMobile
+      {isMobile
         ? <MobileHeader isAuthenticated={isAuthenticated} logout={logout} />
         : <DesktopHeader isAuthenticated={isAuthenticated} logout={logout} />
       }

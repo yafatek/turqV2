@@ -14,7 +14,8 @@ function loginRequest() {
   }
 }
 
-function loginSuccess(token, email) {
+export function loginSuccess(token, email) {
+  console.log('here')
   return {
     type: LOGIN_SUCCESS,
     isFetching: false,
@@ -51,10 +52,12 @@ export function login(creds) {
     axios(config)
     .then(res => {
       localStorage.setItem('token', res.data.jwttoken)
+      localStorage.setItem('email', creds.email)
       // Dispatch the success action
       dispatch(loginSuccess(res.data.jwttoken, creds.email))
     }).catch(function (error) {
       dispatch(loginFailure(error))
+      if(error.response)
       toast.error("Login Failed: " + error.response.data.detail);
     })
   }

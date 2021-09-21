@@ -1,3 +1,4 @@
+/* global gapi */
 import React from "react"
 import { connect } from 'react-redux'
 import { Redirect, Link } from "react-router-dom"
@@ -7,12 +8,15 @@ import Button from '@material-ui/core/Button'
 import { toast } from 'react-toastify';
 
 import { register } from "../actions/register"
+import { loginSuccess } from "../actions/login";
 import Layout from "../components/layout/layout"
+import {GOOGLE_LOGIN_URL} from "../constants"
 import Checkbox from "@material-ui/core/Checkbox"
 import MaterialLink from "@material-ui/core/Link"
+import Divider from "@material-ui/core/Divider"
+import axios from "axios";
 
 class RegisterPage extends React.Component {
-
   constructor(props) {
     super(props)
     var referer = '/'
@@ -25,7 +29,30 @@ class RegisterPage extends React.Component {
     this.emailIsValid = this._emailIsValid.bind(this)
     this.handleCheckbox = this._handleCheckbox.bind(this)
   }
-  
+  onSuccess(googleUser) {
+    axios.post(GOOGLE_LOGIN_URL,{token: gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().id_token})
+      .then((response) => {
+         if('email' in response && 'jwttoken' in response){
+          this.props.dispatch(
+            loginSuccess(response.data.jwttoken,
+            response.data.email))
+         }
+          })
+  } 
+  onFailure(error) {
+    toast.error("Login failed")
+  }
+  componentDidMount(){
+    gapi.signin2.render('my-signin2', {
+      'scope': 'profile email',
+      'width': 400,
+      'height': 50,
+      'longtitle': true,
+      'theme': 'dark',
+      'onsuccess': this.onSuccess,
+      'onfailure': this.onFailure
+    });
+  }
   _handleChange(event) {
     this.setState({ ...this.state,
       creds: { ...this.state.creds, [event.target.id]: event.target.value }
@@ -55,11 +82,11 @@ class RegisterPage extends React.Component {
     if (this.props.isAuthenticated) {
       return <Redirect to={this.state.referer} />
     }
-
+    const {innerWidth: width} = window
     return (
       <Layout pageTitle="Register">
         <Grid container spacing={0} className="main login-form-area" justify="center">
-          <Grid item xs={10} md={9} xl={6}>
+          <Grid item xs={10} md={4} xl={4}>
             <h2>Sign Up</h2>
             <form>
               <Grid item xs={12}>
@@ -113,6 +140,10 @@ class RegisterPage extends React.Component {
                 </Grid>
               </Grid>
               </form>
+            </Grid>
+            {width > 600 ? <Divider orientation="vertical" flexItem variant="inset" style={{height: 300}} /> : null }
+            <Grid item md={4} xs={10} xl={4}>
+              <div id="my-signin2" style={{marginTop: width < 600 ?  0 : 60,marginLeft: width < 600 ?  0 :10}}></div>
             </Grid>
           </Grid>
       </Layout>

@@ -1,13 +1,16 @@
+/* global gapi */
 import React from "react"
 import { connect } from 'react-redux'
 import { Redirect, Link } from "react-router-dom"
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
-
-import { login } from "../actions/login"
+import Divider from '@material-ui/core/Divider'
+import { login, loginSuccess } from "../actions/login"
 import Layout from "../components/layout/layout"
-import { POST_CONTEST_PAGE_URL } from "../constants";
+import { POST_CONTEST_PAGE_URL,GOOGLE_LOGIN_URL } from "../constants";
+import { toast } from 'react-toastify';
+import axios from "axios";
 
 class LoginPage extends React.Component {
 
@@ -19,8 +22,34 @@ class LoginPage extends React.Component {
     }
     this.state = { referer, creds: { email: '', password: ''}}
     this.handleChange = this._handleChange.bind(this)
+    this.onSuccess = this.onSuccess.bind(this)
+    this.onFailure = this.onFailure.bind(this)
   }
 
+  onSuccess(googleUser) {
+    axios.post(GOOGLE_LOGIN_URL,{token: gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().id_token})
+      .then((response) => {
+         if(response.data.email !== undefined && response.data.jwttoken !== undefined){
+          this.props.dispatch(
+            loginSuccess(response.data.jwttoken,
+            response.data.email))
+         }
+          })
+  } 
+  onFailure(error) {
+    toast.error("Login failed")
+  }
+  componentDidMount(){
+    gapi.signin2.render('my-signin2', {
+      'scope': 'profile email',
+      'width': 400,
+      'height': 50,
+      'longtitle': true,
+      'theme': 'dark',
+      'onsuccess': this.onSuccess,
+      'onfailure': this.onFailure
+    });
+  }
   _handleChange(event) {
     this.setState({ ...this.state,
       creds: { ...this.state.creds, [event.target.id]: event.target.value }
@@ -38,10 +67,11 @@ class LoginPage extends React.Component {
         }
       }
     }
+    const {innerWidth: width} = window
     return (
       <Layout pageTitle="Login">
       <Grid container spacing={0} className="main login-form-area" justify="center">
-        <Grid item xs={10} md={9} xl={6}>
+        <Grid item xs={10} md={4} xl={4}>
           <h2>Sign In</h2>
           <form>
             <Grid item xs={12}>
@@ -91,6 +121,10 @@ class LoginPage extends React.Component {
               </Grid>
             </Grid>
           </form>
+        </Grid>
+      {width > 600 ? <Divider orientation="vertical" flexItem variant="inset" style={{height:300}}/> : null}
+      <Grid item md={4} xs={10} xl={4}>
+          <div id="my-signin2" style={{marginTop: width < 600 ?  0 : 60,marginLeft: width < 600 ?  0 :10}}></div>
         </Grid>
       </Grid>
       </Layout>

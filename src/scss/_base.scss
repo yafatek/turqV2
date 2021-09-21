@@ -1,21 +1,31 @@
-//colors
+// colors
 $turq-primary: #22D3C1;
 $turq-secondary: #CD659C;
 $light-gray: #F1F1F1;
 $medium-gray: #777777;
 $dark-gray: #2B303A;
-$off-white:#F7F7F7;
+$off-white: #F7F7F7;
 $white: #fafbfc;
+
+a.firepad-btn {
+ color: $medium-gray;
+ &:hover {
+      color: $medium-gray;
+    }
+}
+
+.firepad-dropdown {
+  color:red;
+}
 
 //misc
 $text-color: #444444;
 $background-color: #F5F5F5;
 
-//fonts
+// fonts
 $legal-font: "Times New Roman", Times, serif;
 
-//bootstrap overrides
+// bootstrap overrides
 $theme-colors: (
-  "turq": $turq-primary,
-  "turq-secondary": $turq-secondary,
-);
+    "turq": $turq-primary,
+    "turq-secondary": $turq-secondary, );
