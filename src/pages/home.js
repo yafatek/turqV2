@@ -109,10 +109,10 @@ class Home extends React.Component {
                 }}
               >
                 you can also become a drafter, and get paid for your work, by
-                simply finding an
+                 finding an
                 <br></br>
-                interesting issue and the following out "How To" to craft
-                quality legislation.
+                interesting issue, following the "How To" above, and crafting
+                a piece of quality legislation
               </span>
 
               <MDBRow>
@@ -171,10 +171,10 @@ class Home extends React.Component {
                             </button>
                           </MDBCol>
                           <MDBCol md={8} style={{ fontSize: "large" }}>
-                            <b>Launch an issue</b>
+                            <b>Raise it</b>
                             <br></br>
-                            Launch an issue that you care about and want to see
-                            action on.
+                            Raise an issue that you care about and want to see
+                            action on
                           </MDBCol>
                         </MDBRow>
                       </MDBCardText>
@@ -237,10 +237,10 @@ class Home extends React.Component {
                             </button>
                           </MDBCol>
                           <MDBCol md={8} style={{ fontSize: "large" }}>
-                            <b>Funding</b>
+                            <b>Fund it</b>
                             <br></br>
                             Funding compensates the person that will draft
-                            legislation on your behalf.
+                            legislation on your behalf
                           </MDBCol>
                         </MDBRow>
                       </MDBCardText>
@@ -306,8 +306,8 @@ class Home extends React.Component {
                           <MDBCol md={8} style={{ fontSize: "large" }}>
                             <b>Share it</b>
                             <br></br>
-                            Funding the issue, and share it with friends &
-                            family to add additional funding.
+                            Share the issue with friends &
+                            family for any additional funding
                           </MDBCol>
                         </MDBRow>
                       </MDBCardText>
@@ -370,10 +370,10 @@ class Home extends React.Component {
                             </button>
                           </MDBCol>
                           <MDBCol md={8} style={{ fontSize: "large" }}>
-                            <b>Signature ready</b>
+                            <b>Send it</b>
                             <br></br>
-                            When the bill is signature ready, we pipeline it the
-                            appropriate state or local legislature.
+                            When the Bill is signature ready, we pipeline it the
+                            appropriate State or Local legislature for you
                           </MDBCol>
                         </MDBRow>
                       </MDBCardText>
