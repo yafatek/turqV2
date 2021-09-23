@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import PropTypes from "prop-types";
 import CardActions from "@material-ui/core/CardActions";
 import Grid from "@material-ui/core/Grid";
@@ -14,7 +14,23 @@ import {
   MDBFooter,
 } from "mdb-react-ui-kit";
 
-const ContestPanel = ({ title, link, buttonText, funding }) => (
+const ContestPanel = ({ title, link, buttonText, funding }) => {
+  const tiers = {
+    Bronze: { min: 0.00, max: 200.00 },
+    Silver: { min: 201.00, max: 350.00 },
+    Gold: { min: 351.00, max: 500 },
+    Completed: { min: 500.00 },
+  }
+  const [goal,setGoal] = useState(0)
+  const currentTier = React.useRef('Bronze'); 
+  const currentFundingDecimal = funding / 100
+  useEffect(() => {
+    const getTier = () => Object.keys(tiers).find(key => currentFundingDecimal >= tiers[key].min && currentFundingDecimal <= tiers[key].max)
+    currentTier.current = getTier() || 'Completed';
+    setGoal(tiers[currentTier.current].max)
+  },[currentFundingDecimal, tiers])
+  
+return(
   <MDBCard
     className=" hover half-a-border-on-top clearfix"
     style={{
@@ -51,7 +67,7 @@ const ContestPanel = ({ title, link, buttonText, funding }) => (
           </span>
         </span>
         <span align="right">
-          Goal: <span style={{ color: "#22D3C1" }}>$200</span>
+          Goal: <span style={{ color: "#22D3C1" }}>${goal}</span>
         </span>
       </MDBCardTitle>
       <div style={{ textAlign: "left" }}>
@@ -117,6 +133,7 @@ const ContestPanel = ({ title, link, buttonText, funding }) => (
     </MDBFooter>
   </MDBCard>
 );
+}
 
 export default ContestPanel;
 

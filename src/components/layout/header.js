@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect,useState } from "react"
 import { Link, useHistory } from "react-router-dom";
 import propTypes from "prop-types"
 import Logo from "../logo"
@@ -14,7 +14,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 
-import { DRAFTER_PAGE_URL, CONTEST_PAGE_URL, SUPPORT_PAGE_URL, DRAFT_GUIDE_PAGE_URL, ABOUT_PAGE_URL, LOGIN_PAGE_URL } from "../../constants"
+import { DRAFTER_PAGE_URL, CONTEST_PAGE_URL, SUPPORT_PAGE_URL, DRAFT_GUIDE_PAGE_URL, ABOUT_PAGE_URL, LOGIN_PAGE_URL,POST_CONTEST_PAGE_URL } from "../../constants"
 
 
 const AppHeader = styled(AppBar)({
@@ -24,6 +24,12 @@ const AppHeader = styled(AppBar)({
 
 const DesktopHeader = ({ isAuthenticated, logout }) => {
   const history = useHistory()
+  const [y,setY] = useState(0)
+  useEffect(() => {
+    window.onscroll = () => {
+      setY(window.pageYOffset)
+    }
+  },[setY])
   return (
     <div>
       <AppHeader position="fixed">
@@ -67,6 +73,9 @@ const DesktopHeader = ({ isAuthenticated, logout }) => {
                       <Button>Login</Button>
                     </Link>
                   }
+                  {y > 300 ? <Link to={POST_CONTEST_PAGE_URL}>
+                    <Button>Raise an Issue</Button>
+                  </Link> : null}
                 </Typography>
               </Grid>
             </Grid>
