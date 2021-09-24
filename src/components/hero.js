@@ -1,9 +1,7 @@
 import React from "react";
 import { MDBBtn } from "mdbreact";
 import Grid from "@material-ui/core/Grid";
-import { Link } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa";
-import { MDBJumbotron, MDBContainer } from "mdbreact";
 
 const Hero = ({ header, subtext, link, buttonText }) => (
   <section>
@@ -28,24 +26,23 @@ const Hero = ({ header, subtext, link, buttonText }) => (
               <b>{subtext}</b>
               <br></br>
               <br></br>
-              <Link to={link}>
                 <MDBBtn
-                  className="hover-shadow"
+                  href={link}
+                  rounded
+                  floating
                   size="lg"
                   style={{
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                    border: "1.5px solid #22D3C1",
-                    color: "#22D3C1",
-                    background: "white",
+                    marginTop: 60,
+                    backgroundColor:"white",
+                    color:"#22D3C1",
+                    borderRadius:100,
+                    boxShadow:"0px 8px 15px rgba(0, 0, 0, 0.1)"
                   }}
-                >
+                  >
                   {buttonText}
                   <FaChevronRight size={24} style={{ marginRight: "5px" }} />
                 </MDBBtn>
-              </Link>
             </p>
-
             <p
               style={{ marginLeft: "auto", marginRight: "auto" }}
               className="hero-button mt-4"
