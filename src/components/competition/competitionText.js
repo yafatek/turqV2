@@ -18,7 +18,6 @@ function CompetitionText ({title, description, rules, endDate}) {
 
 const theme = useTheme();
 const matches = useMediaQuery(theme.breakpoints.up('md'), {noSsr: true});
-console.log("Matches", matches);
 
   return (
     <Card>
