@@ -8,8 +8,6 @@ import {
   MDBCard,
   MDBCardText,
   MDBCardBody,
-  MDBCardGroup,
-  MDBContainer,
   MDBCol,
   MDBRow,
 } from "mdbreact";
@@ -109,10 +107,10 @@ class Home extends React.Component {
                 }}
               >
                 you can also become a drafter, and get paid for your work, by
-                 finding an
+                finding an
                 <br></br>
-                interesting issue, following the "How To" above, and crafting
-                a piece of quality legislation
+                interesting issue, following the "How To" above, and crafting a
+                piece of quality legislation
               </span>
 
               <MDBRow>
@@ -306,8 +304,8 @@ class Home extends React.Component {
                           <MDBCol md={8} style={{ fontSize: "large" }}>
                             <b>Share it</b>
                             <br></br>
-                            Share the issue with friends &
-                            family for any additional funding
+                            Share the issue with friends & family for any
+                            additional funding
                           </MDBCol>
                         </MDBRow>
                       </MDBCardText>
