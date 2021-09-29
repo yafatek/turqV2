@@ -8,8 +8,6 @@ import {
   MDBCard,
   MDBCardText,
   MDBCardBody,
-  MDBCardGroup,
-  MDBContainer,
   MDBCol,
   MDBRow,
 } from "mdbreact";

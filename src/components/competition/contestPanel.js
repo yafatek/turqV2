@@ -72,7 +72,10 @@ const ContestPanel = ({ title, link, buttonText, funding }) => {
             </span>
           </span>
           <span align="right">
-            Goal: <span style={{ color: "#22D3C1" }}>${goal}</span>
+            Goal:{" "}
+            <span style={{ color: "#22D3C1" }}>
+              {goal < 500 ? `$${goal}` : "Achieved"}
+            </span>
           </span>
         </MDBCardTitle>
         <div style={{ textAlign: "left" }}>

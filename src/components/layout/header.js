@@ -22,7 +22,6 @@ import {
   ABOUT_PAGE_URL,
   LOGIN_PAGE_URL,
   POST_CONTEST_PAGE_URL,
-  HOME_PAGE_URL,
 } from "../../constants";
 
 const AppHeader = styled(AppBar)({
