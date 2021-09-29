@@ -23,17 +23,27 @@ const PostContestPage = () => {
         setValue(value)
         setProgress(progress)
     }
+    const changeTabView = (event,newValue) => {
+        setProgress(newValue * 20)
+        setValue(newValue)
+    }
+    const a11yProps = (index) => {
+        return {
+          id: `simple-tab-${index}`,
+          'aria-controls': `simple-tabpanel-${index}`,
+        };
+      }
     return (
         <Layout pageTitle="Issue Posting">
             <Grid container spacing={0} classes={{root:"containerGrid"}}>
                 <Grid item md={6} classes={{root:"disclaimerSection"}}>
                     <LinearProgress variant="determinate" value={progress}  classes={{bar1Determinate:"linearProgressBarPrimary",root:"linearProgressBarRoot"}}/>
-                    <Tabs value={value} textColor="primary" classes={{root:"tabs"}}>
-                        <Tab label="Headline" wrapped classes={{root:"tab",textColorPrimary:"tabText"}}/>
-                        <Tab label="Issue Description" wrapped classes={{root:"tab",textColorPrimary:"tabText"}}/>
-                        <Tab label="Legislation Needed" wrapped classes={{root:"tab",textColorPrimary:"tabText"}}/>
-                        <Tab label="Location" wrapped classes={{root:"tab",textColorPrimary:"tabText"}}/>
-                        <Tab label="Funding" wrapped classes={{root:"tab",textColorPrimary:"tabText"}}/>
+                    <Tabs value={value} textColor="primary" classes={{root:"tabs"}} onChange={changeTabView}>
+                        <Tab label="Headline" wrapped classes={{root:"tab",textColorPrimary:"tabText"}}  {...a11yProps(0)} />
+                        <Tab label="Issue Description" wrapped classes={{root:"tab",textColorPrimary:"tabText"}}  {...a11yProps(1)} />
+                        <Tab label="Legislation Needed" wrapped classes={{root:"tab",textColorPrimary:"tabText"}}  {...a11yProps(2)}/>
+                        <Tab label="Location" wrapped classes={{root:"tab",textColorPrimary:"tabText"}}  {...a11yProps(3)}/>
+                        <Tab label="Funding" wrapped classes={{root:"tab",textColorPrimary:"tabText"}} {...a11yProps(4)}/>
                     </Tabs>
                     <HeadlineDisclaimer value={value} index={0}/>
                     <IssueDescriptionDisclaimer value={value} index={1} />
