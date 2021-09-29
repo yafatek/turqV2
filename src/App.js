@@ -106,7 +106,7 @@ function App() {
             exact
             component={LegislationEditor}
           />
-          <Route
+          <PrivateRoute
             path={constants.POST_CONTEST_PAGE_URL}
             exact
             component={PostContestPage}

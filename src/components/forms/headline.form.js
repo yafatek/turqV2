@@ -19,7 +19,7 @@ const HeadlineForm = (props) => {
   };
 
   const moveToHome = () => {
-    history.push("/home");
+    history.push("/");
   };
   return (
     <div hidden={props.value !== props.index} className="headlineForm">

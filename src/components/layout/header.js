@@ -44,7 +44,7 @@ const DesktopHeader = ({ isAuthenticated, logout }) => {
           <Grid container justify="space-between" alignItems="center">
             <Grid container item xs={6} alignItems="center">
               <Grid item>
-                <Link to="/home">
+                <Link to="/">
                   <Logo />
                 </Link>
               </Grid>
