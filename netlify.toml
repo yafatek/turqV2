@@ -5,6 +5,9 @@ command = "CI= yarn build"
 [context.master]
 command = "CI= yarn build:production"
 
+[context.CROtest]
+command = "CI= yarn build:production"
+
 [context.deploy-preview]
 command = "CI= yarn build:development"
 
