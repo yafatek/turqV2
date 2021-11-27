@@ -7,8 +7,8 @@ import Typography from "@material-ui/core/Typography";
 function ProfilePage(props) {
     // const [userInfo, setUserInfo] = useState('');
 
-    const token = useSelector(state => state.auth.token);
-    const userInfo = useSelector(state => state.user.userInfo);
+    // const token = useSelector(state => state.auth.token);
+    // const userInfo = useSelector(state => state.user.userInfo);
     return (
         <Layout fullWidth pageTitle="User Profile"
                 description="demo for the user profile">
@@ -25,4 +25,4 @@ function ProfilePage(props) {
     )
 }
 
-export default ProgilePage;
+export default ProfilePage;

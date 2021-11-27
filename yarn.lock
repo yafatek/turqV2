@@ -1924,25 +1924,7 @@
     "@types/yargs" "^15.0.0"
     "chalk" "^3.0.0"
 
-"@material-ui/core@^3.2.0", "@material-ui/core@^4.0.0", "@material-ui/core@^4.12.3":
-  "integrity" "sha512-sdpgI/PL56QVsEJldwEe4FFaFTLUqN+rd7sSZiRCdx2E/C7z5yK0y/khAWVBH24tXwto7I1hCzNWfJGZIYJKnw=="
-  "resolved" "https://registry.npmjs.org/@material-ui/core/-/core-4.12.3.tgz"
-  "version" "4.12.3"
-  dependencies:
-    "@babel/runtime" "^7.4.4"
-    "@material-ui/styles" "^4.11.4"
-    "@material-ui/system" "^4.12.1"
-    "@material-ui/types" "5.1.0"
-    "@material-ui/utils" "^4.11.2"
-    "@types/react-transition-group" "^4.2.0"
-    "clsx" "^1.0.4"
-    "hoist-non-react-statics" "^3.3.2"
-    "popper.js" "1.16.1-lts"
-    "prop-types" "^15.7.2"
-    "react-is" "^16.8.0 || ^17.0.0"
-    "react-transition-group" "^4.4.0"
-
-"@material-ui/core@3.9.3":
+"@material-ui/core@^3.2.0", "@material-ui/core@3.9.3":
   "integrity" "sha512-REIj62+zEvTgI/C//YL4fZxrCVIySygmpZglsu/Nl5jPqy3CDjZv1F9ubBYorHqmRgeVPh64EghMMWqk4egmfg=="
   "resolved" "https://registry.npmjs.org/@material-ui/core/-/core-3.9.3.tgz"
   "version" "3.9.3"
@@ -1975,7 +1957,25 @@
     "recompose" "0.28.0 - 0.30.0"
     "warning" "^4.0.1"
 
-"@material-ui/icons@^4.9.1":
+"@material-ui/core@^4.0.0", "@material-ui/core@^4.12.3":
+  "integrity" "sha512-sdpgI/PL56QVsEJldwEe4FFaFTLUqN+rd7sSZiRCdx2E/C7z5yK0y/khAWVBH24tXwto7I1hCzNWfJGZIYJKnw=="
+  "resolved" "https://registry.npmjs.org/@material-ui/core/-/core-4.12.3.tgz"
+  "version" "4.12.3"
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    "@material-ui/styles" "^4.11.4"
+    "@material-ui/system" "^4.12.1"
+    "@material-ui/types" "5.1.0"
+    "@material-ui/utils" "^4.11.2"
+    "@types/react-transition-group" "^4.2.0"
+    "clsx" "^1.0.4"
+    "hoist-non-react-statics" "^3.3.2"
+    "popper.js" "1.16.1-lts"
+    "prop-types" "^15.7.2"
+    "react-is" "^16.8.0 || ^17.0.0"
+    "react-transition-group" "^4.4.0"
+
+"@material-ui/icons@^4.11.2":
   "integrity" "sha512-fQNsKX2TxBmqIGJCSi3tGTO/gZ+eJgWmMJkgDiOfyNaunNaxcklJQFaFogYcFl0qFuaEz1qaXYXboa/bUXVSOQ=="
   "resolved" "https://registry.npmjs.org/@material-ui/icons/-/icons-4.11.2.tgz"
   "version" "4.11.2"
@@ -2443,9 +2443,9 @@
     "redux" "^4.0.0"
 
 "@types/react-text-mask@^5.4.3":
-  "integrity" "sha512-y7XGGo4EkT1yoEocDF+YSIukP4iq8XwXJr9+gbzi18yHK6ALW95JOIM8XwF3oAzquNDrtcmEvyqXJETFhXdUHw=="
-  "resolved" "https://registry.npmjs.org/@types/react-text-mask/-/react-text-mask-5.4.9.tgz"
-  "version" "5.4.9"
+  "integrity" "sha512-Q0+3WIRgwv5ds2PzyjuVCHRQ22wIjQ27mN4NIzW/C70i9eelaCBqGnkIQv9r+W0vIu1LsvltB1qM6hz/pBaymA=="
+  "resolved" "https://registry.npmjs.org/@types/react-text-mask/-/react-text-mask-5.4.10.tgz"
+  "version" "5.4.10"
   dependencies:
     "@types/react" "*"
 
@@ -3859,9 +3859,9 @@
     "lodash.uniq" "^4.5.0"
 
 "caniuse-lite@^1.0.0", "caniuse-lite@^1.0.30000981", "caniuse-lite@^1.0.30001035", "caniuse-lite@^1.0.30001109", "caniuse-lite@^1.0.30001219":
-  "integrity" "sha512-pjC2T4DIDyGAKTL4dMvGUQaMUHRmhvPpAgNNTa14jaBWHu+bLQgvpFqElxh9L4829Fdx0PlKiMp3wnYldRtECA=="
-  "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001220.tgz"
-  "version" "1.0.30001220"
+  "integrity" "sha512-9RoKo841j1GQFSJz/nCXOj0sD7tHBtlowjYlrqIUS812x9/emfBLBt6IyMz1zIaYc/eRL8Cs6HPUVi2Hzq4sIg=="
+  "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001283.tgz"
+  "version" "1.0.30001283"
 
 "capture-exit@^2.0.0":
   "integrity" "sha512-PiT/hQmTonHhl/HFGN+Lx3JJUznrVYJ3+AQsnthneZbvW7x+f08Tk7yLJTLEOUvBTbduLeeBkxEaYXUOUrRq6g=="
@@ -11213,7 +11213,7 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
-"react-dom@*", "react-dom@^0.14 || ^15.0.0-0 || ^16.0.0-0 || ^17.0.0-0", "react-dom@^0.14.0 || ^15.0.0 || ^16 || ^17", "react-dom@^0.14.0 || ^15.0.0 || ^16.0.0-beta || ^16.0.0", "react-dom@^15.5.4 || ^16.0.0", "react-dom@^15.5.x || ^16.x || ^17.x", "react-dom@^16.12.0", "react-dom@^16.3.0", "react-dom@^16.8.0 || ^17.0.0", "react-dom@^16.9.0 || ^17", "react-dom@^16.x", "react-dom@^17.0.0", "react-dom@>=0.14.0", "react-dom@>=15.0.0", "react-dom@>=16.3.0", "react-dom@>=16.6.0", "react-dom@>=16.8.0", "react-dom@0.14.x || ^15.0.0 || ^16.0.0":
+"react-dom@*", "react-dom@^0.14 || ^15.0.0-0 || ^16.0.0-0 || ^17.0.0-0", "react-dom@^0.14.0 || ^15.0.0 || ^16 || ^17", "react-dom@^0.14.0 || ^15.0.0 || ^16.0.0-beta || ^16.0.0", "react-dom@^15.5.4 || ^16.0.0", "react-dom@^15.5.x || ^16.x || ^17.x", "react-dom@^16.12.0", "react-dom@^16.8.0 || ^17.0.0", "react-dom@^16.9.0 || ^17", "react-dom@^16.x", "react-dom@^17.0.0", "react-dom@>=0.14.0", "react-dom@>=16.3.0", "react-dom@>=16.6.0", "react-dom@>=16.8.0", "react-dom@0.14.x || ^15.0.0 || ^16.0.0":
   "integrity" "sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-16.14.0.tgz"
   "version" "16.14.0"
@@ -11223,7 +11223,7 @@
     "prop-types" "^15.6.2"
     "scheduler" "^0.19.1"
 
-"react-dom@17.0.1":
+"react-dom@^16.3.0", "react-dom@>=15.0.0", "react-dom@17.0.1":
   "integrity" "sha512-6eV150oJZ9U2t9svnsspTMrWNyHc6chX0KzDeAOXftRa8bNeOKTTfCJ7KorIwenkHd2xqVTBTCZd79yk/lx/Ug=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.1.tgz"
   "version" "17.0.1"

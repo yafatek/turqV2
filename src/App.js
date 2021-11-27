@@ -40,7 +40,7 @@ function App() {
         <ScrollToTop />
         <div className="App">
           <Helmet>
-            <meta charset="utf-8" />
+            <meta charSet="utf-8" />
             <meta
               name="description"
               content="Turq.io is a social action platform for on-demand legislation creation. Real Bills, not just more petitions."
