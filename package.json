@@ -27,6 +27,7 @@
     "firebase": "^8.10.0",
     "firepad": "^1.5.11",
     "helmet": "^3.23.2",
+    "immutable": "^4.0.0",
     "install": "^0.13.0",
     "is-hotkey": "^0.1.6",
     "jwt-decode": "^3.1.2",
