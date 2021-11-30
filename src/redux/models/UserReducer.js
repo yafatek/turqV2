@@ -4,7 +4,20 @@ const initState = {
     apiSuccess: '',
     apiError: '',
     apiWarning: '',
-    userInfo: ''
+    userInfo: {
+        postedIssues: [
+            {
+                title: "tested",
+                endDate: "2019-20-12",
+                rules: "rules",
+                criteria: "criteria",
+                approved: "approved",
+                description: "description"
+            }
+        ],
+        fundedIssues: [],
+        Legislation: []
+    }
 };
 
 const immutableState = fromJS(initState);
