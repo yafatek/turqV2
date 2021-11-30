@@ -22,7 +22,8 @@ export default function Layout  (props) {
       </Helmet>
       <Grid direction="column" container className="main">
         <Grid direction="row" item container>
-          <Header  logout={logout} isAuthenticated={isAuthenticated}/>
+          {/*<Header  logout={logout} isAuthenticated={isAuthenticated}/>*/}
+          <Header  logout={logout} isAuthenticated={true}/>
         </Grid>
         <Grid direction="row" item container className="main">
           {children}

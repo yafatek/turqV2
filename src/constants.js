@@ -24,6 +24,7 @@ export const HOME_PAGE_URL = "/";
 export const EDITOR_PAGE_URL = "/editor";
 export const LOGIN_PAGE_URL = "/login";
 export const REGISTER_PAGE_URL = "/register";
+export const PROFILE_PAGE_URL = "/profile";
 export const CHECKOUT_PAGE_URL = "/checkout";
 export const THANKYOU_URL = `/thankyou`;
 export const POST_ISSUE_URL = "/editor/contest?new";
