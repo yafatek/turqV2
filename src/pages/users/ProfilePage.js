@@ -9,15 +9,12 @@ function ProfilePage(props) {
     // const [userInfo, setUserInfo] = useState('');
 
     const token = useSelector(state => state.auth.token);
-    const userInfo = useSelector(state => state.user.userInfo);
+    const email = localStorage.getItem('email');
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-    //alert(JSON.stringify(token));
-
-    const [userData, setUserData] = useState('');
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(loadUserProfile(token));
+        dispatch(loadUserProfile(token, email));
     }, []);
 
     if (!isAuthenticated){
