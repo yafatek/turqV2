@@ -23,7 +23,7 @@ export default function Layout  (props) {
       <Grid direction="column" container className="main">
         <Grid direction="row" item container>
           {/*<Header  logout={logout} isAuthenticated={isAuthenticated}/>*/}
-          <Header  logout={logout} isAuthenticated={true}/>
+          <Header  logout={logout} isAuthenticated={isAuthenticated}/>
         </Grid>
         <Grid direction="row" item container className="main">
           {children}
