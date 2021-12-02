@@ -5,18 +5,9 @@ const initState = {
     apiError: '',
     apiWarning: '',
     userInfo: {
-        postedIssues: [
-            {
-                title: "tested",
-                endDate: "2019-20-12",
-                rules: "rules",
-                criteria: "criteria",
-                approved: "approved",
-                description: "description"
-            }
-        ],
+        postedIssues: [],
         fundedIssues: [],
-        Legislation: []
+        legislation: []
     }
 };
 

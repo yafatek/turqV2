@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function UserInfoCard(props) {
+export default function DraftedCard(props) {
     const {item} = props;
     const classes = useStyles();
     return (
@@ -34,19 +34,31 @@ export default function UserInfoCard(props) {
                     title: {item.title}
                 </Typography>
                 <Typography variant="subtitle1" component="h3">
-                    criteria: {item.rules}
+                    chapter: {item.chapter}
                 </Typography>
                 <Typography variant="subtitle1" component="h3">
-                    approved: {item.approved}
+                    section: {item.section}
                 </Typography>
                 <Typography variant="subtitle1" component="h3">
-                    rules: {item.rules}
+                    accomplishes: {item.accomplishes}
+                </Typography>
+                <Typography variant="subtitle1" component="h3">
+                    terms: {item.terms}
+                </Typography>
+                <Typography variant="subtitle1" component="h3">
+                    purpose: {item.purpose}
+                </Typography>
+                <Typography variant="subtitle1" component="h3">
+                    provisions: {item.provisions}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    {item.description}
+                    text:  {item.text}
                 </Typography>
-                <Typography variant="subtitle2" component="h3">
-                    end date: {moment(item.endDate, "YYYYDDMM").fromNow()}
+                <Typography variant="subtitle1" component="h3">
+                    other: {item.other}
+                </Typography>
+                <Typography variant="subtitle1" component="h3">
+                    contestId: {item.contestId}
                 </Typography>
             </CardContent>
             <CardActions>

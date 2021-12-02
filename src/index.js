@@ -8,10 +8,10 @@ import 'axios-progress-bar/dist/nprogress.css'
 import 'draft-js/dist/Draft.css';
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-toastify/dist/ReactToastify.css';
-
+const store = configureStore();
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={configureStore()}>
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>,

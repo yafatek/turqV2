@@ -10,6 +10,9 @@ import Box from '@material-ui/core/Box';
 import {useSelector} from "react-redux";
 import Grid from "@material-ui/core/Grid";
 import UserInfoCard from "../UserInfoCard";
+import BasicGrid from "../layout/BasicGrid";
+import DraftedCard from "../DraftedCard";
+import {Redirect} from "react-router-dom";
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
@@ -57,7 +60,10 @@ export default function FullWidthTabs() {
     const [value, setValue] = React.useState(0);
     const postedIssues = useSelector(state => state.user.getIn(['userInfo', 'postedIssues']));
     const fundedIssues = useSelector(state => state.user.getIn(['userInfo', 'fundedIssues']));
-    const Legislation = useSelector(state => state.user.getIn(['userInfo', 'Legislation']));
+    const Legislation = useSelector(state => state.user.getIn(['userInfo', 'legislation']));
+    const isAuth = useSelector(state => state.auth.isAuthenticated);
+
+    // alert(JSON.stringify(postedIssues));
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -66,6 +72,10 @@ export default function FullWidthTabs() {
     const handleChangeIndex = (index) => {
         setValue(index);
     };
+
+    if (!isAuth) {
+        return <Redirect to='/'/>
+    }
 
     return (
         <div className={classes.root}>
@@ -89,31 +99,29 @@ export default function FullWidthTabs() {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0} dir={theme.direction}>
-                    <Grid container spacing={3}>
-                        {postedIssues !== undefined && postedIssues.length > 0 && postedIssues.map((item, index) => {
-                            return <Grid item key={index} xs={6}>
-                                <UserInfoCard data={item}/>
+                    <BasicGrid>
+                        {postedIssues.map((item) => <Grid item xs>
+                                <UserInfoCard item={item}/>
                             </Grid>
-                        })}
-                    </Grid>
+                        )}
+                    </BasicGrid>
+
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
-                    <Grid container spacing={3}>
-                        {fundedIssues !== undefined && fundedIssues.length > 0 && fundedIssues.map((item, index) => {
-                            return <Grid item key={index} xs={6}>
-                                <UserInfoCard data={item}/>
+                    <BasicGrid>
+                        {fundedIssues.map((item) => <Grid item xs>
+                                <UserInfoCard item={item}/>
                             </Grid>
-                        })}
-                    </Grid>
+                        )}
+                    </BasicGrid>
                 </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction}>
-                    <Grid container spacing={3}>
-                        {Legislation !== undefined && Legislation.length > 0 && Legislation.map((item, index) => {
-                            return <Grid item key={index} xs={6}>
-                                <UserInfoCard data={item}/>
+                    <BasicGrid>
+                        {Legislation.map((item) => <Grid item xs>
+                                <DraftedCard item={item}/>
                             </Grid>
-                        })}
-                    </Grid>
+                        )}
+                    </BasicGrid>
                 </TabPanel>
             </SwipeableViews>
         </div>
