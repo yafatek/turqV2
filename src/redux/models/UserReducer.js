@@ -4,6 +4,7 @@ const initState = {
     apiSuccess: '',
     apiError: '',
     apiWarning: '',
+    isLoading: true,
     userInfo: {
         postedIssues: [],
         fundedIssues: [],
@@ -20,6 +21,7 @@ export const userReducer = (state = immutableState, action) => {
                 mState.set('userInfo', action.payload);
                 mState.set('apiSuccess', action.apiMessage);
                 mState.set('apiError', '');
+                mState.set('isLoading', false);
             });
         case LOAD_USER_PROFILE_FAIL:
             return state.withMutations(mState => {
