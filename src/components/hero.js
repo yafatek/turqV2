@@ -21,7 +21,6 @@ const Hero = ({ header, subtext, link, buttonText }) => (
           alignItems="center"
         >
           <Grid item xs={12} lg={12} sm={12}>
-            <h2 className="hero-header mt-4">Deployment Test</h2>
             <h2 className="hero-header mt-4">{header}</h2>
             <p className="hero-subtitle mt-4">
               <b>{subtext}</b>

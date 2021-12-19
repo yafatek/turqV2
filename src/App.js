@@ -24,6 +24,7 @@ import PaymentThankyou from "./pages/paymentThankyou";
 import PostContestPage from "./pages/postContest";
 import ContestEditor from "./pages/newContestEditor";
 import * as constants from "./constants";
+import ProfilePage from "./pages/user/ProfilePage";
 
 // Loading bar for pages with axios requests
 let api = axios.create({
@@ -68,6 +69,7 @@ function App() {
           <Route path={constants.DRAFTER_PAGE_URL} component={Drafter} />
           <Route path={constants.LOGIN_PAGE_URL} component={Login} />
           <Route path={constants.REGISTER_PAGE_URL} component={Register} />
+          <Route path={constants.PROFILE_PAGE_URL} exact component={ProfilePage} />
           <Route
             path={constants.CONTEST_PAGE_URL}
             exact
