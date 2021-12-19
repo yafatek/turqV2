@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Link, useHistory} from "react-router-dom";
 import propTypes from "prop-types";
 import Logo from "../logo";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import { styled, useTheme } from "@material-ui/core/styles";
+import {styled, useTheme} from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
@@ -23,95 +23,193 @@ import {
   LOGIN_PAGE_URL,
   POST_CONTEST_PAGE_URL,
 } from "../../constants";
+import {AccountCircle} from "@material-ui/icons";
 
 const AppHeader = styled(AppBar)({
   backgroundColor: "#f8f9fa",
   color: "#444444",
 });
 
-const DesktopHeader = ({ isAuthenticated, logout }) => {
+const DesktopHeader = ({isAuthenticated, logout}) => {
   const history = useHistory();
   const [y, setY] = useState(0);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const isMenuOpen = Boolean(anchorEl);
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const menuId = 'primary-search-account-menu';
+  const mobileMenuId = 'primary-search-account-menu-mobile';
+
+  const handleProfileMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMobileMenuClose = () => {
+    setMobileMoreAnchorEl(null);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+  };
+
+  const handleLogOut = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+    // logout the user.
+    logout()
+  }
+
+  const handleMobileMenuOpen = (event) => {
+    setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+
+  const renderMobileMenu = (
+      <Menu
+          anchorEl={mobileMoreAnchorEl}
+          anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+          id={mobileMenuId}
+          keepMounted
+          transformOrigin={{vertical: 'top', horizontal: 'right'}}
+          open={isMobileMenuOpen}
+          onClose={handleMobileMenuClose}
+      >
+        <MenuItem onClick={handleProfileMenuOpen}>
+          <IconButton
+              // aria-label="account of current user"
+              // aria-controls="primary-search-account-menu"
+              // aria-haspopup="true"
+              color="inherit"
+          >
+            <AccountCircle/>
+          </IconButton>
+          <p>Profile</p>
+        </MenuItem>
+      </Menu>
+  );
+  const renderMenu = (
+      <Menu
+          anchorEl={anchorEl}
+          anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+          id={menuId}
+          keepMounted
+          transformOrigin={{vertical: 'top', horizontal: 'right'}}
+          open={isMenuOpen}
+          onClose={handleMenuClose}
+      >
+
+        <MenuItem>
+          <Link
+              style={{
+                textDecoration: 'none',
+                color: '#000'
+              }}
+              to="/profile"
+          >
+            Profile
+          </Link>
+        </MenuItem>
+        <MenuItem onClick={handleLogOut}>logout</MenuItem>
+      </Menu>
+  );
   useEffect(() => {
     window.onscroll = () => {
       setY(window.pageYOffset);
     };
   }, [setY]);
   return (
-    <div>
-      <AppHeader position="fixed">
-        <Toolbar>
-          <Grid container justify="space-between" alignItems="center">
-            <Grid container item xs={6} alignItems="center">
-              <Grid item>
-                <Link to="/">
-                  <Logo />
-                </Link>
+      <div>
+        <AppHeader position="fixed">
+          <Toolbar>
+            <Grid container justify="space-between" alignItems="center">
+              <Grid container item xs={6} alignItems="center">
+                <Grid item>
+                  <Link to="/">
+                    <Logo/>
+                  </Link>
+                </Grid>
               </Grid>
-            </Grid>
-            <Grid container item xs={6} justify="flex-end">
-              <Grid item>
-                <Typography align="center">
-                  <a
-                    href={DRAFTER_PAGE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button>How To</Button>
-                  </a>
-                  <a
-                    href={DRAFT_GUIDE_PAGE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button>Guides</Button>
-                  </a>
-                  <Link to={CONTEST_PAGE_URL}>
-                    <Button>Discover</Button>
-                  </Link>
-                  <Link to={SUPPORT_PAGE_URL}>
-                    <Button>Support</Button>
-                  </Link>
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography>
-                  <Link to={ABOUT_PAGE_URL}>
-                    <Button>About</Button>
-                  </Link>
-                  {isAuthenticated ? (
-                    <Link to={LOGIN_PAGE_URL}>
-                      <Button onClick={() => logout()}>Logout</Button>
-                    </Link>
-                  ) : (
-                    <Link
-                      to={{
-                        pathname: LOGIN_PAGE_URL,
-                        state: { prevPath: history.location.pathname },
-                      }}
+              <Grid container item xs={6} justify="flex-end">
+                <Grid item>
+                  <Typography align="center">
+                    <a
+                        href={DRAFTER_PAGE_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
-                      <Button>Login</Button>
+                      <Button>How To</Button>
+                    </a>
+                    <a
+                        href={DRAFT_GUIDE_PAGE_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                      <Button>Guides</Button>
+                    </a>
+                    <Link to={CONTEST_PAGE_URL}>
+                      <Button>Discover</Button>
                     </Link>
-                  )}
+                    <Link to={SUPPORT_PAGE_URL}>
+                      <Button>Support</Button>
+                    </Link>
+                    <Link to={ABOUT_PAGE_URL}>
+                      <Button>About</Button>
+                    </Link>
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  {/*<Typography>*/}
+
+                  {isAuthenticated ?
+                      <>
+                        {/*<Link to={LOGIN_PAGE_URL}>*/}
+                        {/*  <Button onClick={() => logout()}>Logout</Button>*/}
+                        {/*</Link>*/}
+                        <IconButton
+                            className="header_profile_btn"
+                            edge="end"
+                            aria-label="account of current user"
+                            aria-controls={menuId}
+                            aria-haspopup="true"
+                            onClick={handleProfileMenuOpen}
+                            color="inherit"
+
+                        >
+                          <AccountCircle
+                          />
+                        </IconButton>
+                        {renderMobileMenu}
+                        {renderMenu}
+                      </> : (
+                          <Link
+                              to={{
+                                pathname: LOGIN_PAGE_URL,
+                                state: {prevPath: history.location.pathname},
+                              }}
+                          >
+                            <Button>Login</Button>
+                          </Link>
+                      )}
                   {y > 300 ? (
-                    <Link to={POST_CONTEST_PAGE_URL}>
-                      <Button>Raise an Issue</Button>
-                    </Link>
+                      <Link to={POST_CONTEST_PAGE_URL}>
+                        <Button>Raise an Issue</Button>
+                      </Link>
                   ) : null}
-                </Typography>
+                  {/*</Typography>*/}
+                </Grid>
               </Grid>
             </Grid>
-          </Grid>
-        </Toolbar>
-      </AppHeader>
-      {/* Without this extra toolbar the content will render underneath the real toolbar
+          </Toolbar>
+        </AppHeader>
+        {/* Without this extra toolbar the content will render underneath the real toolbar
           Reference: https://material-ui.com/components/app-bar/#fixed-placement */}
-      <Toolbar />
-    </div>
+        <Toolbar/>
+      </div>
   );
 };
 
-const MobileHeader = ({ isAuthenticated, logout }) => {
+const MobileHeader = ({isAuthenticated, logout}) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -148,76 +246,76 @@ const MobileHeader = ({ isAuthenticated, logout }) => {
   ];
 
   return (
-    <div style={{ flexGrow: 1 }}>
-      <AppHeader position="static">
-        <Toolbar>
-          <Grid container justify="space-between" alignItems="center">
-            <Grid item>
-              <Link to="/">
-                <Logo />
-              </Link>
+      <div style={{flexGrow: 1}}>
+        <AppHeader position="static">
+          <Toolbar>
+            <Grid container justify="space-between" alignItems="center">
+              <Grid item>
+                <Link to="/">
+                  <Logo/>
+                </Link>
+              </Grid>
+              <Grid item>
+                <IconButton
+                    edge="start"
+                    color="inherit"
+                    ariaLabel="menu"
+                    onClick={handleMenu}
+                >
+                  <MenuIcon/>
+                </IconButton>
+                <Menu
+                    id="menu-appbar"
+                    anchorEl={anchorEl}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    open={open}
+                    onClose={() => setAnchorEl(null)}
+                >
+                  {menuItems.map((menuItem) => {
+                    const {menuTitle, pageURL, onClick} = menuItem;
+                    return (
+                        <Link to={pageURL} key={menuItem.menuTitle}>
+                          <MenuItem
+                              onClick={() => {
+                                onClick && onClick();
+                              }}
+                          >
+                            <Typography align="center" color="textPrimary">
+                              {menuTitle}
+                            </Typography>
+                          </MenuItem>
+                        </Link>
+                    );
+                  })}
+                </Menu>
+              </Grid>
             </Grid>
-            <Grid item>
-              <IconButton
-                edge="start"
-                color="inherit"
-                ariaLabel="menu"
-                onClick={handleMenu}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={open}
-                onClose={() => setAnchorEl(null)}
-              >
-                {menuItems.map((menuItem) => {
-                  const { menuTitle, pageURL, onClick } = menuItem;
-                  return (
-                    <Link to={pageURL} key={menuItem.menuTitle}>
-                      <MenuItem
-                        onClick={() => {
-                          onClick && onClick();
-                        }}
-                      >
-                        <Typography align="center" color="textPrimary">
-                          {menuTitle}
-                        </Typography>
-                      </MenuItem>
-                    </Link>
-                  );
-                })}
-              </Menu>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppHeader>
-    </div>
+          </Toolbar>
+        </AppHeader>
+      </div>
   );
 };
 
-const Header = ({ isAuthenticated, logout }) => {
+const Header = ({isAuthenticated, logout}) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <>
-      {isMobile ? (
-        <MobileHeader isAuthenticated={isAuthenticated} logout={logout} />
-      ) : (
-        <DesktopHeader isAuthenticated={isAuthenticated} logout={logout} />
-      )}
-    </>
+      <>
+        {isMobile ? (
+            <MobileHeader isAuthenticated={isAuthenticated} logout={logout}/>
+        ) : (
+            <DesktopHeader isAuthenticated={isAuthenticated} logout={logout}/>
+        )}
+      </>
   );
 };
 
