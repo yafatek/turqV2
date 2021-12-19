@@ -81,7 +81,7 @@ function App() {
             component={Contest}
           />
           <Route
-            path={constants.LEGISLATION_PAGE_URL + "/:id"}
+            path={`${constants.LEGISLATION_PAGE_URL}` + "/:id"}
             component={Legislation}
           />
           <Route path={constants.THANKYOU_URL} component={PaymentThankyou} />
