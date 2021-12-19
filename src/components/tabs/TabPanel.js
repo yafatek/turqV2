@@ -22,7 +22,7 @@ function TabPanel(props) {
         <div
             role="tabpanel"
             hidden={value !== index}
-            id={${index}}
+            id={index}
             // aria-labelledby={`full-width-tab-${index}`}
             {...other}
         >
