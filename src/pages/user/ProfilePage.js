@@ -2,9 +2,6 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import Layout from "../../components/layout/layout";
 import {loadUserProfile} from "../../redux/actions/UserActions";
-// import FullWidthTabs from "../../components/tabs/TabPanel";
-import {Redirect} from "react-router-dom";
-// import SystemBackdrop from "../../components/widgets/backdrop/SystemBackdrop";
 
 function ProfilePage() {
     // const [userInfo, setUserInfo] = useState('');
@@ -18,10 +15,10 @@ function ProfilePage() {
     useEffect(() => {
         dispatch(loadUserProfile(token));
     }, [dispatch, token]);
-
-    if (!isAuthenticated) {
-        return <Redirect to="/"/>
-    }
+    //
+    // if (!isAuthenticated) {
+    //     return <Redirect to="/"/>
+    // }
     return (
         <>
             <Layout fullWidth pageTitle="User Profile"
