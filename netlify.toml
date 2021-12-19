@@ -1,15 +1,14 @@
 [build]
 publish = "build"
-# command = "CI= yarn build"
-command = "CI= npm run build"
+command = "CI= yarn build"
 
 [context.master]
 command = "CI= yarn build:production"
 
 [context.deploy-preview]
-# command = "CI= yarn build:development"
-command = "CI= npm run build:development"
+NODE_VERSION = "14.17.0"
+command = "CI= yarn build:development"
 
 [context.branch-deploy]
-command = "CI= npm run build:development"
-# command = "CI= yarn build:development"
+ NODE_VERSION = "14.17.0"
+command = "CI= yarn build:development"

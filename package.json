@@ -60,8 +60,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:development": "env-cmd -f .env.development npm run build",
-    "build:production": "env-cmd -f .env npm run build",
+    "build:development": "env-cmd -f .env.development yarn build",
+    "build:production": "env-cmd -f .env yarn build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
