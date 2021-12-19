@@ -22,8 +22,8 @@ function TabPanel(props) {
         <div
             role="tabpanel"
             hidden={value !== index}
-            id={`full-width-tabpanel-${index}`}
-            aria-labelledby={`full-width-tab-${index}`}
+            id={${index}}
+            // aria-labelledby={`full-width-tab-${index}`}
             {...other}
         >
             {value === index && (
@@ -88,7 +88,7 @@ export default function FullWidthTabs() {
                     indicatorColor="primary"
                     textColor="primary"
                     variant="fullWidth"
-                    aria-label="full width tabs example"
+                    // aria-label="full width tabs example"
                 >
                     <Tab label="Posted" {...a11yProps(0)} />
                     <Tab label="Funded" {...a11yProps(1)} />

@@ -77,9 +77,9 @@ const DesktopHeader = ({isAuthenticated, logout}) => {
         >
             <MenuItem onClick={handleProfileMenuOpen}>
                 <IconButton
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
+                    // aria-label="account of current user"
+                    // aria-controls="primary-search-account-menu"
+                    // aria-haspopup="true"
                     color="inherit"
                 >
                     <AccountCircle/>

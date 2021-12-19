@@ -15,7 +15,7 @@ const Layout = (props) => {
 
     const logout = () => {
         localStorage.clear();
-        props.history.push('/')
+        props.history.push('/');
     }
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     return (
