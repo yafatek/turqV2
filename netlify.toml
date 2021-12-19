@@ -1,4 +1,5 @@
 [build]
+NODE_VERSION = "14.17.0"
 publish = "build"
 command = "CI= yarn build"
 
