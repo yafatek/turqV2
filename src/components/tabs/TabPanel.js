@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import {makeStyles, useTheme} from '@material-ui/core/styles';
@@ -11,8 +11,6 @@ import {useSelector} from "react-redux";
 import Grid from "@material-ui/core/Grid";
 import BasicGrid from "../layout/BasicGrid";
 import {Link, Redirect} from "react-router-dom";
-import UserInfoCard from "../cards/UserInfoCard";
-import DraftedCard from "../cards/DraftedCard";
 import Button from "@material-ui/core/Button";
 import DragWidget from "../widgets/DragWidget";
 import {POST_CONTEST_PAGE_URL} from "../../constants";
@@ -66,9 +64,6 @@ export default function FullWidthTabs() {
     const Legislation = useSelector(state => state.user.getIn(['userInfo', 'legislation']));
     const isAuth = useSelector(state => state.auth.isAuthenticated);
 
-
-    // alert(JSON.stringify(postedIssues));
-
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -98,7 +93,6 @@ export default function FullWidthTabs() {
                         indicatorColor="primary"
                         textColor="primary"
                         variant="fullWidth"
-                        // aria-label="full width tabs example"
                     >
                         <Tab label="Posted" {...a11yProps(0)} />
                         <Tab label="Funded" {...a11yProps(1)} />

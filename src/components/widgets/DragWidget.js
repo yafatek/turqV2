@@ -16,17 +16,27 @@ const reorder = (list, startIndex, endIndex) => {
     return result;
 };
 
-const grid = 3;
-
-
+const grid = 1;
 const getListStyle = isDraggingOver => ({
     background: isDraggingOver ? "lightblue" : "lightgrey",
-    padding: grid,
-    // width: '100%',
-    // height: 550,
-    // overflow: 'auto'
+    // padding: grid,
+    width: '100%',
+    height: 550,
+    overflow: 'auto'
 });
 
+const getItemStyle = (isDragging, draggableStyle) => ({
+    // some basic styles to make the items look a bit nicer
+    userSelect: "none",
+    padding: grid * 2,
+    margin: `0 0 ${grid}px 0`,
+
+    // change background colour if dragging
+    // background: isDragging ? "lightgreen" : "grey",
+
+    // styles we need to apply on draggables
+    ...draggableStyle
+});
 export default class DragWidget extends Component {
     constructor(props) {
         super(props);
@@ -70,11 +80,19 @@ export default class DragWidget extends Component {
                                             ref={provided.innerRef}
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
-                                            style={{
-                                                margin: '.7rem'
-                                            }}
+                                            style={getItemStyle(
+                                                snapshot.isDragging,
+                                                provided.draggableProps.style
+                                            )}
                                         >
-                                            <UserInfoCard item={item}/>
+                                            <div
+                                                style={{
+                                                    margin: '.7rem'
+                                                }}
+                                            >
+                                                <UserInfoCard item={item}/>
+                                            </div>
+
                                         </div>
                                     )}
                                 </Draggable>

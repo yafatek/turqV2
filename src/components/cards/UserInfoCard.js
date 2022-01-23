@@ -1,5 +1,4 @@
 import React from 'react';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
@@ -15,10 +14,10 @@ import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: '100%',
-        maxHeight: 270,
-        margin: 3,
-        padding: 3
+        maxWidth: '40%',
+        maxHeight: 220,
+        margin: '0 auto',
+        padding: 3,
     },
     media: {
         height: 0,
@@ -44,6 +43,9 @@ const useStyles = makeStyles((theme) => ({
     },
     topContainerText: {
         paddingLeft: '2rem',
+    },
+    description: {
+        paddingTop: '1rem',
     }
 }));
 const BorderLinearProgress = withStyles((theme) => ({
@@ -65,7 +67,6 @@ const BorderLinearProgress = withStyles((theme) => ({
 export default function UserInfoCard(props) {
     const {item} = props;
     const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
 
     return (
         <Card className={classes.root}>
@@ -88,22 +89,20 @@ export default function UserInfoCard(props) {
                         Ends {moment(item.endDate, "YYYYDDMM").fromNow()}
                     </Typography>
                 </div>
+                <div className={classes.description}>
+                    <Typography variant="h6" color="textPrimary" component="p">
+                        {item.description}
+                    </Typography>
+                </div>
             </CardContent>
-            <CardContent>
-                {/*<Typography variant="h6" color="textPrimary" component="p">*/}
-                {/*    {item.title}*/}
-                {/*</Typography>*/}
-                <Typography variant="body2" color="textPrimary" component="p">
-                    {item.description}
-                </Typography>
-            </CardContent>
+
             <CardActions disableSpacing>
                 <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
                     <Button color={'primary'}>Learn More</Button>
-                    <Button color={'primary'}>{item.approved ? 'Draft' : 'Publish'}</Button>
+                    <Button color={'primary'}>{item.approved ? 'Publish' : 'Draft'}</Button>
                 </ButtonGroup>
                 <IconButton
-                    className={clsx(classes.expand)}
+                    className={classes.expand}
                     aria-label="share issue"
                 >
                     <ShareIcon/>
