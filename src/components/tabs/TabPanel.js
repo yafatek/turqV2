@@ -112,28 +112,34 @@ export default function FullWidthTabs() {
                 >
                     <TabPanel value={value} index={0} dir={theme.direction}>
                         <BasicGrid>
-                            <Grid item xs={6} spacing={1}>
+                            <Grid item xs>
                                 <DragWidget items={postedIssues}/>
                             </Grid>
                         </BasicGrid>
                     </TabPanel>
                     <TabPanel value={value} index={1} dir={theme.direction}>
                         <BasicGrid>
-                            {!fundedIssues.length ? <Typography variant='h6'>There is no available data</Typography> :
-                                fundedIssues.map((item) => <Grid item xs>
-                                        <UserInfoCard item={item}/>
-                                    </Grid>
-                                )
-                            }
+                            <Grid item xs>
+                                <DragWidget items={fundedIssues}/>
+                            </Grid>
+                            {/*{!fundedIssues.length ? <Typography variant='h6'>There is no available data</Typography> :*/}
+                            {/*    fundedIssues.map((item) => <Grid item xs>*/}
+                            {/*            <UserInfoCard item={item}/>*/}
+                            {/*        </Grid>*/}
+                            {/*    )*/}
+                            {/*}*/}
                         </BasicGrid>
                     </TabPanel>
                     <TabPanel value={value} index={2} dir={theme.direction}>
                         <BasicGrid>
-                            {!Legislation.length ? <Typography variant='h6'>There is no available data</Typography> :
-                                Legislation.map((item) => <Grid item xs>
-                                        <DraftedCard item={item}/>
-                                    </Grid>
-                                )}
+                            <Grid item xs>
+                                <DragWidget items={Legislation}/>
+                            </Grid>
+                            {/*{!Legislation.length ? <Typography variant='h6'>There is no available data</Typography> :*/}
+                            {/*    Legislation.map((item) => <Grid item xs>*/}
+                            {/*            <DraftedCard item={item}/>*/}
+                            {/*        </Grid>*/}
+                            {/*    )}*/}
                         </BasicGrid>
                     </TabPanel>
                 </SwipeableViews>

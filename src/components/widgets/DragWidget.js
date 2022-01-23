@@ -1,11 +1,10 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import ReactDOM from "react-dom";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd";
 import Typography from "@material-ui/core/Typography";
 import {Card} from "react-bootstrap";
 import CardContent from "@material-ui/core/CardContent";
 import UserInfoCard from "../cards/UserInfoCard";
-
 
 
 // a little function to help us with reordering the result
@@ -23,12 +22,12 @@ const grid = 3;
 const getListStyle = isDraggingOver => ({
     background: isDraggingOver ? "lightblue" : "lightgrey",
     padding: grid,
-    width: '100%',
-    height: 550,
-    overflow: 'auto'
+    // width: '100%',
+    // height: 550,
+    // overflow: 'auto'
 });
 
-export default  class DragWidget extends Component {
+export default class DragWidget extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -53,6 +52,7 @@ export default  class DragWidget extends Component {
             items
         });
     }
+
     render() {
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
