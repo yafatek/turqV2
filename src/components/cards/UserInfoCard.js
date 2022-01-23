@@ -1,57 +1,115 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
+import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+import CardActions from '@material-ui/core/CardActions';
+import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import {red} from '@material-ui/core/colors';
+import ShareIcon from '@material-ui/icons/Share';
+import {ButtonGroup, LinearProgress} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import {makeStyles, withStyles} from '@material-ui/core/styles';
 import moment from "moment";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     root: {
-        minWidth: 275,
+        maxWidth: '100%',
+        maxHeight: 270,
+        margin: 3,
+        padding: 3
     },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
+    media: {
+        height: 0,
+        paddingTop: '56.25%', // 16:9
     },
-    title: {
-        fontSize: 18,
+    expand: {
+        transform: 'rotate(0deg)',
+        marginLeft: 'auto',
+        transition: theme.transitions.create('transform', {
+            duration: theme.transitions.duration.shortest,
+        }),
     },
-    pos: {
-        marginBottom: 12,
+    expandOpen: {
+        transform: 'rotate(180deg)',
     },
-});
+    avatar: {
+        backgroundColor: red[500],
+    },
+    topContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        height: 30,
+    },
+    topContainerText: {
+        paddingLeft: '2rem',
+    }
+}));
+const BorderLinearProgress = withStyles((theme) => ({
+    root: {
+        height: 10,
+        borderRadius: 5,
+        backgroundColor: 'transparent !important'
+    },
+    colorPrimary: {
+        backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
+    },
+    bar: {
+        borderRadius: 5,
+        backgroundColor: '#1a90ff',
+    },
+}))(LinearProgress);
+
 
 export default function UserInfoCard(props) {
     const {item} = props;
     const classes = useStyles();
+    const [expanded, setExpanded] = React.useState(false);
+
     return (
-        <Card className={classes.root} variant="outlined">
+        <Card className={classes.root}>
+            <CardHeader
+                title={<BorderLinearProgress value={40} size={40} variant="determinate"
+                                             color={item.approved ? 'primary' : 'secondary'}/>}
+            />
             <CardContent>
-                <Typography className={classes.title} color="textPrimary" gutterBottom>
-                    title: {item.title}
-                </Typography>
-                <Typography variant="subtitle1" component="h3">
-                    criteria: {item.rules}
-                </Typography>
-                <Typography variant="subtitle1" component="h3">
-                    approved: {item.approved}
-                </Typography>
-                <Typography variant="subtitle1" component="h3">
-                    rules: {item.rules}
-                </Typography>
-                <Typography variant="body2" component="p">
+                <div className={classes.topContainer}>
+                    <Typography variant="subtitle1" color="textPrimary"
+                                component="p">
+                        CURRENT FUNDING: $ &nbsp; -----
+                    </Typography>
+                    <Typography className={classes.topContainerText} variant="subtitle1" color="textPrimary"
+                                component="p">
+                        GOAL: $ &nbsp; -----
+                    </Typography>
+                    <Typography className={classes.expand} variant="subtitle1" color="textPrimary"
+                                component="p">
+                        Ends {moment(item.endDate, "YYYYDDMM").fromNow()}
+                    </Typography>
+                </div>
+            </CardContent>
+            <CardContent>
+                {/*<Typography variant="h6" color="textPrimary" component="p">*/}
+                {/*    {item.title}*/}
+                {/*</Typography>*/}
+                <Typography variant="body2" color="textPrimary" component="p">
                     {item.description}
                 </Typography>
-                <Typography variant="subtitle2" component="h3">
-                    end date: {moment(item.endDate, "YYYYDDMM").fromNow()}
-                </Typography>
             </CardContent>
-            <CardActions>
-                <Button size="small">Learn More</Button>
+            <CardActions disableSpacing>
+                <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
+                    <Button color={'primary'}>Learn More</Button>
+                    <Button color={'primary'}>{item.approved ? 'Draft' : 'Publish'}</Button>
+                </ButtonGroup>
+                <IconButton
+                    className={clsx(classes.expand)}
+                    aria-label="share issue"
+                >
+                    <ShareIcon/>
+                </IconButton>
             </CardActions>
         </Card>
+
     );
 }

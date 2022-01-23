@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import {makeStyles, useTheme} from '@material-ui/core/styles';
@@ -10,9 +10,12 @@ import Box from '@material-ui/core/Box';
 import {useSelector} from "react-redux";
 import Grid from "@material-ui/core/Grid";
 import BasicGrid from "../layout/BasicGrid";
-import {Redirect} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import UserInfoCard from "../cards/UserInfoCard";
 import DraftedCard from "../cards/DraftedCard";
+import Button from "@material-ui/core/Button";
+import DragWidget from "../widgets/DragWidget";
+import {POST_CONTEST_PAGE_URL} from "../../constants";
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
@@ -80,54 +83,62 @@ export default function FullWidthTabs() {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static" color="default">
-                <Tabs
-                    value={value}
-                    onChange={handleChange}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    variant="fullWidth"
-                    // aria-label="full width tabs example"
+            <Box component={'div'}>
+                <Link to={POST_CONTEST_PAGE_URL}>
+                    <Button variant={'outlined'} color={'primary'} style={{
+                        margin: '1rem'
+                    }}>
+                        Draft Issue
+                    </Button>
+                </Link>
+                <AppBar position="static" color="default">
+                    <Tabs
+                        value={value}
+                        onChange={handleChange}
+                        indicatorColor="primary"
+                        textColor="primary"
+                        variant="fullWidth"
+                        // aria-label="full width tabs example"
+                    >
+                        <Tab label="Posted" {...a11yProps(0)} />
+                        <Tab label="Funded" {...a11yProps(1)} />
+                        <Tab label="Drafted for" {...a11yProps(2)} />
+                    </Tabs>
+                </AppBar>
+                <SwipeableViews
+                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                    index={value}
+                    onChangeIndex={handleChangeIndex}
                 >
-                    <Tab label="Posted" {...a11yProps(0)} />
-                    <Tab label="Funded" {...a11yProps(1)} />
-                    <Tab label="Drafted for" {...a11yProps(2)} />
-                </Tabs>
-            </AppBar>
-            <SwipeableViews
-                axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                index={value}
-                onChangeIndex={handleChangeIndex}
-            >
-                <TabPanel value={value} index={0} dir={theme.direction}>
-                    <BasicGrid>
-                        {!postedIssues.length ? <Typography variant='h6'>There is no available data</Typography> :
-                            postedIssues.map((item) => <Grid item xs>
-                                    <UserInfoCard item={item}/>
-                                </Grid>
-                            )}
-                    </BasicGrid>
-                </TabPanel>
-                <TabPanel value={value} index={1} dir={theme.direction}>
-                    <BasicGrid>
-                        {!fundedIssues.length ? <Typography variant='h6'>There is no available data</Typography> :
-                            fundedIssues.map((item) => <Grid item xs>
-                                    <UserInfoCard item={item}/>
-                                </Grid>
-                            )
-                        }
-                    </BasicGrid>
-                </TabPanel>
-                <TabPanel value={value} index={2} dir={theme.direction}>
-                    <BasicGrid>
-                        {!Legislation.length ? <Typography variant='h6'>There is no available data</Typography> :
-                            Legislation.map((item) => <Grid item xs>
-                                    <DraftedCard item={item}/>
-                                </Grid>
-                            )}
-                    </BasicGrid>
-                </TabPanel>
-            </SwipeableViews>
+                    <TabPanel value={value} index={0} dir={theme.direction}>
+                        <BasicGrid>
+                            <Grid item xs={6} spacing={1}>
+                                <DragWidget items={postedIssues}/>
+                            </Grid>
+                        </BasicGrid>
+                    </TabPanel>
+                    <TabPanel value={value} index={1} dir={theme.direction}>
+                        <BasicGrid>
+                            {!fundedIssues.length ? <Typography variant='h6'>There is no available data</Typography> :
+                                fundedIssues.map((item) => <Grid item xs>
+                                        <UserInfoCard item={item}/>
+                                    </Grid>
+                                )
+                            }
+                        </BasicGrid>
+                    </TabPanel>
+                    <TabPanel value={value} index={2} dir={theme.direction}>
+                        <BasicGrid>
+                            {!Legislation.length ? <Typography variant='h6'>There is no available data</Typography> :
+                                Legislation.map((item) => <Grid item xs>
+                                        <DraftedCard item={item}/>
+                                    </Grid>
+                                )}
+                        </BasicGrid>
+                    </TabPanel>
+                </SwipeableViews>
+            </Box>
+
         </div>
 
     );
