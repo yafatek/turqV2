@@ -59,8 +59,17 @@ const BorderLinearProgress = withStyles((theme) => ({
     },
     bar: {
         borderRadius: 5,
-        backgroundColor: '#1a90ff',
+        // backgroundColor: '#1a90ff',
     },
+    barColorPrimary: {
+        backgroundColor: '#808080',
+    },
+    barColorGray: {
+        backgroundColor: '#808080'
+    },
+    barColorValid: {
+        backgroundColor: '#1a90ff'
+    }
 }))(LinearProgress);
 
 
@@ -71,8 +80,20 @@ export default function UserInfoCard(props) {
     return (
         <Card className={classes.root}>
             <CardHeader
-                title={<BorderLinearProgress value={40} size={40} variant="determinate"
-                                             color={item.approved ? 'primary' : 'secondary'}/>}
+                title={
+                    item.approved ?
+                        <BorderLinearProgress value={40} size={40} variant="determinate"
+                                              classes={{
+                                                  barColorPrimary: '#808080'
+                                              }}
+                        />
+                        :
+                        <BorderLinearProgress value={40} size={40} variant="determinate"
+                                              classes={{
+                                                  barColorPrimary: '#1a90ff'
+                                              }}
+                        />
+                }
             />
             <CardContent>
                 <div className={classes.topContainer}>
