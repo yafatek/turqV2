@@ -99,6 +99,9 @@ export const LocationForm = (props) => {
         //     )
         // );
         if (contestID) {
+            // clear storage
+            localStorage.removeItem("postIssue");
+            // redirect to issue page.
             history.push(`/contest/${contestID}`);
         }
 
