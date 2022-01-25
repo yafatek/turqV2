@@ -14,10 +14,11 @@ import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: '40%',
+        maxWidth: '50%',
         maxHeight: 220,
         margin: '0 auto',
-        padding: 3,
+        // padding: 3,
+        paddingTop: '1rem !important'
     },
     media: {
         height: 0,
@@ -78,7 +79,8 @@ export default function UserInfoCard(props) {
     const classes = useStyles();
 
     return (
-        <Card className={classes.root}>
+        <Card className={classes.root}
+        >
             <CardHeader
                 title={
                     item.approved ?

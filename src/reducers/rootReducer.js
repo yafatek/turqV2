@@ -5,6 +5,7 @@ import payments from './paymentsReducer'
 import legislation from './legislationReducer'
 import postIssue from "./postIssueReducer"
 import {userReducer} from "../redux/reducers/UserReducer";
+import {AppReducer} from "../redux/reducers/AppReducer";
 
 export default combineReducers({
     auth,
@@ -12,5 +13,6 @@ export default combineReducers({
     payments,
     legislation,
     postIssue,
-    user: userReducer
+    user: userReducer,
+    app: AppReducer
 });

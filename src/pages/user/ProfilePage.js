@@ -23,7 +23,7 @@ function ProfilePage() {
         return <Redirect to="/"/>
     }
     return (
-        <>
+        <div>
             <Layout fullWidth pageTitle="User Profile"
                     description="user profile information">
                 {isLoading ?
@@ -35,7 +35,7 @@ function ProfilePage() {
                  }
             </Layout>
 
-        </>
+        </div>
     )
 }
 

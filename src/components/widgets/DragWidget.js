@@ -19,17 +19,22 @@ const reorder = (list, startIndex, endIndex) => {
 const grid = 1;
 const getListStyle = isDraggingOver => ({
     background: isDraggingOver ? "lightblue" : "lightgrey",
-    // padding: grid,
+    padding: grid,
     width: '100%',
-    height: 550,
-    overflow: 'auto'
 });
+// const getListStyle = isDraggingOver => ({
+//     background: isDraggingOver ? "lightblue" : "lightgrey",
+//     padding: grid,
+//     width: '100%',
+//     height: 'auto',
+//     overflow: 'auto'
+// });
 
 const getItemStyle = (isDragging, draggableStyle) => ({
     // some basic styles to make the items look a bit nicer
     userSelect: "none",
     padding: grid * 2,
-    margin: `0 0 ${grid}px 0`,
+    // margin: `0 0 ${grid}px 0`,
 
     // change background colour if dragging
     // background: isDragging ? "lightgreen" : "grey",
@@ -42,6 +47,7 @@ export default class DragWidget extends Component {
         super(props);
         this.state = {
             items: props.items
+            // items: props.items.map((item,idx) => { id: `item-${idx}` , title: item.title,  endDate: item.endDate,approved: item.approved, description: item.description })
         };
         this.onDragEnd = this.onDragEnd.bind(this);
     }
@@ -73,30 +79,28 @@ export default class DragWidget extends Component {
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}
                         >
-                            {this.state.items.map((item, index) => (
-                                <Draggable key={item.title} draggableId={item.title} index={index}>
-                                    {(provided, snapshot) => (
-                                        <div
-                                            ref={provided.innerRef}
-                                            {...provided.draggableProps}
-                                            {...provided.dragHandleProps}
-                                            style={getItemStyle(
-                                                snapshot.isDragging,
-                                                provided.draggableProps.style
-                                            )}
-                                        >
+                            {this.state.items.map((item, index) => {
+                                    let i = 0;
+                                    // return <Draggable key={index} draggableId={`item-${i + 1}`} index={index}>
+                                    return <Draggable key={index} draggableId={item.description} index={index}>
+                                        {(provided, snapshot) => (
                                             <div
-                                                style={{
-                                                    margin: '.7rem'
-                                                }}
+                                                ref={provided.innerRef}
+                                                {...provided.draggableProps}
+                                                {...provided.dragHandleProps}
+                                                style={getItemStyle(
+                                                    snapshot.isDragging,
+                                                    provided.draggableProps.style
+                                                )}
                                             >
+                                                {/*{item.title}*/}
                                                 <UserInfoCard item={item}/>
                                             </div>
-
-                                        </div>
-                                    )}
-                                </Draggable>
-                            ))}
+                                        )}
+                                    </Draggable>
+                                }
+                            )}
+                            {provided.placeholder}
                         </div>
                     )}
                 </Droppable>

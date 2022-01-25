@@ -5,30 +5,30 @@ import {makeStyles, useTheme} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import Grid from "@material-ui/core/Grid";
 import BasicGrid from "../layout/BasicGrid";
 import {Link, Redirect} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import DragWidget from "../widgets/DragWidget";
 import {POST_CONTEST_PAGE_URL} from "../../constants";
+import {changeIsDrafted} from "../../redux/actions/AppActions";
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
 
     return (
         <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={index}
+            // role="tabpanel"
+            // hidden={value !== index}
+            // id={index}
             // aria-labelledby={`full-width-tab-${index}`}
-            {...other}
+
         >
             {value === index && (
                 <Box p={3}>
-                    <Typography>{children}</Typography>
+                    {children}
                 </Box>
             )}
         </div>
@@ -43,8 +43,8 @@ TabPanel.propTypes = {
 
 function a11yProps(index) {
     return {
-        id: `full-width-tab-${index}`,
-        'aria-controls': `full-width-tabpanel-${index}`,
+        // id: `full-width-tab-${index}`,
+        // 'aria-controls': `full-width-tabpanel-${index}`,
     };
 }
 
@@ -57,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FullWidthTabs() {
     const classes = useStyles();
+    const dispatch = useDispatch();
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
     const postedIssues = useSelector(state => state.user.getIn(['userInfo', 'postedIssues']));
@@ -80,9 +81,11 @@ export default function FullWidthTabs() {
         <div className={classes.root}>
             <Box component={'div'}>
                 <Link to={POST_CONTEST_PAGE_URL}>
-                    <Button variant={'outlined'} color={'primary'} style={{
-                        margin: '1rem'
-                    }}>
+                    <Button variant={'outlined'} color={'primary'}
+                            onClick={() => dispatch(changeIsDrafted(true))}
+                            style={{
+                                margin: '1rem'
+                            }}>
                         Draft Issue
                     </Button>
                 </Link>
@@ -94,7 +97,7 @@ export default function FullWidthTabs() {
                         textColor="primary"
                         variant="fullWidth"
                     >
-                        <Tab label="Posted" {...a11yProps(0)} />
+                        <Tab label="Posted"  />
                         <Tab label="Funded" {...a11yProps(1)} />
                         <Tab label="Drafted for" {...a11yProps(2)} />
                     </Tabs>
@@ -104,7 +107,7 @@ export default function FullWidthTabs() {
                     index={value}
                     onChangeIndex={handleChangeIndex}
                 >
-                    <TabPanel value={value} index={0} dir={theme.direction}>
+                    <TabPanel value={value} index={0}>
                         <BasicGrid>
                             <Grid item xs>
                                 <DragWidget items={postedIssues}/>
@@ -116,12 +119,6 @@ export default function FullWidthTabs() {
                             <Grid item xs>
                                 <DragWidget items={fundedIssues}/>
                             </Grid>
-                            {/*{!fundedIssues.length ? <Typography variant='h6'>There is no available data</Typography> :*/}
-                            {/*    fundedIssues.map((item) => <Grid item xs>*/}
-                            {/*            <UserInfoCard item={item}/>*/}
-                            {/*        </Grid>*/}
-                            {/*    )*/}
-                            {/*}*/}
                         </BasicGrid>
                     </TabPanel>
                     <TabPanel value={value} index={2} dir={theme.direction}>
@@ -129,11 +126,6 @@ export default function FullWidthTabs() {
                             <Grid item xs>
                                 <DragWidget items={Legislation}/>
                             </Grid>
-                            {/*{!Legislation.length ? <Typography variant='h6'>There is no available data</Typography> :*/}
-                            {/*    Legislation.map((item) => <Grid item xs>*/}
-                            {/*            <DraftedCard item={item}/>*/}
-                            {/*        </Grid>*/}
-                            {/*    )}*/}
                         </BasicGrid>
                     </TabPanel>
                 </SwipeableViews>
