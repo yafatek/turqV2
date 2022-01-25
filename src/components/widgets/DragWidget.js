@@ -1,110 +1,90 @@
-import React, {Component} from "react";
-import ReactDOM from "react-dom";
+import React, {useState} from "react";
 import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd";
-import Typography from "@material-ui/core/Typography";
-import {Card} from "react-bootstrap";
-import CardContent from "@material-ui/core/CardContent";
 import UserInfoCard from "../cards/UserInfoCard";
+import {makeStyles} from "@material-ui/core/styles";
+import {Container, List, ListItem} from "@material-ui/core";
+import useDraggableInPortal from "./useDraggableInPortal";
 
 
-// a little function to help us with reordering the result
-const reorder = (list, startIndex, endIndex) => {
-    const result = Array.from(list);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
+const useStyles = makeStyles((theme) => ({
+    listContainer: {
+        // border: "1px solid rgba(0,0,0,0.2)",
+        // padding: 1,
+        // marginBottom: 50,
+        // display: 'block',
+        height: 700,
+        width: '100%',
+        overflow: 'auto'
+    },
+    active: {
+        background: 'rgba(0,0,0,0.1)',
+        // height: 'auto'
+    },
+    root: {
+        backgroundColor: 'gray',
+        display: 'block',
+        margin: '0 auto',
+        width: '30%',
+        height: 'auto',
 
-    return result;
-};
-
-const grid = 1;
-const getListStyle = isDraggingOver => ({
-    background: isDraggingOver ? "lightblue" : "lightgrey",
-    padding: grid,
-    width: '100%',
-});
-// const getListStyle = isDraggingOver => ({
-//     background: isDraggingOver ? "lightblue" : "lightgrey",
-//     padding: grid,
-//     width: '100%',
-//     height: 'auto',
-//     overflow: 'auto'
-// });
-
-const getItemStyle = (isDragging, draggableStyle) => ({
-    // some basic styles to make the items look a bit nicer
-    userSelect: "none",
-    padding: grid * 2,
-    // margin: `0 0 ${grid}px 0`,
-
-    // change background colour if dragging
-    // background: isDragging ? "lightgreen" : "grey",
-
-    // styles we need to apply on draggables
-    ...draggableStyle
-});
-export default class DragWidget extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            items: props.items
-            // items: props.items.map((item,idx) => { id: `item-${idx}` , title: item.title,  endDate: item.endDate,approved: item.approved, description: item.description })
-        };
-        this.onDragEnd = this.onDragEnd.bind(this);
     }
+}));
 
-    onDragEnd(result) {
-        // dropped outside the list
+/**
+ * Component to render Drag n Drop Elements.
+ * @author Feras E Alawadi
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
+export default function DragWidget(props) {
+    const classes = useStyles();
+    const [movies, setMovies] = useState(props.items)
+    const onDragEnd = (result) => {
         if (!result.destination) {
             return;
         }
 
-        const items = reorder(
-            this.state.items,
-            result.source.index,
-            result.destination.index
-        );
+        const startIndex = result.source.index
+        const endIndex = result.destination.index
 
-        this.setState({
-            items
-        });
-    }
+        const moviesNew = Array.from(movies);
+        const [removed] = moviesNew.splice(startIndex, 1);
+        moviesNew.splice(endIndex, 0, removed);
 
-    render() {
-        return (
-            <DragDropContext onDragEnd={this.onDragEnd}>
-                <Droppable droppableId="droppable">
+        setMovies(moviesNew)
+    };
+
+    const renderDraggable = useDraggableInPortal();
+    return (
+        <div className={classes.root}>
+            <DragDropContext onDragEnd={onDragEnd}>
+                <Droppable
+                    droppableId="droppable">
                     {(provided, snapshot) => (
-                        <div
+                        <List
                             {...provided.droppableProps}
-                            ref={provided.innerRef}
-                            style={getListStyle(snapshot.isDraggingOver)}
+                            innerRef={provided.innerRef}
+                            className={`${classes.listContainer} ${snapshot.isDraggingOver ? classes.active : ''}`}
                         >
-                            {this.state.items.map((item, index) => {
-                                    let i = 0;
-                                    // return <Draggable key={index} draggableId={`item-${i + 1}`} index={index}>
-                                    return <Draggable key={index} draggableId={item.description} index={index}>
-                                        {(provided, snapshot) => (
-                                            <div
-                                                ref={provided.innerRef}
-                                                {...provided.draggableProps}
-                                                {...provided.dragHandleProps}
-                                                style={getItemStyle(
-                                                    snapshot.isDragging,
-                                                    provided.draggableProps.style
-                                                )}
-                                            >
-                                                {/*{item.title}*/}
-                                                <UserInfoCard item={item}/>
-                                            </div>
-                                        )}
-                                    </Draggable>
-                                }
-                            )}
-                            {provided.placeholder}
-                        </div>
+                            {movies.map((item, index) => (
+                                <Draggable key={index} draggableId={String(index)} index={index}>
+                                    {renderDraggable((provided) => (
+                                        <ListItem
+                                            innerRef={provided.innerRef}
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}
+                                            key={item.id}
+                                        >
+                                            <UserInfoCard item={item}/>
+                                        </ListItem>
+                                    ))}
+                                </Draggable>
+                            ))}
+                        </List>
                     )}
                 </Droppable>
             </DragDropContext>
-        );
-    }
-}
+        </div>
+    );
+};

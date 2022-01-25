@@ -19,6 +19,7 @@ export const LocationForm = (props) => {
     const [query, setQuery] = useState(localStorage.getItem("postIssue") ? JSON.parse(localStorage.getItem('postIssue')).location.split(",").slice(0, 2) : "")
     const [city, setCity] = useState(localStorage.getItem("postIssue") ? JSON.parse(localStorage.getItem('postIssue')).location.split(",").slice(2, 5) : "")
     const {isForDraft} = useSelector(state => state.app);
+
     const changeTab = () => {
         dispatch({type: "SAVE_LOCATION", location: query + "," + city})
         props.changeTab(4, 100)

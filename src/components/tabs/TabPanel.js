@@ -20,10 +20,10 @@ function TabPanel(props) {
 
     return (
         <div
-            // role="tabpanel"
-            // hidden={value !== index}
-            // id={index}
-            // aria-labelledby={`full-width-tab-${index}`}
+            role="tabpanel"
+            hidden={value !== index}
+            id={index}
+            aria-labelledby={`full-width-tab-${index}`}
 
         >
             {value === index && (
@@ -43,8 +43,8 @@ TabPanel.propTypes = {
 
 function a11yProps(index) {
     return {
-        // id: `full-width-tab-${index}`,
-        // 'aria-controls': `full-width-tabpanel-${index}`,
+        id: `full-width-tab-${index}`,
+        'aria-controls': `full-width-tabpanel-${index}`,
     };
 }
 
@@ -97,9 +97,9 @@ export default function FullWidthTabs() {
                         textColor="primary"
                         variant="fullWidth"
                     >
-                        <Tab label="Posted"  />
-                        <Tab label="Funded" {...a11yProps(1)} />
-                        <Tab label="Drafted for" {...a11yProps(2)} />
+                        <Tab label="All Issues" {...a11yProps(0)}/>
+                        <Tab label="Published" {...a11yProps(1)} />
+                        <Tab label="Drafted" {...a11yProps(2)} />
                     </Tabs>
                 </AppBar>
                 <SwipeableViews

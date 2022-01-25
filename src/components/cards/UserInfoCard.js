@@ -14,25 +14,23 @@ import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: '50%',
-        maxHeight: 220,
+        // maxWidth: '95%',
+        // maxHeight: 'auto',
         margin: '0 auto',
-        // padding: 3,
-        paddingTop: '1rem !important'
     },
     media: {
         height: 0,
         paddingTop: '56.25%', // 16:9
     },
     expand: {
-        transform: 'rotate(0deg)',
+        // transform: 'rotate(0deg)',
         marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
-            duration: theme.transitions.duration.shortest,
-        }),
+        // transition: theme.transitions.create('transform', {
+        //     duration: theme.transitions.duration.shortest,
+        // }),
     },
     expandOpen: {
-        transform: 'rotate(180deg)',
+        // transform: 'rotate(180deg)',
     },
     avatar: {
         backgroundColor: red[500],
@@ -96,7 +94,8 @@ export default function UserInfoCard(props) {
                                               }}
                         />
                 }
-            />
+            >
+            </CardHeader>
             <CardContent>
                 <div className={classes.topContainer}>
                     <Typography variant="subtitle1" color="textPrimary"
@@ -117,6 +116,7 @@ export default function UserInfoCard(props) {
                         {item.description}
                     </Typography>
                 </div>
+
             </CardContent>
 
             <CardActions disableSpacing>

@@ -19,7 +19,7 @@ export default function BasicGrid(props) {
 
     return (
         <div className={classes.root}>
-            <Grid container >
+            <Grid container>
                 {children}
             </Grid>
         </div>
