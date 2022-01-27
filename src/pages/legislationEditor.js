@@ -8,6 +8,7 @@ import EditorLayout from "../components/editor/layout"
 import LegislationText from "../components/legislation/legislationText"
 import Editor, { LeftPanel, RightPanel } from "../components/editor/editor"
 import { updateLegislation} from '../actions/legislationActions'
+import ReactDiffViewer from 'react-diff-viewer';
   
 class LegislationEditor extends React.Component {
 
@@ -102,6 +103,7 @@ class LegislationEditor extends React.Component {
     return (
       <EditorLayout onSubmit={this.handleSubmit}>
       {!this.props.isFetching ?
+      <div>
         <div className="row">
           <div className="col">
             <Editor>
@@ -118,6 +120,12 @@ class LegislationEditor extends React.Component {
               </RightPanel>
             </Editor>
           </div>
+        </div>
+        <div className="row">
+          <div className="col">
+          <ReactDiffViewer showDiffOnly={true} oldValue="Legislation Title Section 1 Section 2 Etc." newValue={this.state.content} splitView={false} />
+          </div>
+        </div>
         </div>
         : <div />
       }
