@@ -3,13 +3,14 @@ import { connect } from 'react-redux'
 import firebase from 'firebase/app'
 import 'firebase/database'
 import Firepad from 'firepad';
+import DiffMatchPatch from 'diff-match-patch';
 
 import EditorLayout from "../components/editor/layout"
 import LegislationText from "../components/legislation/legislationText"
 import Editor, { LeftPanel, RightPanel } from "../components/editor/editor"
 import { updateLegislation} from '../actions/legislationActions'
-import ReactDiffViewer from 'react-diff-viewer';
-  
+import ReactDiffViewer, { DiffMethod } from 'react-diff-viewer';
+
 class LegislationEditor extends React.Component {
 
   constructor(props) {
@@ -65,7 +66,21 @@ class LegislationEditor extends React.Component {
     {
       var text = this.firepad.getText();
       this.setState({...this.state, content: text})
+      this._onDiff()
     }
+  }
+
+  _onDiff() {
+    const dmp = new DiffMatchPatch();
+  
+    var text1 = "Hey There"
+    var text2 = this.state.content;
+
+    var d = dmp.diff_main(text1, text2);
+  
+    var ds = dmp.diff_prettyHtml(d);
+
+    document.getElementById('outputdiv').innerHTML = ds;
   }
 
   //Create the reference to the firepad document -- /posts/<email>/<contestId>
@@ -123,7 +138,7 @@ class LegislationEditor extends React.Component {
         </div>
         <div className="row">
           <div className="col">
-          <ReactDiffViewer showDiffOnly={true} oldValue="Legislation Title Section 1 Section 2 Etc." newValue={this.state.content} splitView={false} />
+          <div ID="outputdiv"></div>
           </div>
         </div>
         </div>
