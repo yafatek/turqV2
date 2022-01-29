@@ -21,6 +21,8 @@ class LegislationEditor extends React.Component {
     this.onReady = this._onReady.bind(this);
     this.email = localStorage.getItem('email')
     this.firepad = null;
+    this.originalText = '';
+    this.diffedContent = null;
   }
   
   componentDidMount() {
@@ -53,7 +55,7 @@ class LegislationEditor extends React.Component {
   // Add the text to state when the page initally loads
   _onReady() {
     var text = this.firepad.getText();
-    this.setState({...this.state, content: text})
+    this.setState({...this.state, content: text, originalText:text})
     if (this.firepad.getHtml() === '') {
       this.firepad.setHtml('<div><b>Legislation Title</b></div><div><b></b><br/></div><div><b>Section 1</b></div><div><b></b><br/></div><div><b>Section 2&nbsp;</b></div><div><b></b><br/></div><div><b>Etc.</b></div>')
     }
@@ -73,14 +75,13 @@ class LegislationEditor extends React.Component {
   _onDiff() {
     const dmp = new DiffMatchPatch();
   
-    var text1 = "Hey There"
+    var text1 = this.state.originalText;
     var text2 = this.state.content;
 
-    var d = dmp.diff_main(text1, text2);
-  
-    var ds = dmp.diff_prettyHtml(d);
+    var diff = dmp.diff_main(text1, text2);
+    var prettyDiff = dmp.diff_prettyHtml(diff);
 
-    document.getElementById('outputdiv').innerHTML = ds;
+    this.setState({diffedContent: prettyDiff});
   }
 
   //Create the reference to the firepad document -- /posts/<email>/<contestId>
@@ -138,7 +139,7 @@ class LegislationEditor extends React.Component {
         </div>
         <div className="row">
           <div className="col">
-          <div ID="outputdiv"></div>
+          <div dangerouslySetInnerHTML={{__html:this.state.diffedContent}}></div>
           </div>
         </div>
         </div>
