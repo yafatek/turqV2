@@ -47,8 +47,8 @@ class LegislationEditor extends React.Component {
             richTextShortcuts: true,
             richTextToolbar: true,
           });
-    this.firepad.on('ready', this.onReady)
-    this.firepad.on('synced', this.onSynced)
+    this.firepad.on('ready', this.onReady);
+    this.firepad.on('synced', this.onSynced);
 
   }
 
