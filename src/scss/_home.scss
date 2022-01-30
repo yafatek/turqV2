@@ -1,0 +1,9 @@
+.hover {
+    transition-duration: 0.25s;
+}
+
+.hover:hover{
+    box-shadow: -1px 5px 10px 0px rgba(0,0,0,0.4);
+    transition-duration: 0.25s;
+}
+
