@@ -19,7 +19,7 @@ class LegislationEditor extends React.Component {
     this.handleSubmit = this._handleSubmit.bind(this);
     this.onSynced = this._onSynced.bind(this);
     this.onReady = this._onReady.bind(this);
-    this.email = localStorage.getItem('email')
+    this.email = localStorage.getItem('email');
     this.firepad = null;
     this.originalText = '';
     this.diffedContent = null;
