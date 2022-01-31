@@ -24,6 +24,8 @@ import PaymentThankyou from "./pages/paymentThankyou";
 import PostContestPage from "./pages/postContest";
 import ContestEditor from "./pages/newContestEditor";
 import * as constants from "./constants";
+import {PROFILE_PAGE_URL} from "./constants";
+import ProfilePage from "./pages/users/ProfilePage";
 
 // Loading bar for pages with axios requests
 let api = axios.create({
@@ -40,7 +42,7 @@ function App() {
         <ScrollToTop />
         <div className="App">
           <Helmet>
-            <meta charset="utf-8" />
+            <meta charSet="utf-8" />
             <meta
               name="description"
               content="Turq.io is a social action platform for on-demand legislation creation. Real Bills, not just more petitions."
@@ -68,6 +70,7 @@ function App() {
           <Route path={constants.DRAFTER_PAGE_URL} component={Drafter} />
           <Route path={constants.LOGIN_PAGE_URL} component={Login} />
           <Route path={constants.REGISTER_PAGE_URL} component={Register} />
+          <Route path={constants.PROFILE_PAGE_URL} exact component={ProfilePage} />
           <Route
             path={constants.CONTEST_PAGE_URL}
             exact
