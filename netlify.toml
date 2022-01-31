@@ -3,10 +3,13 @@ publish = "build"
 command = "CI= yarn build"
 
 [context.master]
+environment = {NODE_VERSION = "14.15.3" }
 command = "CI= yarn build:production"
 
 [context.deploy-preview]
+environment = {NODE_VERSION = "14.15.3" }
 command = "CI= yarn build:development"
 
 [context.branch-deploy]
+environment = {NODE_VERSION = "14.15.3" }
 command = "CI= yarn build:development"

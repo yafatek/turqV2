@@ -13,6 +13,7 @@ import UserInfoCard from "../UserInfoCard";
 import BasicGrid from "../layout/BasicGrid";
 import DraftedCard from "../DraftedCard";
 import {Redirect} from "react-router-dom";
+import SystemBackdrop from "../widgets/backdrop/SystemBackdrop";
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
@@ -21,8 +22,8 @@ function TabPanel(props) {
         <div
             role="tabpanel"
             hidden={value !== index}
-            id={`full-width-tabpanel-${index}`}
-            aria-labelledby={`full-width-tab-${index}`}
+            id={index}
+            // aria-labelledby={`full-width-tab-${index}`}
             {...other}
         >
             {value === index && (
@@ -63,6 +64,7 @@ export default function FullWidthTabs() {
     const Legislation = useSelector(state => state.user.getIn(['userInfo', 'legislation']));
     const isAuth = useSelector(state => state.auth.isAuthenticated);
 
+
     // alert(JSON.stringify(postedIssues));
 
     const handleChange = (event, newValue) => {
@@ -86,7 +88,7 @@ export default function FullWidthTabs() {
                     indicatorColor="primary"
                     textColor="primary"
                     variant="fullWidth"
-                    aria-label="full width tabs example"
+                    // aria-label="full width tabs example"
                 >
                     <Tab label="Posted" {...a11yProps(0)} />
                     <Tab label="Funded" {...a11yProps(1)} />
@@ -105,7 +107,6 @@ export default function FullWidthTabs() {
                             </Grid>
                         )}
                     </BasicGrid>
-
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
                     <BasicGrid>
@@ -125,5 +126,6 @@ export default function FullWidthTabs() {
                 </TabPanel>
             </SwipeableViews>
         </div>
+
     );
 }

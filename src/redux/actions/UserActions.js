@@ -8,4 +8,4 @@ export const loadUserProfile = (token) => dispatch => {
         FAIL: LOAD_USER_PROFILE_FAIL,
         ERROR: LOAD_USER_PROFILE_ERROR
     }));
-}
+};

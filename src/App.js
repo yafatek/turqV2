@@ -81,7 +81,8 @@ function App() {
             component={Contest}
           />
           <Route
-            path={constants.LEGISLATION_PAGE_URL + "/:id"}
+            path="/legislation/:id"
+            // path={constants.LEGISLATION_PAGE_URL + "/legislation/:id"}
             component={Legislation}
           />
           <Route path={constants.THANKYOU_URL} component={PaymentThankyou} />
@@ -90,22 +91,26 @@ function App() {
             component={Checkout}
           />
           <PrivateRoute
-            path={constants.EDITOR_PAGE_URL + "/contest"}
+            path="/editor/contest"
+            // path={constants.EDITOR_PAGE_URL + "/editor/contest"}
             exact
             component={ContestEditor}
           />
           <PrivateRoute
-            path={constants.EDITOR_PAGE_URL + "/contest/:id"}
+            path="/editor/contest/:id"
+            // path={constants.EDITOR_PAGE_URL + "/editor/contest/:id"}
             exact
             component={ContestEditor}
           />
           <PrivateRoute
-            path={constants.EDITOR_PAGE_URL + "/legislation"}
+            path="/editor/legislation"
+            // path={constants.EDITOR_PAGE_URL + "/editor/legislation"}
             exact
             component={LegislationEditor}
           />
           <PrivateRoute
-            path={constants.EDITOR_PAGE_URL + "/legislation/:id"}
+            path="/editor/legislation/:id"
+            // path={constants.EDITOR_PAGE_URL + "/editor/legislation/:id"}
             exact
             component={LegislationEditor}
           />
