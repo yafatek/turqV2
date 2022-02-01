@@ -1,21 +1,20 @@
-import React from "react"
-import { connect } from 'react-redux'
-import firebase from 'firebase/app'
-import 'firebase/database'
+import React from 'react';
+import { connect } from 'react-redux';
+import firebase from 'firebase/app';
+import 'firebase/database';
 import Firepad from 'firepad';
 import DiffMatchPatch from 'diff-match-patch';
 
-import EditorLayout from "../components/editor/layout"
-import LegislationText from "../components/legislation/legislationText"
-import Editor, { LeftPanel, RightPanel } from "../components/editor/editor"
-import { updateLegislation} from '../actions/legislationActions'
 import ReactDiffViewer, { DiffMethod } from 'react-diff-viewer';
+import EditorLayout from '../components/editor/layout';
+import LegislationText from '../components/legislation/legislationText';
+import Editor, { LeftPanel, RightPanel } from '../components/editor/editor';
+import { updateLegislation } from '../actions/legislationActions';
 
 class LegislationEditor extends React.Component {
-
   constructor(props) {
     super(props);
-    this.state = {ref: '', title: '', content: ''};
+    this.state = { ref: '', title: '', content: '' };
     this.handleSubmit = this._handleSubmit.bind(this);
     this.onSynced = this._onSynced.bind(this);
     this.onReady = this._onReady.bind(this);
@@ -24,146 +23,143 @@ class LegislationEditor extends React.Component {
     this.originalText = '';
     this.diffedContent = null;
   }
-  
-  componentDidMount() {
 
-    var config= {
-    apiKey: "AIzaSyCEQ7cLJuyrbRLq_A-sjXUwxseMaKVosEE",
-    authDomain: "turq-legislation-editor-1.firebaseapp.com",
-    databaseURL: "https://turq-legislation-editor-1-default-rtdb.firebaseio.com",
-    projectId: "turq-legislation-editor-1",
-    storageBucket: "turq-legislation-editor-1.appspot.com",
-    messagingSenderId: "670875815290",
-    appId: "1:670875815290:web:a5da8f93c91052ed44dac3",
-    measurementId: "G-Y6NX5XHT68"
-  }
+  componentDidMount() {
+    const config = {
+      apiKey: 'AIzaSyCEQ7cLJuyrbRLq_A-sjXUwxseMaKVosEE',
+      authDomain: 'turq-legislation-editor-1.firebaseapp.com',
+      databaseURL: 'https://turq-legislation-editor-1-default-rtdb.firebaseio.com',
+      projectId: 'turq-legislation-editor-1',
+      storageBucket: 'turq-legislation-editor-1.appspot.com',
+      messagingSenderId: '670875815290',
+      appId: '1:670875815290:web:a5da8f93c91052ed44dac3',
+      measurementId: 'G-Y6NX5XHT68',
+    };
 
     if (!firebase.apps.length) {
       firebase.initializeApp(config);
     }
-    var firepadRef = this._createRef();
-    var codeMirror = window.CodeMirror(document.getElementById('firepad-container'), { lineWrapping: true });
+    const firepadRef = this._createRef();
+    const codeMirror = window.CodeMirror(document.getElementById('firepad-container'), { lineWrapping: true });
     this.firepad = Firepad.fromCodeMirror(firepadRef, codeMirror, {
-            richTextShortcuts: true,
-            richTextToolbar: true,
-          });
+      richTextShortcuts: true,
+      richTextToolbar: true,
+    });
     this.firepad.on('ready', this.onReady);
     this.firepad.on('synced', this.onSynced);
-
   }
 
   // Add the text to state when the page initally loads
   _onReady() {
-    var text = this.firepad.getText();
-    this.setState({...this.state, content: text, originalText:text})
+    const text = this.firepad.getText();
+    this.setState({ ...this.state, content: text, originalText: text });
     if (this.firepad.getHtml() === '') {
-      this.firepad.setHtml('<div><b>Legislation Title</b></div><div><b></b><br/></div><div><b>Section 1</b></div><div><b></b><br/></div><div><b>Section 2&nbsp;</b></div><div><b></b><br/></div><div><b>Etc.</b></div>')
+      this.firepad.setHtml('<div><b>Legislation Title</b></div><div><b></b><br/></div><div><b>Section 1</b></div><div><b></b><br/></div><div><b>Section 2&nbsp;</b></div><div><b></b><br/></div><div><b>Etc.</b></div>');
     }
-    this.setState({...this.state, content: text})
+    this.setState({ ...this.state, content: text });
   }
 
   // Update the text stored in state everytime the user changes and text and the db syncs
   _onSynced(isSynced) {
-    if(isSynced)
-    {
-      var text = this.firepad.getText();
-      this.setState({...this.state, content: text});
+    if (isSynced) {
+      const text = this.firepad.getText();
+      this.setState({ ...this.state, content: text });
       this._onDiff();
     }
   }
 
   _onDiff() {
     const dmp = new DiffMatchPatch();
-  
-    var text1 = this.state.originalText;
-    var text2 = this.state.content;
 
-    var diff = dmp.diff_main(text1, text2);
-    var prettyDiff = dmp.diff_prettyHtml(diff);
+    const text1 = this.state.originalText;
+    const text2 = this.state.content;
 
-    this.setState({diffedContent: prettyDiff});
+    const diff = dmp.diff_main(text1, text2);
+    const prettyDiff = dmp.diff_prettyHtml(diff);
+
+    this.setState({ diffedContent: prettyDiff });
   }
 
-  //Create the reference to the firepad document -- /posts/<email>/<contestId>
+  // Create the reference to the firepad document -- /posts/<email>/<contestId>
   _createRef() {
-    var ref = firebase.database().ref();
-    var URLRef = new URLSearchParams(this.props.location.search).get('ref')
+    let ref = firebase.database().ref();
+    const URLRef = new URLSearchParams(this.props.location.search).get('ref');
     if (URLRef) {
       ref = ref.child(URLRef);
     } else {
       ref = ref.push(); // generate unique location.
-      var oldURL = window.location.origin + window.location.pathname;
-      window.history.replaceState(null, "New Page Title", oldURL + "?ref=" + ref.key)
+      const oldURL = window.location.origin + window.location.pathname;
+      window.history.replaceState(null, 'New Page Title', `${oldURL}?ref=${ref.key}`);
     }
-    this.setState({...this.state, ref: ref.key})
+    this.setState({ ...this.state, ref: ref.key });
     return ref;
   }
 
   _checkMandatoryFields() {
-    var isValid = true
-    return isValid
+    const isValid = true;
+    return isValid;
   }
 
   _handleSubmit() {
     if (!this._checkMandatoryFields()) {
-      return
+      return;
     }
-    var contest = new URLSearchParams(this.props.location.search).get('contest')
-    const legislationId = this.props.match.params.id
-    const data = {title: "Submitted Bill" , ref: this.state.ref, contestId: contest, content: this.state.content}
+    const contest = new URLSearchParams(this.props.location.search).get('contest');
+    const legislationId = this.props.match.params.id;
+    const data = {
+      title: 'Submitted Bill', ref: this.state.ref, contestId: contest, content: this.state.content,
+    };
     this.props.dispatch(updateLegislation(legislationId, data));
   }
 
-  render () {
-
+  render() {
     return (
       <EditorLayout onSubmit={this.handleSubmit}>
-      {!this.props.isFetching ?
-      <div>
-        <div className="row">
-          <div className="col">
-            <Editor>
-              <LeftPanel>
-                <div className="my-3 mx-5">
-                <div id="firepad-container"></div>
+        {!this.props.isFetching
+          ? (
+            <div>
+              <div className="row">
+                <div className="col">
+                  <Editor>
+                    <LeftPanel>
+                      <div className="my-3 mx-5">
+                        <div id="firepad-container" />
+                      </div>
+                    </LeftPanel>
+                    <RightPanel>
+                      <LegislationText
+                        title={this.state.title}
+                        content={this.state.content}
+                      />
+                    </RightPanel>
+                  </Editor>
                 </div>
-              </LeftPanel>
-              <RightPanel>
-                <LegislationText
-                  title={this.state.title}
-                  content={this.state.content}
-              />
-              </RightPanel>
-            </Editor>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-          <div dangerouslySetInnerHTML={{__html:this.state.diffedContent}}></div>
-          </div>
-        </div>
-        </div>
-        : <div />
-      }
+              </div>
+              <div className="row">
+                <div className="col">
+                  <div dangerouslySetInnerHTML={{ __html: this.state.diffedContent }} />
+                </div>
+              </div>
+            </div>
+          )
+          : <div />}
       </EditorLayout>
-    )
+    );
   }
-};
-
+}
 
 function mapStateToProps(state) {
-
-  var { legislation, auth } = state
-  const isFetching = legislation.isFetching
-  legislation = legislation.legislation
-  const { isAuthenticated, email } = auth
+  let { legislation, auth } = state;
+  const { isFetching } = legislation;
+  legislation = legislation.legislation;
+  const { isAuthenticated, email } = auth;
 
   return {
     isFetching,
     legislation,
     isAuthenticated,
     email,
-    auth
-  }
-};
+    auth,
+  };
+}
 export default connect(mapStateToProps)(LegislationEditor);
