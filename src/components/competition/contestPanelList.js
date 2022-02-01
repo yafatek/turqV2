@@ -14,9 +14,8 @@ const ContestPanelList = ({title, contests, size}) => {
     contestCards = contestCards.sort(dynamicSort('-prize')).map((contest, idx) => <Grid container item
         xs={12}
         md={4}
-        key={
-            contest.id
-    }>
+        key={contest.id}
+        >
         <ContestPanel title={
                 contest.title
             }
