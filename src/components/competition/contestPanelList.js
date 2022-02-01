@@ -1,10 +1,12 @@
-import React from "react"
-import PropTypes from "prop-types"
-import ContestPanel from "./contestPanel"
-import {CONTEST_PAGE_URL} from "../../constants"
-import {dynamicSort} from "../../util/sort"
 import Grid from '@material-ui/core/Grid';
 import {MDBCardGroup, MDBContainer} from "mdbreact";
+import PropTypes from "prop-types"
+import React from "react"
+
+import {CONTEST_PAGE_URL} from "../../constants"
+import {dynamicSort} from "../../util/sort"
+
+import ContestPanel from "./contestPanel"
 
 const ContestPanelList = ({title, contests, size}) => {
     var contestCards = contests || [];
