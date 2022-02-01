@@ -13,7 +13,6 @@ const ContestPanelList = ({title, contests, size}) => {
     }
     contestCards = contestCards.sort(dynamicSort('-prize')).map((contest, idx) => <Grid container item
         xs={12}
-        className="hoverableCard"
         md={4}
         key={
             contest.id
