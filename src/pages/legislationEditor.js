@@ -67,8 +67,8 @@ class LegislationEditor extends React.Component {
     if(isSynced)
     {
       var text = this.firepad.getText();
-      this.setState({...this.state, content: text})
-      this._onDiff()
+      this.setState({...this.state, content: text});
+      this._onDiff();
     }
   }
 
