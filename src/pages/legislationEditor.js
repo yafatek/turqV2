@@ -155,9 +155,7 @@ class LegislationEditor extends Component {
                     color="secondary"
                     onClick={this.formatLegislation}
                   >Format Legislation</Button>
-                  <div id="formattedContent" className="CodeMirror"> 
-                    {this.state.formattedContent} 
-                  </div>
+                  <LegislationText content={this.state.formattedContent}></LegislationText>
                 </div>
               </div>
             </div>
