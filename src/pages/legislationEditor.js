@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import firebase from 'firebase/app';
 import 'firebase/database';
 import Firepad from 'firepad';
 import DiffMatchPatch from 'diff-match-patch';
+import { Button } from "@material-ui/core"
 
 import ReactDiffViewer, { DiffMethod } from 'react-diff-viewer';
 import EditorLayout from '../components/editor/layout';
@@ -11,18 +12,22 @@ import LegislationText from '../components/legislation/legislationText';
 import Editor, { LeftPanel, RightPanel } from '../components/editor/editor';
 import { updateLegislation } from '../actions/legislationActions';
 
-class LegislationEditor extends React.Component {
+class LegislationEditor extends Component {
   constructor(props) {
     super(props);
     this.state = { ref: '', title: '', content: '' };
     this.handleSubmit = this._handleSubmit.bind(this);
+    this.editLegislation = this._editLegislation.bind(this);
+    this.formatLegislation = this._formatLegislation.bind(this);
     this.onSynced = this._onSynced.bind(this);
     this.onReady = this._onReady.bind(this);
     this.email = localStorage.getItem('email');
     this.firepad = null;
     this.originalText = '';
     this.diffedContent = null;
+    this.formattedContent = null;
   }
+  
 
   componentDidMount() {
     const config = {
@@ -100,6 +105,16 @@ class LegislationEditor extends React.Component {
     return isValid;
   }
 
+  _editLegislation() {
+    const content = this.firepad.getText();
+    this.setState({originalText: content});
+  }
+
+  _formatLegislation() {
+    const content = this.firepad.getText();
+    this.setState({formattedContent: content});
+  }
+
   _handleSubmit() {
     if (!this._checkMandatoryFields()) {
       return;
@@ -114,7 +129,7 @@ class LegislationEditor extends React.Component {
 
   render() {
     return (
-      <EditorLayout onSubmit={this.handleSubmit}>
+      <EditorLayout editLegislation={this.editLegislation} onSubmit={this.handleSubmit}>
         {!this.props.isFetching
           ? (
             <div>
@@ -127,17 +142,22 @@ class LegislationEditor extends React.Component {
                       </div>
                     </LeftPanel>
                     <RightPanel>
-                      <LegislationText
-                        title={this.state.title}
-                        content={this.state.content}
-                      />
+                      <div className="CodeMirror mt-2 ml-2" dangerouslySetInnerHTML={{ __html: this.state.diffedContent }} />
                     </RightPanel>
                   </Editor>
                 </div>
               </div>
               <div className="row">
                 <div className="col">
-                  <div dangerouslySetInnerHTML={{ __html: this.state.diffedContent }} />
+                  <Button
+                    className="mb-2"
+                    variant="contained"
+                    color="secondary"
+                    onClick={this.formatLegislation}
+                  >Format Legislation</Button>
+                  <div id="formattedContent" className="CodeMirror"> 
+                    {this.state.formattedContent} 
+                  </div>
                 </div>
               </div>
             </div>
