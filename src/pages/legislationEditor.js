@@ -78,11 +78,9 @@ class LegislationEditor extends Component {
 
     const text1 = this.state.originalText;
     const text2 = this.state.content;
+    
 
-    const diff = dmp.diff_main(text1, text2);
-    const prettyDiff = dmp.diff_prettyHtml(diff);
-
-    this.setState({ diffedContent: prettyDiff });
+    this.setState({ originalText: text1, diffedContent: text2 });
   }
 
   // Create the reference to the firepad document -- /posts/<email>/<contestId>
@@ -142,7 +140,7 @@ class LegislationEditor extends Component {
                       </div>
                     </LeftPanel>
                     <RightPanel>
-                      <div className="CodeMirror mt-2 ml-2" dangerouslySetInnerHTML={{ __html: this.state.diffedContent }} />
+                      <ReactDiffViewer oldValue={this.state.originalText} newValue={this.state.diffedContent} splitView={false} />
                     </RightPanel>
                   </Editor>
                 </div>
