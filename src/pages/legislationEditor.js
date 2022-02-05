@@ -4,7 +4,8 @@ import firebase from 'firebase/app';
 import 'firebase/database';
 import Firepad from 'firepad';
 import DiffMatchPatch from 'diff-match-patch';
-import { Button } from "@material-ui/core"
+import { Button, TextField } from "@material-ui/core"
+import { jsPDF } from "jspdf";
 
 import ReactDiffViewer, { DiffMethod } from 'react-diff-viewer';
 import EditorLayout from '../components/editor/layout';
@@ -19,6 +20,9 @@ class LegislationEditor extends Component {
     this.handleSubmit = this._handleSubmit.bind(this);
     this.editLegislation = this._editLegislation.bind(this);
     this.formatLegislation = this._formatLegislation.bind(this);
+    this.handleTextChange = this._handleTextChange.bind(this);
+    this.handleInputError = this._handleInputError.bind(this);
+    this.createPDF = this._createPDF.bind(this);
     this.onSynced = this._onSynced.bind(this);
     this.onReady = this._onReady.bind(this);
     this.email = localStorage.getItem('email');
@@ -26,6 +30,9 @@ class LegislationEditor extends Component {
     this.originalText = '';
     this.diffedContent = null;
     this.formattedContent = null;
+    this.doc = new jsPDF();
+    this.pdfName = null;
+    this.inputError = false;
   }
   
 
@@ -115,6 +122,25 @@ class LegislationEditor extends Component {
     this.setState({formattedContent: content});
   }
 
+  _handleTextChange = e => {
+    e.preventDefault();
+    if(this.handleInputError(e.target.value)) {
+      this.setState({inputError: true});
+    } else {
+      this.setState({inputError: false});
+    }
+    this.setState({pdfName: e.target.value}) 
+  }
+
+  _createPDF = () => {
+    this.doc.text(this.state.formattedContent, 10, 10);
+    this.doc.save(this.state.pdfName + ".pdf");
+  }
+
+  _handleInputError = (input) => {
+    return input.includes(".pdf");
+  }
+
   _handleSubmit() {
     if (!this._checkMandatoryFields()) {
       return;
@@ -155,6 +181,21 @@ class LegislationEditor extends Component {
                     color="secondary"
                     onClick={this.formatLegislation}
                   >Format Legislation</Button>
+                  <Button
+                    className="mb-2 ml-2"
+                    variant="outlined"
+                    color="secondary"
+                    onClick={this.createPDF}
+                  >Generate PDF</Button>
+                  <TextField 
+                    onChange={this.handleTextChange}
+                    value={this.state.pdfName}
+                    className="mb-2 ml-2" 
+                    helperText="no need to include .pdf, we will add it for you"
+                    error={this.state.inputError}
+                    id="filled-basic" 
+                    label="Name your PDF" 
+                    variant="filled" />
                   <LegislationText content={this.state.formattedContent}></LegislationText>
                 </div>
               </div>
