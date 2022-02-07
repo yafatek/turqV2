@@ -33,6 +33,7 @@ class LegislationEditor extends Component {
     this.doc = new jsPDF();
     this.pdfName = null;
     this.inputError = false;
+    this.isEditing = false;
   }
   
 
@@ -76,11 +77,16 @@ class LegislationEditor extends Component {
     if (isSynced) {
       const text = this.firepad.getText();
       this.setState({ ...this.state, content: text });
-      this._onDiff();
+      if(this.state.isEditing) {
+        this._onDiff();
+      }
     }
   }
 
   _onDiff() {
+    if(this.state.diffedContent === null) {
+      this.setState({diffedContent: this.state.originalText});
+    }
     const dmp = new DiffMatchPatch();
 
     const text1 = this.state.originalText;
@@ -113,8 +119,12 @@ class LegislationEditor extends Component {
   }
 
   _editLegislation() {
+    console.log("diffed content: " + this.state.diffedContent);
     const content = this.firepad.getText();
-    this.setState({originalText: content});
+    if(this.state.diffedContent === undefined) {
+      this.setState({diffedContent: "begin typing in the left box to see diff"});
+    }
+    this.setState({originalText: content, isEditing: true});
   }
 
   _formatLegislation() {
