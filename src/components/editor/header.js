@@ -4,7 +4,8 @@ import { Navbar, Nav } from "react-bootstrap"
 import { Button } from "@material-ui/core"
 import Logo from "../logo"
 
-function EditorHeader ({onSubmit}) {
+const EditorHeader = props => {
+  const {editLegislation, onSubmit} = props;
   let history = useHistory();
   return (
     <Navbar bg="light" expand="lg">
@@ -18,6 +19,12 @@ function EditorHeader ({onSubmit}) {
           </Link>
         </Navbar.Brand>
         <Nav className="ml-auto mr-1">
+          <Button
+            className="mr-1"
+            variant="contained"
+            color="secondary"
+            onClick={editLegislation}
+          >Start Editing</Button>
           <Button
             variant="contained"
             color="primary"
