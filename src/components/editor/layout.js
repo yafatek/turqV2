@@ -4,10 +4,10 @@ import PropTypes from "prop-types"
 import EditorHeader from "./header"
 import Footer from "../layout/footer"
 
-const EditorLayout = ({ children, onSubmit }) => {
+const EditorLayout = ({ children, editLegislation, onSubmit }) => {
   return (
     <div className="site">
-      <EditorHeader onSubmit={onSubmit} />
+      <EditorHeader editLegislation={editLegislation} onSubmit={onSubmit} />
         <div className="container-fluid main">
           <div className="row">
             <div className="col-12 mx-auto" >

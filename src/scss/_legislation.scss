@@ -1,6 +1,11 @@
+.CodeMirror {
+  height: 100%;
+  overflow: auto;
+}
+
+
 .legislation-SectionText {
   line-height: 1.8;
-  font-family: $legal-font;
   font-size: 1.3em;
   overflow-wrap: break-word;
   text-indent: 2em;
