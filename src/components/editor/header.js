@@ -20,12 +20,6 @@ const EditorHeader = props => {
         </Navbar.Brand>
         <Nav className="ml-auto mr-1">
           <Button
-            className="mr-1"
-            variant="contained"
-            color="secondary"
-            onClick={editLegislation}
-          >Start Editing</Button>
-          <Button
             variant="contained"
             color="primary"
             onClick={onSubmit}
