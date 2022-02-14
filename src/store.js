@@ -2,8 +2,10 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducer';
 import jwt_decode from 'jwt-decode';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 export default function configureStore() {
+  const composeEnhancers = composeWithDevTools({});
  return createStore(
   rootReducer,
   {
@@ -28,6 +30,6 @@ export default function configureStore() {
       }
     }
   },
-  applyMiddleware(thunk)
+  composeEnhancers(applyMiddleware(thunk))
  );
 }
